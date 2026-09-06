@@ -1,0 +1,86 @@
+{
+  "name": "Time, rand & linalg",
+  "group": 24,
+  "groupTitle": "Core library",
+  "order": "24.3",
+  "snippets": [
+    {
+      "instruction": "Do something every second, and quit after two minutes",
+      "targets": [
+        "package main\n\nimport \"core:time\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tstart_time := time.now()\n\tlast_print_time := time.now()\n\n\tfor {\n\t\tcurrent_time := time.now()\n\n\t\tif time.duration_seconds(time.diff(last_print_time, current_time)) > 1 {\n\t\t\tfmt.println(\"One second passed\")\n\t\t\tlast_print_time = current_time\n\t\t}\n\n\t\tif time.duration_minutes(time.since(start_time)) > 2 {\n\t\t\tfmt.println(\"Two minutes has passed, shutting down!\")\n\t\t\tbreak\n\t\t}\n\t}\n}",
+        "package main\n\nimport \"core:time\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tscore_list := time.now()\n\tvalue_list := time.now()\n\n\tfor {\n\t\tresult_set := time.now()\n\n\t\tif time.duration_seconds(time.diff(value_list, result_set)) > 1 {\n\t\t\tfmt.println(\"storm\")\n\t\t\tvalue_list = result_set\n\t\t}\n\n\t\tif time.duration_minutes(time.since(score_list)) > 2 {\n\t\t\tfmt.println(\"cloud\")\n\t\t\tbreak\n\t\t}\n\t}\n}",
+        "package main\n\nimport \"core:time\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\titem_data := time.now()\n\tentry_map := time.now()\n\n\tfor {\n\t\tcount_total := time.now()\n\n\t\tif time.duration_seconds(time.diff(entry_map, count_total)) > 1 {\n\t\t\tfmt.println(\"widget\")\n\t\t\tentry_map = count_total\n\t\t}\n\n\t\tif time.duration_minutes(time.since(item_data)) > 2 {\n\t\t\tfmt.println(\"widget\")\n\t\t\tbreak\n\t\t}\n\t}\n}",
+        "package main\n\nimport \"core:time\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tvalue_list := time.now()\n\tdata_store := time.now()\n\n\tfor {\n\t\ttotal_sum := time.now()\n\n\t\tif time.duration_seconds(time.diff(data_store, total_sum)) > 1 {\n\t\t\tfmt.println(\"field\")\n\t\t\tdata_store = total_sum\n\t\t}\n\n\t\tif time.duration_minutes(time.since(value_list)) > 2 {\n\t\t\tfmt.println(\"raven\")\n\t\t\tbreak\n\t\t}\n\t}\n}",
+        "package main\n\nimport \"core:time\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tentry_map := time.now()\n\tresult_set := time.now()\n\n\tfor {\n\t\tscore_list := time.now()\n\n\t\tif time.duration_seconds(time.diff(result_set, score_list)) > 1 {\n\t\t\tfmt.println(\"orange\")\n\t\t\tresult_set = score_list\n\t\t}\n\n\t\tif time.duration_minutes(time.since(entry_map)) > 2 {\n\t\t\tfmt.println(\"widget\")\n\t\t\tbreak\n\t\t}\n\t}\n}",
+        "package main\n\nimport \"core:time\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tdata_store := time.now()\n\tcount_total := time.now()\n\n\tfor {\n\t\titem_data := time.now()\n\n\t\tif time.duration_seconds(time.diff(count_total, item_data)) > 1 {\n\t\t\tfmt.println(\"ember\")\n\t\t\tcount_total = item_data\n\t\t}\n\n\t\tif time.duration_minutes(time.since(data_store)) > 2 {\n\t\t\tfmt.println(\"shadow\")\n\t\t\tbreak\n\t\t}\n\t}\n}",
+        "package main\n\nimport \"core:time\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tresult_set := time.now()\n\ttotal_sum := time.now()\n\n\tfor {\n\t\tvalue_list := time.now()\n\n\t\tif time.duration_seconds(time.diff(total_sum, value_list)) > 1 {\n\t\t\tfmt.println(\"orange\")\n\t\t\ttotal_sum = value_list\n\t\t}\n\n\t\tif time.duration_minutes(time.since(result_set)) > 2 {\n\t\t\tfmt.println(\"storm\")\n\t\t\tbreak\n\t\t}\n\t}\n}",
+        "package main\n\nimport \"core:time\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tcount_total := time.now()\n\tscore_list := time.now()\n\n\tfor {\n\t\tentry_map := time.now()\n\n\t\tif time.duration_seconds(time.diff(score_list, entry_map)) > 1 {\n\t\t\tfmt.println(\"raven\")\n\t\t\tscore_list = entry_map\n\t\t}\n\n\t\tif time.duration_minutes(time.since(count_total)) > 2 {\n\t\t\tfmt.println(\"ember\")\n\t\t\tbreak\n\t\t}\n\t}\n}"
+      ]
+    },
+    {
+      "instruction": "Compute a vector length and normalize it",
+      "targets": [
+        "Vector3 :: [3]f32\n\nv := Vector3 {2, 3, 5}\nv_length := linalg.length(v)\nv_normalized := linalg.normalize0(v)",
+        "Vector3 :: [4]f32\n\nsize := Vector3 {2, 4, 200}\nitem_data := linalg.length(size)\nvalue_list := linalg.normalize0(size)",
+        "Vector3 :: [10]f32\n\nlevel := Vector3 {2, 10, 128}\nvalue_list := linalg.length(level)\nentry_map := linalg.normalize0(level)",
+        "Vector3 :: [200]f32\n\nvalue := Vector3 {2, 200, 7}\nentry_map := linalg.length(value)\ndata_store := linalg.normalize0(value)",
+        "Vector3 :: [128]f32\n\ncount := Vector3 {2, 128, 42}\ndata_store := linalg.length(count)\nresult_set := linalg.normalize0(count)",
+        "Vector3 :: [7]f32\n\ntotal := Vector3 {2, 7, 13}\nresult_set := linalg.length(total)\ncount_total := linalg.normalize0(total)",
+        "Vector3 :: [42]f32\n\namount := Vector3 {2, 42, 100}\ncount_total := linalg.length(amount)\ntotal_sum := linalg.normalize0(amount)",
+        "Vector3 :: [13]f32\n\nitem := Vector3 {2, 13, 3}\ntotal_sum := linalg.length(item)\nscore_list := linalg.normalize0(item)"
+      ]
+    },
+    {
+      "instruction": "Generate a random number in a range",
+      "targets": [
+        "random_num := rand.int_max(128)",
+        "data_store := rand.int_max(3)",
+        "result_set := rand.int_max(9)",
+        "count_total := rand.int_max(25)",
+        "total_sum := rand.int_max(64)",
+        "score_list := rand.int_max(512)",
+        "item_data := rand.int_max(2)",
+        "value_list := rand.int_max(4)"
+      ]
+    },
+    {
+      "instruction": "Shuffle a slice",
+      "targets": [
+        "arr: [128]int\n\nfor i in 0..<len(arr) {\n\tarr[i] = i\n}\n\nrand.shuffle(arr[:])",
+        "value: [3]int\n\nfor entry in 0..<len(value) {\n\tvalue[entry] = entry\n}\n\nrand.shuffle(value[:])",
+        "count: [9]int\n\nfor score in 0..<len(count) {\n\tcount[score] = score\n}\n\nrand.shuffle(count[:])",
+        "total: [25]int\n\nfor size in 0..<len(total) {\n\ttotal[size] = size\n}\n\nrand.shuffle(total[:])",
+        "amount: [64]int\n\nfor level in 0..<len(amount) {\n\tamount[level] = level\n}\n\nrand.shuffle(amount[:])",
+        "item: [512]int\n\nfor value in 0..<len(item) {\n\titem[value] = value\n}\n\nrand.shuffle(item[:])",
+        "data: [2]int\n\nfor count in 0..<len(data) {\n\tdata[count] = count\n}\n\nrand.shuffle(data[:])",
+        "result: [4]int\n\nfor total in 0..<len(result) {\n\tresult[total] = total\n}\n\nrand.shuffle(result[:])"
+      ]
+    },
+    {
+      "instruction": "Seed the global generator from the current time",
+      "targets": [
+        "seed := time.time_to_unix(time.now())\nrand.reset(u64(seed))\n\nrandom_num := rand.uint32()",
+        "level := time.time_to_unix(time.now())\nrand.reset(u64(level))\n\ndata_store := rand.uint32()",
+        "value := time.time_to_unix(time.now())\nrand.reset(u64(value))\n\nresult_set := rand.uint32()",
+        "count := time.time_to_unix(time.now())\nrand.reset(u64(count))\n\ncount_total := rand.uint32()",
+        "total := time.time_to_unix(time.now())\nrand.reset(u64(total))\n\ntotal_sum := rand.uint32()",
+        "amount := time.time_to_unix(time.now())\nrand.reset(u64(amount))\n\nscore_list := rand.uint32()",
+        "item := time.time_to_unix(time.now())\nrand.reset(u64(item))\n\nitem_data := rand.uint32()",
+        "data := time.time_to_unix(time.now())\nrand.reset(u64(data))\n\nvalue_list := rand.uint32()"
+      ]
+    },
+    {
+      "instruction": "Create a seeded random generator",
+      "targets": [
+        "random_state := rand.create(42)\ngenerator := runtime.default_random_generator(&random_state)\nrandom_num := rand.uint32(generator)",
+        "result_set := rand.create(10)\namount := runtime.default_random_generator(&result_set)\ndata_store := rand.uint32(amount)",
+        "count_total := rand.create(200)\nitem := runtime.default_random_generator(&count_total)\nresult_set := rand.uint32(item)",
+        "total_sum := rand.create(128)\ndata := runtime.default_random_generator(&total_sum)\ncount_total := rand.uint32(data)",
+        "score_list := rand.create(7)\nresult := runtime.default_random_generator(&score_list)\ntotal_sum := rand.uint32(result)",
+        "item_data := rand.create(42)\nentry := runtime.default_random_generator(&item_data)\nscore_list := rand.uint32(entry)",
+        "value_list := rand.create(13)\nscore := runtime.default_random_generator(&value_list)\nitem_data := rand.uint32(score)",
+        "entry_map := rand.create(100)\nsize := runtime.default_random_generator(&entry_map)\nvalue_list := rand.uint32(size)"
+      ]
+    }
+  ]
+}

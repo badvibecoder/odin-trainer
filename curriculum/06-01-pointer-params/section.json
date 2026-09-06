@@ -1,0 +1,60 @@
+{
+  "name": "Pointers & procedures",
+  "group": 6,
+  "groupTitle": "Pointers",
+  "order": "6.1",
+  "snippets": [
+    {
+      "instruction": "Write a procedure that adds a value through a ^int pointer",
+      "targets": [
+        "increment_number :: proc(num: ^int) {\n\tnum^ += 1\n}",
+        "item_data :: proc(score: ^int) {\n\tscore^ += 1\n}",
+        "value_list :: proc(size: ^int) {\n\tsize^ += 1\n}",
+        "entry_map :: proc(level: ^int) {\n\tlevel^ += 1\n}",
+        "data_store :: proc(value: ^int) {\n\tvalue^ += 1\n}",
+        "result_set :: proc(count: ^int) {\n\tcount^ += 1\n}",
+        "count_total :: proc(total: ^int) {\n\ttotal^ += 1\n}",
+        "total_sum :: proc(amount: ^int) {\n\tamount^ += 1\n}"
+      ]
+    },
+    {
+      "instruction": "Take a pointer to a value, pass it to a procedure, and print it",
+      "targets": [
+        "number := 7\nnumber_pointer := &number\nincrement_number(number_pointer)\nfmt.println(number)",
+        "level := 7\nitem_data := &level\nvalue_list(item_data)\nfmt.println(level)",
+        "value := 42\nvalue_list := &value\nentry_map(value_list)\nfmt.println(value)",
+        "count := 13\nentry_map := &count\ndata_store(entry_map)\nfmt.println(count)",
+        "total := 100\ndata_store := &total\nresult_set(data_store)\nfmt.println(total)",
+        "amount := 3\nresult_set := &amount\ncount_total(result_set)\nfmt.println(amount)",
+        "item := 9\ncount_total := &item\ntotal_sum(count_total)\nfmt.println(item)",
+        "data := 25\ntotal_sum := &data\nscore_list(total_sum)\nfmt.println(data)"
+      ]
+    },
+    {
+      "instruction": "Write a procedure that guards against a nil pointer",
+      "targets": [
+        "increment_number :: proc(num: ^int) {\n\tif num != nil {\n\t\tnum^ += 1\n\t}\n}",
+        "item_data :: proc(score: ^int) {\n\tif score != nil {\n\t\tscore^ += 1\n\t}\n}",
+        "value_list :: proc(size: ^int) {\n\tif size != nil {\n\t\tsize^ += 1\n\t}\n}",
+        "entry_map :: proc(level: ^int) {\n\tif level != nil {\n\t\tlevel^ += 1\n\t}\n}",
+        "data_store :: proc(value: ^int) {\n\tif value != nil {\n\t\tvalue^ += 1\n\t}\n}",
+        "result_set :: proc(count: ^int) {\n\tif count != nil {\n\t\tcount^ += 1\n\t}\n}",
+        "count_total :: proc(total: ^int) {\n\tif total != nil {\n\t\ttotal^ += 1\n\t}\n}",
+        "total_sum :: proc(amount: ^int) {\n\tif amount != nil {\n\t\tamount^ += 1\n\t}\n}"
+      ]
+    },
+    {
+      "instruction": "Write a procedure that returns early on nil",
+      "targets": [
+        "increment_number :: proc(num: ^int) {\n\tif num == nil {\n\t\treturn\n\t}\n\n\tnum^ += 1\n}",
+        "item_data :: proc(score: ^int) {\n\tif score == nil {\n\t\treturn\n\t}\n\n\tscore^ += 1\n}",
+        "value_list :: proc(size: ^int) {\n\tif size == nil {\n\t\treturn\n\t}\n\n\tsize^ += 1\n}",
+        "entry_map :: proc(level: ^int) {\n\tif level == nil {\n\t\treturn\n\t}\n\n\tlevel^ += 1\n}",
+        "data_store :: proc(value: ^int) {\n\tif value == nil {\n\t\treturn\n\t}\n\n\tvalue^ += 1\n}",
+        "result_set :: proc(count: ^int) {\n\tif count == nil {\n\t\treturn\n\t}\n\n\tcount^ += 1\n}",
+        "count_total :: proc(total: ^int) {\n\tif total == nil {\n\t\treturn\n\t}\n\n\ttotal^ += 1\n}",
+        "total_sum :: proc(amount: ^int) {\n\tif amount == nil {\n\t\treturn\n\t}\n\n\tamount^ += 1\n}"
+      ]
+    }
+  ]
+}

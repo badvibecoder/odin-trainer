@@ -1,0 +1,86 @@
+{
+  "name": "Nested structs & using",
+  "group": 5,
+  "groupTitle": "Types",
+  "order": "5.1.1",
+  "snippets": [
+    {
+      "instruction": "Define a stats struct and a struct that contains one",
+      "targets": [
+        "Person_Stats :: struct {\n\thealth: int,\n\tage: int,\n}\n\nPerson :: struct {\n\tstats: Person_Stats,\n\tname: string,\n}",
+        "Record_Type :: struct {\n\tvalue: int,\n\tsize: int,\n}\n\nConfig :: struct {\n\tentry: Record_Type,\n\tscore: string,\n}",
+        "Entry_Kind :: struct {\n\tcount: int,\n\tlevel: int,\n}\n\nThing :: struct {\n\tscore: Entry_Kind,\n\tsize: string,\n}",
+        "Data_Type :: struct {\n\ttotal: int,\n\tvalue: int,\n}\n\nValue :: struct {\n\tsize: Data_Type,\n\tlevel: string,\n}",
+        "Item_Record :: struct {\n\tamount: int,\n\tcount: int,\n}\n\nNote :: struct {\n\tlevel: Item_Record,\n\tvalue: string,\n}",
+        "Item_Kind :: struct {\n\titem: int,\n\ttotal: int,\n}\n\nItem :: struct {\n\tvalue: Item_Kind,\n\tcount: string,\n}",
+        "Entity_Data :: struct {\n\tdata: int,\n\tamount: int,\n}\n\nEntity :: struct {\n\tcount: Entity_Data,\n\ttotal: string,\n}",
+        "Record_Type :: struct {\n\tresult: int,\n\titem: int,\n}\n\nRecord :: struct {\n\ttotal: Record_Type,\n\tamount: string,\n}"
+      ]
+    },
+    {
+      "instruction": "Create a value with nested stats and a name",
+      "targets": [
+        "p := Person {\n\tstats = {\n\t\thealth = 7,\n\t},\n\tname = \"Sam\",\n}",
+        "amount := Config {\n\tentry = {\n\t\tvalue = 7,\n\t},\n\tscore = \"storm\",\n}",
+        "item := Thing {\n\tscore = {\n\t\tcount = 42,\n\t},\n\tsize = \"ember\",\n}",
+        "data := Value {\n\tsize = {\n\t\ttotal = 13,\n\t},\n\tlevel = \"widget\",\n}",
+        "result := Note {\n\tlevel = {\n\t\tamount = 100,\n\t},\n\tvalue = \"raven\",\n}",
+        "entry := Item {\n\tvalue = {\n\t\titem = 3,\n\t},\n\tcount = \"timber\",\n}",
+        "score := Entity {\n\tcount = {\n\t\tdata = 9,\n\t},\n\ttotal = \"cloud\",\n}",
+        "size := Record {\n\ttotal = {\n\t\tresult = 25,\n\t},\n\tamount = \"cloud\",\n}"
+      ]
+    },
+    {
+      "instruction": "Read and write fields through the nested struct",
+      "targets": [
+        "p.name = \"Robert\"\np.stats.age = 36\nroberts_health := p.stats.health",
+        "amount.score = \"storm\"\namount.entry.size = 200\nscore_list := amount.entry.value",
+        "item.size = \"storm\"\nitem.score.level = 128\nitem_data := item.score.count",
+        "data.level = \"gadget\"\ndata.size.value = 7\nvalue_list := data.size.total",
+        "result.value = \"ember\"\nresult.level.count = 42\nentry_map := result.level.amount",
+        "entry.count = \"stone\"\nentry.value.total = 13\ndata_store := entry.value.item",
+        "score.total = \"cloud\"\nscore.count.amount = 100\nresult_set := score.count.data",
+        "size.amount = \"branch\"\nsize.total.item = 3\ncount_total := size.total.result"
+      ]
+    },
+    {
+      "instruction": "Define a struct whose field uses using",
+      "targets": [
+        "Person_Stats :: struct {\n\thealth: int,\n\tage: int,\n}\n\nPerson :: struct {\n\tusing stats: Person_Stats,\n\tname: string,\n}",
+        "Record_Type :: struct {\n\tvalue: int,\n\tsize: int,\n}\n\nConfig :: struct {\n\tusing entry: Record_Type,\n\tscore: string,\n}",
+        "Entry_Kind :: struct {\n\tcount: int,\n\tlevel: int,\n}\n\nThing :: struct {\n\tusing score: Entry_Kind,\n\tsize: string,\n}",
+        "Data_Type :: struct {\n\ttotal: int,\n\tvalue: int,\n}\n\nValue :: struct {\n\tusing size: Data_Type,\n\tlevel: string,\n}",
+        "Item_Record :: struct {\n\tamount: int,\n\tcount: int,\n}\n\nNote :: struct {\n\tusing level: Item_Record,\n\tvalue: string,\n}",
+        "Item_Kind :: struct {\n\titem: int,\n\ttotal: int,\n}\n\nItem :: struct {\n\tusing value: Item_Kind,\n\tcount: string,\n}",
+        "Entity_Data :: struct {\n\tdata: int,\n\tamount: int,\n}\n\nEntity :: struct {\n\tusing count: Entity_Data,\n\ttotal: string,\n}",
+        "Record_Type :: struct {\n\tresult: int,\n\titem: int,\n}\n\nRecord :: struct {\n\tusing total: Record_Type,\n\tamount: string,\n}"
+      ]
+    },
+    {
+      "instruction": "Use flattened fields",
+      "targets": [
+        "p := Person {\n\thealth = 20,\n}\np.age = 70\n\nhs := p.health",
+        "amount := Config {\n\tvalue = 100,\n}\namount.size = 3\n\nentry := amount.value",
+        "item := Thing {\n\tcount = 3,\n}\nitem.level = 9\n\nscore := item.count",
+        "data := Value {\n\ttotal = 9,\n}\ndata.value = 25\n\nsize := data.total",
+        "result := Note {\n\tamount = 25,\n}\nresult.count = 64\n\nlevel := result.amount",
+        "entry := Item {\n\titem = 64,\n}\nentry.total = 512\n\nvalue := entry.item",
+        "score := Entity {\n\tdata = 512,\n}\nscore.amount = 2\n\ncount := score.data",
+        "size := Record {\n\tresult = 2,\n}\nsize.item = 4\n\ntotal := size.result"
+      ]
+    },
+    {
+      "instruction": "Parent an Entity into a Player with using",
+      "targets": [
+        "Entity :: struct {\n\tid: int,\n\tposition: [2]f32,\n}\n\nPlayer :: struct {\n\tusing entity: Entity,\n\tcan_jump: bool,\n}\n\np := Player {\n\tid = 7,\n\tposition = {5, 2},\n\tcan_jump = true,\n}",
+        "Value :: struct {\n\tcount: int,\n\tvalue: [2]f32,\n}\n\nConfig :: struct {\n\tusing result: Value,\n\tresult_set: bool,\n}\n\namount := Config {\n\tcount = 7,\n\tvalue = {200, 2},\n\tresult_set = true,\n}",
+        "Note :: struct {\n\ttotal: int,\n\tcount: [2]f32,\n}\n\nThing :: struct {\n\tusing entry: Note,\n\tcount_total: bool,\n}\n\nitem := Thing {\n\ttotal = 42,\n\tcount = {128, 2},\n\tcount_total = true,\n}",
+        "Item :: struct {\n\tamount: int,\n\ttotal: [2]f32,\n}\n\nValue :: struct {\n\tusing score: Item,\n\ttotal_sum: bool,\n}\n\ndata := Value {\n\tamount = 13,\n\ttotal = {7, 2},\n\ttotal_sum = true,\n}",
+        "Entity :: struct {\n\titem: int,\n\tamount: [2]f32,\n}\n\nNote :: struct {\n\tusing size: Entity,\n\tscore_list: bool,\n}\n\nresult := Note {\n\titem = 100,\n\tamount = {42, 2},\n\tscore_list = true,\n}",
+        "Record :: struct {\n\tdata: int,\n\titem: [2]f32,\n}\n\nItem :: struct {\n\tusing level: Record,\n\titem_data: bool,\n}\n\nentry := Item {\n\tdata = 3,\n\titem = {13, 2},\n\titem_data = true,\n}",
+        "Entry :: struct {\n\tresult: int,\n\tdata: [2]f32,\n}\n\nEntity :: struct {\n\tusing value: Entry,\n\tvalue_list: bool,\n}\n\nscore := Entity {\n\tresult = 9,\n\tdata = {100, 2},\n\tvalue_list = true,\n}",
+        "Data :: struct {\n\tentry: int,\n\tresult: [2]f32,\n}\n\nRecord :: struct {\n\tusing count: Data,\n\tentry_map: bool,\n}\n\nsize := Record {\n\tentry = 25,\n\tresult = {3, 2},\n\tentry_map = true,\n}"
+      ]
+    }
+  ]
+}

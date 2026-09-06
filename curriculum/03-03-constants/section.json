@@ -1,0 +1,86 @@
+{
+  "name": "Constants",
+  "group": 3,
+  "groupTitle": "Variables",
+  "order": "3.3",
+  "snippets": [
+    {
+      "instruction": "Declare a constant with a value",
+      "targets": [
+        "CONSTANT_NUMBER :: 12",
+        "BASE_AMOUNT :: 13",
+        "DEFAULT_VALUE :: 100",
+        "LIMIT_SIZE :: 3",
+        "MAX_VALUE :: 9",
+        "TOTAL_COUNT :: 25",
+        "ITEM_COUNT :: 64",
+        "BASE_AMOUNT :: 512"
+      ]
+    },
+    {
+      "instruction": "Declare a constant, then assign it to a variable",
+      "targets": [
+        "CONSTANT_NUMBER :: 12\nnumber := CONSTANT_NUMBER",
+        "BASE_AMOUNT :: 13\nlevel := BASE_AMOUNT",
+        "DEFAULT_VALUE :: 100\nvalue := DEFAULT_VALUE",
+        "LIMIT_SIZE :: 3\ncount := LIMIT_SIZE",
+        "MAX_VALUE :: 9\ntotal := MAX_VALUE",
+        "TOTAL_COUNT :: 25\namount := TOTAL_COUNT",
+        "ITEM_COUNT :: 64\nitem := ITEM_COUNT",
+        "BASE_AMOUNT :: 512\ndata := BASE_AMOUNT"
+      ]
+    },
+    {
+      "instruction": "Assign a value to a variable",
+      "targets": [
+        "number := 12",
+        "level := 13",
+        "value := 100",
+        "count := 3",
+        "total := 9",
+        "amount := 25",
+        "item := 64",
+        "data := 512"
+      ]
+    },
+    {
+      "instruction": "Declare an untyped constant and assign it to an int variable",
+      "targets": [
+        "DECIMAL_CONSTANT :: 7.0\nmy_integer: int = DECIMAL_CONSTANT",
+        "LIMIT_SIZE :: 7.0\nresult_set: int = LIMIT_SIZE",
+        "MAX_VALUE :: 42.0\ncount_total: int = MAX_VALUE",
+        "TOTAL_COUNT :: 13.0\ntotal_sum: int = TOTAL_COUNT",
+        "ITEM_COUNT :: 100.0\nscore_list: int = ITEM_COUNT",
+        "BASE_AMOUNT :: 3.0\nitem_data: int = BASE_AMOUNT",
+        "DEFAULT_VALUE :: 9.0\nvalue_list: int = DEFAULT_VALUE",
+        "LIMIT_SIZE :: 25.0\nentry_map: int = LIMIT_SIZE"
+      ]
+    },
+    {
+      "instruction": "Declare a constant with an explicit f32 type",
+      "targets": [
+        "DECIMAL_CONSTANT: f32 : 7.42",
+        "LIMIT_SIZE: f32 : 7.10",
+        "MAX_VALUE: f32 : 42.200",
+        "TOTAL_COUNT: f32 : 13.128",
+        "ITEM_COUNT: f32 : 100.7",
+        "BASE_AMOUNT: f32 : 3.42",
+        "DEFAULT_VALUE: f32 : 9.13",
+        "LIMIT_SIZE: f32 : 25.100"
+      ]
+    },
+    {
+      "instruction": "Declare a variable with an explicit f32 type",
+      "targets": [
+        "decimal_variable: f32 = 7.42",
+        "data_store: f32 = 7.10",
+        "result_set: f32 = 42.200",
+        "count_total: f32 = 13.128",
+        "total_sum: f32 = 100.7",
+        "score_list: f32 = 3.42",
+        "item_data: f32 = 9.13",
+        "value_list: f32 = 25.100"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "name": "Allocators",
+  "group": 9,
+  "groupTitle": "Memory",
+  "order": "9.3",
+  "snippets": [
+    {
+      "instruction": "Write the Raw_Dynamic_Array struct",
+      "targets": [
+        "Raw_Dynamic_Array :: struct {\n\tdata:      rawptr,\n\tlen:       int,\n\tcap:       int,\n\tallocator: Allocator,\n}",
+        "Raw_Dynamic_Array :: struct {\n\titem:      rawptr,\n\tlen:       int,\n\tcap:       int,\n\tallocator: Allocator,\n}",
+        "Raw_Dynamic_Array :: struct {\n\tresult:      rawptr,\n\tlen:       int,\n\tcap:       int,\n\tallocator: Allocator,\n}",
+        "Raw_Dynamic_Array :: struct {\n\tentry:      rawptr,\n\tlen:       int,\n\tcap:       int,\n\tallocator: Allocator,\n}",
+        "Raw_Dynamic_Array :: struct {\n\tscore:      rawptr,\n\tlen:       int,\n\tcap:       int,\n\tallocator: Allocator,\n}",
+        "Raw_Dynamic_Array :: struct {\n\tsize:      rawptr,\n\tlen:       int,\n\tcap:       int,\n\tallocator: Allocator,\n}",
+        "Raw_Dynamic_Array :: struct {\n\tlevel:      rawptr,\n\tlen:       int,\n\tcap:       int,\n\tallocator: Allocator,\n}"
+      ]
+    },
+    {
+      "instruction": "Allocate with the heap allocator explicitly",
+      "targets": [
+        "my_num := new(f32, context.allocator)",
+        "total_sum := new(f32, context.allocator)",
+        "score_list := new(f32, context.allocator)",
+        "item_data := new(f32, context.allocator)",
+        "value_list := new(f32, context.allocator)",
+        "entry_map := new(f32, context.allocator)",
+        "data_store := new(f32, context.allocator)",
+        "result_set := new(f32, context.allocator)"
+      ]
+    },
+    {
+      "instruction": "Make a dynamic array with an explicit allocator and check the error",
+      "targets": [
+        "my_dyn_arr, alloc_err := make([dynamic]f32, 100, context.allocator)\n\nif alloc_err != nil {\n\tfmt.println(alloc_err)\n}",
+        "value_list, result_set := make([dynamic]f32, 3, context.allocator)\n\nif result_set != nil {\n\tfmt.println(result_set)\n}",
+        "entry_map, count_total := make([dynamic]f32, 9, context.allocator)\n\nif count_total != nil {\n\tfmt.println(count_total)\n}",
+        "data_store, total_sum := make([dynamic]f32, 25, context.allocator)\n\nif total_sum != nil {\n\tfmt.println(total_sum)\n}",
+        "result_set, score_list := make([dynamic]f32, 64, context.allocator)\n\nif score_list != nil {\n\tfmt.println(score_list)\n}",
+        "count_total, item_data := make([dynamic]f32, 512, context.allocator)\n\nif item_data != nil {\n\tfmt.println(item_data)\n}",
+        "total_sum, value_list := make([dynamic]f32, 2, context.allocator)\n\nif value_list != nil {\n\tfmt.println(value_list)\n}",
+        "score_list, entry_map := make([dynamic]f32, 4, context.allocator)\n\nif entry_map != nil {\n\tfmt.println(entry_map)\n}"
+      ]
+    },
+    {
+      "instruction": "Write the delete procedure overload set",
+      "targets": [
+        "delete :: proc{\n\tdelete_string,\n\tdelete_cstring,\n\tdelete_dynamic_array,\n\tdelete_slice,\n\tdelete_map,\n\tdelete_soa_slice,\n\tdelete_soa_dynamic_array,\n}",
+        "delete :: proc{\n\tresult_set,\n\tvalue_list,\n\ttotal_sum,\n\tdata_store,\n\tentry_map,\n\tcount_total,\n\tscore_list,\n}",
+        "delete :: proc{\n\tcount_total,\n\tentry_map,\n\tscore_list,\n\tresult_set,\n\tdata_store,\n\ttotal_sum,\n\titem_data,\n}",
+        "delete :: proc{\n\ttotal_sum,\n\tdata_store,\n\titem_data,\n\tcount_total,\n\tresult_set,\n\tscore_list,\n\tvalue_list,\n}",
+        "delete :: proc{\n\tscore_list,\n\tresult_set,\n\tvalue_list,\n\ttotal_sum,\n\tcount_total,\n\titem_data,\n\tentry_map,\n}",
+        "delete :: proc{\n\titem_data,\n\tcount_total,\n\tentry_map,\n\tscore_list,\n\ttotal_sum,\n\tvalue_list,\n\tdata_store,\n}",
+        "delete :: proc{\n\tvalue_list,\n\ttotal_sum,\n\tdata_store,\n\titem_data,\n\tscore_list,\n\tentry_map,\n\tresult_set,\n}",
+        "delete :: proc{\n\tentry_map,\n\tscore_list,\n\tresult_set,\n\tvalue_list,\n\titem_data,\n\tdata_store,\n\tcount_total,\n}"
+      ]
+    },
+    {
+      "instruction": "Free the temporary allocator with free_all",
+      "targets": [
+        "free_all(context.temp_allocator)"
+      ]
+    },
+    {
+      "instruction": "Call a procedure each frame in a game loop",
+      "targets": [
+        "main :: proc() {\n\tinit_game()\n\n\tfor game_should_run() {\n\t\tgame_update()\n\t\tgame_draw()\n\t\tfree_all(context.temp_allocator)\n\t}\n}",
+        "main :: proc() {\n\titem_data()\n\n\tfor count_total() {\n\t\tscore_list()\n\t\tentry_map()\n\t\tfree_all(context.temp_allocator)\n\t}\n}",
+        "main :: proc() {\n\tvalue_list()\n\n\tfor total_sum() {\n\t\titem_data()\n\t\tdata_store()\n\t\tfree_all(context.temp_allocator)\n\t}\n}",
+        "main :: proc() {\n\tentry_map()\n\n\tfor score_list() {\n\t\tvalue_list()\n\t\tresult_set()\n\t\tfree_all(context.temp_allocator)\n\t}\n}",
+        "main :: proc() {\n\tdata_store()\n\n\tfor item_data() {\n\t\tentry_map()\n\t\tcount_total()\n\t\tfree_all(context.temp_allocator)\n\t}\n}",
+        "main :: proc() {\n\tresult_set()\n\n\tfor value_list() {\n\t\tdata_store()\n\t\ttotal_sum()\n\t\tfree_all(context.temp_allocator)\n\t}\n}",
+        "main :: proc() {\n\tcount_total()\n\n\tfor entry_map() {\n\t\tresult_set()\n\t\tscore_list()\n\t\tfree_all(context.temp_allocator)\n\t}\n}",
+        "main :: proc() {\n\ttotal_sum()\n\n\tfor data_store() {\n\t\tcount_total()\n\t\titem_data()\n\t\tfree_all(context.temp_allocator)\n\t}\n}"
+      ]
+    },
+    {
+      "instruction": "Allocate a temporary dynamic array with the temp allocator",
+      "targets": [
+        "great_algorithm :: proc() {\n\tnumbers := make([dynamic]int, context.temp_allocator)\n\n\tappend(&numbers, 5)\n\tfmt.println(numbers)\n}",
+        "result_set :: proc() {\n\tdata := make([dynamic]int, context.temp_allocator)\n\n\tappend(&data, 200)\n\tfmt.println(data)\n}",
+        "count_total :: proc() {\n\tresult := make([dynamic]int, context.temp_allocator)\n\n\tappend(&result, 128)\n\tfmt.println(result)\n}",
+        "total_sum :: proc() {\n\tentry := make([dynamic]int, context.temp_allocator)\n\n\tappend(&entry, 7)\n\tfmt.println(entry)\n}",
+        "score_list :: proc() {\n\tscore := make([dynamic]int, context.temp_allocator)\n\n\tappend(&score, 42)\n\tfmt.println(score)\n}",
+        "item_data :: proc() {\n\tsize := make([dynamic]int, context.temp_allocator)\n\n\tappend(&size, 13)\n\tfmt.println(size)\n}",
+        "value_list :: proc() {\n\tlevel := make([dynamic]int, context.temp_allocator)\n\n\tappend(&level, 100)\n\tfmt.println(level)\n}",
+        "entry_map :: proc() {\n\tvalue := make([dynamic]int, context.temp_allocator)\n\n\tappend(&value, 3)\n\tfmt.println(value)\n}"
+      ]
+    }
+  ]
+}

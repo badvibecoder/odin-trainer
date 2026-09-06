@@ -1,0 +1,21 @@
+{
+  "name": "Debugging memory bugs",
+  "group": 13,
+  "groupTitle": "Allocators",
+  "order": "13.4",
+  "snippets": [
+    {
+      "instruction": "Write a program that reads past a variable (memory bug)",
+      "targets": [
+        "package memory_demo\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tnumber: f32 = 7\n\tnumber64_ptr := cast(^f64)(&number)\n\tfmt.println(number64_ptr^)\n}",
+        "package entry_map\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tlevel: f32 = 7\n\tscore_list := cast(^f64)(&level)\n\tfmt.println(score_list^)\n}",
+        "package data_store\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tvalue: f32 = 42\n\titem_data := cast(^f64)(&value)\n\tfmt.println(item_data^)\n}",
+        "package result_set\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tcount: f32 = 13\n\tvalue_list := cast(^f64)(&count)\n\tfmt.println(value_list^)\n}",
+        "package count_total\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\ttotal: f32 = 100\n\tentry_map := cast(^f64)(&total)\n\tfmt.println(entry_map^)\n}",
+        "package total_sum\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tamount: f32 = 3\n\tdata_store := cast(^f64)(&amount)\n\tfmt.println(data_store^)\n}",
+        "package score_list\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\titem: f32 = 9\n\tresult_set := cast(^f64)(&item)\n\tfmt.println(result_set^)\n}",
+        "package item_data\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tdata: f32 = 25\n\tcount_total := cast(^f64)(&data)\n\tfmt.println(count_total^)\n}"
+      ]
+    }
+  ]
+}

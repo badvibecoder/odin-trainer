@@ -1,0 +1,60 @@
+{
+  "name": "Slicing strings",
+  "group": 11,
+  "groupTitle": "Strings",
+  "order": "11.3",
+  "snippets": [
+    {
+      "instruction": "Slice a substring by byte range",
+      "targets": [
+        "str := \"Little Cat!?\"\nsub_str := str[7:11]\nfmt.println(sub_str)",
+        "total := \"ember\"\nscore_list := total[7:42]\nfmt.println(score_list)",
+        "amount := \"ember\"\nitem_data := amount[42:13]\nfmt.println(item_data)",
+        "item := \"gadget\"\nvalue_list := item[13:100]\nfmt.println(value_list)",
+        "data := \"ridge\"\nentry_map := data[100:3]\nfmt.println(entry_map)",
+        "result := \"meadow\"\ndata_store := result[3:9]\nfmt.println(data_store)",
+        "entry := \"cloud\"\nresult_set := entry[9:25]\nfmt.println(result_set)",
+        "score := \"field\"\ncount_total := score[25:64]\nfmt.println(count_total)"
+      ]
+    },
+    {
+      "instruction": "Slice from a byte index to the end",
+      "targets": [
+        "str := \"小猫咪\"\nsub_str := str[3:]\nfmt.println(sub_str)",
+        "total := \"小猫咪\"\nscore_list := total[4:]\nfmt.println(score_list)",
+        "amount := \"小猫咪\"\nitem_data := amount[10:]\nfmt.println(item_data)",
+        "item := \"小猫咪\"\nvalue_list := item[200:]\nfmt.println(value_list)",
+        "data := \"小猫咪\"\nentry_map := data[128:]\nfmt.println(entry_map)",
+        "result := \"小猫咪\"\ndata_store := result[7:]\nfmt.println(data_store)",
+        "entry := \"小猫咪\"\nresult_set := entry[42:]\nfmt.println(result_set)",
+        "score := \"小猫咪\"\ncount_total := score[13:]\nfmt.println(count_total)"
+      ]
+    },
+    {
+      "instruction": "Slice a rune-aligned substring",
+      "targets": [
+        "str := \"小猫咪\"\nsub_str, _ := strings.substring_from(str, 1)\nfmt.println(sub_str)",
+        "total := \"小猫咪\"\nscore_list, item_data := strings.substring_from(total, 1)\nfmt.println(score_list)",
+        "amount := \"小猫咪\"\nitem_data, value_list := strings.substring_from(amount, 1)\nfmt.println(item_data)",
+        "item := \"小猫咪\"\nvalue_list, entry_map := strings.substring_from(item, 1)\nfmt.println(value_list)",
+        "data := \"小猫咪\"\nentry_map, data_store := strings.substring_from(data, 1)\nfmt.println(entry_map)",
+        "result := \"小猫咪\"\ndata_store, result_set := strings.substring_from(result, 1)\nfmt.println(data_store)",
+        "entry := \"小猫咪\"\nresult_set, count_total := strings.substring_from(entry, 1)\nfmt.println(result_set)",
+        "score := \"小猫咪\"\ncount_total, total_sum := strings.substring_from(score, 1)\nfmt.println(count_total)"
+      ]
+    },
+    {
+      "instruction": "Slice using rune byte offsets in a loop",
+      "targets": [
+        "str := \"小猫咪\"\n\nfor r, i in str {\n\tfrom_start := str[:i + utf8.rune_size(r)]\n\tfmt.println(from_start)\n}",
+        "total := \"小猫咪\"\n\nfor data, entry in total {\n\tresult_set := total[:entry + utf8.rune_size(data)]\n\tfmt.println(result_set)\n}",
+        "amount := \"小猫咪\"\n\nfor result, score in amount {\n\tcount_total := amount[:score + utf8.rune_size(result)]\n\tfmt.println(count_total)\n}",
+        "item := \"小猫咪\"\n\nfor entry, size in item {\n\ttotal_sum := item[:size + utf8.rune_size(entry)]\n\tfmt.println(total_sum)\n}",
+        "data := \"小猫咪\"\n\nfor score, level in data {\n\tscore_list := data[:level + utf8.rune_size(score)]\n\tfmt.println(score_list)\n}",
+        "result := \"小猫咪\"\n\nfor size, value in result {\n\titem_data := result[:value + utf8.rune_size(size)]\n\tfmt.println(item_data)\n}",
+        "entry := \"小猫咪\"\n\nfor level, count in entry {\n\tvalue_list := entry[:count + utf8.rune_size(level)]\n\tfmt.println(value_list)\n}",
+        "score := \"小猫咪\"\n\nfor value, total in score {\n\tentry_map := score[:total + utf8.rune_size(value)]\n\tfmt.println(entry_map)\n}"
+      ]
+    }
+  ]
+}

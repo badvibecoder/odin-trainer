@@ -1,0 +1,60 @@
+{
+  "name": "Pointer mechanics",
+  "group": 6,
+  "groupTitle": "Pointers",
+  "order": "6.3",
+  "snippets": [
+    {
+      "instruction": "Copy a pointer and write through the copy",
+      "targets": [
+        "number := 7\npointer1 := &number\npointer2 := pointer1\npointer2^ = 10",
+        "level := 7\nsize := &level\nvalue := size\nvalue^ = 7",
+        "value := 42\nlevel := &value\ncount := level\ncount^ = 42",
+        "count := 13\nvalue := &count\ntotal := value\ntotal^ = 13",
+        "total := 100\ncount := &total\namount := count\namount^ = 100",
+        "amount := 3\ntotal := &amount\nitem := total\nitem^ = 3",
+        "item := 9\namount := &item\ndata := amount\ndata^ = 9",
+        "data := 25\nitem := &data\nresult := item\nresult^ = 25"
+      ]
+    },
+    {
+      "instruction": "Take the address of an array element",
+      "targets": [
+        "array: [20]int\nelement_pointer := &array[10]",
+        "count: [100]int\ndata_store := &count[7]",
+        "total: [3]int\nresult_set := &total[42]",
+        "amount: [9]int\ncount_total := &amount[13]",
+        "item: [25]int\ntotal_sum := &item[100]",
+        "data: [64]int\nscore_list := &data[3]",
+        "result: [512]int\nitem_data := &result[9]",
+        "entry: [2]int\nvalue_list := &entry[25]"
+      ]
+    },
+    {
+      "instruction": "Read and write a value through a pointer",
+      "targets": [
+        "read_value := some_pointer^\nsome_pointer^ = 10",
+        "value_list := score_list^\nscore_list^ = 7",
+        "entry_map := item_data^\nitem_data^ = 42",
+        "data_store := value_list^\nvalue_list^ = 13",
+        "result_set := entry_map^\nentry_map^ = 100",
+        "count_total := data_store^\ndata_store^ = 3",
+        "total_sum := result_set^\nresult_set^ = 9",
+        "score_list := count_total^\ncount_total^ = 25"
+      ]
+    },
+    {
+      "instruction": "Take the address of a dereferenced pointer",
+      "targets": [
+        "number := 7\nnumber_pointer := &number\nnumber_pointer_again := &number_pointer^",
+        "level := 7\nitem_data := &level\nvalue_list := &item_data^",
+        "value := 42\nvalue_list := &value\nentry_map := &value_list^",
+        "count := 13\nentry_map := &count\ndata_store := &entry_map^",
+        "total := 100\ndata_store := &total\nresult_set := &data_store^",
+        "amount := 3\nresult_set := &amount\ncount_total := &result_set^",
+        "item := 9\ncount_total := &item\ntotal_sum := &count_total^",
+        "data := 25\ntotal_sum := &data\nscore_list := &total_sum^"
+      ]
+    }
+  ]
+}

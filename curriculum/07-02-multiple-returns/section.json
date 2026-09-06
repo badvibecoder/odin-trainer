@@ -1,0 +1,73 @@
+{
+  "name": "Multiple return values",
+  "group": 7,
+  "groupTitle": "Procedures",
+  "order": "7.2",
+  "snippets": [
+    {
+      "instruction": "Write a procedure returning a value and a bool",
+      "targets": [
+        "divide_and_double :: proc(n: f32, d: f32) -> (f32, bool) {\n\tif d == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (n/d)*2, true\n}",
+        "entry_map :: proc(count: f32, total: f32) -> (f32, bool) {\n\tif total == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (count/total)*2, true\n}",
+        "data_store :: proc(total: f32, amount: f32) -> (f32, bool) {\n\tif amount == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (total/amount)*2, true\n}",
+        "result_set :: proc(amount: f32, item: f32) -> (f32, bool) {\n\tif item == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (amount/item)*2, true\n}",
+        "count_total :: proc(item: f32, data: f32) -> (f32, bool) {\n\tif data == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (item/data)*2, true\n}",
+        "total_sum :: proc(data: f32, result: f32) -> (f32, bool) {\n\tif result == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (data/result)*2, true\n}",
+        "score_list :: proc(result: f32, entry: f32) -> (f32, bool) {\n\tif entry == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (result/entry)*2, true\n}",
+        "item_data :: proc(entry: f32, score: f32) -> (f32, bool) {\n\tif score == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (entry/score)*2, true\n}"
+      ]
+    },
+    {
+      "instruction": "Call a procedure and use the ok result",
+      "targets": [
+        "res, ok := divide_and_double(2, 4)\n\nif ok {\n\tfmt.println(res)\n}",
+        "entry, score := entry_map(2, 10)\n\nif score {\n\tfmt.println(entry)\n}",
+        "score, size := data_store(2, 200)\n\nif size {\n\tfmt.println(score)\n}",
+        "size, level := result_set(2, 128)\n\nif level {\n\tfmt.println(size)\n}",
+        "level, value := count_total(2, 7)\n\nif value {\n\tfmt.println(level)\n}",
+        "value, count := total_sum(2, 42)\n\nif count {\n\tfmt.println(value)\n}",
+        "count, total := score_list(2, 13)\n\nif total {\n\tfmt.println(count)\n}",
+        "total, amount := item_data(2, 100)\n\nif amount {\n\tfmt.println(total)\n}"
+      ]
+    },
+    {
+      "instruction": "Ignore the bool result with an underscore",
+      "targets": [
+        "res, _ := divide_and_double(2, 4)",
+        "entry, item_data := entry_map(2, 10)",
+        "score, value_list := data_store(2, 200)",
+        "size, entry_map := result_set(2, 128)",
+        "level, data_store := count_total(2, 7)",
+        "value, result_set := total_sum(2, 42)",
+        "count, count_total := score_list(2, 13)",
+        "total, total_sum := item_data(2, 100)"
+      ]
+    },
+    {
+      "instruction": "Use the result inside an if statement",
+      "targets": [
+        "if res, ok := divide_and_double(2, 4); ok {\n\tfmt.println(res)\n}",
+        "if entry, score := entry_map(2, 10); score {\n\tfmt.println(entry)\n}",
+        "if score, size := data_store(2, 200); size {\n\tfmt.println(score)\n}",
+        "if size, level := result_set(2, 128); level {\n\tfmt.println(size)\n}",
+        "if level, value := count_total(2, 7); value {\n\tfmt.println(level)\n}",
+        "if value, count := total_sum(2, 42); count {\n\tfmt.println(value)\n}",
+        "if count, total := score_list(2, 13); total {\n\tfmt.println(count)\n}",
+        "if total, amount := item_data(2, 100); amount {\n\tfmt.println(total)\n}"
+      ]
+    },
+    {
+      "instruction": "Write a procedure with named return values",
+      "targets": [
+        "divide_and_double :: proc(n: f32, d: f32) -> (res: f32, ok: bool) {\n\tif d == 0 {\n\t\treturn\n\t}\n\n\tres = (n/d)*2\n\tok = true\n\treturn\n}",
+        "entry_map :: proc(count: f32, total: f32) -> (entry: f32, score: bool) {\n\tif total == 0 {\n\t\treturn\n\t}\n\n\tentry = (count/total)*2\n\tscore = true\n\treturn\n}",
+        "data_store :: proc(total: f32, amount: f32) -> (score: f32, size: bool) {\n\tif amount == 0 {\n\t\treturn\n\t}\n\n\tscore = (total/amount)*2\n\tsize = true\n\treturn\n}",
+        "result_set :: proc(amount: f32, item: f32) -> (size: f32, level: bool) {\n\tif item == 0 {\n\t\treturn\n\t}\n\n\tsize = (amount/item)*2\n\tlevel = true\n\treturn\n}",
+        "count_total :: proc(item: f32, data: f32) -> (level: f32, value: bool) {\n\tif data == 0 {\n\t\treturn\n\t}\n\n\tlevel = (item/data)*2\n\tvalue = true\n\treturn\n}",
+        "total_sum :: proc(data: f32, result: f32) -> (value: f32, count: bool) {\n\tif result == 0 {\n\t\treturn\n\t}\n\n\tvalue = (data/result)*2\n\tcount = true\n\treturn\n}",
+        "score_list :: proc(result: f32, entry: f32) -> (count: f32, total: bool) {\n\tif entry == 0 {\n\t\treturn\n\t}\n\n\tcount = (result/entry)*2\n\ttotal = true\n\treturn\n}",
+        "item_data :: proc(entry: f32, score: f32) -> (total: f32, amount: bool) {\n\tif score == 0 {\n\t\treturn\n\t}\n\n\ttotal = (entry/score)*2\n\tamount = true\n\treturn\n}"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Hello world",
+  "group": 2,
+  "groupTitle": "Basics",
+  "order": "2.0",
+  "snippets": [
+    {
+      "instruction": "Declare the package name for this program",
+      "targets": [
+        "package hello",
+        "package entry",
+        "package score",
+        "package size",
+        "package level",
+        "package value",
+        "package count",
+        "package total"
+      ]
+    },
+    {
+      "instruction": "Import the core:fmt package",
+      "targets": [
+        "import \"core:fmt\""
+      ]
+    },
+    {
+      "instruction": "Write the complete Hello world program",
+      "targets": [
+        "package hello\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"Hello!\")\n}",
+        "package entry\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"timber\")\n}",
+        "package score\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"widget\")\n}",
+        "package size\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"widget\")\n}",
+        "package level\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"shadow\")\n}",
+        "package value\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"gadget\")\n}",
+        "package count\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"stone\")\n}",
+        "package total\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"storm\")\n}"
+      ]
+    }
+  ]
+}

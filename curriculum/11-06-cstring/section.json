@@ -1,0 +1,60 @@
+{
+  "name": "cstring & UTF-16",
+  "group": 11,
+  "groupTitle": "Strings",
+  "order": "11.6",
+  "snippets": [
+    {
+      "instruction": "Convert a string to a cstring and delete it",
+      "targets": [
+        "str: string = \"Hello!\"\ncstr := strings.clone_to_cstring(str)\nrl.DrawText(cstr, 50, 50, 10, rl.WHITE)\ndelete(cstr)",
+        "total: string = \"timber\"\namount := strings.clone_to_cstring(total)\nrl.DrawText(amount, 200, 200, 7, rl.WHITE)\ndelete(amount)",
+        "amount: string = \"widget\"\nitem := strings.clone_to_cstring(amount)\nrl.DrawText(item, 128, 128, 42, rl.WHITE)\ndelete(item)",
+        "item: string = \"widget\"\ndata := strings.clone_to_cstring(item)\nrl.DrawText(data, 7, 7, 13, rl.WHITE)\ndelete(data)",
+        "data: string = \"shadow\"\nresult := strings.clone_to_cstring(data)\nrl.DrawText(result, 42, 42, 100, rl.WHITE)\ndelete(result)",
+        "result: string = \"gadget\"\nentry := strings.clone_to_cstring(result)\nrl.DrawText(entry, 13, 13, 3, rl.WHITE)\ndelete(entry)",
+        "entry: string = \"stone\"\nscore := strings.clone_to_cstring(entry)\nrl.DrawText(score, 100, 100, 9, rl.WHITE)\ndelete(score)",
+        "score: string = \"storm\"\nsize := strings.clone_to_cstring(score)\nrl.DrawText(size, 3, 3, 25, rl.WHITE)\ndelete(size)"
+      ]
+    },
+    {
+      "instruction": "Convert a string to a cstring with the temp allocator",
+      "targets": [
+        "str: string = \"Hello!\"\nrl.DrawText(strings.clone_to_cstring(str, context.temp_allocator), 50, 50, 10, rl.WHITE)",
+        "total: string = \"timber\"\nrl.DrawText(strings.clone_to_cstring(total, context.temp_allocator), 200, 200, 7, rl.WHITE)",
+        "amount: string = \"widget\"\nrl.DrawText(strings.clone_to_cstring(amount, context.temp_allocator), 128, 128, 42, rl.WHITE)",
+        "item: string = \"widget\"\nrl.DrawText(strings.clone_to_cstring(item, context.temp_allocator), 7, 7, 13, rl.WHITE)",
+        "data: string = \"shadow\"\nrl.DrawText(strings.clone_to_cstring(data, context.temp_allocator), 42, 42, 100, rl.WHITE)",
+        "result: string = \"gadget\"\nrl.DrawText(strings.clone_to_cstring(result, context.temp_allocator), 13, 13, 3, rl.WHITE)",
+        "entry: string = \"stone\"\nrl.DrawText(strings.clone_to_cstring(entry, context.temp_allocator), 100, 100, 9, rl.WHITE)",
+        "score: string = \"storm\"\nrl.DrawText(strings.clone_to_cstring(score, context.temp_allocator), 3, 3, 25, rl.WHITE)"
+      ]
+    },
+    {
+      "instruction": "Convert a UTF-8 string to a UTF-16 wstring",
+      "targets": [
+        "set_title :: proc(title: string) {\n\ttitle_16 := windows.utf8_to_wstring(title)\n\twindows.SetWindowTextW(hwnd, title_16)\n}",
+        "result_set :: proc(total: string) {\n\tcount_total := windows.utf8_to_wstring(total)\n\twindows.SetWindowTextW(size, count_total)\n}",
+        "count_total :: proc(amount: string) {\n\ttotal_sum := windows.utf8_to_wstring(amount)\n\twindows.SetWindowTextW(level, total_sum)\n}",
+        "total_sum :: proc(item: string) {\n\tscore_list := windows.utf8_to_wstring(item)\n\twindows.SetWindowTextW(value, score_list)\n}",
+        "score_list :: proc(data: string) {\n\titem_data := windows.utf8_to_wstring(data)\n\twindows.SetWindowTextW(count, item_data)\n}",
+        "item_data :: proc(result: string) {\n\tvalue_list := windows.utf8_to_wstring(result)\n\twindows.SetWindowTextW(total, value_list)\n}",
+        "value_list :: proc(entry: string) {\n\tentry_map := windows.utf8_to_wstring(entry)\n\twindows.SetWindowTextW(amount, entry_map)\n}",
+        "entry_map :: proc(score: string) {\n\tdata_store := windows.utf8_to_wstring(score)\n\twindows.SetWindowTextW(item, data_store)\n}"
+      ]
+    },
+    {
+      "instruction": "Fetch a window title and convert it to UTF-8",
+      "targets": [
+        "title_data: [128]u16\ntitle_len := windows.GetWindowTextW(hwnd, raw_data(&title_data), len(title_data))\ntitle_str, title_str_err := windows.wstring_to_utf8(cstring16(raw_data(&title_data)), int(title_len))\n\nif title_str_err == nil {\n\tfmt.println(title_str)\n}",
+        "item_data: [3]u16\ndata_store := windows.GetWindowTextW(size, raw_data(&item_data), len(item_data))\nscore_list, value_list := windows.wstring_to_utf8(cstring16(raw_data(&item_data)), int(data_store))\n\nif value_list == nil {\n\tfmt.println(score_list)\n}",
+        "value_list: [9]u16\nresult_set := windows.GetWindowTextW(level, raw_data(&value_list), len(value_list))\nitem_data, entry_map := windows.wstring_to_utf8(cstring16(raw_data(&value_list)), int(result_set))\n\nif entry_map == nil {\n\tfmt.println(item_data)\n}",
+        "entry_map: [25]u16\ncount_total := windows.GetWindowTextW(value, raw_data(&entry_map), len(entry_map))\nvalue_list, data_store := windows.wstring_to_utf8(cstring16(raw_data(&entry_map)), int(count_total))\n\nif data_store == nil {\n\tfmt.println(value_list)\n}",
+        "data_store: [64]u16\ntotal_sum := windows.GetWindowTextW(count, raw_data(&data_store), len(data_store))\nentry_map, result_set := windows.wstring_to_utf8(cstring16(raw_data(&data_store)), int(total_sum))\n\nif result_set == nil {\n\tfmt.println(entry_map)\n}",
+        "result_set: [512]u16\nscore_list := windows.GetWindowTextW(total, raw_data(&result_set), len(result_set))\ndata_store, count_total := windows.wstring_to_utf8(cstring16(raw_data(&result_set)), int(score_list))\n\nif count_total == nil {\n\tfmt.println(data_store)\n}",
+        "count_total: [2]u16\nitem_data := windows.GetWindowTextW(amount, raw_data(&count_total), len(count_total))\nresult_set, total_sum := windows.wstring_to_utf8(cstring16(raw_data(&count_total)), int(item_data))\n\nif total_sum == nil {\n\tfmt.println(result_set)\n}",
+        "total_sum: [4]u16\nvalue_list := windows.GetWindowTextW(item, raw_data(&total_sum), len(total_sum))\ncount_total, score_list := windows.wstring_to_utf8(cstring16(raw_data(&total_sum)), int(value_list))\n\nif score_list == nil {\n\tfmt.println(count_total)\n}"
+      ]
+    }
+  ]
+}

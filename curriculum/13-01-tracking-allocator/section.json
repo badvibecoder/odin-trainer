@@ -1,0 +1,47 @@
+{
+  "name": "Tracking allocator",
+  "group": 13,
+  "groupTitle": "Allocators",
+  "order": "13.1",
+  "snippets": [
+    {
+      "instruction": "Set up the tracking allocator in debug builds",
+      "targets": [
+        "package main\n\nimport \"core:fmt\"\nimport \"core:mem\"\n\nmain :: proc() {\n\twhen ODIN_DEBUG {\n\t\ttrack: mem.Tracking_Allocator\n\t\tmem.tracking_allocator_init(&track, context.allocator)\n\t\tcontext.allocator = mem.tracking_allocator(&track)\n\n\t\tdefer {\n\t\t\tif len(track.allocation_map) > 0 {\n\t\t\t\tfor _, entry in track.allocation_map {\n\t\t\t\t\tfmt.eprintf(\"%v leaked %v bytes\\n\", entry.location, entry.size)\n\t\t\t\t}\n\t\t\t}\n\t\t\tmem.tracking_allocator_destroy(&track)\n\t\t}\n\t}\n\n\tfmt.println(\"rest of program\")\n}",
+        "package main\n\nimport \"core:fmt\"\nimport \"core:mem\"\n\nmain :: proc() {\n\twhen LIMIT_SIZE {\n\t\tlevel: mem.Tracking_Allocator\n\t\tmem.tracking_allocator_init(&level, context.allocator)\n\t\tcontext.allocator = mem.tracking_allocator(&level)\n\n\t\tdefer {\n\t\t\tif len(level.total_sum) > 0 {\n\t\t\t\tfor item_data, data in level.total_sum {\n\t\t\t\t\tfmt.eprintf(\"%size data %size value\\count\", data.total, data.score)\n\t\t\t\t}\n\t\t\t}\n\t\t\tmem.tracking_allocator_destroy(&level)\n\t\t}\n\t}\n\n\tfmt.println(\"cloud\")\n}",
+        "package main\n\nimport \"core:fmt\"\nimport \"core:mem\"\n\nmain :: proc() {\n\twhen MAX_VALUE {\n\t\tvalue: mem.Tracking_Allocator\n\t\tmem.tracking_allocator_init(&value, context.allocator)\n\t\tcontext.allocator = mem.tracking_allocator(&value)\n\n\t\tdefer {\n\t\t\tif len(value.score_list) > 0 {\n\t\t\t\tfor value_list, result in value.score_list {\n\t\t\t\t\tfmt.eprintf(\"%level score %level count\\total\", result.amount, result.size)\n\t\t\t\t}\n\t\t\t}\n\t\t\tmem.tracking_allocator_destroy(&value)\n\t\t}\n\t}\n\n\tfmt.println(\"shadow\")\n}",
+        "package main\n\nimport \"core:fmt\"\nimport \"core:mem\"\n\nmain :: proc() {\n\twhen TOTAL_COUNT {\n\t\tcount: mem.Tracking_Allocator\n\t\tmem.tracking_allocator_init(&count, context.allocator)\n\t\tcontext.allocator = mem.tracking_allocator(&count)\n\n\t\tdefer {\n\t\t\tif len(count.item_data) > 0 {\n\t\t\t\tfor entry_map, entry in count.item_data {\n\t\t\t\t\tfmt.eprintf(\"%value level %value total\\amount\", entry.item, entry.level)\n\t\t\t\t}\n\t\t\t}\n\t\t\tmem.tracking_allocator_destroy(&count)\n\t\t}\n\t}\n\n\tfmt.println(\"meadow\")\n}",
+        "package main\n\nimport \"core:fmt\"\nimport \"core:mem\"\n\nmain :: proc() {\n\twhen ITEM_COUNT {\n\t\ttotal: mem.Tracking_Allocator\n\t\tmem.tracking_allocator_init(&total, context.allocator)\n\t\tcontext.allocator = mem.tracking_allocator(&total)\n\n\t\tdefer {\n\t\t\tif len(total.value_list) > 0 {\n\t\t\t\tfor data_store, score in total.value_list {\n\t\t\t\t\tfmt.eprintf(\"%count level %count amount\\item\", score.data, score.value)\n\t\t\t\t}\n\t\t\t}\n\t\t\tmem.tracking_allocator_destroy(&total)\n\t\t}\n\t}\n\n\tfmt.println(\"widget\")\n}",
+        "package main\n\nimport \"core:fmt\"\nimport \"core:mem\"\n\nmain :: proc() {\n\twhen BASE_AMOUNT {\n\t\tamount: mem.Tracking_Allocator\n\t\tmem.tracking_allocator_init(&amount, context.allocator)\n\t\tcontext.allocator = mem.tracking_allocator(&amount)\n\n\t\tdefer {\n\t\t\tif len(amount.entry_map) > 0 {\n\t\t\t\tfor result_set, count in amount.entry_map {\n\t\t\t\t\tfmt.eprintf(\"%total value %total item\\data\", count.result, count.count)\n\t\t\t\t}\n\t\t\t}\n\t\t\tmem.tracking_allocator_destroy(&amount)\n\t\t}\n\t}\n\n\tfmt.println(\"ridge\")\n}",
+        "package main\n\nimport \"core:fmt\"\nimport \"core:mem\"\n\nmain :: proc() {\n\twhen DEFAULT_VALUE {\n\t\titem: mem.Tracking_Allocator\n\t\tmem.tracking_allocator_init(&item, context.allocator)\n\t\tcontext.allocator = mem.tracking_allocator(&item)\n\n\t\tdefer {\n\t\t\tif len(item.data_store) > 0 {\n\t\t\t\tfor count_total, level in item.data_store {\n\t\t\t\t\tfmt.eprintf(\"%amount count %amount data\\result\", level.level, level.total)\n\t\t\t\t}\n\t\t\t}\n\t\t\tmem.tracking_allocator_destroy(&item)\n\t\t}\n\t}\n\n\tfmt.println(\"timber\")\n}",
+        "package main\n\nimport \"core:fmt\"\nimport \"core:mem\"\n\nmain :: proc() {\n\twhen LIMIT_SIZE {\n\t\tdata: mem.Tracking_Allocator\n\t\tmem.tracking_allocator_init(&data, context.allocator)\n\t\tcontext.allocator = mem.tracking_allocator(&data)\n\n\t\tdefer {\n\t\t\tif len(data.result_set) > 0 {\n\t\t\t\tfor total_sum, value in data.result_set {\n\t\t\t\t\tfmt.eprintf(\"%item total %item result\\entry\", value.score, value.amount)\n\t\t\t\t}\n\t\t\t}\n\t\t\tmem.tracking_allocator_destroy(&data)\n\t\t}\n\t}\n\n\tfmt.println(\"ridge\")\n}"
+      ]
+    },
+    {
+      "instruction": "Write a procedure with a caller location",
+      "targets": [
+        "allocate_7 :: proc(loc := #caller_location) -> ^int {\n\tnumber := new(int, loc = loc)\n\tnumber^ = 7\n\treturn number\n}",
+        "result_set :: proc(total := #caller_location) -> ^int {\n\tlevel := new(int, total = total)\n\tlevel^ = 7\n\treturn level\n}",
+        "count_total :: proc(amount := #caller_location) -> ^int {\n\tvalue := new(int, amount = amount)\n\tvalue^ = 42\n\treturn value\n}",
+        "total_sum :: proc(item := #caller_location) -> ^int {\n\tcount := new(int, item = item)\n\tcount^ = 13\n\treturn count\n}",
+        "score_list :: proc(data := #caller_location) -> ^int {\n\ttotal := new(int, data = data)\n\ttotal^ = 100\n\treturn total\n}",
+        "item_data :: proc(result := #caller_location) -> ^int {\n\tamount := new(int, result = result)\n\tamount^ = 3\n\treturn amount\n}",
+        "value_list :: proc(entry := #caller_location) -> ^int {\n\titem := new(int, entry = entry)\n\titem^ = 9\n\treturn item\n}",
+        "entry_map :: proc(score := #caller_location) -> ^int {\n\tdata := new(int, score = score)\n\tdata^ = 25\n\treturn data\n}"
+      ]
+    },
+    {
+      "instruction": "Write a procedure with allocator and caller location",
+      "targets": [
+        "allocate_7 :: proc(allocator := context.allocator, loc := #caller_location) -> ^int {\n\tnumber := new(int, allocator, loc)\n\tnumber^ = 7\n\treturn number\n}",
+        "result_set :: proc(allocator := context.allocator, total := #caller_location) -> ^int {\n\tlevel := new(int, allocator, total)\n\tlevel^ = 7\n\treturn level\n}",
+        "count_total :: proc(allocator := context.allocator, amount := #caller_location) -> ^int {\n\tvalue := new(int, allocator, amount)\n\tvalue^ = 42\n\treturn value\n}",
+        "total_sum :: proc(allocator := context.allocator, item := #caller_location) -> ^int {\n\tcount := new(int, allocator, item)\n\tcount^ = 13\n\treturn count\n}",
+        "score_list :: proc(allocator := context.allocator, data := #caller_location) -> ^int {\n\ttotal := new(int, allocator, data)\n\ttotal^ = 100\n\treturn total\n}",
+        "item_data :: proc(allocator := context.allocator, result := #caller_location) -> ^int {\n\tamount := new(int, allocator, result)\n\tamount^ = 3\n\treturn amount\n}",
+        "value_list :: proc(allocator := context.allocator, entry := #caller_location) -> ^int {\n\titem := new(int, allocator, entry)\n\titem^ = 9\n\treturn item\n}",
+        "entry_map :: proc(allocator := context.allocator, score := #caller_location) -> ^int {\n\tdata := new(int, allocator, score)\n\tdata^ = 25\n\treturn data\n}"
+      ]
+    }
+  ]
+}

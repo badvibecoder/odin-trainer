@@ -1,0 +1,47 @@
+{
+  "name": "Scopes",
+  "group": 7,
+  "groupTitle": "Procedures",
+  "order": "7.6",
+  "snippets": [
+    {
+      "instruction": "Declare a variable inside a procedure scope",
+      "targets": [
+        "my_proc :: proc() {\n\tnumber := 7\n}",
+        "entry_map :: proc() {\n\tlevel := 7\n}",
+        "data_store :: proc() {\n\tvalue := 42\n}",
+        "result_set :: proc() {\n\tcount := 13\n}",
+        "count_total :: proc() {\n\ttotal := 100\n}",
+        "total_sum :: proc() {\n\tamount := 3\n}",
+        "score_list :: proc() {\n\titem := 9\n}",
+        "item_data :: proc() {\n\tdata := 25\n}"
+      ]
+    },
+    {
+      "instruction": "Declare a variable inside an if scope",
+      "targets": [
+        "my_proc :: proc() {\n\tnumber := 7\n\n\tif number > 5 {\n\t\tmessage := \"It's more than 5\"\n\t\tfmt.println(message)\n\t}\n}",
+        "entry_map :: proc() {\n\tlevel := 7\n\n\tif level > 200 {\n\t\tdata := \"stone\"\n\t\tfmt.println(data)\n\t}\n}",
+        "data_store :: proc() {\n\tvalue := 42\n\n\tif value > 128 {\n\t\tresult := \"field\"\n\t\tfmt.println(result)\n\t}\n}",
+        "result_set :: proc() {\n\tcount := 13\n\n\tif count > 7 {\n\t\tentry := \"orange\"\n\t\tfmt.println(entry)\n\t}\n}",
+        "count_total :: proc() {\n\ttotal := 100\n\n\tif total > 42 {\n\t\tscore := \"storm\"\n\t\tfmt.println(score)\n\t}\n}",
+        "total_sum :: proc() {\n\tamount := 3\n\n\tif amount > 13 {\n\t\tsize := \"meadow\"\n\t\tfmt.println(size)\n\t}\n}",
+        "score_list :: proc() {\n\titem := 9\n\n\tif item > 100 {\n\t\tlevel := \"shadow\"\n\t\tfmt.println(level)\n\t}\n}",
+        "item_data :: proc() {\n\tdata := 25\n\n\tif data > 3 {\n\t\tvalue := \"cloud\"\n\t\tfmt.println(value)\n\t}\n}"
+      ]
+    },
+    {
+      "instruction": "Declare a variable inside a bare block scope",
+      "targets": [
+        "my_proc :: proc() {\n\tnumber := 7\n\n\t{\n\t\tmessage := \"Hello\"\n\t\tfmt.println(message)\n\t}\n}",
+        "entry_map :: proc() {\n\tlevel := 7\n\n\t{\n\t\tdata := \"storm\"\n\t\tfmt.println(data)\n\t}\n}",
+        "data_store :: proc() {\n\tvalue := 42\n\n\t{\n\t\tresult := \"gadget\"\n\t\tfmt.println(result)\n\t}\n}",
+        "result_set :: proc() {\n\tcount := 13\n\n\t{\n\t\tentry := \"ember\"\n\t\tfmt.println(entry)\n\t}\n}",
+        "count_total :: proc() {\n\ttotal := 100\n\n\t{\n\t\tscore := \"meadow\"\n\t\tfmt.println(score)\n\t}\n}",
+        "total_sum :: proc() {\n\tamount := 3\n\n\t{\n\t\tsize := \"field\"\n\t\tfmt.println(size)\n\t}\n}",
+        "score_list :: proc() {\n\titem := 9\n\n\t{\n\t\tlevel := \"field\"\n\t\tfmt.println(level)\n\t}\n}",
+        "item_data :: proc() {\n\tdata := 25\n\n\t{\n\t\tvalue := \"ember\"\n\t\tfmt.println(value)\n\t}\n}"
+      ]
+    }
+  ]
+}

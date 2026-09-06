@@ -1,0 +1,86 @@
+{
+  "name": "Anti-patterns",
+  "group": 23,
+  "groupTitle": "Anti-patterns",
+  "order": "23.1",
+  "snippets": [
+    {
+      "instruction": "Use a value on a parameter (avoid this)",
+      "targets": [
+        "My_Struct :: struct {\n\tnumber: int,\n}\n\nmy_proc :: proc(s: My_Struct) {\n\tusing s\n\tfmt.println(number)\n}",
+        "Item_Record :: struct {\n\tlevel: int,\n}\n\nentry_map :: proc(result: Item_Record) {\n\tusing result\n\tfmt.println(level)\n}",
+        "Item_Kind :: struct {\n\tvalue: int,\n}\n\ndata_store :: proc(entry: Item_Kind) {\n\tusing entry\n\tfmt.println(value)\n}",
+        "Entity_Data :: struct {\n\tcount: int,\n}\n\nresult_set :: proc(score: Entity_Data) {\n\tusing score\n\tfmt.println(count)\n}",
+        "Record_Type :: struct {\n\ttotal: int,\n}\n\ncount_total :: proc(size: Record_Type) {\n\tusing size\n\tfmt.println(total)\n}",
+        "Entry_Kind :: struct {\n\tamount: int,\n}\n\ntotal_sum :: proc(level: Entry_Kind) {\n\tusing level\n\tfmt.println(amount)\n}",
+        "Data_Type :: struct {\n\titem: int,\n}\n\nscore_list :: proc(value: Data_Type) {\n\tusing value\n\tfmt.println(item)\n}",
+        "Item_Record :: struct {\n\tdata: int,\n}\n\nitem_data :: proc(count: Item_Record) {\n\tusing count\n\tfmt.println(data)\n}"
+      ]
+    },
+    {
+      "instruction": "Use a value in a parameter declaration",
+      "targets": [
+        "My_Struct :: struct {\n\tnumber: int,\n}\n\nmy_proc :: proc(using s: My_Struct) {\n\tfmt.println(number)\n}",
+        "Item_Record :: struct {\n\tlevel: int,\n}\n\nentry_map :: proc(using result: Item_Record) {\n\tfmt.println(level)\n}",
+        "Item_Kind :: struct {\n\tvalue: int,\n}\n\ndata_store :: proc(using entry: Item_Kind) {\n\tfmt.println(value)\n}",
+        "Entity_Data :: struct {\n\tcount: int,\n}\n\nresult_set :: proc(using score: Entity_Data) {\n\tfmt.println(count)\n}",
+        "Record_Type :: struct {\n\ttotal: int,\n}\n\ncount_total :: proc(using size: Record_Type) {\n\tfmt.println(total)\n}",
+        "Entry_Kind :: struct {\n\tamount: int,\n}\n\ntotal_sum :: proc(using level: Entry_Kind) {\n\tfmt.println(amount)\n}",
+        "Data_Type :: struct {\n\titem: int,\n}\n\nscore_list :: proc(using value: Data_Type) {\n\tfmt.println(item)\n}",
+        "Item_Record :: struct {\n\tdata: int,\n}\n\nitem_data :: proc(using count: Item_Record) {\n\tfmt.println(data)\n}"
+      ]
+    },
+    {
+      "instruction": "Write a proc taking an any",
+      "targets": [
+        "my_proc :: proc(a: any) {\n\tfmt.println(a)\n}\n\nnumber := 7\nmy_proc(number)",
+        "entry_map :: proc(level: any) {\n\tfmt.println(level)\n}\n\nvalue := 7\nentry_map(value)",
+        "data_store :: proc(value: any) {\n\tfmt.println(value)\n}\n\ncount := 42\ndata_store(count)",
+        "result_set :: proc(count: any) {\n\tfmt.println(count)\n}\n\ntotal := 13\nresult_set(total)",
+        "count_total :: proc(total: any) {\n\tfmt.println(total)\n}\n\namount := 100\ncount_total(amount)",
+        "total_sum :: proc(amount: any) {\n\tfmt.println(amount)\n}\n\nitem := 3\ntotal_sum(item)",
+        "score_list :: proc(item: any) {\n\tfmt.println(item)\n}\n\ndata := 9\nscore_list(data)",
+        "item_data :: proc(data: any) {\n\tfmt.println(data)\n}\n\nresult := 25\nitem_data(result)"
+      ]
+    },
+    {
+      "instruction": "Build an any manually",
+      "targets": [
+        "number := 7\na: any\na.data = &number\na.id = typeid_of(type_of(number))\nmy_proc(a)",
+        "level := 7\nvalue: any\nvalue.item = &level\nvalue.count = typeid_of(type_of(level))\nentry_map(value)",
+        "value := 42\ncount: any\ncount.data = &value\ncount.total = typeid_of(type_of(value))\ndata_store(count)",
+        "count := 13\ntotal: any\ntotal.result = &count\ntotal.amount = typeid_of(type_of(count))\nresult_set(total)",
+        "total := 100\namount: any\namount.entry = &total\namount.item = typeid_of(type_of(total))\ncount_total(amount)",
+        "amount := 3\nitem: any\nitem.score = &amount\nitem.data = typeid_of(type_of(amount))\ntotal_sum(item)",
+        "item := 9\ndata: any\ndata.size = &item\ndata.result = typeid_of(type_of(item))\nscore_list(data)",
+        "level := 25\nresult: any\nresult.level = &level\nresult.entry = typeid_of(type_of(level))\nitem_data(result)"
+      ]
+    },
+    {
+      "instruction": "Clone a slice to a dynamic array (instead of dynamic literal)",
+      "targets": [
+        "ints := slice.clone_to_dynamic([]int { 1, 2, 3, 4, 5 })",
+        "count := slice.clone_to_dynamic([]int { 1, 2, 4, 10, 200 })",
+        "total := slice.clone_to_dynamic([]int { 1, 2, 10, 200, 128 })",
+        "amount := slice.clone_to_dynamic([]int { 1, 2, 200, 128, 7 })",
+        "item := slice.clone_to_dynamic([]int { 1, 2, 128, 7, 42 })",
+        "data := slice.clone_to_dynamic([]int { 1, 2, 7, 42, 13 })",
+        "result := slice.clone_to_dynamic([]int { 1, 2, 42, 13, 100 })",
+        "entry := slice.clone_to_dynamic([]int { 1, 2, 13, 100, 3 })"
+      ]
+    },
+    {
+      "instruction": "Build a map by assignment (instead of dynamic literal)",
+      "targets": [
+        "name_to_age: map[string]int\nname_to_age[\"Kai\"] = 5\nname_to_age[\"Sven\"] = 7",
+        "item_data: map[string]int\nitem_data[\"widget\"] = 200\nitem_data[\"orange\"] = 7",
+        "value_list: map[string]int\nvalue_list[\"storm\"] = 128\nvalue_list[\"hollow\"] = 42",
+        "entry_map: map[string]int\nentry_map[\"raven\"] = 7\nentry_map[\"raven\"] = 13",
+        "data_store: map[string]int\ndata_store[\"stone\"] = 42\ndata_store[\"raven\"] = 100",
+        "result_set: map[string]int\nresult_set[\"storm\"] = 13\nresult_set[\"orange\"] = 3",
+        "count_total: map[string]int\ncount_total[\"field\"] = 100\ncount_total[\"stone\"] = 9",
+        "total_sum: map[string]int\ntotal_sum[\"gadget\"] = 3\ntotal_sum[\"cloud\"] = 25"
+      ]
+    }
+  ]
+}

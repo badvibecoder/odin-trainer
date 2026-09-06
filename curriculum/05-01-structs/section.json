@@ -1,0 +1,73 @@
+{
+  "name": "Structs",
+  "group": 5,
+  "groupTitle": "Types",
+  "order": "5.1",
+  "snippets": [
+    {
+      "instruction": "Define a Rectangle struct with x, y, width, height",
+      "targets": [
+        "Rectangle :: struct {\n\tx: f32,\n\ty: f32,\n\twidth: f32,\n\theight: f32,\n}",
+        "Rectangle :: struct {\n\tx: f32,\n\ty: f32,\n\tresult: f32,\n\titem: f32,\n}",
+        "Rectangle :: struct {\n\tx: f32,\n\ty: f32,\n\tentry: f32,\n\tdata: f32,\n}",
+        "Rectangle :: struct {\n\tx: f32,\n\ty: f32,\n\tscore: f32,\n\tresult: f32,\n}",
+        "Rectangle :: struct {\n\tx: f32,\n\ty: f32,\n\tsize: f32,\n\tentry: f32,\n}",
+        "Rectangle :: struct {\n\tx: f32,\n\ty: f32,\n\tlevel: f32,\n\tscore: f32,\n}",
+        "Rectangle :: struct {\n\tx: f32,\n\ty: f32,\n\tvalue: f32,\n\tsize: f32,\n}",
+        "Rectangle :: struct {\n\tx: f32,\n\ty: f32,\n\tcount: f32,\n\tlevel: f32,\n}"
+      ]
+    },
+    {
+      "instruction": "Create a struct value with named fields",
+      "targets": [
+        "rect := Rectangle {\n\twidth = 20,\n\theight = 10,\n}",
+        "data := Rectangle {\n\tresult = 100,\n\titem = 7,\n}",
+        "result := Rectangle {\n\tentry = 3,\n\tdata = 42,\n}",
+        "entry := Rectangle {\n\tscore = 9,\n\tresult = 13,\n}",
+        "score := Rectangle {\n\tsize = 25,\n\tentry = 100,\n}",
+        "size := Rectangle {\n\tlevel = 64,\n\tscore = 3,\n}",
+        "level := Rectangle {\n\tvalue = 512,\n\tsize = 9,\n}",
+        "value := Rectangle {\n\tcount = 2,\n\tlevel = 25,\n}"
+      ]
+    },
+    {
+      "instruction": "Declare a variable as a Rectangle, then set its fields",
+      "targets": [
+        "rect: Rectangle = {\n\twidth = 20,\n\theight = 10,\n}",
+        "data: Rectangle = {\n\tresult = 100,\n\titem = 7,\n}",
+        "result: Rectangle = {\n\tentry = 3,\n\tdata = 42,\n}",
+        "entry: Rectangle = {\n\tscore = 9,\n\tresult = 13,\n}",
+        "score: Rectangle = {\n\tsize = 25,\n\tentry = 100,\n}",
+        "size: Rectangle = {\n\tlevel = 64,\n\tscore = 3,\n}",
+        "level: Rectangle = {\n\tvalue = 512,\n\tsize = 9,\n}",
+        "value: Rectangle = {\n\tcount = 2,\n\tlevel = 25,\n}"
+      ]
+    },
+    {
+      "instruction": "Create a struct value positionally",
+      "targets": [
+        "rect := Rectangle {\n\t20, 20,\n\t200, 200,\n}",
+        "data := Rectangle {\n\t100, 100,\n\t128, 128,\n}",
+        "result := Rectangle {\n\t3, 3,\n\t7, 7,\n}",
+        "entry := Rectangle {\n\t9, 9,\n\t42, 42,\n}",
+        "score := Rectangle {\n\t25, 25,\n\t13, 13,\n}",
+        "size := Rectangle {\n\t64, 64,\n\t100, 100,\n}",
+        "level := Rectangle {\n\t512, 512,\n\t3, 3,\n}",
+        "value := Rectangle {\n\t2, 2,\n\t9, 9,\n}"
+      ]
+    },
+    {
+      "instruction": "Reassign fields with a struct literal",
+      "targets": [
+        "rect = {\n\tx = 10,\n\twidth = 5,\n\theight = 7,\n}",
+        "data = {\n\tx = 7,\n\tresult = 200,\n\titem = 7,\n}",
+        "result = {\n\tx = 42,\n\tentry = 128,\n\tdata = 42,\n}",
+        "entry = {\n\tx = 13,\n\tscore = 7,\n\tresult = 13,\n}",
+        "score = {\n\tx = 100,\n\tsize = 42,\n\tentry = 100,\n}",
+        "size = {\n\tx = 3,\n\tlevel = 13,\n\tscore = 3,\n}",
+        "level = {\n\tx = 9,\n\tvalue = 100,\n\tsize = 9,\n}",
+        "value = {\n\tx = 25,\n\tcount = 3,\n\tlevel = 25,\n}"
+      ]
+    }
+  ]
+}

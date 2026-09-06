@@ -1,0 +1,111 @@
+{
+  "name": "Generic structs & unions",
+  "group": 14,
+  "groupTitle": "Generics",
+  "order": "14.2",
+  "snippets": [
+    {
+      "instruction": "Write a parametric struct with type and count params",
+      "targets": [
+        "Special_Array :: struct($T: typeid, $N: int) {\n\titems: [N]T,\n\tnum_items_used: int,\n}",
+        "Record_Type :: struct($T: typeid, $N: int) {\n\tsize: [N]T,\n\ttotal_sum: int,\n}",
+        "Entry_Kind :: struct($T: typeid, $N: int) {\n\tlevel: [N]T,\n\tscore_list: int,\n}",
+        "Data_Type :: struct($T: typeid, $N: int) {\n\tvalue: [N]T,\n\titem_data: int,\n}",
+        "Item_Record :: struct($T: typeid, $N: int) {\n\tcount: [N]T,\n\tvalue_list: int,\n}",
+        "Item_Kind :: struct($T: typeid, $N: int) {\n\ttotal: [N]T,\n\tentry_map: int,\n}",
+        "Entity_Data :: struct($T: typeid, $N: int) {\n\tamount: [N]T,\n\tdata_store: int,\n}",
+        "Record_Type :: struct($T: typeid, $N: int) {\n\titem: [N]T,\n\tresult_set: int,\n}"
+      ]
+    },
+    {
+      "instruction": "Instantiate a parametric struct",
+      "targets": [
+        "array: Special_Array(f64, 128)",
+        "count: Record_Type(f64, 3)",
+        "total: Entry_Kind(f64, 9)",
+        "amount: Data_Type(f64, 25)",
+        "item: Item_Record(f64, 64)",
+        "data: Item_Kind(f64, 512)",
+        "result: Entity_Data(f64, 2)",
+        "entry: Record_Type(f64, 4)"
+      ]
+    },
+    {
+      "instruction": "Write a procedure taking a parametric struct",
+      "targets": [
+        "find_random_thing_in_special_array :: proc(arr: Special_Array($T, $N)) -> T {\n\treturn arr.items[rand.int_max(arr.num_items_used)]\n}",
+        "value_list :: proc(value: Record_Type($T, $N)) -> T {\n\treturn value.size[rand.int_max(value.total_sum)]\n}",
+        "entry_map :: proc(count: Entry_Kind($T, $N)) -> T {\n\treturn count.level[rand.int_max(count.score_list)]\n}",
+        "data_store :: proc(total: Data_Type($T, $N)) -> T {\n\treturn total.value[rand.int_max(total.item_data)]\n}",
+        "result_set :: proc(amount: Item_Record($T, $N)) -> T {\n\treturn amount.count[rand.int_max(amount.value_list)]\n}",
+        "count_total :: proc(item: Item_Kind($T, $N)) -> T {\n\treturn item.total[rand.int_max(item.entry_map)]\n}",
+        "total_sum :: proc(data: Entity_Data($T, $N)) -> T {\n\treturn data.amount[rand.int_max(data.data_store)]\n}",
+        "score_list :: proc(result: Record_Type($T, $N)) -> T {\n\treturn result.item[rand.int_max(result.result_set)]\n}"
+      ]
+    },
+    {
+      "instruction": "Declare a parametric union",
+      "targets": [
+        "Maybe :: union($T: typeid) { T }",
+        "Result :: union($T: typeid) { T }",
+        "Config :: union($T: typeid) { T }",
+        "Thing :: union($T: typeid) { T }",
+        "Value :: union($T: typeid) { T }",
+        "Note :: union($T: typeid) { T }",
+        "Item :: union($T: typeid) { T }",
+        "Entity :: union($T: typeid) { T }"
+      ]
+    },
+    {
+      "instruction": "Use a parametric union with a type assertion",
+      "targets": [
+        "m: Maybe(f64)\nm = 4.32\n\nif m_val, m_val_ok := m.?; m_val_ok {\n\tfmt.println(m_val)\n}",
+        "value: Result(f64)\nvalue = 10.512\n\nif item_data, count_total := value.?; count_total {\n\tfmt.println(item_data)\n}",
+        "count: Config(f64)\ncount = 200.2\n\nif value_list, total_sum := count.?; total_sum {\n\tfmt.println(value_list)\n}",
+        "total: Thing(f64)\ntotal = 128.4\n\nif entry_map, score_list := total.?; score_list {\n\tfmt.println(entry_map)\n}",
+        "amount: Value(f64)\namount = 7.10\n\nif data_store, item_data := amount.?; item_data {\n\tfmt.println(data_store)\n}",
+        "item: Note(f64)\nitem = 42.200\n\nif result_set, value_list := item.?; value_list {\n\tfmt.println(result_set)\n}",
+        "data: Item(f64)\ndata = 13.128\n\nif count_total, entry_map := data.?; entry_map {\n\tfmt.println(count_total)\n}",
+        "result: Entity(f64)\nresult = 100.7\n\nif total_sum, data_store := result.?; data_store {\n\tfmt.println(total_sum)\n}"
+      ]
+    },
+    {
+      "instruction": "Write a specialized delete_dynamic_array",
+      "targets": [
+        "delete_dynamic_array :: proc(array: $T/[dynamic]$E, loc := #caller_location) -> Allocator_Error {\n\treturn mem_free_with_size(raw_data(array), cap(array)*size_of(E), array.allocator, loc)\n}",
+        "total_sum :: proc(count: $T/[dynamic]$E, total := #caller_location) -> Allocator_Error {\n\treturn item_data(raw_data(count), cap(count)*size_of(E), count.allocator, total)\n}",
+        "score_list :: proc(total: $T/[dynamic]$E, amount := #caller_location) -> Allocator_Error {\n\treturn value_list(raw_data(total), cap(total)*size_of(E), total.allocator, amount)\n}",
+        "item_data :: proc(amount: $T/[dynamic]$E, item := #caller_location) -> Allocator_Error {\n\treturn entry_map(raw_data(amount), cap(amount)*size_of(E), amount.allocator, item)\n}",
+        "value_list :: proc(item: $T/[dynamic]$E, data := #caller_location) -> Allocator_Error {\n\treturn data_store(raw_data(item), cap(item)*size_of(E), item.allocator, data)\n}",
+        "entry_map :: proc(data: $T/[dynamic]$E, result := #caller_location) -> Allocator_Error {\n\treturn result_set(raw_data(data), cap(data)*size_of(E), data.allocator, result)\n}",
+        "data_store :: proc(result: $T/[dynamic]$E, entry := #caller_location) -> Allocator_Error {\n\treturn count_total(raw_data(result), cap(result)*size_of(E), result.allocator, entry)\n}",
+        "result_set :: proc(entry: $T/[dynamic]$E, score := #caller_location) -> Allocator_Error {\n\treturn total_sum(raw_data(entry), cap(entry)*size_of(E), entry.allocator, score)\n}"
+      ]
+    },
+    {
+      "instruction": "Write a specialized make_slice",
+      "targets": [
+        "make_slice :: proc($T: typeid/[]$E, len: int) -> T {\n\treturn make(T, len)\n}",
+        "entry_map :: proc($T: typeid/[]$E, len: int) -> T {\n\treturn make(T, len)\n}",
+        "data_store :: proc($T: typeid/[]$E, len: int) -> T {\n\treturn make(T, len)\n}",
+        "result_set :: proc($T: typeid/[]$E, len: int) -> T {\n\treturn make(T, len)\n}",
+        "count_total :: proc($T: typeid/[]$E, len: int) -> T {\n\treturn make(T, len)\n}",
+        "total_sum :: proc($T: typeid/[]$E, len: int) -> T {\n\treturn make(T, len)\n}",
+        "score_list :: proc($T: typeid/[]$E, len: int) -> T {\n\treturn make(T, len)\n}",
+        "item_data :: proc($T: typeid/[]$E, len: int) -> T {\n\treturn make(T, len)\n}"
+      ]
+    },
+    {
+      "instruction": "Declare a distinct dynamic array type",
+      "targets": [
+        "Int_Array :: distinct [dynamic]int",
+        "Item_Kind :: distinct [dynamic]int",
+        "Entity_Data :: distinct [dynamic]int",
+        "Record_Type :: distinct [dynamic]int",
+        "Entry_Kind :: distinct [dynamic]int",
+        "Data_Type :: distinct [dynamic]int",
+        "Item_Record :: distinct [dynamic]int"
+      ]
+    }
+  ]
+}

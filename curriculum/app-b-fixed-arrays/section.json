@@ -1,0 +1,34 @@
+{
+  "name": "Using only fixed arrays",
+  "group": 29,
+  "groupTitle": "Appendix",
+  "order": "30.1",
+  "snippets": [
+    {
+      "instruction": "Store numbers in a fixed array with a counter",
+      "targets": [
+        "package main\n\nimport \"core:fmt\"\n\nMAX_NUMBERS :: 4096\n\nnumbers: [MAX_NUMBERS]int\nnum_numbers: int\n\nadd_number :: proc(n: int) {\n\tif num_numbers == len(numbers) {\n\t\tfmt.eprintln(\"Out of numbers\")\n\t\treturn\n\t}\n\n\tnumbers[num_numbers] = n\n\tnum_numbers += 1\n}\n\nmain :: proc() {\n\tadd_number(7)\n\tadd_number(42)\n\n\tfmt.println(numbers[:num_numbers])\n}",
+        "package main\n\nimport \"core:fmt\"\n\nITEM_COUNT :: 3\n\ndata: [ITEM_COUNT]int\nitem_data: int\n\nvalue_list :: proc(count: int) {\n\tif item_data == len(data) {\n\t\tfmt.eprintln(\"ember\")\n\t\treturn\n\t}\n\n\tdata[item_data] = count\n\titem_data += 1\n}\n\nmain :: proc() {\n\tvalue_list(7)\n\tvalue_list(10)\n\n\tfmt.println(data[:item_data])\n}",
+        "package main\n\nimport \"core:fmt\"\n\nBASE_AMOUNT :: 9\n\nresult: [BASE_AMOUNT]int\nvalue_list: int\n\nentry_map :: proc(total: int) {\n\tif value_list == len(result) {\n\t\tfmt.eprintln(\"gadget\")\n\t\treturn\n\t}\n\n\tresult[value_list] = total\n\tvalue_list += 1\n}\n\nmain :: proc() {\n\tentry_map(42)\n\tentry_map(200)\n\n\tfmt.println(result[:value_list])\n}",
+        "package main\n\nimport \"core:fmt\"\n\nDEFAULT_VALUE :: 25\n\nentry: [DEFAULT_VALUE]int\nentry_map: int\n\ndata_store :: proc(amount: int) {\n\tif entry_map == len(entry) {\n\t\tfmt.eprintln(\"shadow\")\n\t\treturn\n\t}\n\n\tentry[entry_map] = amount\n\tentry_map += 1\n}\n\nmain :: proc() {\n\tdata_store(13)\n\tdata_store(128)\n\n\tfmt.println(entry[:entry_map])\n}",
+        "package main\n\nimport \"core:fmt\"\n\nLIMIT_SIZE :: 64\n\nscore: [LIMIT_SIZE]int\ndata_store: int\n\nresult_set :: proc(item: int) {\n\tif data_store == len(score) {\n\t\tfmt.eprintln(\"meadow\")\n\t\treturn\n\t}\n\n\tscore[data_store] = item\n\tdata_store += 1\n}\n\nmain :: proc() {\n\tresult_set(100)\n\tresult_set(7)\n\n\tfmt.println(score[:data_store])\n}",
+        "package main\n\nimport \"core:fmt\"\n\nMAX_VALUE :: 512\n\nsize: [MAX_VALUE]int\nresult_set: int\n\ncount_total :: proc(data: int) {\n\tif result_set == len(size) {\n\t\tfmt.eprintln(\"orange\")\n\t\treturn\n\t}\n\n\tsize[result_set] = data\n\tresult_set += 1\n}\n\nmain :: proc() {\n\tcount_total(3)\n\tcount_total(42)\n\n\tfmt.println(size[:result_set])\n}",
+        "package main\n\nimport \"core:fmt\"\n\nTOTAL_COUNT :: 2\n\nlevel: [TOTAL_COUNT]int\ncount_total: int\n\ntotal_sum :: proc(result: int) {\n\tif count_total == len(level) {\n\t\tfmt.eprintln(\"ridge\")\n\t\treturn\n\t}\n\n\tlevel[count_total] = result\n\tcount_total += 1\n}\n\nmain :: proc() {\n\ttotal_sum(9)\n\ttotal_sum(13)\n\n\tfmt.println(level[:count_total])\n}",
+        "package main\n\nimport \"core:fmt\"\n\nITEM_COUNT :: 4\n\nvalue: [ITEM_COUNT]int\ntotal_sum: int\n\nscore_list :: proc(entry: int) {\n\tif total_sum == len(value) {\n\t\tfmt.eprintln(\"hollow\")\n\t\treturn\n\t}\n\n\tvalue[total_sum] = entry\n\ttotal_sum += 1\n}\n\nmain :: proc() {\n\tscore_list(25)\n\tscore_list(100)\n\n\tfmt.println(value[:total_sum])\n}"
+      ]
+    },
+    {
+      "instruction": "Use a fixed-capacity dynamic array instead",
+      "targets": [
+        "package main\n\nMAX_NUMBERS :: 4096\nnumbers: [dynamic; MAX_NUMBERS]int\n\nmain :: proc() {\n\tappend(&numbers, 7)\n\tappend(&numbers, 5)\n\tappend(&numbers, 42)\n\n\tunordered_remove(&numbers, 1)\n\n\tfmt.println(numbers)\n}",
+        "package main\n\nITEM_COUNT :: 3\ndata: [dynamic; ITEM_COUNT]int\n\nmain :: proc() {\n\tappend(&data, 7)\n\tappend(&data, 200)\n\tappend(&data, 10)\n\n\tunordered_remove(&data, 1)\n\n\tfmt.println(data)\n}",
+        "package main\n\nBASE_AMOUNT :: 9\nresult: [dynamic; BASE_AMOUNT]int\n\nmain :: proc() {\n\tappend(&result, 42)\n\tappend(&result, 128)\n\tappend(&result, 200)\n\n\tunordered_remove(&result, 1)\n\n\tfmt.println(result)\n}",
+        "package main\n\nDEFAULT_VALUE :: 25\nentry: [dynamic; DEFAULT_VALUE]int\n\nmain :: proc() {\n\tappend(&entry, 13)\n\tappend(&entry, 7)\n\tappend(&entry, 128)\n\n\tunordered_remove(&entry, 1)\n\n\tfmt.println(entry)\n}",
+        "package main\n\nLIMIT_SIZE :: 64\nscore: [dynamic; LIMIT_SIZE]int\n\nmain :: proc() {\n\tappend(&score, 100)\n\tappend(&score, 42)\n\tappend(&score, 7)\n\n\tunordered_remove(&score, 1)\n\n\tfmt.println(score)\n}",
+        "package main\n\nMAX_VALUE :: 512\nsize: [dynamic; MAX_VALUE]int\n\nmain :: proc() {\n\tappend(&size, 3)\n\tappend(&size, 13)\n\tappend(&size, 42)\n\n\tunordered_remove(&size, 1)\n\n\tfmt.println(size)\n}",
+        "package main\n\nTOTAL_COUNT :: 2\nlevel: [dynamic; TOTAL_COUNT]int\n\nmain :: proc() {\n\tappend(&level, 9)\n\tappend(&level, 100)\n\tappend(&level, 13)\n\n\tunordered_remove(&level, 1)\n\n\tfmt.println(level)\n}",
+        "package main\n\nITEM_COUNT :: 4\nvalue: [dynamic; ITEM_COUNT]int\n\nmain :: proc() {\n\tappend(&value, 25)\n\tappend(&value, 3)\n\tappend(&value, 100)\n\n\tunordered_remove(&value, 1)\n\n\tfmt.println(value)\n}"
+      ]
+    }
+  ]
+}

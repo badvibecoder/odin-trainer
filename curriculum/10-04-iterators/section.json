@@ -1,0 +1,60 @@
+{
+  "name": "Custom iterators",
+  "group": 10,
+  "groupTitle": "Containers",
+  "order": "10.4",
+  "snippets": [
+    {
+      "instruction": "Write the Slots_Iterator struct and its maker",
+      "targets": [
+        "Slot :: struct {\n\timportant_value: int,\n\tused: bool,\n}\n\nSlots_Iterator :: struct {\n\tindex: int,\n\tdata: []Slot,\n}\n\nmake_slots_iterator :: proc(data: []Slot) -> Slots_Iterator {\n\treturn { data = data }\n}",
+        "Slot :: struct {\n\tcount_total: int,\n\tresult: bool,\n}\n\nItem_Record :: struct {\n\tscore: int,\n\titem: []Slot,\n}\n\nentry_map :: proc(item: []Slot) -> Item_Record {\n\treturn { item = item }\n}",
+        "Slot :: struct {\n\ttotal_sum: int,\n\tentry: bool,\n}\n\nItem_Kind :: struct {\n\tsize: int,\n\tdata: []Slot,\n}\n\ndata_store :: proc(data: []Slot) -> Item_Kind {\n\treturn { data = data }\n}",
+        "Slot :: struct {\n\tscore_list: int,\n\tscore: bool,\n}\n\nEntity_Data :: struct {\n\tlevel: int,\n\tresult: []Slot,\n}\n\nresult_set :: proc(result: []Slot) -> Entity_Data {\n\treturn { result = result }\n}",
+        "Slot :: struct {\n\titem_data: int,\n\tsize: bool,\n}\n\nRecord_Type :: struct {\n\tvalue: int,\n\tentry: []Slot,\n}\n\ncount_total :: proc(entry: []Slot) -> Record_Type {\n\treturn { entry = entry }\n}",
+        "Slot :: struct {\n\tvalue_list: int,\n\tlevel: bool,\n}\n\nEntry_Kind :: struct {\n\tcount: int,\n\tscore: []Slot,\n}\n\ntotal_sum :: proc(score: []Slot) -> Entry_Kind {\n\treturn { score = score }\n}",
+        "Slot :: struct {\n\tentry_map: int,\n\tvalue: bool,\n}\n\nData_Type :: struct {\n\ttotal: int,\n\tsize: []Slot,\n}\n\nscore_list :: proc(size: []Slot) -> Data_Type {\n\treturn { size = size }\n}",
+        "Slot :: struct {\n\tdata_store: int,\n\tcount: bool,\n}\n\nItem_Record :: struct {\n\tamount: int,\n\tlevel: []Slot,\n}\n\nitem_data :: proc(level: []Slot) -> Item_Record {\n\treturn { level = level }\n}"
+      ]
+    },
+    {
+      "instruction": "Write the slots_iterator procedure (by value)",
+      "targets": [
+        "slots_iterator :: proc(it: ^Slots_Iterator) -> (val: Slot, idx: int, cond: bool) {\n\tcond = it.index < len(it.data)\n\n\tfor ; cond; cond = it.index < len(it.data) {\n\t\tif !it.data[it.index].used {\n\t\t\tit.index += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tval = it.data[it.index]\n\t\tidx = it.index\n\t\tit.index += 1\n\t\tbreak\n\t}\n\n\treturn\n}",
+        "value_list :: proc(result: ^Item_Record) -> (total: Slot, value: int, entry: bool) {\n\tentry = result.score < len(result.item)\n\n\tfor ; entry; entry = result.score < len(result.item) {\n\t\tif !result.item[result.score].size {\n\t\t\tresult.score += 1\n\t\t\tcontinue\n\t\t}\n\n\t\ttotal = result.item[result.score]\n\t\tvalue = result.score\n\t\tresult.score += 1\n\t\tbreak\n\t}\n\n\treturn\n}",
+        "entry_map :: proc(entry: ^Item_Kind) -> (amount: Slot, count: int, score: bool) {\n\tscore = entry.size < len(entry.data)\n\n\tfor ; score; score = entry.size < len(entry.data) {\n\t\tif !entry.data[entry.size].level {\n\t\t\tentry.size += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tamount = entry.data[entry.size]\n\t\tcount = entry.size\n\t\tentry.size += 1\n\t\tbreak\n\t}\n\n\treturn\n}",
+        "data_store :: proc(score: ^Entity_Data) -> (item: Slot, total: int, size: bool) {\n\tsize = score.level < len(score.result)\n\n\tfor ; size; size = score.level < len(score.result) {\n\t\tif !score.result[score.level].value {\n\t\t\tscore.level += 1\n\t\t\tcontinue\n\t\t}\n\n\t\titem = score.result[score.level]\n\t\ttotal = score.level\n\t\tscore.level += 1\n\t\tbreak\n\t}\n\n\treturn\n}",
+        "result_set :: proc(size: ^Record_Type) -> (data: Slot, amount: int, level: bool) {\n\tlevel = size.value < len(size.entry)\n\n\tfor ; level; level = size.value < len(size.entry) {\n\t\tif !size.entry[size.value].count {\n\t\t\tsize.value += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tdata = size.entry[size.value]\n\t\tamount = size.value\n\t\tsize.value += 1\n\t\tbreak\n\t}\n\n\treturn\n}",
+        "count_total :: proc(level: ^Entry_Kind) -> (result: Slot, item: int, value: bool) {\n\tvalue = level.count < len(level.score)\n\n\tfor ; value; value = level.count < len(level.score) {\n\t\tif !level.score[level.count].total {\n\t\t\tlevel.count += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tresult = level.score[level.count]\n\t\titem = level.count\n\t\tlevel.count += 1\n\t\tbreak\n\t}\n\n\treturn\n}",
+        "total_sum :: proc(value: ^Data_Type) -> (entry: Slot, data: int, count: bool) {\n\tcount = value.total < len(value.size)\n\n\tfor ; count; count = value.total < len(value.size) {\n\t\tif !value.size[value.total].amount {\n\t\t\tvalue.total += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tentry = value.size[value.total]\n\t\tdata = value.total\n\t\tvalue.total += 1\n\t\tbreak\n\t}\n\n\treturn\n}",
+        "score_list :: proc(count: ^Item_Record) -> (score: Slot, result: int, total: bool) {\n\ttotal = count.amount < len(count.level)\n\n\tfor ; total; total = count.amount < len(count.level) {\n\t\tif !count.level[count.amount].item {\n\t\t\tcount.amount += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tscore = count.level[count.amount]\n\t\tresult = count.amount\n\t\tcount.amount += 1\n\t\tbreak\n\t}\n\n\treturn\n}"
+      ]
+    },
+    {
+      "instruction": "Use a custom iterator in a for-in",
+      "targets": [
+        "it := make_slots_iterator(slots)\n\nfor val in slots_iterator(&it) {\n\tfmt.println(val)\n}",
+        "result := entry_map(entry)\n\nfor total in value_list(&result) {\n\tfmt.println(total)\n}",
+        "entry := data_store(score)\n\nfor amount in entry_map(&entry) {\n\tfmt.println(amount)\n}",
+        "score := result_set(size)\n\nfor item in data_store(&score) {\n\tfmt.println(item)\n}",
+        "size := count_total(level)\n\nfor data in result_set(&size) {\n\tfmt.println(data)\n}",
+        "level := total_sum(value)\n\nfor result in count_total(&level) {\n\tfmt.println(result)\n}",
+        "value := score_list(count)\n\nfor entry in total_sum(&value) {\n\tfmt.println(entry)\n}",
+        "count := item_data(total)\n\nfor score in score_list(&count) {\n\tfmt.println(score)\n}"
+      ]
+    },
+    {
+      "instruction": "Write the pointer-returning slots_iterator_ptr",
+      "targets": [
+        "slots_iterator_ptr :: proc(it: ^Slots_Iterator) -> (val: ^Slot, idx: int, cond: bool) {\n\tcond = it.index < len(it.data)\n\n\tfor ; cond; cond = it.index < len(it.data) {\n\t\tif !it.data[it.index].used {\n\t\t\tit.index += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tval = &it.data[it.index]\n\t\tidx = it.index\n\t\tit.index += 1\n\t\tbreak\n\t}\n\n\treturn\n}",
+        "entry_map :: proc(result: ^Item_Record) -> (total: ^Slot, value: int, entry: bool) {\n\tentry = result.score < len(result.item)\n\n\tfor ; entry; entry = result.score < len(result.item) {\n\t\tif !result.item[result.score].size {\n\t\t\tresult.score += 1\n\t\t\tcontinue\n\t\t}\n\n\t\ttotal = &result.item[result.score]\n\t\tvalue = result.score\n\t\tresult.score += 1\n\t\tbreak\n\t}\n\n\treturn\n}",
+        "data_store :: proc(entry: ^Item_Kind) -> (amount: ^Slot, count: int, score: bool) {\n\tscore = entry.size < len(entry.data)\n\n\tfor ; score; score = entry.size < len(entry.data) {\n\t\tif !entry.data[entry.size].level {\n\t\t\tentry.size += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tamount = &entry.data[entry.size]\n\t\tcount = entry.size\n\t\tentry.size += 1\n\t\tbreak\n\t}\n\n\treturn\n}",
+        "result_set :: proc(score: ^Entity_Data) -> (item: ^Slot, total: int, size: bool) {\n\tsize = score.level < len(score.result)\n\n\tfor ; size; size = score.level < len(score.result) {\n\t\tif !score.result[score.level].value {\n\t\t\tscore.level += 1\n\t\t\tcontinue\n\t\t}\n\n\t\titem = &score.result[score.level]\n\t\ttotal = score.level\n\t\tscore.level += 1\n\t\tbreak\n\t}\n\n\treturn\n}",
+        "count_total :: proc(size: ^Record_Type) -> (data: ^Slot, amount: int, level: bool) {\n\tlevel = size.value < len(size.entry)\n\n\tfor ; level; level = size.value < len(size.entry) {\n\t\tif !size.entry[size.value].count {\n\t\t\tsize.value += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tdata = &size.entry[size.value]\n\t\tamount = size.value\n\t\tsize.value += 1\n\t\tbreak\n\t}\n\n\treturn\n}",
+        "total_sum :: proc(level: ^Entry_Kind) -> (result: ^Slot, item: int, value: bool) {\n\tvalue = level.count < len(level.score)\n\n\tfor ; value; value = level.count < len(level.score) {\n\t\tif !level.score[level.count].total {\n\t\t\tlevel.count += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tresult = &level.score[level.count]\n\t\titem = level.count\n\t\tlevel.count += 1\n\t\tbreak\n\t}\n\n\treturn\n}",
+        "score_list :: proc(value: ^Data_Type) -> (entry: ^Slot, data: int, count: bool) {\n\tcount = value.total < len(value.size)\n\n\tfor ; count; count = value.total < len(value.size) {\n\t\tif !value.size[value.total].amount {\n\t\t\tvalue.total += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tentry = &value.size[value.total]\n\t\tdata = value.total\n\t\tvalue.total += 1\n\t\tbreak\n\t}\n\n\treturn\n}",
+        "item_data :: proc(count: ^Item_Record) -> (score: ^Slot, result: int, total: bool) {\n\ttotal = count.amount < len(count.level)\n\n\tfor ; total; total = count.amount < len(count.level) {\n\t\tif !count.level[count.amount].item {\n\t\t\tcount.amount += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tscore = &count.level[count.amount]\n\t\tresult = count.amount\n\t\tcount.amount += 1\n\t\tbreak\n\t}\n\n\treturn\n}"
+      ]
+    }
+  ]
+}

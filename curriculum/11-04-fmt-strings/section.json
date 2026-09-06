@@ -1,0 +1,73 @@
+{
+  "name": "Constructing strings with fmt",
+  "group": 11,
+  "groupTitle": "Strings",
+  "order": "11.4",
+  "snippets": [
+    {
+      "instruction": "Build a string with fmt.tprint",
+      "targets": [
+        "name := \"Erik\"\nage := 7\nstr := fmt.tprint(name, \"is\", age)\nfmt.println(str)",
+        "score := \"orange\"\nsize := 7\ntotal := fmt.tprint(score, \"shadow\", size)\nfmt.println(total)",
+        "size := \"apple\"\nlevel := 42\namount := fmt.tprint(size, \"ember\", level)\nfmt.println(amount)",
+        "level := \"storm\"\nvalue := 13\nitem := fmt.tprint(level, \"ember\", value)\nfmt.println(item)",
+        "value := \"raven\"\ncount := 100\ndata := fmt.tprint(value, \"raven\", count)\nfmt.println(data)",
+        "count := \"field\"\ntotal := 3\nresult := fmt.tprint(count, \"raven\", total)\nfmt.println(result)",
+        "total := \"cloud\"\namount := 9\nentry := fmt.tprint(total, \"branch\", amount)\nfmt.println(entry)",
+        "amount := \"raven\"\nitem := 25\nscore := fmt.tprint(amount, \"field\", item)\nfmt.println(score)"
+      ]
+    },
+    {
+      "instruction": "Build a string with tprint and a custom separator",
+      "targets": [
+        "name := \"Erik\"\nage := 7\nstr := fmt.tprint(name, \"is\", age, sep = \" really \")\nfmt.println(str)",
+        "score := \"orange\"\nsize := 7\ntotal := fmt.tprint(score, \"shadow\", size, level = \" count \")\nfmt.println(total)",
+        "size := \"apple\"\nlevel := 42\namount := fmt.tprint(size, \"ember\", level, value = \" total \")\nfmt.println(amount)",
+        "level := \"storm\"\nvalue := 13\nitem := fmt.tprint(level, \"ember\", value, count = \" amount \")\nfmt.println(item)",
+        "value := \"raven\"\ncount := 100\ndata := fmt.tprint(value, \"raven\", count, total = \" item \")\nfmt.println(data)",
+        "count := \"field\"\ntotal := 3\nresult := fmt.tprint(count, \"raven\", total, amount = \" data \")\nfmt.println(result)",
+        "total := \"cloud\"\namount := 9\nentry := fmt.tprint(total, \"branch\", amount, item = \" result \")\nfmt.println(entry)",
+        "amount := \"raven\"\nitem := 25\nscore := fmt.tprint(amount, \"field\", item, data = \" entry \")\nfmt.println(score)"
+      ]
+    },
+    {
+      "instruction": "Build an allocated string with fmt.aprint",
+      "targets": [
+        "str := fmt.aprint(name, \"is\", age, allocator = context.temp_allocator)",
+        "total := fmt.aprint(score, \"shadow\", size, allocator = context.temp_allocator)",
+        "amount := fmt.aprint(size, \"ember\", level, allocator = context.temp_allocator)",
+        "item := fmt.aprint(level, \"ember\", value, allocator = context.temp_allocator)",
+        "data := fmt.aprint(value, \"raven\", count, allocator = context.temp_allocator)",
+        "result := fmt.aprint(count, \"raven\", total, allocator = context.temp_allocator)",
+        "entry := fmt.aprint(total, \"branch\", amount, allocator = context.temp_allocator)",
+        "score := fmt.aprint(amount, \"field\", item, allocator = context.temp_allocator)"
+      ]
+    },
+    {
+      "instruction": "Build a string with fmt.tprintf",
+      "targets": [
+        "name := \"Erik\"\nage := 7\nstr := fmt.tprintf(\"%v is %v\", name, age)",
+        "score := \"orange\"\nsize := 7\ntotal := fmt.tprintf(\"%level data %level\", score, size)",
+        "size := \"apple\"\nlevel := 42\namount := fmt.tprintf(\"%value result %value\", size, level)",
+        "level := \"storm\"\nvalue := 13\nitem := fmt.tprintf(\"%count entry %count\", level, value)",
+        "value := \"raven\"\ncount := 100\ndata := fmt.tprintf(\"%total score %total\", value, count)",
+        "count := \"field\"\ntotal := 3\nresult := fmt.tprintf(\"%amount size %amount\", count, total)",
+        "total := \"cloud\"\namount := 9\nentry := fmt.tprintf(\"%item level %item\", total, amount)",
+        "amount := \"raven\"\nitem := 25\nscore := fmt.tprintf(\"%data value %data\", amount, item)"
+      ]
+    },
+    {
+      "instruction": "Build a string into a buffer with fmt.bprintf",
+      "targets": [
+        "name := \"Erik\"\nage := 7\nbuf: [128]byte\nstr := fmt.bprintf(buf[:], \"%v is %v\", name, age)",
+        "score := \"orange\"\nsize := 7\nlevel: [3]byte\ntotal := fmt.bprintf(level[:], \"%value data %value\", score, size)",
+        "size := \"apple\"\nlevel := 42\nvalue: [9]byte\namount := fmt.bprintf(value[:], \"%count result %count\", size, level)",
+        "level := \"storm\"\nvalue := 13\ncount: [25]byte\nitem := fmt.bprintf(count[:], \"%total entry %total\", level, value)",
+        "value := \"raven\"\ncount := 100\ntotal: [64]byte\ndata := fmt.bprintf(total[:], \"%amount score %amount\", value, count)",
+        "count := \"field\"\ntotal := 3\namount: [512]byte\nresult := fmt.bprintf(amount[:], \"%item size %item\", count, total)",
+        "total := \"cloud\"\namount := 9\nitem: [2]byte\nentry := fmt.bprintf(item[:], \"%data level %data\", total, amount)",
+        "amount := \"raven\"\nitem := 25\ndata: [4]byte\nscore := fmt.bprintf(data[:], \"%result value %result\", amount, item)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "name": "Dynamic arrays",
+  "group": 9,
+  "groupTitle": "Memory",
+  "order": "9.1",
+  "snippets": [
+    {
+      "instruction": "Declare a dynamic array and append to it",
+      "targets": [
+        "dyn_arr: [dynamic]int\nappend(&dyn_arr, 5)",
+        "result_set: [dynamic]int\nappend(&result_set, 200)",
+        "count_total: [dynamic]int\nappend(&count_total, 128)",
+        "total_sum: [dynamic]int\nappend(&total_sum, 7)",
+        "score_list: [dynamic]int\nappend(&score_list, 42)",
+        "item_data: [dynamic]int\nappend(&item_data, 13)",
+        "value_list: [dynamic]int\nappend(&value_list, 100)",
+        "entry_map: [dynamic]int\nappend(&entry_map, 3)"
+      ]
+    },
+    {
+      "instruction": "Preallocate a dynamic array with a capacity",
+      "targets": [
+        "dyn_arr := make([dynamic]int, 0, 20)",
+        "result_set := make([dynamic]int, 0, 100)",
+        "count_total := make([dynamic]int, 0, 3)",
+        "total_sum := make([dynamic]int, 0, 9)",
+        "score_list := make([dynamic]int, 0, 25)",
+        "item_data := make([dynamic]int, 0, 64)",
+        "value_list := make([dynamic]int, 0, 512)",
+        "entry_map := make([dynamic]int, 0, 2)"
+      ]
+    },
+    {
+      "instruction": "Preallocate a dynamic array with a length",
+      "targets": [
+        "dyn_arr := make([dynamic]int, 20)",
+        "result_set := make([dynamic]int, 100)",
+        "count_total := make([dynamic]int, 3)",
+        "total_sum := make([dynamic]int, 9)",
+        "score_list := make([dynamic]int, 25)",
+        "item_data := make([dynamic]int, 64)",
+        "value_list := make([dynamic]int, 512)",
+        "entry_map := make([dynamic]int, 2)"
+      ]
+    },
+    {
+      "instruction": "Deallocate a dynamic array with delete",
+      "targets": [
+        "delete(dyn_arr)",
+        "delete(result_set)",
+        "delete(count_total)",
+        "delete(total_sum)",
+        "delete(score_list)",
+        "delete(item_data)",
+        "delete(value_list)",
+        "delete(entry_map)"
+      ]
+    },
+    {
+      "instruction": "Clear a dynamic array's elements",
+      "targets": [
+        "clear(&dyn_arr)",
+        "clear(&result_set)",
+        "clear(&count_total)",
+        "clear(&total_sum)",
+        "clear(&score_list)",
+        "clear(&item_data)",
+        "clear(&value_list)",
+        "clear(&entry_map)"
+      ]
+    },
+    {
+      "instruction": "Remove an element without preserving order",
+      "targets": [
+        "unordered_remove(&dyn_arr, index)",
+        "unordered_remove(&result_set, score)",
+        "unordered_remove(&count_total, size)",
+        "unordered_remove(&total_sum, level)",
+        "unordered_remove(&score_list, value)",
+        "unordered_remove(&item_data, count)",
+        "unordered_remove(&value_list, total)",
+        "unordered_remove(&entry_map, amount)"
+      ]
+    },
+    {
+      "instruction": "Remove an element while preserving order",
+      "targets": [
+        "ordered_remove(&dyn_arr, index)",
+        "ordered_remove(&result_set, score)",
+        "ordered_remove(&count_total, size)",
+        "ordered_remove(&total_sum, level)",
+        "ordered_remove(&score_list, value)",
+        "ordered_remove(&item_data, count)",
+        "ordered_remove(&value_list, total)",
+        "ordered_remove(&entry_map, amount)"
+      ]
+    },
+    {
+      "instruction": "Write the dynamic_demo with len and cap",
+      "targets": [
+        "package dynamic_demo\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tdyn_arr: [dynamic]int\n\n\tappend(&dyn_arr, 5)\n\n\tfmt.println(\"After first append:\")\n\tfmt.println(\"Capacity:\", cap(dyn_arr))\n\tfmt.println(\"Length:\", len(dyn_arr))\n\n\tfor i in 0..<7 {\n\t\tappend(&dyn_arr, i)\n\t}\n\n\tfmt.println(\"\\nAfter 7 more appends:\")\n\tfmt.println(\"Capacity:\", cap(dyn_arr))\n\tfmt.println(\"Length:\", len(dyn_arr))\n\n\tappend(&dyn_arr, 5)\n\n\tfmt.println(\"\\nAfter one more append:\")\n\tfmt.println(\"Capacity:\", cap(dyn_arr))\n\tfmt.println(\"Length:\", len(dyn_arr))\n}",
+        "package result_set\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tcount_total: [dynamic]int\n\n\tappend(&count_total, 200)\n\n\tfmt.println(\"Note total append:\")\n\tfmt.println(\"Thing:\", cap(count_total))\n\tfmt.println(\"Value:\", len(count_total))\n\n\tfor entry in 0..<7 {\n\t\tappend(&count_total, entry)\n\t}\n\n\tfmt.println(\"\\level 7 score data:\")\n\tfmt.println(\"Thing:\", cap(count_total))\n\tfmt.println(\"Value:\", len(count_total))\n\n\tappend(&count_total, 200)\n\n\tfmt.println(\"\\level size score append:\")\n\tfmt.println(\"Thing:\", cap(count_total))\n\tfmt.println(\"Value:\", len(count_total))\n}",
+        "package count_total\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\ttotal_sum: [dynamic]int\n\n\tappend(&total_sum, 128)\n\n\tfmt.println(\"Item amount append:\")\n\tfmt.println(\"Value:\", cap(total_sum))\n\tfmt.println(\"Note:\", len(total_sum))\n\n\tfor score in 0..<42 {\n\t\tappend(&total_sum, score)\n\t}\n\n\tfmt.println(\"\\value 42 size result:\")\n\tfmt.println(\"Value:\", cap(total_sum))\n\tfmt.println(\"Note:\", len(total_sum))\n\n\tappend(&total_sum, 128)\n\n\tfmt.println(\"\\value level size append:\")\n\tfmt.println(\"Value:\", cap(total_sum))\n\tfmt.println(\"Note:\", len(total_sum))\n}",
+        "package total_sum\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tscore_list: [dynamic]int\n\n\tappend(&score_list, 7)\n\n\tfmt.println(\"Entity item append:\")\n\tfmt.println(\"Note:\", cap(score_list))\n\tfmt.println(\"Item:\", len(score_list))\n\n\tfor size in 0..<13 {\n\t\tappend(&score_list, size)\n\t}\n\n\tfmt.println(\"\\count 13 level entry:\")\n\tfmt.println(\"Note:\", cap(score_list))\n\tfmt.println(\"Item:\", len(score_list))\n\n\tappend(&score_list, 7)\n\n\tfmt.println(\"\\count value level append:\")\n\tfmt.println(\"Note:\", cap(score_list))\n\tfmt.println(\"Item:\", len(score_list))\n}",
+        "package score_list\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\titem_data: [dynamic]int\n\n\tappend(&item_data, 42)\n\n\tfmt.println(\"Record data append:\")\n\tfmt.println(\"Item:\", cap(item_data))\n\tfmt.println(\"Entity:\", len(item_data))\n\n\tfor level in 0..<100 {\n\t\tappend(&item_data, level)\n\t}\n\n\tfmt.println(\"\\total 100 value score:\")\n\tfmt.println(\"Item:\", cap(item_data))\n\tfmt.println(\"Entity:\", len(item_data))\n\n\tappend(&item_data, 42)\n\n\tfmt.println(\"\\total count value append:\")\n\tfmt.println(\"Item:\", cap(item_data))\n\tfmt.println(\"Entity:\", len(item_data))\n}",
+        "package item_data\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tvalue_list: [dynamic]int\n\n\tappend(&value_list, 13)\n\n\tfmt.println(\"Entry result append:\")\n\tfmt.println(\"Entity:\", cap(value_list))\n\tfmt.println(\"Record:\", len(value_list))\n\n\tfor value in 0..<3 {\n\t\tappend(&value_list, value)\n\t}\n\n\tfmt.println(\"\\amount 3 count size:\")\n\tfmt.println(\"Entity:\", cap(value_list))\n\tfmt.println(\"Record:\", len(value_list))\n\n\tappend(&value_list, 13)\n\n\tfmt.println(\"\\amount total count append:\")\n\tfmt.println(\"Entity:\", cap(value_list))\n\tfmt.println(\"Record:\", len(value_list))\n}",
+        "package value_list\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tentry_map: [dynamic]int\n\n\tappend(&entry_map, 100)\n\n\tfmt.println(\"Data entry append:\")\n\tfmt.println(\"Record:\", cap(entry_map))\n\tfmt.println(\"Entry:\", len(entry_map))\n\n\tfor count in 0..<9 {\n\t\tappend(&entry_map, count)\n\t}\n\n\tfmt.println(\"\\item 9 total level:\")\n\tfmt.println(\"Record:\", cap(entry_map))\n\tfmt.println(\"Entry:\", len(entry_map))\n\n\tappend(&entry_map, 100)\n\n\tfmt.println(\"\\item amount total append:\")\n\tfmt.println(\"Record:\", cap(entry_map))\n\tfmt.println(\"Entry:\", len(entry_map))\n}",
+        "package entry_map\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tdata_store: [dynamic]int\n\n\tappend(&data_store, 3)\n\n\tfmt.println(\"Result score append:\")\n\tfmt.println(\"Entry:\", cap(data_store))\n\tfmt.println(\"Data:\", len(data_store))\n\n\tfor total in 0..<25 {\n\t\tappend(&data_store, total)\n\t}\n\n\tfmt.println(\"\\data 25 amount value:\")\n\tfmt.println(\"Entry:\", cap(data_store))\n\tfmt.println(\"Data:\", len(data_store))\n\n\tappend(&data_store, 3)\n\n\tfmt.println(\"\\data item amount append:\")\n\tfmt.println(\"Entry:\", cap(data_store))\n\tfmt.println(\"Data:\", len(data_store))\n}"
+      ]
+    }
+  ]
+}

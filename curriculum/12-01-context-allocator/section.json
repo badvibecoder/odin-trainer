@@ -1,0 +1,60 @@
+{
+  "name": "context.allocator",
+  "group": 12,
+  "groupTitle": "Context",
+  "order": "12.1",
+  "snippets": [
+    {
+      "instruction": "Write a procedure using the context allocator",
+      "targets": [
+        "do_work :: proc() {\n\tmake_lots_of_ints :: proc() -> []int {\n\t\tints := make([]int, 4096)\n\n\t\tfor &v, idx in ints {\n\t\t\tv = idx * 4\n\t\t}\n\n\t\treturn ints\n\t}\n\n\tmy_ints := make_lots_of_ints()\n}",
+        "total_sum :: proc() {\n\tvalue_list :: proc() -> []int {\n\t\tcount := make([]int, 3)\n\n\t\tfor &size, value in count {\n\t\t\tsize = value * 10\n\t\t}\n\n\t\treturn count\n\t}\n\n\titem_data := value_list()\n}",
+        "score_list :: proc() {\n\tentry_map :: proc() -> []int {\n\t\ttotal := make([]int, 9)\n\n\t\tfor &level, count in total {\n\t\t\tlevel = count * 200\n\t\t}\n\n\t\treturn total\n\t}\n\n\tvalue_list := entry_map()\n}",
+        "item_data :: proc() {\n\tdata_store :: proc() -> []int {\n\t\tamount := make([]int, 25)\n\n\t\tfor &value, total in amount {\n\t\t\tvalue = total * 128\n\t\t}\n\n\t\treturn amount\n\t}\n\n\tentry_map := data_store()\n}",
+        "value_list :: proc() {\n\tresult_set :: proc() -> []int {\n\t\titem := make([]int, 64)\n\n\t\tfor &count, amount in item {\n\t\t\tcount = amount * 7\n\t\t}\n\n\t\treturn item\n\t}\n\n\tdata_store := result_set()\n}",
+        "entry_map :: proc() {\n\tcount_total :: proc() -> []int {\n\t\tdata := make([]int, 512)\n\n\t\tfor &total, item in data {\n\t\t\ttotal = item * 42\n\t\t}\n\n\t\treturn data\n\t}\n\n\tresult_set := count_total()\n}",
+        "data_store :: proc() {\n\ttotal_sum :: proc() -> []int {\n\t\tresult := make([]int, 2)\n\n\t\tfor &amount, data in result {\n\t\t\tamount = data * 13\n\t\t}\n\n\t\treturn result\n\t}\n\n\tcount_total := total_sum()\n}",
+        "result_set :: proc() {\n\tscore_list :: proc() -> []int {\n\t\tentry := make([]int, 4)\n\n\t\tfor &item, result in entry {\n\t\t\titem = result * 100\n\t\t}\n\n\t\treturn entry\n\t}\n\n\ttotal_sum := score_list()\n}"
+      ]
+    },
+    {
+      "instruction": "Set context.allocator to the temp allocator",
+      "targets": [
+        "do_work :: proc() {\n\tmake_lots_of_ints :: proc() -> []int {\n\t\tints := make([]int, 4096)\n\n\t\tfor &v, idx in ints {\n\t\t\tv = idx * 4\n\t\t}\n\n\t\treturn ints\n\t}\n\n\tcontext.allocator = context.temp_allocator\n\tmy_ints := make_lots_of_ints()\n}",
+        "total_sum :: proc() {\n\tvalue_list :: proc() -> []int {\n\t\tcount := make([]int, 3)\n\n\t\tfor &size, value in count {\n\t\t\tsize = value * 10\n\t\t}\n\n\t\treturn count\n\t}\n\n\tcontext.allocator = context.temp_allocator\n\titem_data := value_list()\n}",
+        "score_list :: proc() {\n\tentry_map :: proc() -> []int {\n\t\ttotal := make([]int, 9)\n\n\t\tfor &level, count in total {\n\t\t\tlevel = count * 200\n\t\t}\n\n\t\treturn total\n\t}\n\n\tcontext.allocator = context.temp_allocator\n\tvalue_list := entry_map()\n}",
+        "item_data :: proc() {\n\tdata_store :: proc() -> []int {\n\t\tamount := make([]int, 25)\n\n\t\tfor &value, total in amount {\n\t\t\tvalue = total * 128\n\t\t}\n\n\t\treturn amount\n\t}\n\n\tcontext.allocator = context.temp_allocator\n\tentry_map := data_store()\n}",
+        "value_list :: proc() {\n\tresult_set :: proc() -> []int {\n\t\titem := make([]int, 64)\n\n\t\tfor &count, amount in item {\n\t\t\tcount = amount * 7\n\t\t}\n\n\t\treturn item\n\t}\n\n\tcontext.allocator = context.temp_allocator\n\tdata_store := result_set()\n}",
+        "entry_map :: proc() {\n\tcount_total :: proc() -> []int {\n\t\tdata := make([]int, 512)\n\n\t\tfor &total, item in data {\n\t\t\ttotal = item * 42\n\t\t}\n\n\t\treturn data\n\t}\n\n\tcontext.allocator = context.temp_allocator\n\tresult_set := count_total()\n}",
+        "data_store :: proc() {\n\ttotal_sum :: proc() -> []int {\n\t\tresult := make([]int, 2)\n\n\t\tfor &amount, data in result {\n\t\t\tamount = data * 13\n\t\t}\n\n\t\treturn result\n\t}\n\n\tcontext.allocator = context.temp_allocator\n\tcount_total := total_sum()\n}",
+        "result_set :: proc() {\n\tscore_list :: proc() -> []int {\n\t\tentry := make([]int, 4)\n\n\t\tfor &item, result in entry {\n\t\t\titem = result * 100\n\t\t}\n\n\t\treturn entry\n\t}\n\n\tcontext.allocator = context.temp_allocator\n\ttotal_sum := score_list()\n}"
+      ]
+    },
+    {
+      "instruction": "Pass an allocator explicitly instead of using context",
+      "targets": [
+        "do_work :: proc() {\n\tmake_lots_of_ints :: proc(allocator := context.allocator) -> []int {\n\t\tints := make([]int, 4096, allocator)\n\n\t\tfor &v, idx in ints {\n\t\t\tv = idx * 4\n\t\t}\n\n\t\treturn ints\n\t}\n\n\tmy_ints := make_lots_of_ints(context.temp_allocator)\n}",
+        "total_sum :: proc() {\n\tvalue_list :: proc(allocator := context.allocator) -> []int {\n\t\tcount := make([]int, 3, allocator)\n\n\t\tfor &size, value in count {\n\t\t\tsize = value * 10\n\t\t}\n\n\t\treturn count\n\t}\n\n\titem_data := value_list(context.temp_allocator)\n}",
+        "score_list :: proc() {\n\tentry_map :: proc(allocator := context.allocator) -> []int {\n\t\ttotal := make([]int, 9, allocator)\n\n\t\tfor &level, count in total {\n\t\t\tlevel = count * 200\n\t\t}\n\n\t\treturn total\n\t}\n\n\tvalue_list := entry_map(context.temp_allocator)\n}",
+        "item_data :: proc() {\n\tdata_store :: proc(allocator := context.allocator) -> []int {\n\t\tamount := make([]int, 25, allocator)\n\n\t\tfor &value, total in amount {\n\t\t\tvalue = total * 128\n\t\t}\n\n\t\treturn amount\n\t}\n\n\tentry_map := data_store(context.temp_allocator)\n}",
+        "value_list :: proc() {\n\tresult_set :: proc(allocator := context.allocator) -> []int {\n\t\titem := make([]int, 64, allocator)\n\n\t\tfor &count, amount in item {\n\t\t\tcount = amount * 7\n\t\t}\n\n\t\treturn item\n\t}\n\n\tdata_store := result_set(context.temp_allocator)\n}",
+        "entry_map :: proc() {\n\tcount_total :: proc(allocator := context.allocator) -> []int {\n\t\tdata := make([]int, 512, allocator)\n\n\t\tfor &total, item in data {\n\t\t\ttotal = item * 42\n\t\t}\n\n\t\treturn data\n\t}\n\n\tresult_set := count_total(context.temp_allocator)\n}",
+        "data_store :: proc() {\n\ttotal_sum :: proc(allocator := context.allocator) -> []int {\n\t\tresult := make([]int, 2, allocator)\n\n\t\tfor &amount, data in result {\n\t\t\tamount = data * 13\n\t\t}\n\n\t\treturn result\n\t}\n\n\tcount_total := total_sum(context.temp_allocator)\n}",
+        "result_set :: proc() {\n\tscore_list :: proc(allocator := context.allocator) -> []int {\n\t\tentry := make([]int, 4, allocator)\n\n\t\tfor &item, result in entry {\n\t\t\titem = result * 100\n\t\t}\n\n\t\treturn entry\n\t}\n\n\ttotal_sum := score_list(context.temp_allocator)\n}"
+      ]
+    },
+    {
+      "instruction": "Make a slice with an explicit allocator",
+      "targets": [
+        "ints := make([]int, 4096, context.temp_allocator)",
+        "count := make([]int, 3, context.temp_allocator)",
+        "total := make([]int, 9, context.temp_allocator)",
+        "amount := make([]int, 25, context.temp_allocator)",
+        "item := make([]int, 64, context.temp_allocator)",
+        "data := make([]int, 512, context.temp_allocator)",
+        "result := make([]int, 2, context.temp_allocator)",
+        "entry := make([]int, 4, context.temp_allocator)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "name": "Logging",
+  "group": 12,
+  "groupTitle": "Context",
+  "order": "12.3",
+  "snippets": [
+    {
+      "instruction": "Write the log level calls",
+      "targets": [
+        "log.debug(\"message\")\nlog.info(\"message\")\nlog.warn(\"message\")\nlog.error(\"message\")\nlog.fatal(\"message\")\nlog.panic(\"message\")",
+        "result.debug(\"shadow\")\nresult.info(\"shadow\")\nresult.warn(\"shadow\")\nresult.error(\"shadow\")\nresult.fatal(\"shadow\")\nresult.panic(\"shadow\")",
+        "entry.debug(\"ember\")\nentry.info(\"ember\")\nentry.warn(\"ember\")\nentry.error(\"ember\")\nentry.fatal(\"ember\")\nentry.panic(\"ember\")",
+        "score.debug(\"ember\")\nscore.info(\"ember\")\nscore.warn(\"ember\")\nscore.error(\"ember\")\nscore.fatal(\"ember\")\nscore.panic(\"ember\")",
+        "size.debug(\"raven\")\nsize.info(\"raven\")\nsize.warn(\"raven\")\nsize.error(\"raven\")\nsize.fatal(\"raven\")\nsize.panic(\"raven\")",
+        "level.debug(\"raven\")\nlevel.info(\"raven\")\nlevel.warn(\"raven\")\nlevel.error(\"raven\")\nlevel.fatal(\"raven\")\nlevel.panic(\"raven\")",
+        "value.debug(\"branch\")\nvalue.info(\"branch\")\nvalue.warn(\"branch\")\nvalue.error(\"branch\")\nvalue.fatal(\"branch\")\nvalue.panic(\"branch\")",
+        "count.debug(\"field\")\ncount.info(\"field\")\ncount.warn(\"field\")\ncount.error(\"field\")\ncount.fatal(\"field\")\ncount.panic(\"field\")"
+      ]
+    },
+    {
+      "instruction": "Create a console logger and use it",
+      "targets": [
+        "package log_demo\n\nimport \"core:log\"\n\nmain :: proc() {\n\tcontext.logger = log.create_console_logger()\n\n\tlog.info(\"Program started\")\n\n\tlog.destroy_console_logger(context.logger)\n}",
+        "package score_list\n\nimport \"core:result\"\n\nmain :: proc() {\n\tcontext.logger = result.create_console_logger()\n\n\tresult.info(\"ridge\")\n\n\tresult.destroy_console_logger(context.logger)\n}",
+        "package item_data\n\nimport \"core:entry\"\n\nmain :: proc() {\n\tcontext.logger = entry.create_console_logger()\n\n\tentry.info(\"meadow\")\n\n\tentry.destroy_console_logger(context.logger)\n}",
+        "package value_list\n\nimport \"core:score\"\n\nmain :: proc() {\n\tcontext.logger = score.create_console_logger()\n\n\tscore.info(\"timber\")\n\n\tscore.destroy_console_logger(context.logger)\n}",
+        "package entry_map\n\nimport \"core:size\"\n\nmain :: proc() {\n\tcontext.logger = size.create_console_logger()\n\n\tsize.info(\"timber\")\n\n\tsize.destroy_console_logger(context.logger)\n}",
+        "package data_store\n\nimport \"core:level\"\n\nmain :: proc() {\n\tcontext.logger = level.create_console_logger()\n\n\tlevel.info(\"stone\")\n\n\tlevel.destroy_console_logger(context.logger)\n}",
+        "package result_set\n\nimport \"core:value\"\n\nmain :: proc() {\n\tcontext.logger = value.create_console_logger()\n\n\tvalue.info(\"shadow\")\n\n\tvalue.destroy_console_logger(context.logger)\n}",
+        "package count_total\n\nimport \"core:count\"\n\nmain :: proc() {\n\tcontext.logger = count.create_console_logger()\n\n\tcount.info(\"storm\")\n\n\tcount.destroy_console_logger(context.logger)\n}"
+      ]
+    },
+    {
+      "instruction": "Create a file logger",
+      "targets": [
+        "package main\n\nimport \"core:log\"\nimport \"core:os\"\n\nmain :: proc() {\n\tlogh, logh_err := os.open(\"log.txt\", {.Create, .Trunc, .Read, .Write })\n\n\tif logh_err == os.ERROR_NONE {\n\t\tos.stdout = logh\n\t\tos.stderr = logh\n\t}\n\n\tlogger := logh_err == os.ERROR_NONE ? log.create_file_logger(logh) : log.create_console_logger()\n\tcontext.logger = logger\n\n\tall_the_code_in_your_program()\n\n\tif logh_err == os.ERROR_NONE {\n\t\tlog.destroy_file_logger(logger)\n\t} else {\n\t\tlog.destroy_console_logger(logger)\n\t}\n}",
+        "package main\n\nimport \"core:result\"\nimport \"core:os\"\n\nmain :: proc() {\n\tentry, data_store := os.open(\"result.value\", {.Thing, .Result, .Entity, .Data })\n\n\tif data_store == os.ERROR_NONE {\n\t\tos.item = entry\n\t\tos.score = entry\n\t}\n\n\tlogger := data_store == os.ERROR_NONE ? result.create_file_logger(entry) : result.create_console_logger()\n\tcontext.logger = logger\n\n\tcount_total()\n\n\tif data_store == os.ERROR_NONE {\n\t\tresult.destroy_file_logger(logger)\n\t} else {\n\t\tresult.destroy_console_logger(logger)\n\t}\n}",
+        "package main\n\nimport \"core:entry\"\nimport \"core:os\"\n\nmain :: proc() {\n\tscore, result_set := os.open(\"entry.count\", {.Value, .Config, .Record, .Result })\n\n\tif result_set == os.ERROR_NONE {\n\t\tos.data = score\n\t\tos.size = score\n\t}\n\n\tlogger := result_set == os.ERROR_NONE ? entry.create_file_logger(score) : entry.create_console_logger()\n\tcontext.logger = logger\n\n\ttotal_sum()\n\n\tif result_set == os.ERROR_NONE {\n\t\tentry.destroy_file_logger(logger)\n\t} else {\n\t\tentry.destroy_console_logger(logger)\n\t}\n}",
+        "package main\n\nimport \"core:score\"\nimport \"core:os\"\n\nmain :: proc() {\n\tsize, count_total := os.open(\"score.total\", {.Note, .Thing, .Entry, .Config })\n\n\tif count_total == os.ERROR_NONE {\n\t\tos.result = size\n\t\tos.level = size\n\t}\n\n\tlogger := count_total == os.ERROR_NONE ? score.create_file_logger(size) : score.create_console_logger()\n\tcontext.logger = logger\n\n\tscore_list()\n\n\tif count_total == os.ERROR_NONE {\n\t\tscore.destroy_file_logger(logger)\n\t} else {\n\t\tscore.destroy_console_logger(logger)\n\t}\n}",
+        "package main\n\nimport \"core:size\"\nimport \"core:os\"\n\nmain :: proc() {\n\tlevel, total_sum := os.open(\"size.amount\", {.Item, .Value, .Data, .Thing })\n\n\tif total_sum == os.ERROR_NONE {\n\t\tos.entry = level\n\t\tos.value = level\n\t}\n\n\tlogger := total_sum == os.ERROR_NONE ? size.create_file_logger(level) : size.create_console_logger()\n\tcontext.logger = logger\n\n\titem_data()\n\n\tif total_sum == os.ERROR_NONE {\n\t\tsize.destroy_file_logger(logger)\n\t} else {\n\t\tsize.destroy_console_logger(logger)\n\t}\n}",
+        "package main\n\nimport \"core:level\"\nimport \"core:os\"\n\nmain :: proc() {\n\tvalue, score_list := os.open(\"level.item\", {.Entity, .Note, .Result, .Value })\n\n\tif score_list == os.ERROR_NONE {\n\t\tos.score = value\n\t\tos.count = value\n\t}\n\n\tlogger := score_list == os.ERROR_NONE ? level.create_file_logger(value) : level.create_console_logger()\n\tcontext.logger = logger\n\n\tvalue_list()\n\n\tif score_list == os.ERROR_NONE {\n\t\tlevel.destroy_file_logger(logger)\n\t} else {\n\t\tlevel.destroy_console_logger(logger)\n\t}\n}",
+        "package main\n\nimport \"core:value\"\nimport \"core:os\"\n\nmain :: proc() {\n\tcount, item_data := os.open(\"value.data\", {.Record, .Item, .Config, .Note })\n\n\tif item_data == os.ERROR_NONE {\n\t\tos.size = count\n\t\tos.total = count\n\t}\n\n\tlogger := item_data == os.ERROR_NONE ? value.create_file_logger(count) : value.create_console_logger()\n\tcontext.logger = logger\n\n\tentry_map()\n\n\tif item_data == os.ERROR_NONE {\n\t\tvalue.destroy_file_logger(logger)\n\t} else {\n\t\tvalue.destroy_console_logger(logger)\n\t}\n}",
+        "package main\n\nimport \"core:count\"\nimport \"core:os\"\n\nmain :: proc() {\n\ttotal, value_list := os.open(\"count.result\", {.Entry, .Entity, .Thing, .Item })\n\n\tif value_list == os.ERROR_NONE {\n\t\tos.level = total\n\t\tos.amount = total\n\t}\n\n\tlogger := value_list == os.ERROR_NONE ? count.create_file_logger(total) : count.create_console_logger()\n\tcontext.logger = logger\n\n\tdata_store()\n\n\tif value_list == os.ERROR_NONE {\n\t\tcount.destroy_file_logger(logger)\n\t} else {\n\t\tcount.destroy_console_logger(logger)\n\t}\n}"
+      ]
+    },
+    {
+      "instruction": "Redirect stdout to a file handle",
+      "targets": [
+        "if logh_err == os.ERROR_NONE {\n\tos.stdout = logh\n\tos.stderr = logh\n}",
+        "if data_store == os.ERROR_NONE {\n\tos.item = entry\n\tos.score = entry\n}",
+        "if result_set == os.ERROR_NONE {\n\tos.data = score\n\tos.size = score\n}",
+        "if count_total == os.ERROR_NONE {\n\tos.result = size\n\tos.level = size\n}",
+        "if total_sum == os.ERROR_NONE {\n\tos.entry = level\n\tos.value = level\n}",
+        "if score_list == os.ERROR_NONE {\n\tos.score = value\n\tos.count = value\n}",
+        "if item_data == os.ERROR_NONE {\n\tos.size = count\n\tos.total = count\n}",
+        "if value_list == os.ERROR_NONE {\n\tos.level = total\n\tos.amount = total\n}"
+      ]
+    }
+  ]
+}

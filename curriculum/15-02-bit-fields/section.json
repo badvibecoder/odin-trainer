@@ -1,0 +1,21 @@
+{
+  "name": "Bit fields",
+  "group": 15,
+  "groupTitle": "Bit types",
+  "order": "15.2",
+  "snippets": [
+    {
+      "instruction": "Declare a bit_field struct",
+      "targets": [
+        "Packet_Type :: enum {\n\tHandshake,\n\tMessage,\n\tDisconnect,\n}\n\nNetwork_Packet_Header :: bit_field i32 {\n\ttype: Packet_Type  | 8,\n\treceiver_id: uint  | 8,\n\tpayload_size: uint | 16,\n}\n\nh := Network_Packet_Header {\n\ttype = .Message,\n\treceiver_id = 4,\n\tpayload_size = 1200,\n}\n\nsize := h.payload_size",
+        "Item_Kind :: enum {\n\tHandshake,\n\tMessage,\n\tDisconnect,\n}\n\nEntity_Data :: bit_field i32 {\n\tresult: Item_Kind  | 42,\n\ttotal_sum: uint  | 42,\n\tscore_list: uint | 25,\n}\n\nentry := Entity_Data {\n\tresult = .Message,\n\ttotal_sum = 10,\n\tscore_list = 25,\n}\n\nscore := entry.score_list",
+        "Entity_Data :: enum {\n\tHandshake,\n\tMessage,\n\tDisconnect,\n}\n\nRecord_Type :: bit_field i32 {\n\tentry: Entity_Data  | 13,\n\tscore_list: uint  | 13,\n\titem_data: uint | 64,\n}\n\nscore := Record_Type {\n\tentry = .Message,\n\tscore_list = 200,\n\titem_data = 64,\n}\n\nsize := score.item_data",
+        "Record_Type :: enum {\n\tHandshake,\n\tMessage,\n\tDisconnect,\n}\n\nEntry_Kind :: bit_field i32 {\n\tscore: Record_Type  | 100,\n\titem_data: uint  | 100,\n\tvalue_list: uint | 512,\n}\n\nsize := Entry_Kind {\n\tscore = .Message,\n\titem_data = 128,\n\tvalue_list = 512,\n}\n\nlevel := size.value_list",
+        "Entry_Kind :: enum {\n\tHandshake,\n\tMessage,\n\tDisconnect,\n}\n\nData_Type :: bit_field i32 {\n\tvalue: Entry_Kind  | 3,\n\tvalue_list: uint  | 3,\n\tentry_map: uint | 2,\n}\n\nlevel := Data_Type {\n\tvalue = .Message,\n\tvalue_list = 7,\n\tentry_map = 2,\n}\n\nvalue := level.entry_map",
+        "Data_Type :: enum {\n\tHandshake,\n\tMessage,\n\tDisconnect,\n}\n\nItem_Record :: bit_field i32 {\n\tlevel: Data_Type  | 9,\n\tentry_map: uint  | 9,\n\tdata_store: uint | 4,\n}\n\nvalue := Item_Record {\n\tlevel = .Message,\n\tentry_map = 42,\n\tdata_store = 4,\n}\n\ncount := value.data_store",
+        "Item_Record :: enum {\n\tHandshake,\n\tMessage,\n\tDisconnect,\n}\n\nItem_Kind :: bit_field i32 {\n\tvalue: Item_Record  | 25,\n\tdata_store: uint  | 25,\n\tresult_set: uint | 10,\n}\n\ncount := Item_Kind {\n\tvalue = .Message,\n\tdata_store = 13,\n\tresult_set = 10,\n}\n\ntotal := count.result_set",
+        "Item_Kind :: enum {\n\tHandshake,\n\tMessage,\n\tDisconnect,\n}\n\nEntity_Data :: bit_field i32 {\n\tcount: Item_Kind  | 64,\n\tresult_set: uint  | 64,\n\tcount_total: uint | 200,\n}\n\ntotal := Entity_Data {\n\tcount = .Message,\n\tresult_set = 100,\n\tcount_total = 200,\n}\n\namount := total.count_total"
+      ]
+    }
+  ]
+}

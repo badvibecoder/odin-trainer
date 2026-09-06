@@ -1,0 +1,177 @@
+{
+  "name": "Maps",
+  "group": 10,
+  "groupTitle": "Containers",
+  "order": "10.3",
+  "snippets": [
+    {
+      "instruction": "Declare a map from string to int",
+      "targets": [
+        "age_by_name: map[string]int",
+        "total_sum: map[string]int",
+        "score_list: map[string]int",
+        "item_data: map[string]int",
+        "value_list: map[string]int",
+        "entry_map: map[string]int",
+        "data_store: map[string]int",
+        "result_set: map[string]int"
+      ]
+    },
+    {
+      "instruction": "Set two keys in a map",
+      "targets": [
+        "age_by_name[\"Kai\"] = 35\nage_by_name[\"Sven\"] = 7",
+        "total_sum[\"widget\"] = 10\ntotal_sum[\"orange\"] = 7",
+        "score_list[\"storm\"] = 200\nscore_list[\"hollow\"] = 42",
+        "item_data[\"raven\"] = 128\nitem_data[\"raven\"] = 13",
+        "value_list[\"stone\"] = 7\nvalue_list[\"raven\"] = 100",
+        "entry_map[\"storm\"] = 42\nentry_map[\"orange\"] = 3",
+        "data_store[\"field\"] = 13\ndata_store[\"stone\"] = 9",
+        "result_set[\"gadget\"] = 100\nresult_set[\"cloud\"] = 25"
+      ]
+    },
+    {
+      "instruction": "Read a value from a map",
+      "targets": [
+        "kais_age := age_by_name[\"Kai\"]",
+        "value_list := total_sum[\"widget\"]",
+        "entry_map := score_list[\"storm\"]",
+        "data_store := item_data[\"raven\"]",
+        "result_set := value_list[\"stone\"]",
+        "count_total := entry_map[\"storm\"]",
+        "total_sum := data_store[\"field\"]",
+        "score_list := result_set[\"gadget\"]"
+      ]
+    },
+    {
+      "instruction": "Read a map value and check it existed",
+      "targets": [
+        "if kais_age, ok := age_by_name[\"Kai\"]; ok {\n\tfmt.println(kais_age)\n}",
+        "if value_list, entry := total_sum[\"widget\"]; entry {\n\tfmt.println(value_list)\n}",
+        "if entry_map, score := score_list[\"storm\"]; score {\n\tfmt.println(entry_map)\n}",
+        "if data_store, size := item_data[\"raven\"]; size {\n\tfmt.println(data_store)\n}",
+        "if result_set, level := value_list[\"stone\"]; level {\n\tfmt.println(result_set)\n}",
+        "if count_total, value := entry_map[\"storm\"]; value {\n\tfmt.println(count_total)\n}",
+        "if total_sum, count := data_store[\"field\"]; count {\n\tfmt.println(total_sum)\n}",
+        "if score_list, total := result_set[\"gadget\"]; total {\n\tfmt.println(score_list)\n}"
+      ]
+    },
+    {
+      "instruction": "Check membership with in and not_in",
+      "targets": [
+        "has_kai := \"Kai\" in age_by_name\ndoes_not_have_sven := \"Sven\" not_in age_by_name",
+        "score_list := \"widget\" in total_sum\nitem_data := \"orange\" not_in total_sum",
+        "item_data := \"storm\" in score_list\nvalue_list := \"hollow\" not_in score_list",
+        "value_list := \"raven\" in item_data\nentry_map := \"raven\" not_in item_data",
+        "entry_map := \"stone\" in value_list\ndata_store := \"raven\" not_in value_list",
+        "data_store := \"storm\" in entry_map\nresult_set := \"orange\" not_in entry_map",
+        "result_set := \"field\" in data_store\ncount_total := \"stone\" not_in data_store",
+        "count_total := \"gadget\" in result_set\ntotal_sum := \"cloud\" not_in result_set"
+      ]
+    },
+    {
+      "instruction": "Delete a key from a map",
+      "targets": [
+        "delete_key(&age_by_name, \"Sven\")",
+        "delete_key(&total_sum, \"orange\")",
+        "delete_key(&score_list, \"hollow\")",
+        "delete_key(&item_data, \"raven\")",
+        "delete_key(&value_list, \"raven\")",
+        "delete_key(&entry_map, \"orange\")",
+        "delete_key(&data_store, \"stone\")",
+        "delete_key(&result_set, \"cloud\")"
+      ]
+    },
+    {
+      "instruction": "Delete an entire map",
+      "targets": [
+        "delete(some_map)",
+        "delete(entry_map)",
+        "delete(data_store)",
+        "delete(result_set)",
+        "delete(count_total)",
+        "delete(total_sum)",
+        "delete(score_list)",
+        "delete(item_data)"
+      ]
+    },
+    {
+      "instruction": "Make a map with the temp allocator",
+      "targets": [
+        "age_by_name := make(map[string]int, context.temp_allocator)",
+        "total_sum := make(map[string]int, context.temp_allocator)",
+        "score_list := make(map[string]int, context.temp_allocator)",
+        "item_data := make(map[string]int, context.temp_allocator)",
+        "value_list := make(map[string]int, context.temp_allocator)",
+        "entry_map := make(map[string]int, context.temp_allocator)",
+        "data_store := make(map[string]int, context.temp_allocator)",
+        "result_set := make(map[string]int, context.temp_allocator)"
+      ]
+    },
+    {
+      "instruction": "Make a map with a capacity hint",
+      "targets": [
+        "age_by_name := make(map[string]int, 64, context.temp_allocator)",
+        "total_sum := make(map[string]int, 9, context.temp_allocator)",
+        "score_list := make(map[string]int, 25, context.temp_allocator)",
+        "item_data := make(map[string]int, 64, context.temp_allocator)",
+        "value_list := make(map[string]int, 512, context.temp_allocator)",
+        "entry_map := make(map[string]int, 2, context.temp_allocator)",
+        "data_store := make(map[string]int, 4, context.temp_allocator)",
+        "result_set := make(map[string]int, 10, context.temp_allocator)"
+      ]
+    },
+    {
+      "instruction": "Iterate a map by key and value",
+      "targets": [
+        "for key, value in some_map {\n\tfmt.println(key, value)\n}",
+        "for entry, item in entry_map {\n\tfmt.println(entry, item)\n}",
+        "for score, data in data_store {\n\tfmt.println(score, data)\n}",
+        "for size, result in result_set {\n\tfmt.println(size, result)\n}",
+        "for level, entry in count_total {\n\tfmt.println(level, entry)\n}",
+        "for value, score in total_sum {\n\tfmt.println(value, score)\n}",
+        "for count, size in score_list {\n\tfmt.println(count, size)\n}",
+        "for total, level in item_data {\n\tfmt.println(total, level)\n}"
+      ]
+    },
+    {
+      "instruction": "Iterate a map by value pointer",
+      "targets": [
+        "for key, &value in some_map {\n\tvalue += 1\n}",
+        "for entry, &item in entry_map {\n\titem += 1\n}",
+        "for score, &data in data_store {\n\tdata += 1\n}",
+        "for size, &result in result_set {\n\tresult += 1\n}",
+        "for level, &entry in count_total {\n\tentry += 1\n}",
+        "for value, &score in total_sum {\n\tscore += 1\n}",
+        "for count, &size in score_list {\n\tsize += 1\n}",
+        "for total, &level in item_data {\n\tlevel += 1\n}"
+      ]
+    },
+    {
+      "instruction": "Make a set using a map of empty structs",
+      "targets": [
+        "set_of_names: map[string]struct{}\n\nset_of_names[\"Erik\"] = {}\n\nif \"Erik\" in set_of_names {\n\tfmt.println(\"has Erik\")\n}\n\nfor key in set_of_names {\n\tfmt.println(key)\n}\n\ndelete_key(&set_of_names, \"Erik\")",
+        "result_set: map[string]struct{}\n\nresult_set[\"orange\"] = {}\n\nif \"orange\" in result_set {\n\tfmt.println(\"gadget\")\n}\n\nfor entry in result_set {\n\tfmt.println(entry)\n}\n\ndelete_key(&result_set, \"orange\")",
+        "count_total: map[string]struct{}\n\ncount_total[\"apple\"] = {}\n\nif \"apple\" in count_total {\n\tfmt.println(\"gadget\")\n}\n\nfor score in count_total {\n\tfmt.println(score)\n}\n\ndelete_key(&count_total, \"apple\")",
+        "total_sum: map[string]struct{}\n\ntotal_sum[\"storm\"] = {}\n\nif \"storm\" in total_sum {\n\tfmt.println(\"field\")\n}\n\nfor size in total_sum {\n\tfmt.println(size)\n}\n\ndelete_key(&total_sum, \"storm\")",
+        "score_list: map[string]struct{}\n\nscore_list[\"raven\"] = {}\n\nif \"raven\" in score_list {\n\tfmt.println(\"ember\")\n}\n\nfor level in score_list {\n\tfmt.println(level)\n}\n\ndelete_key(&score_list, \"raven\")",
+        "item_data: map[string]struct{}\n\nitem_data[\"field\"] = {}\n\nif \"field\" in item_data {\n\tfmt.println(\"gadget\")\n}\n\nfor value in item_data {\n\tfmt.println(value)\n}\n\ndelete_key(&item_data, \"field\")",
+        "value_list: map[string]struct{}\n\nvalue_list[\"cloud\"] = {}\n\nif \"cloud\" in value_list {\n\tfmt.println(\"stone\")\n}\n\nfor count in value_list {\n\tfmt.println(count)\n}\n\ndelete_key(&value_list, \"cloud\")",
+        "entry_map: map[string]struct{}\n\nentry_map[\"raven\"] = {}\n\nif \"raven\" in entry_map {\n\tfmt.println(\"meadow\")\n}\n\nfor total in entry_map {\n\tfmt.println(total)\n}\n\ndelete_key(&entry_map, \"raven\")"
+      ]
+    },
+    {
+      "instruction": "Write a procedure for a generic map set",
+      "targets": [
+        "add_to_set :: proc(s: ^map[$T]struct{}, v: T) {\n\ts[v] = {}\n}",
+        "count_total :: proc(result: ^map[$T]struct{}, size: T) {\n\tresult[size] = {}\n}",
+        "total_sum :: proc(entry: ^map[$T]struct{}, level: T) {\n\tentry[level] = {}\n}",
+        "score_list :: proc(score: ^map[$T]struct{}, value: T) {\n\tscore[value] = {}\n}",
+        "item_data :: proc(size: ^map[$T]struct{}, count: T) {\n\tsize[count] = {}\n}",
+        "value_list :: proc(level: ^map[$T]struct{}, total: T) {\n\tlevel[total] = {}\n}",
+        "entry_map :: proc(value: ^map[$T]struct{}, amount: T) {\n\tvalue[amount] = {}\n}",
+        "data_store :: proc(count: ^map[$T]struct{}, item: T) {\n\tcount[item] = {}\n}"
+      ]
+    }
+  ]
+}

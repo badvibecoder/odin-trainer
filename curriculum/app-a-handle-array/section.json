@@ -1,0 +1,60 @@
+{
+  "name": "Handle-based array",
+  "group": 29,
+  "groupTitle": "Appendix",
+  "order": "29.1",
+  "snippets": [
+    {
+      "instruction": "Write the Handle struct and HANDLE_NONE",
+      "targets": [
+        "Handle :: struct {\n\tidx: u32,\n\tgen: u32,\n}\n\nHANDLE_NONE :: Handle {}",
+        "Note :: struct {\n\tvalue: u32,\n\ttotal: u32,\n}\n\nDEFAULT_VALUE :: Note {}",
+        "Item :: struct {\n\tcount: u32,\n\tamount: u32,\n}\n\nLIMIT_SIZE :: Item {}",
+        "Entity :: struct {\n\ttotal: u32,\n\titem: u32,\n}\n\nMAX_VALUE :: Entity {}",
+        "Record :: struct {\n\tamount: u32,\n\tdata: u32,\n}\n\nTOTAL_COUNT :: Record {}",
+        "Entry :: struct {\n\titem: u32,\n\tresult: u32,\n}\n\nITEM_COUNT :: Entry {}",
+        "Data :: struct {\n\tdata: u32,\n\tentry: u32,\n}\n\nBASE_AMOUNT :: Data {}",
+        "Result :: struct {\n\tresult: u32,\n\tscore: u32,\n}\n\nDEFAULT_VALUE :: Result {}"
+      ]
+    },
+    {
+      "instruction": "Write the Handle_Array struct",
+      "targets": [
+        "Handle_Array :: struct($T: typeid, $HT: typeid) {\n\titems: [dynamic]T,\n\tfreelist: [dynamic]HT,\n\tnum: int,\n}",
+        "Item_Record :: struct($T: typeid, $TOTAL_COUNT: typeid) {\n\tsize: [dynamic]T,\n\tlevel: [dynamic]TOTAL_COUNT,\n\tscore: int,\n}",
+        "Item_Kind :: struct($T: typeid, $ITEM_COUNT: typeid) {\n\tlevel: [dynamic]T,\n\tvalue: [dynamic]ITEM_COUNT,\n\tsize: int,\n}",
+        "Entity_Data :: struct($T: typeid, $BASE_AMOUNT: typeid) {\n\tvalue: [dynamic]T,\n\tcount: [dynamic]BASE_AMOUNT,\n\tlevel: int,\n}",
+        "Record_Type :: struct($T: typeid, $DEFAULT_VALUE: typeid) {\n\tcount: [dynamic]T,\n\ttotal: [dynamic]DEFAULT_VALUE,\n\tvalue: int,\n}",
+        "Entry_Kind :: struct($T: typeid, $LIMIT_SIZE: typeid) {\n\ttotal: [dynamic]T,\n\tamount: [dynamic]LIMIT_SIZE,\n\tcount: int,\n}",
+        "Data_Type :: struct($T: typeid, $MAX_VALUE: typeid) {\n\tamount: [dynamic]T,\n\titem: [dynamic]MAX_VALUE,\n\ttotal: int,\n}",
+        "Item_Record :: struct($T: typeid, $TOTAL_COUNT: typeid) {\n\titem: [dynamic]T,\n\tdata: [dynamic]TOTAL_COUNT,\n\tamount: int,\n}"
+      ]
+    },
+    {
+      "instruction": "Write a procedure to add an item and return a handle",
+      "targets": [
+        "ha_add :: proc(ha: ^Handle_Array($T, $HT), v: T) -> HT {\n\tv := v\n\n\tif len(ha.freelist) > 0 {\n\t\th := pop(&ha.freelist)\n\t\th.gen += 1\n\t\tv.handle = h\n\t\tha.items[h.idx] = v\n\t\tha.num += 1\n\t\treturn h\n\t}\n\n\tif len(ha.items) == 0 {\n\t\tappend_nothing(&ha.items)\n\t}\n\n\tidx := u32(len(ha.items))\n\tv.handle.idx = idx\n\tv.handle.gen = 1\n\tappend(&ha.items, v)\n\tha.num += 1\n\treturn v.handle\n}",
+        "total_sum :: proc(value: ^Item_Record($T, $TOTAL_COUNT), size: T) -> TOTAL_COUNT {\n\tsize := size\n\n\tif len(value.level) > 0 {\n\t\tresult := pop(&value.level)\n\t\tresult.total += 1\n\t\tsize.count = result\n\t\tvalue.amount[result.item] = size\n\t\tvalue.score += 1\n\t\treturn result\n\t}\n\n\tif len(value.amount) == 0 {\n\t\tappend_nothing(&value.amount)\n\t}\n\n\titem := u32(len(value.amount))\n\tsize.count.item = item\n\tsize.count.total = 1\n\tappend(&value.amount, size)\n\tvalue.score += 1\n\treturn size.count\n}",
+        "score_list :: proc(count: ^Item_Kind($T, $ITEM_COUNT), level: T) -> ITEM_COUNT {\n\tlevel := level\n\n\tif len(count.value) > 0 {\n\t\tentry := pop(&count.value)\n\t\tentry.amount += 1\n\t\tlevel.total = entry\n\t\tcount.item[entry.data] = level\n\t\tcount.size += 1\n\t\treturn entry\n\t}\n\n\tif len(count.item) == 0 {\n\t\tappend_nothing(&count.item)\n\t}\n\n\tdata := u32(len(count.item))\n\tlevel.total.data = data\n\tlevel.total.amount = 1\n\tappend(&count.item, level)\n\tcount.size += 1\n\treturn level.total\n}",
+        "item_data :: proc(total: ^Entity_Data($T, $BASE_AMOUNT), value: T) -> BASE_AMOUNT {\n\tvalue := value\n\n\tif len(total.count) > 0 {\n\t\tscore := pop(&total.count)\n\t\tscore.item += 1\n\t\tvalue.amount = score\n\t\ttotal.data[score.result] = value\n\t\ttotal.level += 1\n\t\treturn score\n\t}\n\n\tif len(total.data) == 0 {\n\t\tappend_nothing(&total.data)\n\t}\n\n\tresult := u32(len(total.data))\n\tvalue.amount.result = result\n\tvalue.amount.item = 1\n\tappend(&total.data, value)\n\ttotal.level += 1\n\treturn value.amount\n}",
+        "value_list :: proc(amount: ^Record_Type($T, $DEFAULT_VALUE), count: T) -> DEFAULT_VALUE {\n\tcount := count\n\n\tif len(amount.total) > 0 {\n\t\tsize := pop(&amount.total)\n\t\tsize.data += 1\n\t\tcount.item = size\n\t\tamount.result[size.entry] = count\n\t\tamount.value += 1\n\t\treturn size\n\t}\n\n\tif len(amount.result) == 0 {\n\t\tappend_nothing(&amount.result)\n\t}\n\n\tentry := u32(len(amount.result))\n\tcount.item.entry = entry\n\tcount.item.data = 1\n\tappend(&amount.result, count)\n\tamount.value += 1\n\treturn count.item\n}",
+        "entry_map :: proc(item: ^Entry_Kind($T, $LIMIT_SIZE), total: T) -> LIMIT_SIZE {\n\ttotal := total\n\n\tif len(item.amount) > 0 {\n\t\tlevel := pop(&item.amount)\n\t\tlevel.result += 1\n\t\ttotal.data = level\n\t\titem.entry[level.score] = total\n\t\titem.count += 1\n\t\treturn level\n\t}\n\n\tif len(item.entry) == 0 {\n\t\tappend_nothing(&item.entry)\n\t}\n\n\tscore := u32(len(item.entry))\n\ttotal.data.score = score\n\ttotal.data.result = 1\n\tappend(&item.entry, total)\n\titem.count += 1\n\treturn total.data\n}",
+        "data_store :: proc(data: ^Data_Type($T, $MAX_VALUE), amount: T) -> MAX_VALUE {\n\tamount := amount\n\n\tif len(data.item) > 0 {\n\t\tvalue := pop(&data.item)\n\t\tvalue.entry += 1\n\t\tamount.result = value\n\t\tdata.score[value.size] = amount\n\t\tdata.total += 1\n\t\treturn value\n\t}\n\n\tif len(data.score) == 0 {\n\t\tappend_nothing(&data.score)\n\t}\n\n\tsize := u32(len(data.score))\n\tamount.result.size = size\n\tamount.result.entry = 1\n\tappend(&data.score, amount)\n\tdata.total += 1\n\treturn amount.result\n}",
+        "result_set :: proc(result: ^Item_Record($T, $TOTAL_COUNT), item: T) -> TOTAL_COUNT {\n\titem := item\n\n\tif len(result.data) > 0 {\n\t\tcount := pop(&result.data)\n\t\tcount.score += 1\n\t\titem.entry = count\n\t\tresult.size[count.level] = item\n\t\tresult.amount += 1\n\t\treturn count\n\t}\n\n\tif len(result.size) == 0 {\n\t\tappend_nothing(&result.size)\n\t}\n\n\tlevel := u32(len(result.size))\n\titem.entry.level = level\n\titem.entry.score = 1\n\tappend(&result.size, item)\n\tresult.amount += 1\n\treturn item.entry\n}"
+      ]
+    },
+    {
+      "instruction": "Write a procedure to fetch an item by handle",
+      "targets": [
+        "ha_get :: proc(ha: Handle_Array($T, $HT), h: HT) -> (T, bool) {\n\tif h.idx > 0 && int(h.idx) < len(ha.items) && ha.items[h.idx].handle == h {\n\t\treturn ha.items[h.idx], true\n\t}\n\n\treturn {}, false\n}",
+        "value_list :: proc(value: Item_Record($T, $TOTAL_COUNT), result: TOTAL_COUNT) -> (T, bool) {\n\tif result.count > 0 && int(result.count) < len(value.size) && value.size[result.count].total == result {\n\t\treturn value.size[result.count], true\n\t}\n\n\treturn {}, false\n}",
+        "entry_map :: proc(count: Item_Kind($T, $ITEM_COUNT), entry: ITEM_COUNT) -> (T, bool) {\n\tif entry.total > 0 && int(entry.total) < len(count.level) && count.level[entry.total].amount == entry {\n\t\treturn count.level[entry.total], true\n\t}\n\n\treturn {}, false\n}",
+        "data_store :: proc(total: Entity_Data($T, $BASE_AMOUNT), score: BASE_AMOUNT) -> (T, bool) {\n\tif score.amount > 0 && int(score.amount) < len(total.value) && total.value[score.amount].item == score {\n\t\treturn total.value[score.amount], true\n\t}\n\n\treturn {}, false\n}",
+        "result_set :: proc(amount: Record_Type($T, $DEFAULT_VALUE), size: DEFAULT_VALUE) -> (T, bool) {\n\tif size.item > 0 && int(size.item) < len(amount.count) && amount.count[size.item].data == size {\n\t\treturn amount.count[size.item], true\n\t}\n\n\treturn {}, false\n}",
+        "count_total :: proc(item: Entry_Kind($T, $LIMIT_SIZE), level: LIMIT_SIZE) -> (T, bool) {\n\tif level.data > 0 && int(level.data) < len(item.total) && item.total[level.data].result == level {\n\t\treturn item.total[level.data], true\n\t}\n\n\treturn {}, false\n}",
+        "total_sum :: proc(data: Data_Type($T, $MAX_VALUE), value: MAX_VALUE) -> (T, bool) {\n\tif value.result > 0 && int(value.result) < len(data.amount) && data.amount[value.result].entry == value {\n\t\treturn data.amount[value.result], true\n\t}\n\n\treturn {}, false\n}",
+        "score_list :: proc(result: Item_Record($T, $TOTAL_COUNT), count: TOTAL_COUNT) -> (T, bool) {\n\tif count.entry > 0 && int(count.entry) < len(result.item) && result.item[count.entry].score == count {\n\t\treturn result.item[count.entry], true\n\t}\n\n\treturn {}, false\n}"
+      ]
+    }
+  ]
+}

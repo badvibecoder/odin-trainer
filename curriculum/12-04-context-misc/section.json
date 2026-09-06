@@ -1,0 +1,59 @@
+{
+  "name": "Context: random & user_ptr",
+  "group": 12,
+  "groupTitle": "Context",
+  "order": "12.4",
+  "snippets": [
+    {
+      "instruction": "Create a value seed a random generator",
+      "targets": [
+        "package random_demo\n\nimport \"base:runtime\"\nimport \"core:fmt\"\nimport \"core:math/rand\"\n\nmain :: proc() {\n\trandom_state := rand.create(42)\n\tcontext.random_generator = runtime.default_random_generator(&random_state)\n\tfmt.println(rand.int_max(100))\n}",
+        "package entry_map\n\nimport \"base:runtime\"\nimport \"core:fmt\"\nimport \"core:math/rand\"\n\nmain :: proc() {\n\tresult_set := rand.create(10)\n\tcontext.random_generator = runtime.default_random_generator(&result_set)\n\tfmt.println(rand.int_max(3))\n}",
+        "package data_store\n\nimport \"base:runtime\"\nimport \"core:fmt\"\nimport \"core:math/rand\"\n\nmain :: proc() {\n\tcount_total := rand.create(200)\n\tcontext.random_generator = runtime.default_random_generator(&count_total)\n\tfmt.println(rand.int_max(9))\n}",
+        "package result_set\n\nimport \"base:runtime\"\nimport \"core:fmt\"\nimport \"core:math/rand\"\n\nmain :: proc() {\n\ttotal_sum := rand.create(128)\n\tcontext.random_generator = runtime.default_random_generator(&total_sum)\n\tfmt.println(rand.int_max(25))\n}",
+        "package count_total\n\nimport \"base:runtime\"\nimport \"core:fmt\"\nimport \"core:math/rand\"\n\nmain :: proc() {\n\tscore_list := rand.create(7)\n\tcontext.random_generator = runtime.default_random_generator(&score_list)\n\tfmt.println(rand.int_max(64))\n}",
+        "package total_sum\n\nimport \"base:runtime\"\nimport \"core:fmt\"\nimport \"core:math/rand\"\n\nmain :: proc() {\n\titem_data := rand.create(42)\n\tcontext.random_generator = runtime.default_random_generator(&item_data)\n\tfmt.println(rand.int_max(512))\n}",
+        "package score_list\n\nimport \"base:runtime\"\nimport \"core:fmt\"\nimport \"core:math/rand\"\n\nmain :: proc() {\n\tvalue_list := rand.create(13)\n\tcontext.random_generator = runtime.default_random_generator(&value_list)\n\tfmt.println(rand.int_max(2))\n}",
+        "package item_data\n\nimport \"base:runtime\"\nimport \"core:fmt\"\nimport \"core:math/rand\"\n\nmain :: proc() {\n\tentry_map := rand.create(100)\n\tcontext.random_generator = runtime.default_random_generator(&entry_map)\n\tfmt.println(rand.int_max(4))\n}"
+      ]
+    },
+    {
+      "instruction": "Reset the global random generator to a seed",
+      "targets": [
+        "rand.reset(42)\nfmt.println(rand.int_max(100))",
+        "rand.reset(10)\nfmt.println(rand.int_max(3))",
+        "rand.reset(200)\nfmt.println(rand.int_max(9))",
+        "rand.reset(128)\nfmt.println(rand.int_max(25))",
+        "rand.reset(7)\nfmt.println(rand.int_max(64))",
+        "rand.reset(42)\nfmt.println(rand.int_max(512))",
+        "rand.reset(13)\nfmt.println(rand.int_max(2))",
+        "rand.reset(100)\nfmt.println(rand.int_max(4))"
+      ]
+    },
+    {
+      "instruction": "Use a value in a sort comparison",
+      "targets": [
+        "numbers := []int { 2, 7, 42, 1}\n\nSort_Settings :: struct {\n\tput_at_end: int,\n}\n\nsorting_proc :: proc(i, j: int) -> bool {\n\tsort_settings := (^Sort_Settings)(context.user_ptr)\n\n\tif sort_settings != nil {\n\t\tif i == sort_settings.put_at_end {\n\t\t\treturn false\n\t\t}\n\n\t\tif j == sort_settings.put_at_end {\n\t\t\treturn true\n\t\t}\n\t}\n\n\treturn i < j\n}\n\nsort_settings := Sort_Settings {\n\tput_at_end = 2,\n}\n\ncontext.user_ptr = &sort_settings\nslice.sort_by(numbers, sorting_proc)\nfmt.println(numbers)",
+        "data := []int { 2, 7, 10, 1}\n\nItem_Record :: struct {\n\titem_data: int,\n}\n\nentry_map :: proc(entry, score: int) -> bool {\n\tcount_total := (^Item_Record)(context.user_ptr)\n\n\tif count_total != nil {\n\t\tif entry == count_total.item_data {\n\t\t\treturn false\n\t\t}\n\n\t\tif score == count_total.item_data {\n\t\t\treturn true\n\t\t}\n\t}\n\n\treturn entry < score\n}\n\ncount_total := Item_Record {\n\titem_data = 2,\n}\n\ncontext.user_ptr = &count_total\nslice.sort_by(data, entry_map)\nfmt.println(data)",
+        "result := []int { 2, 42, 200, 1}\n\nItem_Kind :: struct {\n\tvalue_list: int,\n}\n\ndata_store :: proc(score, size: int) -> bool {\n\ttotal_sum := (^Item_Kind)(context.user_ptr)\n\n\tif total_sum != nil {\n\t\tif score == total_sum.value_list {\n\t\t\treturn false\n\t\t}\n\n\t\tif size == total_sum.value_list {\n\t\t\treturn true\n\t\t}\n\t}\n\n\treturn score < size\n}\n\ntotal_sum := Item_Kind {\n\tvalue_list = 2,\n}\n\ncontext.user_ptr = &total_sum\nslice.sort_by(result, data_store)\nfmt.println(result)",
+        "entry := []int { 2, 13, 128, 1}\n\nEntity_Data :: struct {\n\tentry_map: int,\n}\n\nresult_set :: proc(size, level: int) -> bool {\n\tscore_list := (^Entity_Data)(context.user_ptr)\n\n\tif score_list != nil {\n\t\tif size == score_list.entry_map {\n\t\t\treturn false\n\t\t}\n\n\t\tif level == score_list.entry_map {\n\t\t\treturn true\n\t\t}\n\t}\n\n\treturn size < level\n}\n\nscore_list := Entity_Data {\n\tentry_map = 2,\n}\n\ncontext.user_ptr = &score_list\nslice.sort_by(entry, result_set)\nfmt.println(entry)",
+        "score := []int { 2, 100, 7, 1}\n\nRecord_Type :: struct {\n\tdata_store: int,\n}\n\ncount_total :: proc(level, value: int) -> bool {\n\titem_data := (^Record_Type)(context.user_ptr)\n\n\tif item_data != nil {\n\t\tif level == item_data.data_store {\n\t\t\treturn false\n\t\t}\n\n\t\tif value == item_data.data_store {\n\t\t\treturn true\n\t\t}\n\t}\n\n\treturn level < value\n}\n\nitem_data := Record_Type {\n\tdata_store = 2,\n}\n\ncontext.user_ptr = &item_data\nslice.sort_by(score, count_total)\nfmt.println(score)",
+        "size := []int { 2, 3, 42, 1}\n\nEntry_Kind :: struct {\n\tresult_set: int,\n}\n\ntotal_sum :: proc(value, count: int) -> bool {\n\tvalue_list := (^Entry_Kind)(context.user_ptr)\n\n\tif value_list != nil {\n\t\tif value == value_list.result_set {\n\t\t\treturn false\n\t\t}\n\n\t\tif count == value_list.result_set {\n\t\t\treturn true\n\t\t}\n\t}\n\n\treturn value < count\n}\n\nvalue_list := Entry_Kind {\n\tresult_set = 2,\n}\n\ncontext.user_ptr = &value_list\nslice.sort_by(size, total_sum)\nfmt.println(size)",
+        "level := []int { 2, 9, 13, 1}\n\nData_Type :: struct {\n\tcount_total: int,\n}\n\nscore_list :: proc(count, total: int) -> bool {\n\tentry_map := (^Data_Type)(context.user_ptr)\n\n\tif entry_map != nil {\n\t\tif count == entry_map.count_total {\n\t\t\treturn false\n\t\t}\n\n\t\tif total == entry_map.count_total {\n\t\t\treturn true\n\t\t}\n\t}\n\n\treturn count < total\n}\n\nentry_map := Data_Type {\n\tcount_total = 2,\n}\n\ncontext.user_ptr = &entry_map\nslice.sort_by(level, score_list)\nfmt.println(level)",
+        "value := []int { 2, 25, 100, 1}\n\nItem_Record :: struct {\n\ttotal_sum: int,\n}\n\nitem_data :: proc(total, amount: int) -> bool {\n\tdata_store := (^Item_Record)(context.user_ptr)\n\n\tif data_store != nil {\n\t\tif total == data_store.total_sum {\n\t\t\treturn false\n\t\t}\n\n\t\tif amount == data_store.total_sum {\n\t\t\treturn true\n\t\t}\n\t}\n\n\treturn total < amount\n}\n\ndata_store := Item_Record {\n\ttotal_sum = 2,\n}\n\ncontext.user_ptr = &data_store\nslice.sort_by(value, item_data)\nfmt.println(value)"
+      ]
+    },
+    {
+      "instruction": "Write the Context struct",
+      "targets": [
+        "Context :: struct {\n\tallocator:              Allocator,\n\ttemp_allocator:         Allocator,\n\tassertion_failure_proc: Assertion_Failure_Proc,\n\tlogger:                 Logger,\n\trandom_generator:       Random_Generator,\n\n\tuser_ptr:   rawptr,\n\tuser_index: int,\n\n\t_internal: rawptr,\n}",
+        "Context :: struct {\n\tallocator:              Allocator,\n\ttemp_allocator:         Allocator,\n\tassertion_failure_proc: Entry_Kind,\n\tlogger:                 Logger,\n\trandom_generator:       Random_Generator,\n\n\tuser_ptr:   rawptr,\n\tuser_index: int,\n\n\t_internal: rawptr,\n}",
+        "Context :: struct {\n\tallocator:              Allocator,\n\ttemp_allocator:         Allocator,\n\tassertion_failure_proc: Data_Type,\n\tlogger:                 Logger,\n\trandom_generator:       Random_Generator,\n\n\tuser_ptr:   rawptr,\n\tuser_index: int,\n\n\t_internal: rawptr,\n}",
+        "Context :: struct {\n\tallocator:              Allocator,\n\ttemp_allocator:         Allocator,\n\tassertion_failure_proc: Item_Record,\n\tlogger:                 Logger,\n\trandom_generator:       Random_Generator,\n\n\tuser_ptr:   rawptr,\n\tuser_index: int,\n\n\t_internal: rawptr,\n}",
+        "Context :: struct {\n\tallocator:              Allocator,\n\ttemp_allocator:         Allocator,\n\tassertion_failure_proc: Item_Kind,\n\tlogger:                 Logger,\n\trandom_generator:       Random_Generator,\n\n\tuser_ptr:   rawptr,\n\tuser_index: int,\n\n\t_internal: rawptr,\n}",
+        "Context :: struct {\n\tallocator:              Allocator,\n\ttemp_allocator:         Allocator,\n\tassertion_failure_proc: Entity_Data,\n\tlogger:                 Logger,\n\trandom_generator:       Random_Generator,\n\n\tuser_ptr:   rawptr,\n\tuser_index: int,\n\n\t_internal: rawptr,\n}",
+        "Context :: struct {\n\tallocator:              Allocator,\n\ttemp_allocator:         Allocator,\n\tassertion_failure_proc: Record_Type,\n\tlogger:                 Logger,\n\trandom_generator:       Random_Generator,\n\n\tuser_ptr:   rawptr,\n\tuser_index: int,\n\n\t_internal: rawptr,\n}"
+      ]
+    }
+  ]
+}

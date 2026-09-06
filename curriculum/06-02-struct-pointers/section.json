@@ -1,0 +1,60 @@
+{
+  "name": "Pointers to structs",
+  "group": 6,
+  "groupTitle": "Pointers",
+  "order": "6.2",
+  "snippets": [
+    {
+      "instruction": "Define a struct with name, age, and a color enum",
+      "targets": [
+        "Cat :: struct {\n\tname: string,\n\tage: int,\n\tcolor: Cat_Color,\n}\n\nCat_Color :: enum {\n\tBlack,\n\tWhite,\n\tOrange,\n\tTabby,\n\tCalico,\n}",
+        "Entity :: struct {\n\tscore: string,\n\tsize: int,\n\tlevel: Entity_Data,\n}\n\nEntity_Data :: enum {\n\tValue,\n\tData,\n\tEntry,\n\tNote,\n\tItem,\n}",
+        "Record :: struct {\n\tsize: string,\n\tlevel: int,\n\tvalue: Record_Type,\n}\n\nRecord_Type :: enum {\n\tNote,\n\tResult,\n\tData,\n\tItem,\n\tEntity,\n}",
+        "Entry :: struct {\n\tlevel: string,\n\tvalue: int,\n\tcount: Entry_Kind,\n}\n\nEntry_Kind :: enum {\n\tItem,\n\tConfig,\n\tResult,\n\tEntity,\n\tRecord,\n}",
+        "Data :: struct {\n\tvalue: string,\n\tcount: int,\n\ttotal: Data_Type,\n}\n\nData_Type :: enum {\n\tEntity,\n\tThing,\n\tConfig,\n\tRecord,\n\tEntry,\n}",
+        "Result :: struct {\n\tcount: string,\n\ttotal: int,\n\tamount: Item_Record,\n}\n\nItem_Record :: enum {\n\tRecord,\n\tValue,\n\tThing,\n\tEntry,\n\tData,\n}",
+        "Config :: struct {\n\ttotal: string,\n\tamount: int,\n\titem: Item_Kind,\n}\n\nItem_Kind :: enum {\n\tEntry,\n\tNote,\n\tValue,\n\tData,\n\tResult,\n}",
+        "Thing :: struct {\n\tamount: string,\n\titem: int,\n\tdata: Entity_Data,\n}\n\nEntity_Data :: enum {\n\tData,\n\tItem,\n\tNote,\n\tResult,\n\tConfig,\n}"
+      ]
+    },
+    {
+      "instruction": "Write a procedure that increments its age through a pointer",
+      "targets": [
+        "process_cat_birthday :: proc(cat: ^Cat) {\n\tif cat == nil {\n\t\treturn\n\t}\n\n\tcat.age += 1\n}",
+        "score_list :: proc(value: ^Entity) {\n\tif value == nil {\n\t\treturn\n\t}\n\n\tvalue.size += 1\n}",
+        "item_data :: proc(count: ^Record) {\n\tif count == nil {\n\t\treturn\n\t}\n\n\tcount.level += 1\n}",
+        "value_list :: proc(total: ^Entry) {\n\tif total == nil {\n\t\treturn\n\t}\n\n\ttotal.value += 1\n}",
+        "entry_map :: proc(amount: ^Data) {\n\tif amount == nil {\n\t\treturn\n\t}\n\n\tamount.count += 1\n}",
+        "data_store :: proc(item: ^Result) {\n\tif item == nil {\n\t\treturn\n\t}\n\n\titem.total += 1\n}",
+        "result_set :: proc(data: ^Config) {\n\tif data == nil {\n\t\treturn\n\t}\n\n\tdata.amount += 1\n}",
+        "count_total :: proc(result: ^Thing) {\n\tif result == nil {\n\t\treturn\n\t}\n\n\tresult.item += 1\n}"
+      ]
+    },
+    {
+      "instruction": "Create a value, call a procedure, and print the result",
+      "targets": [
+        "my_cat := Cat {\n\tname = \"Mittens\",\n\tage = 7,\n\tcolor = .Calico,\n}\n\nprocess_cat_birthday(&my_cat)\n\nfmt.printfln(\"Hooray, %v is now %v years old!\", my_cat.name, my_cat.age)",
+        "total_sum := Entity {\n\tscore = \"orange\",\n\tsize = 7,\n\tlevel = .Value,\n}\n\nscore_list(&total_sum)\n\nfmt.printfln(\"Record, %value data now %value entry count!\", total_sum.score, total_sum.size)",
+        "score_list := Record {\n\tsize = \"hollow\",\n\tlevel = 42,\n\tvalue = .Note,\n}\n\nitem_data(&score_list)\n\nfmt.printfln(\"Entry, %count result now %count score total!\", score_list.size, score_list.level)",
+        "item_data := Entry {\n\tlevel = \"raven\",\n\tvalue = 13,\n\tcount = .Item,\n}\n\nvalue_list(&item_data)\n\nfmt.printfln(\"Data, %total entry now %total size amount!\", item_data.level, item_data.value)",
+        "value_list := Data {\n\tvalue = \"raven\",\n\tcount = 100,\n\ttotal = .Entity,\n}\n\nentry_map(&value_list)\n\nfmt.printfln(\"Result, %amount score now %amount level item!\", value_list.value, value_list.count)",
+        "entry_map := Result {\n\tcount = \"orange\",\n\ttotal = 3,\n\tamount = .Record,\n}\n\ndata_store(&entry_map)\n\nfmt.printfln(\"Config, %item size now %item value data!\", entry_map.count, entry_map.total)",
+        "data_store := Config {\n\ttotal = \"stone\",\n\tamount = 9,\n\titem = .Entry,\n}\n\nresult_set(&data_store)\n\nfmt.printfln(\"Thing, %data level now %data count result!\", data_store.total, data_store.amount)",
+        "result_set := Thing {\n\tamount = \"cloud\",\n\titem = 25,\n\tdata = .Data,\n}\n\ncount_total(&result_set)\n\nfmt.printfln(\"Value, %result value now %result total entry!\", result_set.amount, result_set.item)"
+      ]
+    },
+    {
+      "instruction": "Write a procedure that replaces the whole struct through a pointer",
+      "targets": [
+        "replace_cat :: proc(cat: ^Cat) {\n\tif cat == nil {\n\t\treturn\n\t}\n\n\tcat^ = {\n\t\tname = \"Sven\",\n\t\tage = 6,\n\t\tcolor = .Tabby,\n\t}\n}",
+        "result_set :: proc(value: ^Entity) {\n\tif value == nil {\n\t\treturn\n\t}\n\n\tvalue^ = {\n\t\tscore = \"orange\",\n\t\tsize = 128,\n\t\tlevel = .Note,\n\t}\n}",
+        "count_total :: proc(count: ^Record) {\n\tif count == nil {\n\t\treturn\n\t}\n\n\tcount^ = {\n\t\tsize = \"hollow\",\n\t\tlevel = 7,\n\t\tvalue = .Item,\n\t}\n}",
+        "total_sum :: proc(total: ^Entry) {\n\tif total == nil {\n\t\treturn\n\t}\n\n\ttotal^ = {\n\t\tlevel = \"raven\",\n\t\tvalue = 42,\n\t\tcount = .Entity,\n\t}\n}",
+        "score_list :: proc(amount: ^Data) {\n\tif amount == nil {\n\t\treturn\n\t}\n\n\tamount^ = {\n\t\tvalue = \"raven\",\n\t\tcount = 13,\n\t\ttotal = .Record,\n\t}\n}",
+        "item_data :: proc(item: ^Result) {\n\tif item == nil {\n\t\treturn\n\t}\n\n\titem^ = {\n\t\tcount = \"orange\",\n\t\ttotal = 100,\n\t\tamount = .Entry,\n\t}\n}",
+        "value_list :: proc(data: ^Config) {\n\tif data == nil {\n\t\treturn\n\t}\n\n\tdata^ = {\n\t\ttotal = \"stone\",\n\t\tamount = 3,\n\t\titem = .Data,\n\t}\n}",
+        "entry_map :: proc(result: ^Thing) {\n\tif result == nil {\n\t\treturn\n\t}\n\n\tresult^ = {\n\t\tamount = \"cloud\",\n\t\titem = 9,\n\t\tdata = .Result,\n\t}\n}"
+      ]
+    }
+  ]
+}

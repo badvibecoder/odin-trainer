@@ -1,0 +1,47 @@
+{
+  "name": "Nested procs & immutability",
+  "group": 7,
+  "groupTitle": "Procedures",
+  "order": "7.3",
+  "snippets": [
+    {
+      "instruction": "Define a nested procedure and call it",
+      "targets": [
+        "do_stuff :: proc() {\n\tprint_message :: proc(msg: string) {\n\t\tfmt.println(msg)\n\t}\n\n\tprint_message(\"Hello!\")\n}",
+        "value_list :: proc() {\n\tresult_set :: proc(total: string) {\n\t\tfmt.println(total)\n\t}\n\n\tresult_set(\"timber\")\n}",
+        "entry_map :: proc() {\n\tcount_total :: proc(amount: string) {\n\t\tfmt.println(amount)\n\t}\n\n\tcount_total(\"widget\")\n}",
+        "data_store :: proc() {\n\ttotal_sum :: proc(item: string) {\n\t\tfmt.println(item)\n\t}\n\n\ttotal_sum(\"widget\")\n}",
+        "result_set :: proc() {\n\tscore_list :: proc(data: string) {\n\t\tfmt.println(data)\n\t}\n\n\tscore_list(\"shadow\")\n}",
+        "count_total :: proc() {\n\titem_data :: proc(result: string) {\n\t\tfmt.println(result)\n\t}\n\n\titem_data(\"gadget\")\n}",
+        "total_sum :: proc() {\n\tvalue_list :: proc(entry: string) {\n\t\tfmt.println(entry)\n\t}\n\n\tvalue_list(\"stone\")\n}",
+        "score_list :: proc() {\n\tentry_map :: proc(score: string) {\n\t\tfmt.println(score)\n\t}\n\n\tentry_map(\"storm\")\n}"
+      ]
+    },
+    {
+      "instruction": "Copy an immutable parameter before modifying it",
+      "targets": [
+        "divide_numbers :: proc(n, d: f32) -> f32 {\n\tn := n\n\tn = n / d\n\treturn n\n}",
+        "count_total :: proc(count, total: f32) -> f32 {\n\tcount := count\n\tcount = count / total\n\treturn count\n}",
+        "total_sum :: proc(total, amount: f32) -> f32 {\n\ttotal := total\n\ttotal = total / amount\n\treturn total\n}",
+        "score_list :: proc(amount, item: f32) -> f32 {\n\tamount := amount\n\tamount = amount / item\n\treturn amount\n}",
+        "item_data :: proc(item, data: f32) -> f32 {\n\titem := item\n\titem = item / data\n\treturn item\n}",
+        "value_list :: proc(data, result: f32) -> f32 {\n\tdata := data\n\tdata = data / result\n\treturn data\n}",
+        "entry_map :: proc(result, entry: f32) -> f32 {\n\tresult := result\n\tresult = result / entry\n\treturn result\n}",
+        "data_store :: proc(entry, score: f32) -> f32 {\n\tentry := entry\n\tentry = entry / score\n\treturn entry\n}"
+      ]
+    },
+    {
+      "instruction": "Modify a caller's value through a pointer parameter",
+      "targets": [
+        "increase_number :: proc(n: ^int, amount: int) {\n\tn^ += amount\n}",
+        "data_store :: proc(count: ^int, score: int) {\n\tcount^ += score\n}",
+        "result_set :: proc(total: ^int, size: int) {\n\ttotal^ += size\n}",
+        "count_total :: proc(amount: ^int, level: int) {\n\tamount^ += level\n}",
+        "total_sum :: proc(item: ^int, value: int) {\n\titem^ += value\n}",
+        "score_list :: proc(data: ^int, count: int) {\n\tdata^ += count\n}",
+        "item_data :: proc(result: ^int, total: int) {\n\tresult^ += total\n}",
+        "value_list :: proc(entry: ^int, amount: int) {\n\tentry^ += amount\n}"
+      ]
+    }
+  ]
+}

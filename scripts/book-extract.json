@@ -1,0 +1,4370 @@
+[
+  {
+    "chapter": 2,
+    "chapterTitle": "Hellope! A tiny program",
+    "section": "2.1",
+    "sectionTitle": "Compile and run the code",
+    "code": "package hellope\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"Hellope!\")\n}"
+  },
+  {
+    "chapter": 2,
+    "chapterTitle": "Hellope! A tiny program",
+    "section": "2.1",
+    "sectionTitle": "Compile and run the code",
+    "code": "odin run ."
+  },
+  {
+    "chapter": 2,
+    "chapterTitle": "Hellope! A tiny program",
+    "section": "2.2",
+    "sectionTitle": "Line-by-line",
+    "code": "main :: proc() {"
+  },
+  {
+    "chapter": 2,
+    "chapterTitle": "Hellope! A tiny program",
+    "section": "2.2",
+    "sectionTitle": "Line-by-line",
+    "code": "import \"core:fmt\""
+  },
+  {
+    "chapter": 2,
+    "chapterTitle": "Hellope! A tiny program",
+    "section": "2.2",
+    "sectionTitle": "Line-by-line",
+    "code": "fmt.println(\"Hellope!\")"
+  },
+  {
+    "chapter": 2,
+    "chapterTitle": "Hellope! A tiny program",
+    "section": "2.2",
+    "sectionTitle": "Line-by-line",
+    "code": "package hellope"
+  },
+  {
+    "chapter": 2,
+    "chapterTitle": "Hellope! A tiny program",
+    "section": "2.4",
+    "sectionTitle": "Compile without running",
+    "code": "odin build ."
+  },
+  {
+    "chapter": 2,
+    "chapterTitle": "Hellope! A tiny program",
+    "section": "2.4",
+    "sectionTitle": "Compile without running",
+    "code": "odin run . -keep-executable"
+  },
+  {
+    "chapter": 2,
+    "chapterTitle": "Hellope! A tiny program",
+    "section": "2.7",
+    "sectionTitle": "Compile a single Odin source file",
+    "code": "odin run hellope.odin -file"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.1",
+    "sectionTitle": "Declaring variables and assigning values",
+    "code": "number: int"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.1",
+    "sectionTitle": "Declaring variables and assigning values",
+    "code": "number: int\nnumber = 7"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.1",
+    "sectionTitle": "Declaring variables and assigning values",
+    "code": "number := 7"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.1",
+    "sectionTitle": "Declaring variables and assigning values",
+    "code": "package variable_example\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tnumber := 7\n\tfmt.println(number) // prints 7\n\tnumber = 12\n\tfmt.println(number) // prints 12\n}"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.2",
+    "sectionTitle": "Another variable type and casting",
+    "code": "decimal_number: f32"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.2",
+    "sectionTitle": "Another variable type and casting",
+    "code": "decimal_number: f32 = 7"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.2",
+    "sectionTitle": "Another variable type and casting",
+    "code": "decimal_number := f32(7)"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.2",
+    "sectionTitle": "Another variable type and casting",
+    "code": "decimal_number: f32 = 7.42"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.2",
+    "sectionTitle": "Another variable type and casting",
+    "code": "decimal_number := 7.42"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.2.1",
+    "sectionTitle": "Something strange?",
+    "code": "number := 7\ndecimal_number: f32 = 7"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.2.1",
+    "sectionTitle": "Something strange?",
+    "code": "decimal_number: f32\ndecimal_number = 7"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.3",
+    "sectionTitle": "Constants",
+    "code": "CONSTANT_NUMBER :: 12"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.3",
+    "sectionTitle": "Constants",
+    "code": "CONSTANT_NUMBER :: 12\nnumber := CONSTANT_NUMBER"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.3",
+    "sectionTitle": "Constants",
+    "code": "number := 12"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.3",
+    "sectionTitle": "Constants",
+    "code": "DECIMAL_CONSTANT :: 7.0\nmy_integer: int = DECIMAL_CONSTANT"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.4",
+    "sectionTitle": "Type inference defaults",
+    "code": "decimal_number := 13.38"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.4",
+    "sectionTitle": "Type inference defaults",
+    "code": "decimal_number: f32\ndecimal_number = 7.42"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.4.1",
+    "sectionTitle": "Constants of explicit type",
+    "code": "DECIMAL_CONSTANT: f32 : 7.42"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.4.1",
+    "sectionTitle": "Constants of explicit type",
+    "code": "decimal_variable: f32 = 7.42"
+  },
+  {
+    "chapter": 3,
+    "chapterTitle": "Variables and constants",
+    "section": "3.4.2",
+    "sectionTitle": "Benefits of Untyped Types",
+    "code": "decimal_32: f32\ndecimal_32 = 0.5\n\ndecimal_64: f64\ndecimal_64 = 0.5"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.1",
+    "sectionTitle": "Procedure parameters and return values",
+    "code": "is_bigger_than :: proc(number: int, compare_to: int) -> bool {\n\treturn number > compare_to\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.1",
+    "sectionTitle": "Procedure parameters and return values",
+    "code": "result := is_bigger_than(3, 2)"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.2",
+    "sectionTitle": "If statements",
+    "code": "if condition {\n\t// Code in here will run if `condition`\n\t// is true.\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.2",
+    "sectionTitle": "If statements",
+    "code": "some_variable := 7\n\nif some_variable == 7 {\n\tfmt.println(\"It's seven!\")\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.2",
+    "sectionTitle": "If statements",
+    "code": "== // left and right are equal\n!= // left and right not equal\n<  // left is less than right\n<= // left is less than or equal to right\n>  // left is greater than right\n>= // left is greater than or equal to right"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.2",
+    "sectionTitle": "If statements",
+    "code": "if var1 == 7 && (var2 == 12 || var3 == 42) {\n\t// In here var1 is 7. And at least one\n\t// of the following is true:\n\t// var2 is 12 OR var3 is 42\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.2",
+    "sectionTitle": "If statements",
+    "code": "if var == 7 && some_proc() {\n\t// var is 7\n\t// some_proc() returned true\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.2",
+    "sectionTitle": "If statements",
+    "code": "some_variable := 7\nmy_condition := some_variable == 7\n\nif !my_condition {\n\tfmt.println(\"some_variable is not 7\")\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.2",
+    "sectionTitle": "If statements",
+    "code": "if some_variable > 7 {\n\t// some_variable is larger than 7\n} else if some_other_variable == 2 {\n\t// some_variable is less or equal to 7\n\t// and some_other_variable is 2\n} else {\n\t// some_variable is less or equal to 7\n\t// and some_other_variable is not 2\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.2",
+    "sectionTitle": "If statements",
+    "code": "if some_variable == 7 { some_proc() }"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.2",
+    "sectionTitle": "If statements",
+    "code": "if some_variable == 7 do some_proc()"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.2",
+    "sectionTitle": "If statements",
+    "code": "if some_variable == 7 {\n\tsome_proc()\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.3",
+    "sectionTitle": "Loops",
+    "code": "for {\n\tfmt.println(\"Printed over and over, forever\")\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.3",
+    "sectionTitle": "Loops",
+    "code": "for {\n\tif condition {\n\t\tbreak\n\t}\n\n\tfmt.println(\"Printed over and over, until 'condition' becomes true\")\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.3",
+    "sectionTitle": "Loops",
+    "code": "for condition {\n\tfmt.println(\"Printed over and over, until 'condition' becomes false\")\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.3",
+    "sectionTitle": "Loops",
+    "code": "i := 0\nfor i < 10 {\n\tfmt.println(i) // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9\n\ti += 1\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.3",
+    "sectionTitle": "Loops",
+    "code": "for i := 0; i < 10; i += 1 {\n\tfmt.println(i) // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.3",
+    "sectionTitle": "Loops",
+    "code": "for i in 0..<10 {\n\tfmt.println(i) // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.3",
+    "sectionTitle": "Loops",
+    "code": "for i in 0..=10 {\n\tfmt.println(i) // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.3",
+    "sectionTitle": "Loops",
+    "code": "outer: for x in 0..<20 {\n\tfor y in 0..<20 {\n\t\tif x == 5 && y == 5 {\n\t\t\tbreak outer\n\t\t}\n\t}\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.3",
+    "sectionTitle": "Loops",
+    "code": "for i in 0..<10 {\n\tif i == 5 {\n\t\t// skips printing \"5\"\n\t\tcontinue\n\t}\n\tfmt.println(i) // 0, 1, 2, 3, 4, 6, 7, 8, 9\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.4",
+    "sectionTitle": "Fixed arrays",
+    "code": "ten_ints: [10]int"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.4",
+    "sectionTitle": "Fixed arrays",
+    "code": "ten_ints := [10]int {\n\t61, 81, 12, 41, 5, 10, 1234, 8, 4, 1,\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.4",
+    "sectionTitle": "Fixed arrays",
+    "code": "third_item := ten_ints[2]"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.4",
+    "sectionTitle": "Fixed arrays",
+    "code": "ten_ints[6] = 7"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.4",
+    "sectionTitle": "Fixed arrays",
+    "code": "for n in ten_ints {\n\tfmt.println(n) // 61, 81, 12, 41, 5, 10, 1234, 8, 4, 1\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.4",
+    "sectionTitle": "Fixed arrays",
+    "code": "#reverse for n in ten_ints {\n\tfmt.println(n) // 1, 4, 8, 1234, 10, 5, 41, 12, 81, 61\n}"
+  },
+  {
+    "chapter": 4,
+    "chapterTitle": "Some additional basics",
+    "section": "4.5",
+    "sectionTitle": "All together",
+    "code": "package just_the_basics\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tnumbers := [10]int {\n\t\t6, 4, 7, 10, 1, -1, -9, 100, 1, 54,\n\t}\n\n\tcmp := 6\n\n\tfor n in numbers {\n\t\tif is_bigger_than(n, cmp) {\n\t\t\tfmt.printfln(\"%v is bigger than %v\", n, cmp)\n\t\t}\n\t}\n}\n\nis_bigger_than :: proc(number: int, compare_to: int) -> bool {\n\treturn number > compare_to\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1",
+    "sectionTitle": "Structs",
+    "code": "Rectangle :: struct {\n\tx: f32,\n\ty: f32,\n\twidth: f32,\n\theight: f32,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1",
+    "sectionTitle": "Structs",
+    "code": "rect: Rectangle"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1",
+    "sectionTitle": "Structs",
+    "code": "rect := Rectangle {\n\twidth = 20,\n\theight = 10,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1",
+    "sectionTitle": "Structs",
+    "code": "rect: Rectangle = {\n\twidth = 20,\n\theight = 10,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1",
+    "sectionTitle": "Structs",
+    "code": "rect := Rectangle {\n\twidth = 20,\n\theight = 10,\n}\n\n// a bit later\n\nrect = {\n\tx = 10,\n\twidth = 5,\n\theight = 7,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1",
+    "sectionTitle": "Structs",
+    "code": "rect := Rectangle {\n\t20, 20,\n\t200, 200,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1.1",
+    "sectionTitle": "Structs within structs",
+    "code": "Person_Stats :: struct {\n\thealth: int,\n\tage: int,\n}\n\nPerson :: struct {\n\tstats: Person_Stats,\n\tname: string,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1.1",
+    "sectionTitle": "Structs within structs",
+    "code": "p: Person"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1.1",
+    "sectionTitle": "Structs within structs",
+    "code": "p := Person {\n\tstats = {\n\t\thealth = 7,\n\t},\n\tname = \"Bob\",\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1.1",
+    "sectionTitle": "Structs within structs",
+    "code": "p := Person {\n\tstats = {\n\t\thealth = 7,\n\t},\n\tname = \"Bob\",\n}\n\np.name = \"Bobinski\"\np.stats.age = 36\nbobinskis_health := p.stats.health"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1.2",
+    "sectionTitle": "using on struct fields",
+    "code": "Person_Stats :: struct {\n\thealth: int,\n\tage: int,\n}\n\nPerson :: struct {\n\tusing stats: Person_Stats,\n\tname: string,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1.2",
+    "sectionTitle": "using on struct fields",
+    "code": "p := Person {\n\thealth = 20\n}\np.age = 70\n\nhs := p.health"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1.3",
+    "sectionTitle": "using and \"parenting\"",
+    "code": "Entity :: struct {\n\tid: int,\n\tposition: [2]f32,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1.3",
+    "sectionTitle": "using and \"parenting\"",
+    "code": "Player :: struct {\n\tusing entity: Entity,\n\tcan_jump: bool,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1.3",
+    "sectionTitle": "using and \"parenting\"",
+    "code": "p := Player {\n\tid = 7,\n\tposition = {5, 2},\n\tcan_jump = true,\n}\n\nfmt.println(p.position) // [5, 2]"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1.3",
+    "sectionTitle": "using and \"parenting\"",
+    "code": "p := Player {\n\tid = 7,\n\tposition = {5, 2},\n\tcan_jump = true,\n}\n\nprint_position :: proc(e: Entity) {\n\tfmt.println(e.position) // [5, 2]\n}\n\nprint_position(p)"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.1.4",
+    "sectionTitle": "No methods",
+    "code": "My_Interface :: struct {\n\trequired_name_length: int,\n\tis_valid_name: proc(My_Interface, string) -> bool,\n}\n\nmy_proc :: proc(i: My_Interface, name: string) -> bool {\n\treturn i.required_name_length == len(name)\n}\n\nmy_interface := My_Interface {\n\trequired_name_length = 5,\n\tis_valid_name = my_proc,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.2",
+    "sectionTitle": "Enums and switch",
+    "code": "Computer_Type :: enum {\n\tLaptop,    // value 0\n\tDesktop,   // value 1\n\tMainframe, // value 2\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.2",
+    "sectionTitle": "Enums and switch",
+    "code": "ct: Computer_Type"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.2",
+    "sectionTitle": "Enums and switch",
+    "code": "ct = .Mainframe"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.2",
+    "sectionTitle": "Enums and switch",
+    "code": "ct = Computer_Type.Mainframe"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.2.1",
+    "sectionTitle": "Switch",
+    "code": "switch ct {\ncase .Laptop:\n\tfmt.println(\"It's a laptop\")\n\ncase .Desktop:\n\tfmt.println(\"It's a desktop\")\n\ncase .Mainframe:\n\tfmt.println(\"Wow, a mainframe, in 2024?\")\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.2.1",
+    "sectionTitle": "Switch",
+    "code": "if ct == .Laptop {\n\tfmt.println(\"It's a laptop\")\n} else if ct == .Desktop {\n\tfmt.println(\"It's a desktop\")\n} else if ct == .Mainframe {\n\tfmt.println(\"Wow, a mainframe, in 2024?\")\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.2.1",
+    "sectionTitle": "Switch",
+    "code": "#partial switch ct {\ncase .Laptop:\n\tfmt.println(\"It's a laptop\")\n\ncase .Desktop:\n\tfmt.println(\"It's a desktop\")\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.2.2",
+    "sectionTitle": "Explicit enum numbering",
+    "code": "Computer_Type :: enum {\n\tLaptop = 1, // value 1\n\tDesktop,    // value 2\n\tMainframe,  // value 3\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.2.2",
+    "sectionTitle": "Explicit enum numbering",
+    "code": "Computer_Type :: enum {\n\tLaptop = 1,\n\tDesktop = 2,\n\tMainframe = 7,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.2.2",
+    "sectionTitle": "Explicit enum numbering",
+    "code": "Computer_Type :: enum {\n\tLaptop = 0,    // value 0\n\tDesktop,       // value 1\n\tMainframe = 5, // value 5\n\tBroken,        // value 6\n\tGamer_Rig,     // value 7\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.2.3",
+    "sectionTitle": "Backing type",
+    "code": "Animal_Type :: enum u8 {\n\tCat,\n\tRabbit,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3",
+    "sectionTitle": "Unions",
+    "code": "My_Union :: union {\n\tf32,\n\tint,\n\tPerson_Data,\n}\n\nPerson_Data :: struct {\n\thealth: int,\n\tage: int,\n}\n\nval: My_Union = int(12)"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3",
+    "sectionTitle": "Unions",
+    "code": "val = Person_Data {\n\thealth = 76,\n\tage = 14,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3",
+    "sectionTitle": "Unions",
+    "code": "fmt.println(size_of(My_Union)) // 24"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3",
+    "sectionTitle": "Unions",
+    "code": "switch v in val {\ncase int:\n\t// You can use v, it is of type int.\n\ncase f32:\n\t// You can use v, it is of type f32.\n\ncase Person_Data:\n\t// You can use v, it is of type\n\t// Person_Data. You can use v to access\n\t// the fields of Person_Data:\n\tfmt.println(v.age)\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3",
+    "sectionTitle": "Unions",
+    "code": "switch &v in val {\ncase int:\n\tv = 7\n\ncase f32:\n\tv = 42\n\ncase Person_Data:\n\tv.age = 7\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3",
+    "sectionTitle": "Unions",
+    "code": "f32_val, f32_val_ok := val.(f32)\n\nif f32_val_ok {\n\t// f32_val is OK to use in here.\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3",
+    "sectionTitle": "Unions",
+    "code": "if f32_val, f32_val_ok := val.(f32); f32_val_ok {\n\t// f32_val is OK to use in here.\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3",
+    "sectionTitle": "Unions",
+    "code": "if f32_val, ok := &val.(f32); ok {\n\tf32_val^ = 7\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3.1",
+    "sectionTitle": "The zero value of a union",
+    "code": "Shape :: union {\n\tShape_Circle,\n\tShape_Square,\n}\n\nShape_Circle :: struct {\n\tradius: f32,\n}\n\nShape_Square :: struct {\n\twidth: f32,\n}\n\n// Zero value: nil\nshape: Shape"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3.1",
+    "sectionTitle": "The zero value of a union",
+    "code": "Shape :: enum {\n\tCircle,\n\tSquare,\n}\n\n// Zero value: Shape.Circle\nshape: Shape"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3.1",
+    "sectionTitle": "The zero value of a union",
+    "code": "Shape :: union #no_nil {\n\tShape_Circle,\n\tShape_Square,\n}\n\nShape_Circle :: struct {\n\tradius: f32,\n}\n\nShape_Square :: struct {\n\twidth: f32,\n}\n\n// Zero value:\n// Variant Shape_Circle\nshape: Shape"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3.2",
+    "sectionTitle": "The union's tag",
+    "code": "Shape :: union {\n\tShape_Circle,\n\tShape_Square,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3.2",
+    "sectionTitle": "The union's tag",
+    "code": "shape: Shape"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3.2",
+    "sectionTitle": "The union's tag",
+    "code": "Shape :: union #no_nil {\n\tShape_Circle,\n\tShape_Square,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3.3",
+    "sectionTitle": "Maybe",
+    "code": "Maybe :: union($T: typeid) {\n\tT,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3.3",
+    "sectionTitle": "Maybe",
+    "code": "time: Maybe(int)\nfmt.println(time) // nil\ntime = 5\nfmt.println(time) // 5"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3.3",
+    "sectionTitle": "Maybe",
+    "code": "if time_val, time_val_ok := time.?; time_val_ok {\n\t// Use time_val.\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3.3",
+    "sectionTitle": "Maybe",
+    "code": "t := time.?"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3.4",
+    "sectionTitle": "Raw union: C-style unions",
+    "code": "My_Raw_Union :: struct #raw_union {\n\tnumber: int,\n\tstruct_val: My_Struct,\n}\n\na_raw_union: My_Raw_Union"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3.5",
+    "sectionTitle": "Struct variants using unions",
+    "code": "Entity :: struct {\n\tposition: [2]f32,\n\ttexture: Texture,\n\tcan_jump: bool,\n\ttime_in_space: f32,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3.5",
+    "sectionTitle": "Struct variants using unions",
+    "code": "Entity :: struct {\n\tposition: [2]f32,\n\ttexture: Texture,\n\tvariant: Entity_Variant,\n}\n\nEntity_Player :: struct {\n\tcan_jump: bool,\n}\n\nEntity_Rocket :: struct {\n\ttime_in_space: f32,\n}\n\nEntity_Variant :: union {\n\tEntity_Player,\n\tEntity_Rocket,\n}"
+  },
+  {
+    "chapter": 5,
+    "chapterTitle": "Making new types",
+    "section": "5.3.5",
+    "sectionTitle": "Struct variants using unions",
+    "code": "player_entity := Entity {\n\tposition = starting_position,\n\ttexture = player_graphics,\n\tvariant = Entity_Player {\n\t\tcan_jump = true,\n\t}\n}"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.1",
+    "sectionTitle": "A procedure that modifies an integer",
+    "code": "increment_number :: proc(num: ^int) {\n\tnum^ += 1\n}\n\nnumber := 7\nnumber_pointer := &number\nincrement_number(number_pointer)\nfmt.println(number) // 8"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.1",
+    "sectionTitle": "A procedure that modifies an integer",
+    "code": "number_pointer := &number"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.1",
+    "sectionTitle": "A procedure that modifies an integer",
+    "code": "increment_number :: proc(num: ^int) {\n\tnum^ += 1\n}"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.1",
+    "sectionTitle": "A procedure that modifies an integer",
+    "code": "num^ = num^ + 1"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.1",
+    "sectionTitle": "A procedure that modifies an integer",
+    "code": "increment_number :: proc(num: ^int) {"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.1",
+    "sectionTitle": "A procedure that modifies an integer",
+    "code": "num^ = num^ + 1"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.2",
+    "sectionTitle": "nil: the zero value of a pointer",
+    "code": "my_pointer: ^int"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.2",
+    "sectionTitle": "nil: the zero value of a pointer",
+    "code": "increment_number :: proc(num: ^int) {\n\tif num != nil {\n\t\tnum^ += 1\n\t}\n}"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.2",
+    "sectionTitle": "nil: the zero value of a pointer",
+    "code": "increment_number :: proc(num: ^int) {\n\tif num == nil {\n\t\treturn\n\t}\n\n\tnum^ += 1\n}"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.3",
+    "sectionTitle": "A pointer to a struct",
+    "code": "Cat :: struct {\n\tname: string,\n\tage: int,\n\tcolor: Cat_Color,\n}\n\nCat_Color :: enum {\n\tBlack,\n\tWhite,\n\tOrange,\n\tTabby,\n\tCalico,\n}"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.3",
+    "sectionTitle": "A pointer to a struct",
+    "code": "process_cat_birthday :: proc(cat: ^Cat) {\n\tif cat == nil {\n\t\treturn\n\t}\n\n\tcat.age += 1\n}\n\nmy_cat := Cat {\n\tname = \"Patches\",\n\tage = 7,\n\tcolor = .Calico,\n}\n\nprocess_cat_birthday(&my_cat)\n\n// Hooray, Patches is now 8 years old!\nfmt.printfln(\"Hooray, %v is now %v years old!\", my_cat.name, my_cat.age)"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.3",
+    "sectionTitle": "A pointer to a struct",
+    "code": "Hooray, Patches is now 8 years old!"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.3",
+    "sectionTitle": "A pointer to a struct",
+    "code": "process_cat_birthday(&my_cat)"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.3",
+    "sectionTitle": "A pointer to a struct",
+    "code": "cat.age += 1"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.3",
+    "sectionTitle": "A pointer to a struct",
+    "code": "cat^.age += 1"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.3",
+    "sectionTitle": "A pointer to a struct",
+    "code": "replace_cat :: proc(cat: ^Cat) {\n\tif cat == nil {\n\t\treturn\n\t}\n\n\tcat^ = {\n\t\tname = \"Klucke\",\n\t\tage = 6,\n\t\tcolor = .Tabby,\n\t}\n}"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.4",
+    "sectionTitle": "Copying a pointer and the address of a pointer",
+    "code": "number := 7\npointer1 := &number\npointer2 := pointer1\npointer2^ = 10"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.4",
+    "sectionTitle": "Copying a pointer and the address of a pointer",
+    "code": "fmt.println(&pointer1)\nfmt.println(&pointer2)"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.4",
+    "sectionTitle": "Copying a pointer and the address of a pointer",
+    "code": "0x445C6FF868\n0x445C6FF860"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.5",
+    "sectionTitle": "Under the hood: Addressables",
+    "code": "// Read a value through a pointer\nread_value := some_pointer^\n\n// Write a value through a pointer\nsome_pointer^ = 10"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.5",
+    "sectionTitle": "Under the hood: Addressables",
+    "code": "array: [20]int\nelement_pointer := &array[10]"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.5",
+    "sectionTitle": "Under the hood: Addressables",
+    "code": "array: [20]int\nelement := array[10]\nelement_pointer := &element"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.5",
+    "sectionTitle": "Under the hood: Addressables",
+    "code": "number: int\nnumber_pointer := &number"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.5",
+    "sectionTitle": "Under the hood: Addressables",
+    "code": "number_pointer^ = 10"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.5",
+    "sectionTitle": "Under the hood: Addressables",
+    "code": "another_number := number_pointer^"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.5",
+    "sectionTitle": "Under the hood: Addressables",
+    "code": "number_pointer^ = 10"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.5",
+    "sectionTitle": "Under the hood: Addressables",
+    "code": "another_number := number_pointer^"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.5",
+    "sectionTitle": "Under the hood: Addressables",
+    "code": "array: [20]int\nelement_pointer := &array[10]"
+  },
+  {
+    "chapter": 6,
+    "chapterTitle": "Pointers",
+    "section": "6.5",
+    "sectionTitle": "Under the hood: Addressables",
+    "code": "number := 7\nnumber_pointer := &number\nnumber_pointer_again := &number_pointer^\n// Both these pointers refer to `number`!"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "6.5",
+    "sectionTitle": "Under the hood: Addressables",
+    "code": "is_bigger_than :: proc(number: int, compare_to: int) -> bool {\n\treturn number > compare_to\n}\n\nresult := is_bigger_than(5, 2)"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.1",
+    "sectionTitle": "Default parameter values and named arguments",
+    "code": "write_message :: proc(message: string, label: string = \"Info\") {\n\tif label != \"\" {\n\t\tfmt.print(label)\n\t\tfmt.print(\": \")\n\t}\n\n\tfmt.println(message)\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.1",
+    "sectionTitle": "Default parameter values and named arguments",
+    "code": "write_message(\"Hellope!\")"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.1",
+    "sectionTitle": "Default parameter values and named arguments",
+    "code": "write_message(\"Hellope!\", \"Very important info\")"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.1",
+    "sectionTitle": "Default parameter values and named arguments",
+    "code": "label: string = \"Info\""
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.1",
+    "sectionTitle": "Default parameter values and named arguments",
+    "code": "label := \"Info\""
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.1",
+    "sectionTitle": "Default parameter values and named arguments",
+    "code": "my_proc :: proc(a: int, b := 1, c := \"hello\") {\n\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.1",
+    "sectionTitle": "Default parameter values and named arguments",
+    "code": "my_proc(7, c = \"bye bye\")"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.1",
+    "sectionTitle": "Default parameter values and named arguments",
+    "code": "my_proc(c = \"bye bye\", a = 7)"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.1.1",
+    "sectionTitle": "Example: Allocator parameter with default value",
+    "code": "clone :: proc(s: []byte, allocator := context.allocator, loc := #caller_location) -> []byte {\n\tc := make([]byte, len(s), allocator, loc)\n\tcopy(c, s)\n\treturn c[:len(s)]\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.1.1",
+    "sectionTitle": "Example: Allocator parameter with default value",
+    "code": "allocator := context.allocator"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.1.1",
+    "sectionTitle": "Example: Allocator parameter with default value",
+    "code": "copy := bytes.clone(some_bytes)"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.2",
+    "sectionTitle": "Multiple return values",
+    "code": "divide_and_double :: proc(n: f32, d: f32) -> (f32, bool) {\n\tif d == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (n/d)*2, true\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.2",
+    "sectionTitle": "Multiple return values",
+    "code": "(f32, bool)"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.2",
+    "sectionTitle": "Multiple return values",
+    "code": "res, ok := divide_and_double(2, 4)\n\nif ok {\n\tfmt.println(res)\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.2",
+    "sectionTitle": "Multiple return values",
+    "code": "divide_and_double(2, 4)"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.2",
+    "sectionTitle": "Multiple return values",
+    "code": "@require_results\ndivide_and_double :: proc(n: f32, d: f32) -> (f32, bool) {\n\t// ...\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.2",
+    "sectionTitle": "Multiple return values",
+    "code": "res, _ := divide_and_double(2, 4)"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.2",
+    "sectionTitle": "Multiple return values",
+    "code": "if res, ok := divide_and_double(2, 4); ok {\n\tfmt.println(res)\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.3",
+    "sectionTitle": "Named return values",
+    "code": "divide_and_double :: proc(n: f32, d: f32) -> (res: f32, ok: bool) {\n\tif d == 0 {\n\t\treturn\n\t}\n\n\tres = (n/d)*2\n\tok = true\n\treturn\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.3",
+    "sectionTitle": "Named return values",
+    "code": "if d == 0 {\n\treturn 0, false\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.3",
+    "sectionTitle": "Named return values",
+    "code": "if d == 0 {\n\treturn\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.3",
+    "sectionTitle": "Named return values",
+    "code": "return (n/d)*2, true"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.3",
+    "sectionTitle": "Named return values",
+    "code": "res = (n/d)*2\nok = true\nreturn"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.4",
+    "sectionTitle": "Nested procedures and captured variables",
+    "code": "do_stuff :: proc() {\n\tprint_message :: proc(msg: string) {\n\t\tfmt.println(msg)\n\t}\n\n\tprint_message(\"Hellope!\")\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.4",
+    "sectionTitle": "Nested procedures and captured variables",
+    "code": "global_state: int\nCONSTANT_NUMBER :: 7\n\ndo_stuff :: proc() {\n\tlocal_variable: int\n\n\tprint_message :: proc(msg: string) {\n\t\tfmt.println(msg)\n\t}\n\n\tprint_message(\"Hellope!\")\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.5",
+    "sectionTitle": "Parameters are always immutable",
+    "code": "divide_numbers :: proc(n, d: f32) -> f32 {\n\tn := n\n\tn = n / d\n\treturn n\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.5",
+    "sectionTitle": "Parameters are always immutable",
+    "code": "increase_number :: proc(n: ^int, amount: int) {\n\tn^ += amount\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.6",
+    "sectionTitle": "Don't use pointer parameters for the sake of optimization",
+    "code": "Person :: struct {\n\tname: string,\n\thealth: int,\n\tage: int,\n\tnumber_of_teeth: int,\n\theight_meters: f32,\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.6",
+    "sectionTitle": "Don't use pointer parameters for the sake of optimization",
+    "code": "print_person_info :: proc(p: Person) {\n\tfmt.printfln(\"%v is %v years old and has %v teeth.\", p.name, p.age, p.number_of_teeth)\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.6",
+    "sectionTitle": "Don't use pointer parameters for the sake of optimization",
+    "code": "print_person_info :: proc(p: Person) {\n\tfmt.printfln(\"%v is %v years old and has %v teeth.\", p.name, p.age, p.number_of_teeth)\n}\n\nhans := Person {\n\tname = \"Hans\",\n\tage = 65,\n\tnumber_of_teeth = 6,\n\thealth = 20,\n\theight_meters = 1.69,\n}\n\nprint_person_info(hans)"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.6.1",
+    "sectionTitle": "Pointer and immutable reference aliasing",
+    "code": "aliasing_example(&couple_data, couple_data.person_1)"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.6.1",
+    "sectionTitle": "Pointer and immutable reference aliasing",
+    "code": "aliasing_example :: proc(cd: ^Couple_Data, person: Person) {\n\tperson := person\n\n\tcd.person_1 = {\n\t\tname = \"This no longer modifies 'person'\",\n\t}\n\n\tfmt.println(person.name) // Prints the original name\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.7",
+    "sectionTitle": "Explicit overloading",
+    "code": "length :: proc {\n\tlength_float2,\n\tlength_float3,\n}\n\nlength_float2 :: proc(v: [2]f32) -> f32 {\n\treturn math.sqrt(v.x*v.x + v.y*v.y)\n}\n\nlength_float3 :: proc(v: [3]f32) -> f32 {\n\treturn math.sqrt(v.x*v.x + v.y*v.y + v.z*v.z)\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.7",
+    "sectionTitle": "Explicit overloading",
+    "code": "v2 := [2]f32 { 3, 3 }\nv3 := [3]f32 { 3, 3, 3}\nlen_v2 := length(v2)\nlen_v3 := length(v3)"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.7",
+    "sectionTitle": "Explicit overloading",
+    "code": "v2 := [2]f32 { 3, 3 }\nlen_v2 := length_float2(v2)"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.8",
+    "sectionTitle": "Run procedures on startup and shutdown",
+    "code": "package init_fini_example\n\nimport \"base:runtime\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"Program running\")\n}\n\n@init\nstartup :: proc \"contextless\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"Program started\")\n}\n\n@fini\nshutdown :: proc \"contextless\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"Program shutting down\")\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.8",
+    "sectionTitle": "Run procedures on startup and shutdown",
+    "code": "Program started\nProgram running\nProgram shutting down"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.9",
+    "sectionTitle": "The scope and the stack",
+    "code": "my_proc :: proc() {\n\tnumber := 7\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.10",
+    "sectionTitle": "Scopes within scopes",
+    "code": "my_proc :: proc() {\n\tnumber := 7\n\n\tif number > 5 {\n\t\tmessage := \"It's more than 5\"\n\t\tfmt.println(message)\n\t}\n\n\t// message is not available here\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.10",
+    "sectionTitle": "Scopes within scopes",
+    "code": "my_proc :: proc() {\n\tnumber := 7\n\n\t{\n\t\tmessage := \"Hellope\"\n\t\tfmt.println(message)\n\t}\n\n\t// message is not available here\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.11",
+    "sectionTitle": "defer: Making things happen at end of scope",
+    "code": "read_file :: proc() {\n\tf, err := os.open(\"my_file.txt\")\n\n\tif err != os.ERROR_NONE {\n\t\t// handle error\n\t}\n\n\tdefer os.close(f)\n\n\t// Put code here that uses `f`\n\t// to read data from file.\n\n\t// os.close(f) is run at the end of\n\t// the procedure.\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.11",
+    "sectionTitle": "defer: Making things happen at end of scope",
+    "code": "most_green_color :: proc(filename: cstring) -> rl.Color {\n\timg := rl.LoadImage(filename)\n\n\tif img.data == nil || img.width == 0 || img.height == 0 {\n\t\treturn {}\n\t}\n\n\tdefer rl.UnloadImage(img)\n\n\tmost_green_color := rl.GetImageColor(img, 0, 0)\n\n\tfor x in 0..<img.width {\n\t\tfor y in 0..<img.height {\n\t\t\tcolor := rl.GetImageColor(img, i32(x), i32(y))\n\n\t\t\tif color.g == 255 {\n\t\t\t\t// rl.UnloadImage(img) happens after this line\n\t\t\t\treturn color\n\t\t\t}\n\n\t\t\tif color.g > most_green_color.g {\n\t\t\t\tmost_green_color = color\n\t\t\t}\n\t\t}\n\t}\n\n\treturn most_green_color\n} // <-- rl.UnloadImage(img) happens here."
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.11",
+    "sectionTitle": "defer: Making things happen at end of scope",
+    "code": "if color.g == 255 {\n\t// rl.UnloadImage(img) happens after this line\n\treturn color\n}"
+  },
+  {
+    "chapter": 7,
+    "chapterTitle": "Procedures and scopes",
+    "section": "7.11",
+    "sectionTitle": "defer: Making things happen at end of scope",
+    "code": "\treturn most_green_color\n} // <-- rl.UnloadImage(img) happens here."
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1",
+    "sectionTitle": "Fixed arrays revisited",
+    "code": "some_ints: [7]int"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1",
+    "sectionTitle": "Fixed arrays revisited",
+    "code": "some_ints = { 51, 21, 621, 1, 51, 7, 12 }"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1",
+    "sectionTitle": "Fixed arrays revisited",
+    "code": "some_ints := [7]int { 51, 21, 621, 1, 51, 7, 12 }"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1",
+    "sectionTitle": "Fixed arrays revisited",
+    "code": "some_ints[3] = 500\nsome_ints[4] = 200\nsome_ints[5] = 333\n\nfmt.println(some_ints[4]) // 200"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1",
+    "sectionTitle": "Fixed arrays revisited",
+    "code": "for v in some_ints {\n\tfmt.println(v)\n}"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1",
+    "sectionTitle": "Fixed arrays revisited",
+    "code": "for v, i in some_ints {\n\t// This will print:\n\t// `value at 0 is <some number>`\n\t// etc\n\tfmt.printfln(\"value at %v is %v\", i, v)\n}"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1",
+    "sectionTitle": "Fixed arrays revisited",
+    "code": "for &v in some_ints {\n\tv *= 2\n}"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1",
+    "sectionTitle": "Fixed arrays revisited",
+    "code": "Rectangle :: struct {\n\tx, y, width, height: f32,\n}\n\nrectangles: [10]Rectangle"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.1",
+    "sectionTitle": "Where does the memory live?",
+    "code": "main :: proc() {\n\tsome_ints: [100]int\n}"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.1",
+    "sectionTitle": "Where does the memory live?",
+    "code": "main :: proc() {\n\tsome_ints: [100]int\n\tsome_ints[10] = 2\n\tsome_ints2 := some_ints\n\tsome_ints2[10] = 5\n\tfmt.println(some_ints[10]) // 2\n\tfmt.println(some_ints2[10]) // 5\n}"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.1",
+    "sectionTitle": "Where does the memory live?",
+    "code": "My_Struct :: struct {\n\tsome_ints: [100]int,\n}\n\nmain :: proc() {\n\ta_struct: My_Struct\n\ta_struct.some_ints[10] = 2\n\tanother_struct := a_struct\n\tanother_struct.some_ints[10] = 5\n\tfmt.println(a_struct.some_ints[10]) // 2\n\tfmt.println(another_struct.some_ints[10]) // 5\n}"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.2",
+    "sectionTitle": "Blowing up the stack",
+    "code": "lots_of_ints: [10000000]int\n\nmain :: proc() {\n\t// lots_of_ints is a global variable\n\t// that you can use for as long as your\n\t// program runs.\n}"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.3",
+    "sectionTitle": "Vectors and array programming",
+    "code": "position: [3]f32"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.3",
+    "sectionTitle": "Vectors and array programming",
+    "code": "position = {7, 1, 2}"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.3",
+    "sectionTitle": "Vectors and array programming",
+    "code": "position := [3]f32 {7, 1, 2}"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.3",
+    "sectionTitle": "Vectors and array programming",
+    "code": "zx_pos := position.zx"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.3",
+    "sectionTitle": "Vectors and array programming",
+    "code": "Vector3 :: [3]f32"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.3",
+    "sectionTitle": "Vectors and array programming",
+    "code": "position: Vector3\nvelocity := Vector3 {0, 0, 10}\nposition += velocity\nfmt.println(position) // [0, 0, 10]"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.3",
+    "sectionTitle": "Vectors and array programming",
+    "code": "position1 := Vector3 {10, 21, 1}\nposition2 := Vector3 {9, 1, 3}\nfrom_1_to_2 := position2 - position1\nfmt.println(from_1_to_2) // [-1, -20, 2]"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.3",
+    "sectionTitle": "Vectors and array programming",
+    "code": "xz_vector := Vector3 {10, 0, -2}\nz_scaled_up := xz_vector * {1, 1, 10}\nfmt.println(z_scaled_up) // [10, 0, -20]"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.3",
+    "sectionTitle": "Vectors and array programming",
+    "code": "one_meter_ahead := Vector3 {0, 0, 1}\nten_meters_ahead := one_meter_ahead * 10\nfmt.println(ten_meters_ahead) // [0, 0, 10]"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.4",
+    "sectionTitle": "Passing fixed arrays to procedures",
+    "code": "draw_image :: proc(image: Image, position: [2]f32) {\n\t// Draw image using position.\n}"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.4",
+    "sectionTitle": "Passing fixed arrays to procedures",
+    "code": "draw_image(my_image, {100, 200})"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.1.4",
+    "sectionTitle": "Passing fixed arrays to procedures",
+    "code": "position: [2]f32\nposition = {100, 200}"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.2",
+    "sectionTitle": "Enumerated arrays",
+    "code": "Nice_People :: enum {\n\tBob,\n\tKlucke,\n\tTim,\n}\n\nnice_rating := [Nice_People]int {\n\t.Bob = 5,\n\t.Klucke = 7,\n\t.Tim = 3,\n}\n\nbobs_niceness := nice_rating[.Bob]"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.2",
+    "sectionTitle": "Enumerated arrays",
+    "code": "nice_rating := [Nice_People]int {"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.2",
+    "sectionTitle": "Enumerated arrays",
+    "code": "bobs_niceness := nice_rating[.Bob]"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.2",
+    "sectionTitle": "Enumerated arrays",
+    "code": "nice_rating: [Nice_People]int"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.2",
+    "sectionTitle": "Enumerated arrays",
+    "code": "nice_rating := #partial [Nice_People]int {\n\t.Klucke = 10,\n}"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.3",
+    "sectionTitle": "Fixed Capacity Dynamic Arrays",
+    "code": "package fcd_array_example\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tarr: [dynamic; 1024]int\n\n\tappend(&arr, 5)\n\tfmt.printfln(\"len: %v\", len(arr))\n\tfmt.println(arr)\n\n\tappend(&arr, 7)\n\tfmt.printfln(\"len: %v\", len(arr))\n\tfmt.println(arr)\n\n\tappend(&arr, 11)\n\tfmt.printfln(\"len: %v\", len(arr))\n\tfmt.println(arr)\n\n\t// Remove element at index `0`. This\n\t// may reorder the other elements.\n\tunordered_remove(&arr, 0)\n\tfmt.printfln(\"len: %v\", len(arr))\n\tfmt.println(arr)\n}"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.3",
+    "sectionTitle": "Fixed Capacity Dynamic Arrays",
+    "code": "len: 1\n[5]\nlen: 2\n[5, 7]\nlen: 3\n[5, 7, 11]\nlen: 2\n[11, 7]"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.3",
+    "sectionTitle": "Fixed Capacity Dynamic Arrays",
+    "code": "arr: [dynamic; 1024]int"
+  },
+  {
+    "chapter": 8,
+    "chapterTitle": "Fixed-memory containers",
+    "section": "8.3",
+    "sectionTitle": "Fixed Capacity Dynamic Arrays",
+    "code": "Raw_Fixed_Capacity_Dynamic_Array :: struct($Capacity: uint, $T: typeid) {\n\tdata: [Capacity]T,\n\tlen:  int,\n}"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.1",
+    "sectionTitle": "Creating a dynamic array and appending items",
+    "code": "dyn_arr: [dynamic]int"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.1",
+    "sectionTitle": "Creating a dynamic array and appending items",
+    "code": "append(&dyn_arr, 5)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.1",
+    "sectionTitle": "Creating a dynamic array and appending items",
+    "code": "fmt.println(len(dyn_arr)) // 1"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.1",
+    "sectionTitle": "Creating a dynamic array and appending items",
+    "code": "fmt.println(cap(dyn_arr)) // 8"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.1",
+    "sectionTitle": "Creating a dynamic array and appending items",
+    "code": "package dynamic_array_example\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tdyn_arr: [dynamic]int\n\n\t// Will make `dyn_arr` grow:\n\tappend(&dyn_arr, 5)\n\n\tfmt.println(\"After first append:\")\n\tfmt.println(\"Capacity:\", cap(dyn_arr)) // 8\n\tfmt.println(\"Length:\", len(dyn_arr)) // 1\n\n\t// append 7 numbers to the dynamic\n\t// array. This will not make `dyn_arr`\n\t// grow since capacity is `8` after\n\t// first `append`.\n\tfor i in 0..<7 {\n\t\tappend(&dyn_arr, i)\n\t}\n\n\tfmt.println(\"\\nAfter 7 more appends:\")\n\tfmt.println(\"Capacity:\", cap(dyn_arr)) // 8\n\tfmt.println(\"Length:\", len(dyn_arr)) // 8\n\n\t// Capacity is 8, length is 8. This\n\t// call to `append` will make `dyn_arr`\n\t// grow:\n\tappend(&dyn_arr, 5)\n\n\tfmt.println(\"\\nAfter one more append:\")\n\tfmt.println(\"Capacity:\", cap(dyn_arr)) // 24\n\tfmt.println(\"Length:\", len(dyn_arr)) // 9\n}"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.1",
+    "sectionTitle": "Creating a dynamic array and appending items",
+    "code": "After first append:\nCapacity: 8\nLength: 1\n\nAfter 7 more appends:\nCapacity: 8\nLength: 8\n\nAfter one more append:\nCapacity: 24\nLength: 9"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.2",
+    "sectionTitle": "Deallocating a dynamic array",
+    "code": "delete(dyn_arr)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.2",
+    "sectionTitle": "Deallocating a dynamic array",
+    "code": "dyn_arr = {}"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.2",
+    "sectionTitle": "Deallocating a dynamic array",
+    "code": "clear(&dyn_arr)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.3",
+    "sectionTitle": "Removing items",
+    "code": "unordered_remove(&dyn_arr, index)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.3",
+    "sectionTitle": "Removing items",
+    "code": "ordered_remove(&dyn_arr, index)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.4",
+    "sectionTitle": "Preallocated dynamic arrays",
+    "code": "dyn_arr: [dynamic]int"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.4",
+    "sectionTitle": "Preallocated dynamic arrays",
+    "code": "dyn_arr := make([dynamic]int, 0, 20)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.4",
+    "sectionTitle": "Preallocated dynamic arrays",
+    "code": "dyn_arr := make([dynamic]int, 20)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.5",
+    "sectionTitle": "Under the hood: append and Raw_Dynamic_Array",
+    "code": "dyn_arr: [dynamic]int\nappend(&dyn_arr, 7)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.5",
+    "sectionTitle": "Under the hood: append and Raw_Dynamic_Array",
+    "code": "Raw_Dynamic_Array :: struct {\n\tdata:      rawptr,\n\tlen:       int,\n\tcap:       int,\n\tallocator: Allocator,\n}"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.5",
+    "sectionTitle": "Under the hood: append and Raw_Dynamic_Array",
+    "code": "dyn_arr: [dynamic]int"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.5",
+    "sectionTitle": "Under the hood: append and Raw_Dynamic_Array",
+    "code": "append(&dyn_arr, 7)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.2.6",
+    "sectionTitle": "Exercise: Understanding Dynamic Arrays",
+    "code": "package exercise_dynamic_array\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tmy_ints: [dynamic]int\n\n\tfor i in 0..<1024 {\n\t\tprint_info(my_ints)\n\t\tappend(&my_ints, 5)\n\t}\n}\n\nprint_info :: proc(arr: [dynamic]int) {\n\tfmt.printfln(\"len: %v\", len(arr))\n\tfmt.printfln(\"cap: %v\", cap(arr))\n\tfmt.printfln(\"data: %p\", raw_data(arr))\n}"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.3",
+    "sectionTitle": "Dynamically allocated variables",
+    "code": "stack_number: f32"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.3",
+    "sectionTitle": "Dynamically allocated variables",
+    "code": "number := new(f32)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.3",
+    "sectionTitle": "Dynamically allocated variables",
+    "code": "free(number)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.3.1",
+    "sectionTitle": "Example: Dynamically allocated struct",
+    "code": "Cat :: struct {\n\tage: int,\n\tname: string,\n}\n\nmake_cat :: proc(name: string, age: int) -> ^Cat {\n\tcat := new(Cat)\n\tcat^ = {\n\t\tname = name,\n\t\tage = age,\n\t}\n\treturn cat\n}\n\ncat_simulation :: proc() {\n\tcat := make_cat(\"Fluffy\", 12)\n\n\t// Cat simulation code goes here\n\n\tfree(cat)\n}"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.3.1",
+    "sectionTitle": "Example: Dynamically allocated struct",
+    "code": "Program_Memory :: struct {\n\tbig_array_of_numbers: [10000000]int,\n}\n\nmemory: ^Program_Memory\n\nmain :: proc() {\n\tmemory = new(Program_Memory)\n\n\t// Rest of program can use\n\t// global variable `memory`.\n}"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.3.2",
+    "sectionTitle": "Example: Dynamically allocated fixed array",
+    "code": "ints_stack: [128]int"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.3.2",
+    "sectionTitle": "Example: Dynamically allocated fixed array",
+    "code": "ints := new([128]int)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.3.2",
+    "sectionTitle": "Example: Dynamically allocated fixed array",
+    "code": "free(ints)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.3.2",
+    "sectionTitle": "Example: Dynamically allocated fixed array",
+    "code": "ints := new([128]int)\nints[10] = 5\nints_2 := ints\nints_2[10] = 7\nfmt.println(ints[10]) // 7\nfmt.println(ints_2[10]) // 7"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.4",
+    "sectionTitle": "The default allocator: context.allocator",
+    "code": "new :: proc($T: typeid, allocator := context.allocator, loc := #caller_location) -> (^T, Allocator_Error) #optional_allocator_error {\n\treturn new_aligned(T, align_of(T), allocator, loc)\n}"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.4",
+    "sectionTitle": "The default allocator: context.allocator",
+    "code": "make_dynamic_array :: proc($T: typeid/[dynamic]$E, allocator := context.allocator, loc := #caller_location) -> (T, Allocator_Error) #optional_allocator_error {\n\treturn make_dynamic_array_len_cap(T, 0, 0, allocator, loc)\n}"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.4.1",
+    "sectionTitle": "The heap allocator",
+    "code": "my_num := new(f32, context.allocator)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.4.1",
+    "sectionTitle": "The heap allocator",
+    "code": "my_dyn_arr, alloc_err := make([dynamic]f32, 100, context.allocator)\n\nif alloc_err != nil {\n\t// There's an error, alloc_err could\n\t// for example be the \"Out_Of_Memory\"\n\t// error.\n}"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.5",
+    "sectionTitle": "The separation of pointer and allocated memory",
+    "code": "number := new(f32)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.5",
+    "sectionTitle": "The separation of pointer and allocated memory",
+    "code": "number := new(i32)\nnumber2 := number"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.5",
+    "sectionTitle": "The separation of pointer and allocated memory",
+    "code": "dyn_arr: [dynamic]int\nappend(&dyn_arr, 5)\ndyn_arr_2 := dyn_arr"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.5",
+    "sectionTitle": "The separation of pointer and allocated memory",
+    "code": "Raw_Dynamic_Array :: struct {\n\tdata:      rawptr,\n\tlen:       int,\n\tcap:       int,\n\tallocator: Allocator,\n}"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.5",
+    "sectionTitle": "The separation of pointer and allocated memory",
+    "code": "dyn_arr_2 := slice.clone_to_dynamic(dyn_arr[:])"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.6",
+    "sectionTitle": "free and delete",
+    "code": "Raw_Dynamic_Array :: struct {\n\tdata:      rawptr,\n\tlen:       int,\n\tcap:       int,\n\tallocator: Allocator,\n}"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.6",
+    "sectionTitle": "free and delete",
+    "code": "delete :: proc{\n\tdelete_string,\n\tdelete_cstring,\n\tdelete_dynamic_array,\n\tdelete_slice,\n\tdelete_map,\n\tdelete_soa_slice,\n\tdelete_soa_dynamic_array,\n}"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.7",
+    "sectionTitle": "Temporary allocator",
+    "code": "great_algorithm :: proc() {\n\tnumbers := make([dynamic]int, context.temp_allocator)\n\n\tfor i in 0..<100 {\n\t\tappend(&numbers, rand.int_max(1000))\n\t}\n\n\tfor n in numbers {\n\t\tif n > 500 {\n\t\t\tfmt.println(n)\n\t\t}\n\t}\n}"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.7",
+    "sectionTitle": "Temporary allocator",
+    "code": "free_all(context.temp_allocator)"
+  },
+  {
+    "chapter": 9,
+    "chapterTitle": "Introduction to manual memory management",
+    "section": "9.7.1",
+    "sectionTitle": "Placing the free_all",
+    "code": "main :: proc() {\n\tinit_game()\n\n\tfor game_should_run() {\n\t\tgame_update()\n\t\tgame_draw()\n\t\tfree_all(context.temp_allocator)\n\t}\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.1",
+    "sectionTitle": "Creating a slice",
+    "code": "my_numbers: [50]int"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.1",
+    "sectionTitle": "Creating a slice",
+    "code": "first_20 := my_numbers[0:20]"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.1",
+    "sectionTitle": "Creating a slice",
+    "code": "my_numbers: [50]int\nlast_20 := my_numbers[30:]"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.1",
+    "sectionTitle": "Creating a slice",
+    "code": "my_numbers: [50]int\nfull_slice := my_numbers[:]"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.1",
+    "sectionTitle": "Creating a slice",
+    "code": "dyn_arr: [dynamic]f32\n\nfor i in 0..<200 {\n\tappend(&dyn_arr, f32(i*i))\n}\n\nhalf_dyn_arr_size := len(dyn_arr)/2\nhalf_the_dyn_arr := dyn_arr[:half_dyn_arr_size]"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.1",
+    "sectionTitle": "Creating a slice",
+    "code": "for v, i in half_the_dyn_arr {\n\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.2",
+    "sectionTitle": "Slice internals",
+    "code": "Raw_Slice :: struct {\n\tdata: rawptr,\n\tlen:  int,\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.2",
+    "sectionTitle": "Slice internals",
+    "code": "numbers: [50]int\nmy_slice := numbers[10:30]"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.3",
+    "sectionTitle": "Slice example: Considering 10 elements at a time",
+    "code": "display_numbers :: proc(numbers: []int) {\n\tfmt.println(numbers)\n}\n\nmy_numbers: [128]int\n\n// Set the elements of my_numbers to\n// interesting values\nfor i in 0..<len(my_numbers) {\n\tmy_numbers[i] = i*i\n}\n\n// Slice my_numbers, 10 numbers per slice.\n// Send each slice into display_numbers for\n// printing on the screen.\nfor i := 0; i < len(my_numbers); i += 10 {\n\tslice_end := min(i+10, len(my_numbers))\n\tten_numbers := my_numbers[i:slice_end]\n\tdisplay_numbers(ten_numbers)\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.3",
+    "sectionTitle": "Slice example: Considering 10 elements at a time",
+    "code": "for i := 0; i < len(my_numbers); i += 10 {"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.3",
+    "sectionTitle": "Slice example: Considering 10 elements at a time",
+    "code": "slice_end := min(i+10, len(my_numbers))\nten_numbers := my_numbers[i:slice_end]"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.4",
+    "sectionTitle": "Prefer to pass slices",
+    "code": "package cat_simulation\n\nimport \"core:fmt\"\nimport \"core:math/rand\"\n\nCat :: struct {\n\tname: string,\n\tage: int,\n}\n\nadd_cat_of_random_age :: proc(cats: ^[dynamic]Cat, name: string) {\n\trandom_age := rand.int_max(12) + 2\n\tappend(cats, Cat {\n\t\tname = name,\n\t\tage = random_age,\n\t})\n}\n\nprint_cats :: proc(cats: []Cat) {\n\tfor cat in cats {\n\t\tfmt.printfln(\"%v is %v years old\", cat.name, cat.age)\n\t}\n}\n\nmutate_cats :: proc(cats: []Cat) {\n\tfor &cat in cats {\n\t\tcat.age = rand.int_max(12) + 2\n\t}\n}\n\nmain :: proc() {\n\tall_the_cats: [dynamic]Cat\n\tadd_cat_of_random_age(&all_the_cats, \"Klucke\")\n\tadd_cat_of_random_age(&all_the_cats, \"Pontus\")\n\n\tprint_cats(all_the_cats[:])\n\tmutate_cats(all_the_cats[:])\n\tprint_cats(all_the_cats[:])\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.4",
+    "sectionTitle": "Prefer to pass slices",
+    "code": "add_cat_of_random_age :: proc(cats: ^[dynamic]Cat, name: string) {"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.4",
+    "sectionTitle": "Prefer to pass slices",
+    "code": "print_cats :: proc(cats: []Cat) {\n\tfor cat in cats {\n\t\tfmt.printfln(\"%v is %v years old\", cat.name, cat.age)\n\t}\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.4",
+    "sectionTitle": "Prefer to pass slices",
+    "code": "print_cats(all_the_cats[:])"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.4",
+    "sectionTitle": "Prefer to pass slices",
+    "code": "print_cats :: proc(cats: [dynamic]Cat) {"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.4",
+    "sectionTitle": "Prefer to pass slices",
+    "code": "mutate_cats :: proc(cats: []Cat) {\n\tfor &cat in cats {\n\t\tcat.age = rand.int_max(12) + 2\n\t}\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.4",
+    "sectionTitle": "Prefer to pass slices",
+    "code": "Raw_Slice :: struct {\n\tdata: rawptr,\n\tlen:  int,\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.5",
+    "sectionTitle": "Slices with their own memory",
+    "code": "my_numbers: [128]int\nfirst_20 := my_numbers[:20]\nfirst_20_clone := slice.clone(first_20)"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.5",
+    "sectionTitle": "Slices with their own memory",
+    "code": "ints := make([]int, 128)"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.5",
+    "sectionTitle": "Slices with their own memory",
+    "code": "Raw_Slice :: struct {\n\tdata: rawptr,\n\tlen:  int,\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.5",
+    "sectionTitle": "Slices with their own memory",
+    "code": "my_numbers: [128]int"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.5",
+    "sectionTitle": "Slices with their own memory",
+    "code": "my_numbers := make([]int, 128)"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.5",
+    "sectionTitle": "Slices with their own memory",
+    "code": "my_numbers := make([]int, rand.int_max(200) + 10)"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "",
+    "sectionTitle": "Comparison to dynamically allocated fixed arrays",
+    "code": "ints_fixed := new([128]int)"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "",
+    "sectionTitle": "Comparison to dynamically allocated fixed arrays",
+    "code": "ints_fixed := new([128]int)\nints_fixed_slice := ints_fixed[:]"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "",
+    "sectionTitle": "Comparison to dynamically allocated fixed arrays",
+    "code": "ints_slice := make([]int, 128)"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "",
+    "sectionTitle": "Comparison to dynamically allocated fixed arrays",
+    "code": "ints_fixed := new([128]int)\nints_fixed_slice := ints_fixed[:]\n\n// Some time later:\ndelete(ints_fixed_slice)"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.6",
+    "sectionTitle": "Slice literals",
+    "code": "print_numbers :: proc(numbers: []int) {\n\tfor n in numbers {\n\t\tfmt.println(n)\n\t}\n}\n\nmy_numbers := [3]int { 1, 2, 3 }\nprint_numbers(my_numbers[:])"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.6",
+    "sectionTitle": "Slice literals",
+    "code": "my_numbers := []int { 1, 2, 3 }\nprint_numbers(my_numbers)"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.6",
+    "sectionTitle": "Slice literals",
+    "code": "my_numbers := []int { 1, 2, 3 }"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.6",
+    "sectionTitle": "Slice literals",
+    "code": "my_numbers_arr := [3]int { 1, 2, 3 }\nmy_numbers := my_numbers_arr[:]"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.1.6",
+    "sectionTitle": "Slice literals",
+    "code": "print_numbers :: proc(numbers: []int) {\n\tfor n in numbers {\n\t\tfmt.println(n)\n\t}\n}\n\nprint_numbers({ 1, 2, 3 })"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "",
+    "sectionTitle": "Slice literals pitfalls",
+    "code": "[7, 42, 13]\n[140700727785616, 67460135296, 72339069014638605]"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.1",
+    "sectionTitle": "Creating and destroying maps",
+    "code": "age_by_name: map[string]int"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.1",
+    "sectionTitle": "Creating and destroying maps",
+    "code": "age_by_name[\"Karl\"] = 35\nage_by_name[\"Klucke\"] = 7"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.1",
+    "sectionTitle": "Creating and destroying maps",
+    "code": "delete_key(&age_by_name, \"Klucke\")"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.1",
+    "sectionTitle": "Creating and destroying maps",
+    "code": "karls_age := age_by_name[\"Karl\"]"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.1",
+    "sectionTitle": "Creating and destroying maps",
+    "code": "if karls_age, ok := age_by_name[\"Karl\"]; ok {\n\t// There was a value for this key! In\n\t// here you can safely use `karls_age`.\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.1",
+    "sectionTitle": "Creating and destroying maps",
+    "code": "has_karl := \"Karl\" in age_by_name\ndoes_not_have_klucke := \"Klucke\" not_in age_by_name"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.2",
+    "sectionTitle": "Maps and allocations",
+    "code": "age_by_name: map[string]int"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.2",
+    "sectionTitle": "Maps and allocations",
+    "code": "age_by_name[\"Karl\"] = 35"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.2",
+    "sectionTitle": "Maps and allocations",
+    "code": "delete(some_map)"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.2",
+    "sectionTitle": "Maps and allocations",
+    "code": "age_by_name := make(map[string]int, context.temp_allocator)"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.2",
+    "sectionTitle": "Maps and allocations",
+    "code": "age_by_name := make(map[string]int, 64, context.temp_allocator)"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.3",
+    "sectionTitle": "Iterating maps",
+    "code": "for key, value in some_map {\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.3",
+    "sectionTitle": "Iterating maps",
+    "code": "for key, &value in some_map {\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.5",
+    "sectionTitle": "Making a set using a map",
+    "code": "set_of_names: map[string]struct{}\n\n// Add to set\nset_of_names[\"Pontus\"] = {}\n\n// Check if set contains \"Pontus\"\nif \"Pontus\" in set_of_names {\n\n}\n\n// Iterate set\nfor key in set_of_names {\n\n}\n\n// Remove from set\ndelete_key(&set_of_names, \"Pontus\")"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.5",
+    "sectionTitle": "Making a set using a map",
+    "code": "set_of_names[\"Pontus\"] = {}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.2.5",
+    "sectionTitle": "Making a set using a map",
+    "code": "add_to_set :: proc(s: ^map[$T]struct{}, v: T) {\n\ts[v] = {}\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.3",
+    "sectionTitle": "Custom iterators",
+    "code": "for v, i in some_array {\n\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.3",
+    "sectionTitle": "Custom iterators",
+    "code": "Slot :: struct {\n\timportant_value: int,\n\tused: bool,\n}\n\nSlots_Iterator :: struct {\n\tindex: int,\n\tdata: []Slot,\n}\n\nmake_slots_iterator :: proc(data: []Slot) -> Slots_Iterator {\n\treturn { data = data }\n}\n\nslots_iterator :: proc(it: ^Slots_Iterator) -> (val: Slot, idx: int, cond: bool) {\n\tcond = it.index < len(it.data)\n\n\tfor ; cond; cond = it.index < len(it.data) {\n\t\tif !it.data[it.index].used {\n\t\t\tit.index += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tval = it.data[it.index]\n\t\tidx = it.index\n\t\tit.index += 1\n\t\tbreak\n\t}\n\n\treturn\n}\n\nslots := make([]Slot, 128)\n\nslots[10] = {\n\timportant_value = 7,\n\tused = true,\n}\n\nit := make_slots_iterator(slots)\n\nfor val in slots_iterator(&it) {\n\tfmt.println(val)\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.3",
+    "sectionTitle": "Custom iterators",
+    "code": "it := make_slots_iterator(slots)\n\nfor val in slots_iterator(&it) {\n\tfmt.println(val)\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.3",
+    "sectionTitle": "Custom iterators",
+    "code": "slots_iterator :: proc(it: ^Slots_Iterator) -> (val: Slot, idx: int, cond: bool) { }"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.3",
+    "sectionTitle": "Custom iterators",
+    "code": "slots_iterator :: proc(it: ^Slots_Iterator) -> (val: Slot, idx: int, cond: bool) {\n\tcond = it.index < len(it.data)\n\n\tfor ; cond; cond = it.index < len(it.data) {\n\t\tif !it.data[it.index].used {\n\t\t\tit.index += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tval = it.data[it.index]\n\t\tidx = it.index\n\t\tit.index += 1\n\t\tbreak\n\t}\n\n\treturn\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.3",
+    "sectionTitle": "Custom iterators",
+    "code": "slots_iterator_ptr :: proc(it: ^Slots_Iterator) -> (val: ^Slot, idx: int, cond: bool) {\n\tcond = it.index < len(it.data)\n\n\tfor ; cond; cond = it.index < len(it.data) {\n\t\tif !it.data[it.index].used {\n\t\t\tit.index += 1\n\t\t\tcontinue\n\t\t}\n\n\t\tval = &it.data[it.index]\n\t\tidx = it.index\n\t\tit.index += 1\n\t\tbreak\n\t}\n\n\treturn\n}"
+  },
+  {
+    "chapter": 10,
+    "chapterTitle": "More container types",
+    "section": "10.3",
+    "sectionTitle": "Custom iterators",
+    "code": "it := make_slots_iterator(slots)\n\nfor val in slots_iterator_ptr(&it) {\n\t// val is a pointer.\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.1",
+    "sectionTitle": "String variables and string constants",
+    "code": "my_string: string\nmy_string = \"Hellope!\""
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.1",
+    "sectionTitle": "String variables and string constants",
+    "code": "my_string := \"Hellope!\""
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.1",
+    "sectionTitle": "String variables and string constants",
+    "code": "A_STRING_CONSTANT :: \"Hellope!\""
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.1",
+    "sectionTitle": "String variables and string constants",
+    "code": "STR :: \"Hellope!\"\nstr: string = STR\ncstr: cstring = STR\nstr16: string16 = STR\ncstr16: cstring16 = STR"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.1.1",
+    "sectionTitle": "Combining string constants",
+    "code": "A_CONSTANT :: \"Hellope!\"\nmy_string := A_CONSTANT + \" How are you?\"\nfmt.println(my_string) // Hellope! How are you?"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.2",
+    "sectionTitle": "Iterating strings",
+    "code": "str := \"Important Words\"\n\nfor r in str {\n\t// r is of type `rune`\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.2",
+    "sectionTitle": "Iterating strings",
+    "code": "str := \"小猫咪\"\n\nfor r in str {\n\tfmt.println(r)\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.2",
+    "sectionTitle": "Iterating strings",
+    "code": "小\n猫\n咪"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.3",
+    "sectionTitle": "Creating substrings: String slicing",
+    "code": "str := \"Little Cat!?\"\nsub_str := str[7:11]\nfmt.println(sub_str) // Cat!"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.3",
+    "sectionTitle": "Creating substrings: String slicing",
+    "code": "str := \"小猫咪\"\nsub_str := str[1:]\nfmt.println(sub_str)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.3",
+    "sectionTitle": "Creating substrings: String slicing",
+    "code": "��猫咪"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.3",
+    "sectionTitle": "Creating substrings: String slicing",
+    "code": "str := \"小猫咪\"\nsub_str := str[3:]\nfmt.println(sub_str) // 猫咪"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.3",
+    "sectionTitle": "Creating substrings: String slicing",
+    "code": "str := \"小猫咪\"\nsub_str, _ := strings.substring_from(str, 1)\nfmt.println(sub_str) // 猫咪"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.3",
+    "sectionTitle": "Creating substrings: String slicing",
+    "code": "str := \"小猫咪\"\n\nfor r, i in str {\n\tfmt.println(i, r)\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.3",
+    "sectionTitle": "Creating substrings: String slicing",
+    "code": "0 小\n3 猫\n6 咪"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.3",
+    "sectionTitle": "Creating substrings: String slicing",
+    "code": "str := \"小猫咪\"\n\nfor r, i in str {\n\tfrom_start := str[:i]\n\tfmt.println(from_start)\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.3",
+    "sectionTitle": "Creating substrings: String slicing",
+    "code": "[blank line]\n小\n小猫"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.3",
+    "sectionTitle": "Creating substrings: String slicing",
+    "code": "str := \"小猫咪\"\n\nfor r, i in str {\n\tfrom_start := str[:i + utf8.rune_size(r)]\n\tfmt.println(from_start)\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.3",
+    "sectionTitle": "Creating substrings: String slicing",
+    "code": "小\n小猫\n小猫咪"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.4",
+    "sectionTitle": "Construct strings using fmt",
+    "code": "name := \"Pontus\"\nage := 7\nstr := fmt.tprint(name, \"is\", age)\nfmt.println(str) // Pontus is 7."
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.4",
+    "sectionTitle": "Construct strings using fmt",
+    "code": "name := \"Pontus\"\nage := 7\nstr := fmt.tprint(name, \"is\", age, sep = \" really \")\nfmt.println(str) // Pontus really is really 7."
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.4",
+    "sectionTitle": "Construct strings using fmt",
+    "code": "str := fmt.tprint(name, \"is\", age)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.4",
+    "sectionTitle": "Construct strings using fmt",
+    "code": "str := fmt.aprint(name, \"is\", age, allocator = context.temp_allocator)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.4",
+    "sectionTitle": "Construct strings using fmt",
+    "code": "name := \"Pontus\"\nage := 7\nstr := fmt.tprintf(\"%v is %v\", name, age)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.4",
+    "sectionTitle": "Construct strings using fmt",
+    "code": "name := \"Pontus\"\nage := 7\nbuf: [128]byte\nstr := fmt.bprintf(buf[:], \"%v is %v\", name, age)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.5",
+    "sectionTitle": "Construct strings using a string builder",
+    "code": "lines := []string {\n\t\"I like\",\n\t\"I look for\",\n\t\"Where are the\",\n}\nb := strings.builder_make()\n\nfor l, i in lines {\n\tstrings.write_string(&b, l)\n\tif i != len(lines) - 1{\n\t\tstrings.write_string(&b, \" cats.\\n\")\n\t} else {\n\t\tstrings.write_string(&b, \" cats?\")\n\t}\n}\n\nstr := strings.to_string(b)\nfmt.println(str)\nstrings.builder_destroy(&b)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.5",
+    "sectionTitle": "Construct strings using a string builder",
+    "code": "str := strings.to_string(b)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.5",
+    "sectionTitle": "Construct strings using a string builder",
+    "code": "I like cats.\nI look for cats.\nWhere are the cats?"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.5",
+    "sectionTitle": "Construct strings using a string builder",
+    "code": "b := strings.builder_make()"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.5",
+    "sectionTitle": "Construct strings using a string builder",
+    "code": "b := strings.builder_make(context.temp_allocator)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.5",
+    "sectionTitle": "Construct strings using a string builder",
+    "code": "b := strings.builder_make(context.temp_allocator)\n\nstrings.write_string(&b, \"I have \")\nstrings.write_int(&b, 7)\nstrings.write_string(&b, \" cats.\")\n\nstr := strings.clone(strings.to_string(b))"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.5.1",
+    "sectionTitle": "fmt and string builder",
+    "code": "b := strings.builder_make()\nnum_cats := 7\nfmt.sbprintfln(&b, \"I have %v cats.\", num_cats)\n\nfmt.sbprintln(&b, \"Time for some random numbers!\")\nfor i in 0..<10 {\n\tfmt.sbprintfln(&b, \"Number %i: %i\", i + 1, rand.int_max(100))\n}\n\nstr := strings.to_string(b)\nfmt.println(str)\nstrings.builder_destroy(&b)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.5.1",
+    "sectionTitle": "fmt and string builder",
+    "code": "I have 7 cats.\nTime for some random numbers!\nNumber 1: 52\nNumber 2: 38\nNumber 3: 59\nNumber 4: 4\nNumber 5: 49\nNumber 6: 94\nNumber 7: 19\nNumber 8: 8\nNumber 9: 28\nNumber 10: 94"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.6",
+    "sectionTitle": "What's a string internally?",
+    "code": "Raw_String :: struct {\n\tdata: [^]u8,\n\tlen:  int,\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "",
+    "sectionTitle": "Example 1: The data of a string literal",
+    "code": "my_string := \"Hellope!\""
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "",
+    "sectionTitle": "Example 2: The data of a dynamically allocated string",
+    "code": "random_number := rand.int_max(1000)\nmy_string := fmt.aprintf(\"A random number: %v\", random_number, allocator = context.allocator)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "",
+    "sectionTitle": "Example 3: String data pointing at the stack?",
+    "code": "buf: [128]byte\nmy_string := fmt.bprint(buf[:], \"Hellope\")"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.6.1",
+    "sectionTitle": "Ambiguities when talking about \"string constants\"",
+    "code": "CONSTANT_STRING :: \"Hellope!\"\nstr := CONSTANT_STRING"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.6.1",
+    "sectionTitle": "Ambiguities when talking about \"string constants\"",
+    "code": "CONSTANT_STRING :: \"Hellope!\"\nstr1 := CONSTANT_STRING\nstr2 := \"Hellope!\""
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.7",
+    "sectionTitle": "Deallocating strings mixed with string constants",
+    "code": "for key, value in str_to_number {\n\tdelete(key)\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.7",
+    "sectionTitle": "Deallocating strings mixed with string constants",
+    "code": "str_to_number: map[string]int\n\nstr_to_number[strings.clone(\"Hellope!\")] = 5\nstr_to_number[strings.clone(\"Hi!\")] = 1\nstr_to_number[strings.clone(\"Dynamically allocated!\")] = 7\nstr_to_number[strings.clone(\"Constant!\")] = 42\nstr_to_number[strings.clone(\"Dynamic!\")] = 8\n\n// Use str_to_number for something important\n\nfor key, value in str_to_number {\n\tdelete(key)\n}\n\ndelete(str_to_number)\n\nfmt.println(\"Probably got here!\")"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.7",
+    "sectionTitle": "Deallocating strings mixed with string constants",
+    "code": "arena: vmem.Arena\narena_allocator := vmem.arena_allocator(&arena)\nstr_to_number: map[string]int\n\nstr_to_number[\"Hellope!\"] = 5\nstr_to_number[\"Hi!\"] = 1\nstr_to_number[strings.clone(\"Dynamically allocated!\", arena_allocator)] = 7\nstr_to_number[\"Constant!\"] = 42\nstr_to_number[strings.clone(\"Dynamic!\", arena_allocator)] = 8\n\n// Use str_to_number for something important\n\nvmem.arena_destroy(&arena)\ndelete(str_to_number)\n\nfmt.println(\"Probably got here!\")"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.7",
+    "sectionTitle": "Deallocating strings mixed with string constants",
+    "code": "for key, value in str_to_number {\n\tdelete(key)\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.7",
+    "sectionTitle": "Deallocating strings mixed with string constants",
+    "code": "vmem.arena_destroy(&arena)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.8",
+    "sectionTitle": "Null termination and cstring",
+    "code": "DrawText :: proc(text: cstring, posX, posY: c.int, fontSize: c.int, color: Color)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.8",
+    "sectionTitle": "Null termination and cstring",
+    "code": "STR :: \"Hellope!\"\nstr: string = STR\ncstr: cstring = STR\n\n// Print the address of the string's data\nfmt.println(raw_data(str)) // 0x7FF7F6C1D7E0\nfmt.println(rawptr(cstr))  // 0x7FF7F6C1D7E0\n\n// The value will differ on your computer,\n// but both will have the same value."
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.8",
+    "sectionTitle": "Null termination and cstring",
+    "code": "rl.DrawText(\"Hellope!\", 50, 50, 10, rl.WHITE)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.8",
+    "sectionTitle": "Null termination and cstring",
+    "code": "str: string = \"Hellope!\"\ncstr := strings.clone_to_cstring(str)\nrl.DrawText(cstr, 50, 50, 10, rl.WHITE)\ndelete(cstr)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.8",
+    "sectionTitle": "Null termination and cstring",
+    "code": "str: string = \"Hellope!\"\nrl.DrawText(strings.clone_to_cstring(str, context.temp_allocator), 50, 50, 10, rl.WHITE)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.9",
+    "sectionTitle": "Grapheme clusters",
+    "code": "str := \"g̈\"\n\nfor r in str {\n\tfmt.println(r)\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.9",
+    "sectionTitle": "Grapheme clusters",
+    "code": "g\n̈"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.11",
+    "sectionTitle": "Under the hood: Manually decoding UTF-8",
+    "code": "str := \"Cät=猫\"\n\nfor r in str {\n\t// Prints the characters of `str` on separate lines.\n\tfmt.println(r)\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.11",
+    "sectionTitle": "Under the hood: Manually decoding UTF-8",
+    "code": "str := \"Cät=猫\"\nstr_bytes := transmute([]u8)(str)\n\nfor b in str_bytes {\n\tfmt.printfln(\"%8b (%v)\", b, b)\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.11",
+    "sectionTitle": "Under the hood: Manually decoding UTF-8",
+    "code": "01000011 (67)\n11000011 (195)\n10100100 (164)\n01110100 (116)\n00111101 (61)\n11100111 (231)\n10001100 (140)\n10101011 (171)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.11",
+    "sectionTitle": "Under the hood: Manually decoding UTF-8",
+    "code": "str := \"Cät=猫\"\n\nfor r in str {\n\tfmt.printfln(\"%b\", r)\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.11",
+    "sectionTitle": "Under the hood: Manually decoding UTF-8",
+    "code": "1000011 (C)\n11100100 (ä)\n1110100 (t)\n111101 (=)\n111001100101011 (猫)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.12",
+    "sectionTitle": "UTF-16: Windows API example",
+    "code": "SetWindowTextW :: proc(hWnd: HWND, lpString: LPCWSTR) -> BOOL"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.12.1",
+    "sectionTitle": "Setting the window title using a string constant",
+    "code": "windows.SetWindowTextW(hwnd, \"My Great Program\")"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.12.1",
+    "sectionTitle": "Setting the window title using a string constant",
+    "code": "TITLE :: \"My Great Program\"\nwindows.SetWindowTextW(hwnd, TITLE)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.12.2",
+    "sectionTitle": "Setting the window title using a string variable",
+    "code": "Error: Cannot assign value 'title' of type 'string' to 'cstring16' in a procedure argument"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.12.2",
+    "sectionTitle": "Setting the window title using a string variable",
+    "code": "title: cstring16 = \"My Great Program\"\nwindows.SetWindowTextW(hwnd, title)"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.12.2",
+    "sectionTitle": "Setting the window title using a string variable",
+    "code": "set_title :: proc(title: string) {\n\ttitle_16 := windows.utf8_to_wstring(title)\n\twindows.SetWindowTextW(hwnd, title_16)\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.12.3",
+    "sectionTitle": "Fetching the window title",
+    "code": "GetWindowTextW :: proc(hWnd: HWND, lpString: LPWSTR, nMaxCount: INT) -> INT"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.12.3",
+    "sectionTitle": "Fetching the window title",
+    "code": "title_data: [128]u16\ntitle_len := windows.GetWindowTextW(hwnd, raw_data(&title_data), len(title_data))\ntitle_str, title_str_err := windows.wstring_to_utf8(cstring16(raw_data(&title_data)), int(title_len))\n\nif title_str_err == nil {\n\tfmt.println(title_str)\n}"
+  },
+  {
+    "chapter": 11,
+    "chapterTitle": "Strings",
+    "section": "11.12.3",
+    "sectionTitle": "Fetching the window title",
+    "code": "title_data_len := windows.GetWindowTextLengthW(hwnd) + 1\ntitle_data := make([]u16, title_data_len, context.temp_allocator)\ntitle_len := windows.GetWindowTextW(hwnd, raw_data(title_data), title_data_len)\ntitle_str, title_str_err := windows.wstring_to_utf8(cstring16(raw_data(title_data)), int(title_len))\n\nif title_str_err == nil {\n\tfmt.println(title_str)\n}"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "11.12.3",
+    "sectionTitle": "Fetching the window title",
+    "code": "fmt.println(\"Hellope!\")"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "11.12.3",
+    "sectionTitle": "Fetching the window title",
+    "code": "Context :: struct {\n\tallocator:              Allocator,\n\ttemp_allocator:         Allocator,\n\tassertion_failure_proc: Assertion_Failure_Proc,\n\tlogger:                 Logger,\n\trandom_generator:       Random_Generator,\n\n\tuser_ptr:   rawptr,\n\tuser_index: int,\n\n\t// Internal use only\n\t_internal: rawptr,\n}"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.1",
+    "sectionTitle": "context.allocator",
+    "code": "do_work :: proc() {\n\tmake_lots_of_ints :: proc() -> []int {\n\t\tints := make([]int, 4096)\n\n\t\t// Give the numbers of `ints` some\n\t\t// values.\n\t\tfor &v, idx in ints {\n\t\t\tv = idx * 4\n\t\t}\n\n\t\treturn ints\n\t}\n\n\tmy_ints := make_lots_of_ints()\n}"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.1",
+    "sectionTitle": "context.allocator",
+    "code": "ints := make([]int, 4096)"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.1",
+    "sectionTitle": "context.allocator",
+    "code": "ints := make([]int, 4096, context.temp_allocator)"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.1",
+    "sectionTitle": "context.allocator",
+    "code": "do_work :: proc() {\n\tmake_lots_of_ints :: proc() -> []int {\n\t\tints := make([]int, 4096)\n\n\t\t// Give the numbers of `ints` some\n\t\t// values.\n\t\tfor &v, idx in ints {\n\t\t\tv = idx * 4\n\t\t}\n\n\t\treturn ints\n\t}\n\n\tcontext.allocator = context.temp_allocator\n\tmy_ints := make_lots_of_ints()\n}"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.1",
+    "sectionTitle": "context.allocator",
+    "code": "context.allocator = context.temp_allocator"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.1.1",
+    "sectionTitle": "Setting context.allocator vs passing explicit allocators",
+    "code": "do_work :: proc() {\n\tmake_lots_of_ints :: proc(allocator := context.allocator) -> []int {\n\t\tints := make([]int, 4096, allocator)\n\n\t\t// Give the numbers of `ints` some\n\t\t// values.\n\t\tfor &v, idx in ints {\n\t\t\tv = idx * 4\n\t\t}\n\n\t\treturn ints\n\t}\n\n\tmy_ints := make_lots_of_ints(context.temp_allocator)\n}"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.1.1",
+    "sectionTitle": "Setting context.allocator vs passing explicit allocators",
+    "code": "my_ints := make_lots_of_ints(context.temp_allocator)"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.3",
+    "sectionTitle": "context.assertion_failure_proc",
+    "code": "number := 5\nassert(number == 7, \"Number has wrong value\")"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.3",
+    "sectionTitle": "context.assertion_failure_proc",
+    "code": "package assertion_test\n\nimport \"core:fmt\"\nimport \"base:runtime\"\n\nassert_fail :: proc(prefix, message: string, loc := #caller_location) -> ! {\n\tfmt.printfln(\"Oh no, an assertion at line: %v\", loc)\n\tfmt.println(message)\n\truntime.trap()\n}\n\nmain :: proc() {\n\tcontext.assertion_failure_proc = assert_fail\n\tnumber := 5\n\tassert(number == 7, \"Number has wrong value\")\n}"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.3",
+    "sectionTitle": "context.assertion_failure_proc",
+    "code": "Oh no, an assertion at line: C:/code/assertion_test/main.odin(15:2)\nNumber has wrong value"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.3",
+    "sectionTitle": "context.assertion_failure_proc",
+    "code": "assert_fail :: proc(prefix, message: string, loc := #caller_location) -> ! {"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.4",
+    "sectionTitle": "context.logger",
+    "code": "package logger_test\n\nimport \"core:log\"\n\nmain :: proc() {\n\tcontext.logger = log.create_console_logger()\n\n\tlog.info(\"Program started\")\n\n\t// Rest of program goes here,\n\t// it will use context.logger whenever\n\t// you run `log.info`, `log.error` etc.\n\n\tlog.destroy_console_logger(context.logger)\n}"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.4",
+    "sectionTitle": "context.logger",
+    "code": "package main\n\nimport \"core:log\"\nimport \"core:os\"\n\nmain :: proc() {\n\tlogh, logh_err := os.open(\"log.txt\", {.Create, .Trunc, .Read, .Write })\n\n\tif logh_err == os.ERROR_NONE {\n\t\tos.stdout = logh\n\t\tos.stderr = logh\n\t}\n\n\tlogger := logh_err == os.ERROR_NONE ? log.create_file_logger(logh) : log.create_console_logger()\n\tcontext.logger = logger\n\n\t// Rest of program goes here, it will\n\t// use `context.logger` whenever you\n\t// run `log.info`, `log.error` etc.\n\t//\n\t// Also, fmt.println will be redirected\n\t// to the logger, due to the\n\t// `os.stdout = logh` lines above.\n\tall_the_code_in_your_program()\n\n\tif logh_err == os.ERROR_NONE {\n\t\tlog.destroy_file_logger(logger)\n\t} else {\n\t\tlog.destroy_console_logger(logger)\n\t}\n}"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.4",
+    "sectionTitle": "context.logger",
+    "code": "if logh_err == os.ERROR_NONE {\n\tos.stdout = logh\n\tos.stderr = logh\n}"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.4",
+    "sectionTitle": "context.logger",
+    "code": "log.debug(\"message\")\nlog.info(\"message\")\nlog.warn(\"message\")\nlog.error(\"message\")\nlog.fatal(\"message\")\nlog.panic(\"message\")"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.5",
+    "sectionTitle": "context.random_generator",
+    "code": "package random_generator_example\n\nimport \"base:runtime\"\nimport \"core:fmt\"\nimport \"core:math/rand\"\n\nmain :: proc() {\n\trandom_state := rand.create(42)\n\tcontext.random_generator = runtime.default_random_generator(&random_state)\n\tfmt.println(rand.int_max(100))\n}"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.5",
+    "sectionTitle": "context.random_generator",
+    "code": "rand.reset(42)\n// Should also print 48\nfmt.println(rand.int_max(100))"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.6",
+    "sectionTitle": "context.user_ptr and context.user_index",
+    "code": "numbers := []int { 2, 7, 42, 1}\n\nSort_Settings :: struct {\n\tput_at_end: int,\n}\n\nsorting_proc :: proc(i, j: int) -> bool {\n\tsort_settings := (^Sort_Settings)(context.user_ptr)\n\n\tif sort_settings != nil {\n\t\tif i == sort_settings.put_at_end {\n\t\t\treturn false\n\t\t}\n\n\t\tif j == sort_settings.put_at_end {\n\t\t\treturn true\n\t\t}\n\t}\n\n\treturn i < j\n}\n\nsort_settings := Sort_Settings {\n\tput_at_end = 2,\n}\n\ncontext.user_ptr = &sort_settings\nslice.sort_by(numbers, sorting_proc)\nfmt.println(numbers) // [1, 7, 42, 2]"
+  },
+  {
+    "chapter": 12,
+    "chapterTitle": "Implicit context",
+    "section": "12.7",
+    "sectionTitle": "How the context is passed",
+    "code": "context.allocator = context.temp_allocator\nmy_ints := make_lots_of_ints()"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.1.1",
+    "sectionTitle": "Setting up the tracking allocator",
+    "code": "package main\n\nimport \"core:fmt\"\nimport \"core:mem\"\n\nmain :: proc() {\n\twhen ODIN_DEBUG {\n\t\ttrack: mem.Tracking_Allocator\n\t\tmem.tracking_allocator_init(&track, context.allocator)\n\t\tcontext.allocator = mem.tracking_allocator(&track)\n\n\t\tdefer {\n\t\t\tif len(track.allocation_map) > 0 {\n\t\t\t\tfor _, entry in track.allocation_map {\n\t\t\t\t\tfmt.eprintf(\"%v leaked %v bytes\\n\", entry.location, entry.size)\n\t\t\t\t}\n\t\t\t}\n\t\t\tmem.tracking_allocator_destroy(&track)\n\t\t}\n\t}\n\n\t// rest of program goes here\n}"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.1.1",
+    "sectionTitle": "Setting up the tracking allocator",
+    "code": "ints := make([]int, 4096)"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.1.1",
+    "sectionTitle": "Setting up the tracking allocator",
+    "code": "C:/code/my_project/main.odin(27:10) leaked 32768 bytes"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.1.2",
+    "sectionTitle": "How does it work?",
+    "code": "track: mem.Tracking_Allocator\nmem.tracking_allocator_init(&track, context.allocator)"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.1.2",
+    "sectionTitle": "How does it work?",
+    "code": "context.allocator = mem.tracking_allocator(&track)"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.1.2",
+    "sectionTitle": "How does it work?",
+    "code": "defer {\n\tif len(track.allocation_map) > 0 {\n\t\tfor _, entry in track.allocation_map {\n\t\t\tfmt.eprintf(\"%v leaked %v bytes\\n\", entry.location, entry.size)\n\t\t}\n\t}\n\tmem.tracking_allocator_destroy(&track)\n}"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.1.2",
+    "sectionTitle": "How does it work?",
+    "code": "main :: proc() {\n\twhen ODIN_DEBUG {\n\t\t// Set up tracking allocator\n\n\t\tdefer {\n\t\t\t// Check for leaks here\n\t\t}\n\t}\n\n\t// rest of program goes here\n}"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.1.3",
+    "sectionTitle": "Making memory leak reports clearer",
+    "code": "allocate_7 :: proc() -> ^int {\n\tnumber := new(int)\n\tnumber^ = 7\n\treturn number\n}\n\nn1 := allocate_7()\nn2 := allocate_7()\nn3 := allocate_7()"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.1.3",
+    "sectionTitle": "Making memory leak reports clearer",
+    "code": "C:/code/my_project/main.odin(29:13) leaked 8 bytes\nC:/code/my_project/main.odin(29:13) leaked 8 bytes\nC:/code/my_project/main.odin(29:13) leaked 8 bytes"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.1.3",
+    "sectionTitle": "Making memory leak reports clearer",
+    "code": "allocate_7 :: proc(loc := #caller_location) -> ^int {\n\tnumber := new(int, loc = loc)\n\tnumber^ = 7\n\treturn number\n}"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.1.3",
+    "sectionTitle": "Making memory leak reports clearer",
+    "code": "C:/code/my_project/main.odin(35:7) leaked 8 bytes\nC:/code/my_project/main.odin(37:7) leaked 8 bytes\nC:/code/my_project/main.odin(36:7) leaked 8 bytes"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.1.3",
+    "sectionTitle": "Making memory leak reports clearer",
+    "code": "allocate_7 :: proc(allocator := context.allocator, loc := #caller_location) -> ^int {\n\tnumber := new(int, allocator, loc)\n\tnumber^ = 7\n\treturn number\n}"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.2",
+    "sectionTitle": "Arena allocators",
+    "code": "Level :: struct {\n\tname: string,\n\tobjects: []Game_Object,\n\ttiles: []Tiles,\n}"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.2",
+    "sectionTitle": "Arena allocators",
+    "code": "generate_level :: proc(name: string) -> Level {\n\ttiles := generate_tiles(context.allocator)\n\tobjects := generate_objects(tiles, context.allocator)\n\treturn {\n\t\tname = strings.clone(name, context.allocator),\n\t\tobjects = objects,\n\t\ttiles = tiles,\n\t}\n}"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.2",
+    "sectionTitle": "Arena allocators",
+    "code": "destroy_level :: proc(level: Level) {\n\tdelete(level.name)\n\tdelete(level.objects)\n\tdelete(level.tiles)\n}"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.2",
+    "sectionTitle": "Arena allocators",
+    "code": "import vmem \"core:mem/virtual\""
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.2",
+    "sectionTitle": "Arena allocators",
+    "code": "Level :: struct {\n\tname: string,\n\tobjects: []Game_Object,\n\ttiles: []Tiles,\n\tarena: vmem.Arena,\n}\n\ngenerate_level :: proc(name: string) -> Level {\n\tlevel_arena: vmem.Arena\n\tarena_allocator := vmem.arena_allocator(&level_arena)\n\n\ttiles := generate_tiles(arena_allocator)\n\tobjects := generate_objects(tiles, arena_allocator)\n\n\treturn {\n\t\tname = strings.clone(name, arena_allocator),\n\t\tobjects = objects,\n\t\ttiles = tiles,\n\t\tarena = level_arena,\n\t}\n}\n\ndestroy_level :: proc(level: ^Level) {\n\tvmem.arena_destroy(&level.arena)\n}"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.2",
+    "sectionTitle": "Arena allocators",
+    "code": "arena_allocator := vmem.arena_allocator(&level_arena)"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.2",
+    "sectionTitle": "Arena allocators",
+    "code": "destroy_level :: proc(level: ^Level) {\n\tvmem.arena_destroy(&level.arena)\n}"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.3",
+    "sectionTitle": "Choosing an arena allocator",
+    "code": "Arena :: struct {\n\tkind:                Arena_Kind,\n\tcurr_block:          ^Memory_Block,\n\n\ttotal_used:          uint,\n\ttotal_reserved:      uint,\n\n\tdefault_commit_size: uint, // commit size <= reservation size\n\tminimum_block_size:  uint, // block size == total reservation\n\n\ttemp_count:          uint,\n\tmutex:               sync.Mutex,\n}"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.3",
+    "sectionTitle": "Choosing an arena allocator",
+    "code": "Arena_Kind :: enum uint {\n\tGrowing = 0, // Chained memory blocks (singly linked list).\n\tStatic  = 1, // Fixed reservation sized.\n\tBuffer  = 2, // Uses a fixed sized buffer.\n}"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.3",
+    "sectionTitle": "Choosing an arena allocator",
+    "code": "arena: vmem.Arena"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.3.1",
+    "sectionTitle": "Growing virtual memory arena",
+    "code": "arena: vmem.Arena\narena_allocator := vmem.arena_allocator(&arena)"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.3.1",
+    "sectionTitle": "Growing virtual memory arena",
+    "code": "arena: vmem.Arena\nerr := vmem.arena_init_growing(&arena)\nassert(err == .None)\narena_allocator := vmem.arena_allocator(&arena)"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.3.1",
+    "sectionTitle": "Growing virtual memory arena",
+    "code": "vmem.arena_destroy(&arena)"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.3.1",
+    "sectionTitle": "Growing virtual memory arena",
+    "code": "arena: vmem.Arena\nerr := vmem.arena_init_growing(&arena, 100*mem.Megabyte)\nassert(err == .None)\narena_allocator := vmem.arena_allocator(&arena)"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.3.2",
+    "sectionTitle": "Static virtual memory arena",
+    "code": "arena: vmem.Arena\nerr := vmem.arena_init_static(&arena, 1*mem.Gigabyte)\nassert(err == .None)\narena_allocator := vmem.arena_allocator(&arena)"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.3.2",
+    "sectionTitle": "Static virtual memory arena",
+    "code": "vmem.arena_destroy(&arena)"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.3.3",
+    "sectionTitle": "Fixed buffer arena",
+    "code": "arena: vmem.Arena\nbuf := make([]byte, 10*mem.Megabyte)\nerr := vmem.arena_init_buffer(&arena, buf[:])\nassert(err == .None)\narena_allocator := vmem.arena_allocator(&arena)"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.3.3",
+    "sectionTitle": "Fixed buffer arena",
+    "code": "delete(buf)"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.3.3",
+    "sectionTitle": "Fixed buffer arena",
+    "code": "arena: vmem.Arena\nbuf: [4096]byte\nerr := vmem.arena_init_buffer(&arena, buf[:])\nassert(err == .None)\narena_allocator := vmem.arena_allocator(&arena)"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.4",
+    "sectionTitle": "Debugging memory mistakes",
+    "code": "package writing_memory_bug\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tnumber: f32 = 7\n\tnumber64_ptr := cast(^f64)(&number)\n\tfmt.println(number64_ptr^)\n}"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.4",
+    "sectionTitle": "Debugging memory mistakes",
+    "code": "odin run ."
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.4",
+    "sectionTitle": "Debugging memory mistakes",
+    "code": "-1.7851420269952399e-190"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.4",
+    "sectionTitle": "Debugging memory mistakes",
+    "code": "odin run . -debug -sanitize:address"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.4",
+    "sectionTitle": "Debugging memory mistakes",
+    "code": "=================================================================\n==16220==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x00ed11def664 at pc 0x7ff60e019a8c bp 0x00ed11deccf0 sp 0x00ed11decd38\nREAD of size 8 at 0x00ed11def664 thread T0\n    #0 0x7ff60e019a8b in __asan_memcpy C:\\src\\llvm_package_18.1.8\\llvm-project\\compiler-rt\\lib\\asan\\asan_interceptors_memintrinsics.cpp:63\n    #1 0x7ff60e019e23 in __asan_memset C:\\src\\llvm_package_18.1.8\\llvm-project\\compiler-rt\\lib\\asan\\asan_interceptors_memintrinsics.cpp:67\n\nAddress 0x00ed11def664 is located in stack of thread T0 at offset 36 in frame\n    #0 0x7ff60e003dbf in writing_memory_bug.main C:\\code\\playground\\playground.odin:5\n\n  This frame has 3 object(s):\n    [32, 36) 'number' <== Memory access at offset 36 overflows this variable\n    [48, 64) ''\n    [80, 96) ''\nHINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork\n      (longjmp, SEH and C++ exceptions *are* supported)\nSUMMARY: AddressSanitizer: stack-buffer-overflow C:\\src\\llvm_package_18.1.8\\llvm-project\\compiler-rt\\lib\\asan\\asan_interceptors_memintrinsics.cpp:63 in __asan_memcpy\nShadow bytes around the buggy address:\n  0x00ed11def380: f2 f2 f2 f2 f2 f2 f2 f2 00 00 00 00 00 00 00 00\n  0x00ed11def400: 00 f2 f2 f2 f2 f2 00 00 f2 f2 00 00 f2 f2 00 00\n  0x00ed11def480: f2 f2 00 00 f3 f3 f3 f3 00 00 00 00 00 00 00 00\n  0x00ed11def500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00ed11def580: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n=>0x00ed11def600: 00 00 00 00 00 00 00 00 f1 f1 f1 f1[04]f2 00 00\n  0x00ed11def680: f2 f2 00 00 f3 f3 f3 f3 00 00 00 00 00 00 00 00\n  0x00ed11def700: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00ed11def780: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00ed11def800: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x00ed11def880: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\nShadow byte legend (one shadow byte represents 8 application bytes):\n  Addressable:           00\n  Partially addressable: 01 02 03 04 05 06 07\n  Heap left redzone:       fa\n  Freed heap region:       fd\n  Stack left redzone:      f1\n  Stack mid redzone:       f2\n  Stack right redzone:     f3\n  Stack after return:      f5\n  Stack use after scope:   f8\n  Global redzone:          f9\n  Global init order:       f6\n  Poisoned by user:        f7\n  Container overflow:      fc\n  Array cookie:            ac\n  Intra object redzone:    bb\n  ASan internal:           fe\n  Left alloca redzone:     ca\n  Right alloca redzone:    cb\n==16220==ABORTING"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.4",
+    "sectionTitle": "Debugging memory mistakes",
+    "code": "==16220==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x00ed11def664 at pc 0x7ff60e019a8c bp 0x00ed11deccf0 sp 0x00ed11decd38\nREAD of size 8 at 0x00ed11def664 thread T0"
+  },
+  {
+    "chapter": 13,
+    "chapterTitle": "Making manual memory management easier",
+    "section": "13.4",
+    "sectionTitle": "Debugging memory mistakes",
+    "code": "Address 0x00ed11def664 is located in stack of thread T0 at offset 36 in frame\n    #0 0x7ff60e003dbf in writing_memory_bug.main C:\\code\\playground\\playground.odin:5\n\n  This frame has 3 object(s):\n    [32, 36) 'number' <== Memory access at offset 36 overflows this variable"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.1",
+    "sectionTitle": "Procedures with polymorphic parameters",
+    "code": "clamp :: proc(val: f32, min: f32, max: f32) -> f32 {\n\tif val <= min {\n\t\treturn min\n\t}\n\n\tif val >= max {\n\t\treturn max\n\t}\n\n\treturn val\n}"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.1",
+    "sectionTitle": "Procedures with polymorphic parameters",
+    "code": "clamp :: proc(val: $T, min: T, max: T) -> T {\n\tif val <= min {\n\t\treturn min\n\t}\n\n\tif val >= max {\n\t\treturn max\n\t}\n\n\treturn val\n}"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.1",
+    "sectionTitle": "Procedures with polymorphic parameters",
+    "code": "number: int = 7\nclamped_number := clamp(number, 2, 5)"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.1",
+    "sectionTitle": "Procedures with polymorphic parameters",
+    "code": "clamp :: proc(val: $T, min: T, max: T) -> T {"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.1",
+    "sectionTitle": "Procedures with polymorphic parameters",
+    "code": "if val <= min {\n\treturn min\n}\n\nif val >= max {\n\treturn max\n}"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.1",
+    "sectionTitle": "Procedures with polymorphic parameters",
+    "code": "where intrinsics.type_is_numeric(T)"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.1",
+    "sectionTitle": "Procedures with polymorphic parameters",
+    "code": "clamp :: proc(val: $T, min: T, max: T) -> T where intrinsics.type_is_numeric(T) {"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.2",
+    "sectionTitle": "Explicitly passing a type to a procedure",
+    "code": "make_random_sized_slice :: proc($T: typeid) -> []T {\n\t// `random_size` will be an integer\n\t// between 0 and 1024.\n\trandom_size := rand.int_max(1024)\n\treturn make([]T, random_size)\n}"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.2",
+    "sectionTitle": "Explicitly passing a type to a procedure",
+    "code": "my_slice := make_random_sized_slice(f32)"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.2",
+    "sectionTitle": "Explicitly passing a type to a procedure",
+    "code": "val: $T"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.2",
+    "sectionTitle": "Explicitly passing a type to a procedure",
+    "code": "$T: typeid"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.2",
+    "sectionTitle": "Explicitly passing a type to a procedure",
+    "code": "-> T"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.2",
+    "sectionTitle": "Explicitly passing a type to a procedure",
+    "code": "v: T"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.2",
+    "sectionTitle": "Explicitly passing a type to a procedure",
+    "code": "make_array_of_7 :: proc($N: int, $T: typeid) -> [N]T {\n\tres: [N]T\n\tfor &v in res {\n\t\tv = 7\n\t}\n\treturn res\n}\n\narr := make_array_of_7(128, f32)"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.3",
+    "sectionTitle": "Parametric polymorphism with structs and unions",
+    "code": "Special_Array :: struct($T: typeid, $N: int) {\n\titems: [N]T,\n\tnum_items_used: int,\n}"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.3",
+    "sectionTitle": "Parametric polymorphism with structs and unions",
+    "code": "array: Special_Array(f64, 128)"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.3",
+    "sectionTitle": "Parametric polymorphism with structs and unions",
+    "code": "find_random_thing_in_special_array :: proc(arr: Special_Array($T, $N)) -> T {\n\treturn arr.items[rand.int_max(arr.num_items_used)]\n}\n\narray: Special_Array(f64, 128)\n\n// Fill `array` with 32 items of random data.\nfor i in 0..<32 {\n\tarray.items[i] = rand.float64_range(-10, 10)\n\tarray.num_items_used += 1\n}\n\nrandom_thing := find_random_thing_in_special_array(array)"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.3",
+    "sectionTitle": "Parametric polymorphism with structs and unions",
+    "code": "Maybe :: union($T: typeid) { T }"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.3",
+    "sectionTitle": "Parametric polymorphism with structs and unions",
+    "code": "m: Maybe(f64)\nm = 4.32\n\nif m_val, m_val_ok := m.?; m_val_ok {\n\tfmt.println(m_val) // 4.32\n}"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.5",
+    "sectionTitle": "Specialization",
+    "code": "delete_dynamic_array :: proc(array: $T/[dynamic]$E, loc := #caller_location) -> Allocator_Error {\n\treturn mem_free_with_size(raw_data(array), cap(array)*size_of(E), array.allocator, loc)\n}"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.5",
+    "sectionTitle": "Specialization",
+    "code": "array: $T/[dynamic]$E"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.5",
+    "sectionTitle": "Specialization",
+    "code": "make_slice :: proc($T: typeid/[]$E, len: int) -> T {\n\treturn make(T, len)\n}"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.5",
+    "sectionTitle": "Specialization",
+    "code": "array: $T/[dynamic]$E"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.5",
+    "sectionTitle": "Specialization",
+    "code": "$T: typeid/[]$E"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.5.1",
+    "sectionTitle": "Specialization and distinct types",
+    "code": "delete_dynamic_array :: proc(array: $T/[dynamic]$E, loc := #caller_location) -> Allocator_Error {\n\treturn mem_free_with_size(raw_data(array), cap(array)*size_of(E), array.allocator, loc)\n}"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.5.1",
+    "sectionTitle": "Specialization and distinct types",
+    "code": "d := make([dynamic]int, 128)\ndelete_dynamic_array(d)"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.5.1",
+    "sectionTitle": "Specialization and distinct types",
+    "code": "Int_Array :: distinct [dynamic]int\n\nd := make(Int_Array, 128)\ndelete_dynamic_array(d)"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.5.1",
+    "sectionTitle": "Specialization and distinct types",
+    "code": "Error: Cannot determine polymorphic type from parameter: 'Int_Array' to '[dynamic]$E'\n\tdelete_dynamic_array(d)"
+  },
+  {
+    "chapter": 14,
+    "chapterTitle": "Parametric polymorphism: Writing generic code",
+    "section": "14.5.1",
+    "sectionTitle": "Specialization and distinct types",
+    "code": "Int_Array :: distinct [dynamic]int"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.1",
+    "sectionTitle": "Binary representation of integers",
+    "code": "00000010"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.1",
+    "sectionTitle": "Binary representation of integers",
+    "code": "00001101"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.2",
+    "sectionTitle": "Bit sets",
+    "code": "Keycard :: enum {\n\tRed,\n\tGreen,\n\tBlue,\n\tYellow,\n}\n\nkeycards: bit_set[Keycard]\nkeycards += { .Red, .Blue }\nfmt.println(keycards) // prints bit_set[Keycard]{Red, Blue}"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.2",
+    "sectionTitle": "Bit sets",
+    "code": "keycards += { .Red, .Blue }"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.2",
+    "sectionTitle": "Bit sets",
+    "code": "red, green, blue, yellow: bool\nred = true\nblue = true"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.2",
+    "sectionTitle": "Bit sets",
+    "code": "keycards := bit_set[Keycard] { .Red, .Blue, .Green }\nkeycards += { .Yellow }\nkeycards -= { .Red, .Green }\nfmt.println(keycards) // bit_set[Keycard]{Blue, Yellow}"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.2",
+    "sectionTitle": "Bit sets",
+    "code": "keycards := bit_set[Keycard] { .Red, .Blue, .Green }\nfmt.println(.Red in keycards) // true\nfmt.println(.Yellow not_in keycards) // true"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.2.1",
+    "sectionTitle": "The bits inside the bit_set",
+    "code": "Keycard :: enum {\n\tRed,\n\tGreen,\n\tBlue,\n\tYellow,\n}\n\nkeycards := bit_set[Keycard] { .Red, .Blue }"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.2.1",
+    "sectionTitle": "The bits inside the bit_set",
+    "code": "00000101\n     | |\n     | + Red\n     |\n     + Blue"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.2.1",
+    "sectionTitle": "The bits inside the bit_set",
+    "code": "cards1 := bit_set[Keycard] { .Red, .Blue }\ncards2 := bit_set[Keycard] { .Yellow, .Blue }\nin_common := cards1 & cards2\nfmt.println(in_common) // bit_set[Keycard]{Blue}"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.2.1",
+    "sectionTitle": "The bits inside the bit_set",
+    "code": "  00000101\n& 00001100\n= 00000100"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.2.3",
+    "sectionTitle": "bit_set using letters and numbers",
+    "code": "numbers: bit_set[0..=5]\nnumbers += {4, 2}\nfmt.println(numbers) // bit_set[0..=5]{2, 4}\nfmt.println(2 in numbers) // true"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.2.3",
+    "sectionTitle": "bit_set using letters and numbers",
+    "code": "0 000001\n1 000010\n2 000100\n3 001000\n4 010000\n5 100000"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.2.3",
+    "sectionTitle": "bit_set using letters and numbers",
+    "code": "letters: bit_set['A'..='Z']\nletters += {'B', 'Q'}\nfmt.println('E' in letters) // false"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.3",
+    "sectionTitle": "Bit fields",
+    "code": "Packet_Type :: enum {\n\tHandshake,\n\tMessage,\n\tDisconnect,\n}\n\nNetwork_Packet_Header :: bit_field i32 {\n\ttype: Packet_Type  | 8, // Some room for future packet types\n\treceiver_id: uint  | 8,\n\tpayload_size: uint | 16,\n}\n\nh := Network_Packet_Header {\n\ttype = .Message,\n\treceiver_id = 4,\n\tpayload_size = 1200,\n}\n\n// type of size is int\nsize := h.payload_size"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.3",
+    "sectionTitle": "Bit fields",
+    "code": "payload_size: uint | 16"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.3",
+    "sectionTitle": "Bit fields",
+    "code": "size := h.playload_size"
+  },
+  {
+    "chapter": 15,
+    "chapterTitle": "Bit-related types",
+    "section": "15.3.1",
+    "sectionTitle": "When to use bit sets and bit fields",
+    "code": "Keycard :: enum {\n\tRed,\n\tGreen,\n\tBlue,\n\tYellow,\n}\n\nkeycards: bit_set[Keycard; i8]"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.1",
+    "sectionTitle": "Errors using bool",
+    "code": "Cat :: struct {\n\tname: string,\n\tage: int,\n}\n\nfind_cat_with_name :: proc(cats: []Cat, name: string) -> (Cat, bool) {\n\tfor c in cats {\n\t\tif c.name == name {\n\t\t\treturn c, true\n\t\t}\n\t}\n\n\treturn {}, false\n}"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.1",
+    "sectionTitle": "Errors using bool",
+    "code": "cat, cat_ok := find_cat_with_name(cats, \"Molly\")\n\nif cat_ok {\n\tfmt.printfln(\"Found %v! It is %v years old.\", cat.name, cat.age)\n}"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.1",
+    "sectionTitle": "Errors using bool",
+    "code": "if cat, cat_ok := find_cat_with_name(cats, \"Molly\"); cat_ok {\n\tfmt.printfln(\"Found %v! It is %v years old.\", cat.name, cat.age)\n}"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.2",
+    "sectionTitle": "Errors using enum",
+    "code": "Load_Config_Error :: enum {\n\tNone,\n\tFile_Unreadable,\n\tInvalid_Format,\n}\n\nConfig :: struct {\n\tfullscreen: bool,\n\twindow_position: [2]int,\n}\n\nload_config :: proc(filename: string) -> (Config, Load_Config_Error) {\n\tconfig_data, config_data_err := os.read_entire_file(filename, context.temp_allocator)\n\n\tif config_data_err != nil {\n\t\treturn {}, .File_Unreadable\n\t}\n\n\tresult: Config\n\n\tjson_error := json.unmarshal(config_data, &result, allocator = context.temp_allocator)\n\n\tif json_error != nil {\n\t\treturn {}, .Invalid_Format\n\t}\n\n\treturn result, .None\n}"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.2",
+    "sectionTitle": "Errors using enum",
+    "code": "DEFAULT_CONFIG :: Config {\n\tfullscreen = false,\n\twindow_position = { 100, 100 },\n}\n\nmain :: proc() {\n\tconfig, config_error := load_config(\"config.json\")\n\n\tif config_error != .None {\n\t\tfmt.eprintln(\"Failed loading config with error\", config_error)\n\t\tconfig = DEFAULT_CONFIG\n\t}\n\n\t// rest of program that uses config\n}"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.2",
+    "sectionTitle": "Errors using enum",
+    "code": "config, config_error := load_config(\"config.json\")"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.2",
+    "sectionTitle": "Errors using enum",
+    "code": "DEFAULT_CONFIG :: Config {\n\tfullscreen = false,\n\twindow_position = { 100, 100 },\n}\n\nmain :: proc() {\n\tconfig := load_config(\"config.ini\") or_else DEFAULT_CONFIG\n\n\t// rest of program that uses config\n}"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.3",
+    "sectionTitle": "Errors using union",
+    "code": "Error :: union {\n\tParse_Error,\n\tOpen_File_Error,\n\tHelp_Request,\n\tValidation_Error,\n}"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.3",
+    "sectionTitle": "Errors using union",
+    "code": "Help_Request :: distinct bool\n\nValidation_Error :: struct {\n\tmessage: string,\n}"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.4",
+    "sectionTitle": "or_return",
+    "code": "clone :: proc(s: string, allocator := context.allocator, loc := #caller_location) -> (res: string, err: mem.Allocator_Error) #optional_allocator_error {\n\tc := make([]byte, len(s), allocator, loc) or_return\n\tcopy(c, s)\n\treturn string(c[:len(s)]), nil\n}"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.4",
+    "sectionTitle": "or_return",
+    "code": "(res: string, err: mem.Allocator_Error)"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.4",
+    "sectionTitle": "or_return",
+    "code": "c := make([]byte, len(s), allocator, loc) or_return"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.4",
+    "sectionTitle": "or_return",
+    "code": "return string(c[:len(s)]), nil"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.5",
+    "sectionTitle": "#optional_allocator_error",
+    "code": "clone :: proc(s: string, allocator := context.allocator, loc := #caller_location) -> (res: string, err: mem.Allocator_Error) #optional_allocator_error {\n\t..."
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.5",
+    "sectionTitle": "#optional_allocator_error",
+    "code": "cloned_string := strings.clone(\"Hellope!\")"
+  },
+  {
+    "chapter": 16,
+    "chapterTitle": "Error handling",
+    "section": "16.6",
+    "sectionTitle": "#optional_ok",
+    "code": "divide_and_double :: proc(n: f32, d: f32) -> (f32, bool) #optional_ok {\n\tif d == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (n/d)*2, true\n}\n\nmain :: proc() {\n\tnum := divide_and_double(25, 5)\n\tfmt.println(num) // prints 10\n}"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.2",
+    "sectionTitle": "Creating a package",
+    "code": "import \"xml\""
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.2",
+    "sectionTitle": "Creating a package",
+    "code": "xml_parser: xml.Parser\nparsed_result := xml.parse(&xml_parser, some_data)"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.2",
+    "sectionTitle": "Creating a package",
+    "code": "import rl \"vendor:raylib\""
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.2",
+    "sectionTitle": "Creating a package",
+    "code": "import \"core:fmt\"\nimport lfmt \"localization/fmt\""
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.3",
+    "sectionTitle": "The package name",
+    "code": "package some_package"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.3",
+    "sectionTitle": "The package name",
+    "code": "import \"core:fmt\""
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.4",
+    "sectionTitle": "Make sure your packages are independent",
+    "code": "game\n\tjson\n\trenderer"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.4",
+    "sectionTitle": "Make sure your packages are independent",
+    "code": "game\n\ttypes\n\tjson\n\trenderer"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.5",
+    "sectionTitle": "Breaking cyclic dependencies using callbacks",
+    "code": "main.odin\nprinter/printer.odin"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.5",
+    "sectionTitle": "Breaking cyclic dependencies using callbacks",
+    "code": "package main\n\nimport \"core:fmt\"\nimport \"printer\"\n\nprint_message :: proc(msg: string) {\n\tfmt.println(msg)\n}\n\nmain :: proc() {\n\tprinter.print_callback = print_message\n\tprinter.do_work()\n}"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.5",
+    "sectionTitle": "Breaking cyclic dependencies using callbacks",
+    "code": "package printer\n\nimport \"core:fmt\"\n\nprint_callback: proc(msg: string)\n\ndo_work :: proc() {\n\tfmt.println(\"First\")\n\n\tif print_callback != nil {\n\t\tprint_callback(\"Middle\")\n\t}\n\n\tfmt.println(\"Last\")\n}"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.5",
+    "sectionTitle": "Breaking cyclic dependencies using callbacks",
+    "code": "odin run ."
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.5",
+    "sectionTitle": "Breaking cyclic dependencies using callbacks",
+    "code": "First\nMiddle\nLast"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.5",
+    "sectionTitle": "Breaking cyclic dependencies using callbacks",
+    "code": "Printer_Interface :: struct {\n\tprint_callback: proc(msg: string),\n\tend_of_work: proc(),\n}"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.5",
+    "sectionTitle": "Breaking cyclic dependencies using callbacks",
+    "code": "package main\n\nimport \"core:fmt\"\nimport \"printer\"\n\nprint_message :: proc(msg: string) {\n\tfmt.println(msg)\n}\n\nend_of_work :: proc() {\n\tfmt.println(\"Let's all go home\")\n}\n\nmain :: proc() {\n\tinterface := printer.Printer_Interface {\n\t\tprint = print_message,\n\t\tend_of_work = end_of_work,\n\t}\n\tprinter.interface = interface\n\tprinter.do_work()\n}"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.5",
+    "sectionTitle": "Breaking cyclic dependencies using callbacks",
+    "code": "package printer\n\nimport \"core:fmt\"\n\nPrinter_Interface :: struct {\n\tprint: proc(msg: string),\n\tend_of_work: proc(),\n}\n\ninterface: Printer_Interface\n\ndo_work :: proc() {\n\tfmt.println(\"First\")\n\n\tif interface.print != nil {\n\t\tinterface.print(\"Middle\")\n\t}\n\n\tfmt.println(\"Last\")\n\n\tif interface.end_of_work != nil {\n\t\tinterface.end_of_work()\n\t}\n}"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.5",
+    "sectionTitle": "Breaking cyclic dependencies using callbacks",
+    "code": "First\nMiddle\nLast\nLet's all go home"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.6",
+    "sectionTitle": "File and package private",
+    "code": "#+private file"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.6",
+    "sectionTitle": "File and package private",
+    "code": "#+private file\npackage my_package\n\n// Can only be used in this file\nsome_int: int\n\n// Can be used in whole package\n@(private=\"package\")\nsome_proc :: proc () {\n\n}"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.6",
+    "sectionTitle": "File and package private",
+    "code": "package my_package\n\n// Can only be used in this file\n@(private=\"file\")\nsome_int: int"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.6",
+    "sectionTitle": "File and package private",
+    "code": "@(private=\"file\", require_results)\nget_number :: proc() -> int {\n\treturn 5\n}"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.7",
+    "sectionTitle": "Making your own collections",
+    "code": "import \"core:fmt\"\nimport \"base:runtime\"\nimport \"vendor:vulkan\""
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.7",
+    "sectionTitle": "Making your own collections",
+    "code": "odin run . -collection:libs=c:\\cool_odin_libs"
+  },
+  {
+    "chapter": 17,
+    "chapterTitle": "Package system and code organization",
+    "section": "17.7",
+    "sectionTitle": "Making your own collections",
+    "code": "import \"libs:aseprite\""
+  },
+  {
+    "chapter": 18,
+    "chapterTitle": "You (probably) don't need a build system",
+    "section": "18.1",
+    "sectionTitle": "Compiling your program",
+    "code": "odin build ."
+  },
+  {
+    "chapter": 18,
+    "chapterTitle": "You (probably) don't need a build system",
+    "section": "18.2",
+    "sectionTitle": "Importing packages",
+    "code": "import \"core:fmt\""
+  },
+  {
+    "chapter": 18,
+    "chapterTitle": "You (probably) don't need a build system",
+    "section": "18.3",
+    "sectionTitle": "Importing non-Odin libraries",
+    "code": "import rl \"vendor:raylib\""
+  },
+  {
+    "chapter": 18,
+    "chapterTitle": "You (probably) don't need a build system",
+    "section": "18.3",
+    "sectionTitle": "Importing non-Odin libraries",
+    "code": "when ODIN_OS == .Windows {\n\t@(extra_linker_flags=\"/NODEFAULTLIB:\" + (\"msvcrt\" when RAYLIB_SHARED else \"libcmt\"))\n\tforeign import lib {\n\t\t\"windows/raylibdll.lib\" when RAYLIB_SHARED else \"windows/raylib.lib\" ,\n\t\t\"system:Winmm.lib\",\n\t\t\"system:Gdi32.lib\",\n\t\t\"system:User32.lib\",\n\t\t\"system:Shell32.lib\",\n\t}\n} else when ODIN_OS == .Linux  {\n\t// etc etc"
+  },
+  {
+    "chapter": 18,
+    "chapterTitle": "You (probably) don't need a build system",
+    "section": "18.3",
+    "sectionTitle": "Importing non-Odin libraries",
+    "code": "@(default_calling_convention=\"c\")\nforeign lib {\n\t// Bindings to procs go here, such as:\n\tInitWindow :: proc(width, height: c.int, title: cstring) ---\n}"
+  },
+  {
+    "chapter": 18,
+    "chapterTitle": "You (probably) don't need a build system",
+    "section": "18.4",
+    "sectionTitle": "Platform specific code",
+    "code": "#+build !windows\n#+build !linux"
+  },
+  {
+    "chapter": 18,
+    "chapterTitle": "You (probably) don't need a build system",
+    "section": "18.4",
+    "sectionTitle": "Platform specific code",
+    "code": "#+build !windows, !linux"
+  },
+  {
+    "chapter": 18,
+    "chapterTitle": "You (probably) don't need a build system",
+    "section": "18.4",
+    "sectionTitle": "Platform specific code",
+    "code": "#+build !amd64 windows"
+  },
+  {
+    "chapter": 18,
+    "chapterTitle": "You (probably) don't need a build system",
+    "section": "18.5",
+    "sectionTitle": "Compiling multiple binaries",
+    "code": "odin build game -build-mode:dll\nodin build main"
+  },
+  {
+    "chapter": 19,
+    "chapterTitle": "Reflection and Run-Time Type Information (RTTI)",
+    "section": "19.1",
+    "sectionTitle": "Example: Enum member from string",
+    "code": "import \"core:reflect\"\n\nCat_Color :: enum {\n\tNone,   // 0\n\tTabby,  // 1\n\tOrange, // 2\n\tCalico, // 3\n}\n\nmain :: proc() {\n\tcolor_name := \"Orange\"\n\n\tif color, ok := reflect.enum_from_name(Cat_Color, color_name); ok {\n\t\t// Will print \"2 Orange\"\n\t\tfmt.println(int(color), color)\n\t}\n}"
+  },
+  {
+    "chapter": 19,
+    "chapterTitle": "Reflection and Run-Time Type Information (RTTI)",
+    "section": "19.1",
+    "sectionTitle": "Example: Enum member from string",
+    "code": "enum_from_name :: proc($Enum_Type: typeid, name: string) -> (value: Enum_Type, ok: bool) {\n\tti := type_info_base(type_info_of(Enum_Type))\n\tif eti, eti_ok := ti.variant.(runtime.Type_Info_Enum); eti_ok {\n\t\tfor value_name, i in eti.names {\n\t\t\tif value_name != name {\n\t\t\t\tcontinue\n\t\t\t}\n\t\t\tv := eti.values[i]\n\t\t\tvalue = Enum_Type(v)\n\t\t\tok = true\n\t\t\treturn\n\t\t}\n\t}\n\treturn\n}"
+  },
+  {
+    "chapter": 19,
+    "chapterTitle": "Reflection and Run-Time Type Information (RTTI)",
+    "section": "19.1",
+    "sectionTitle": "Example: Enum member from string",
+    "code": "ti := type_info_base(type_info_of(Enum_Type))"
+  },
+  {
+    "chapter": 19,
+    "chapterTitle": "Reflection and Run-Time Type Information (RTTI)",
+    "section": "19.2",
+    "sectionTitle": "Case study: Enum dropdown menu",
+    "code": "gui_dropdown :: proc(rect: Rect, values: []$T, names: []string, cur: T) -> (T, bool) {\n\t// GUI code goes here: Draw a list of\n\t// selectable values using `names`.\n\n\t// If the user selects one of the\n\t// names, then it will use the index of\n\t// the name to fetch the value from\n\t// the `values` slice. The new value\n\t// will be returned.\n\n\t// The proc returns `true` if a new\n\t// value was selected.\n}"
+  },
+  {
+    "chapter": 19,
+    "chapterTitle": "Reflection and Run-Time Type Information (RTTI)",
+    "section": "19.2",
+    "sectionTitle": "Case study: Enum dropdown menu",
+    "code": "gui_enum_dropdown :: proc(rect: Rect, cur: $T) -> (T, bool) where intrinsics.type_is_enum(T) {\n\tnames := reflect.enum_field_names(T)\n\tvalues := reflect.enum_field_values(T)\n\tvalues_i64 := slice.reinterpret([]i64, values)\n\tnew_val, changed := gui_dropdown(rect, values_i64, names, i64(cur))\n\treturn T(new_val), changed\n}"
+  },
+  {
+    "chapter": 19,
+    "chapterTitle": "Reflection and Run-Time Type Information (RTTI)",
+    "section": "19.2",
+    "sectionTitle": "Case study: Enum dropdown menu",
+    "code": "Cat_Color :: enum {\n\tNone,\n\tTabby,\n\tOrange,\n\tCalico,\n}\n\ncurrent_cat_color: Cat_Color\n\nui_update :: proc() {\n\tdropdown_rect := make_some_ui_rectangle()\n\tif new_color, changed := gui_enum_dropdown(dropdown_rect, current_cat_color); changed {\n\t\tcurrent_cat_color = new_color\n\t}\n}"
+  },
+  {
+    "chapter": 19,
+    "chapterTitle": "Reflection and Run-Time Type Information (RTTI)",
+    "section": "19.3",
+    "sectionTitle": "When to not use reflection",
+    "code": "Value :: union {\n\tNull,\n\tInteger,\n\tFloat,\n\tBoolean,\n\tString,\n\tArray,\n\tObject,\n}"
+  },
+  {
+    "chapter": 19,
+    "chapterTitle": "Reflection and Run-Time Type Information (RTTI)",
+    "section": "19.3",
+    "sectionTitle": "When to not use reflection",
+    "code": "if _, ok := val.(json.Array); ok {\n\t// process array\n}"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.1",
+    "sectionTitle": "Avoid doing many small heap allocations",
+    "code": "Person :: struct {\n\thealth: int,\n\tage: int,\n}\n\npeople: [dynamic]^Person\n\nadd_person :: proc(health: int, age: int) {\n\tp := new(Person)\n\tp^ = {\n\t\thealth = health,\n\t\tage = age,\n\t}\n\tappend(&people, p)\n}"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.1",
+    "sectionTitle": "Avoid doing many small heap allocations",
+    "code": "Person :: struct {\n\thealth: int,\n\tage: int,\n}\n\npeople: [dynamic]Person\n\nadd_person :: proc(health: int, age: int) {\n\tp := Person {\n\t\thealth = health,\n\t\tage = age,\n\t}\n\tappend(&people, p)\n}"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.1.1",
+    "sectionTitle": "Performance differences when iterating",
+    "code": "average_age := 0\nfor &p in people {\n\taverage_age += p.age\n}\naverage_age /= len(people)"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.1.2",
+    "sectionTitle": "How much faster is it?",
+    "code": "package avoid_separate_heap_allocs\n\nimport fmt \"core:fmt\"\nimport \"core:math/rand\"\nimport \"core:mem\"\nimport \"core:time\"\n\nPerson :: struct {\n\thealth: int,\n\tage: int,\n}\n\nNUM_ELEMS :: 10000\nNUM_TEST_ITERS :: 10\n\nmake_person :: proc() -> Person {\n\thealth := int(rand.int31_max(101))\n\tage := int(rand.int31_max(101))\n\n\treturn {\n\t\thealth = health,\n\t\tage = age,\n\t}\n}\n\nbenchmark_scattered_array :: proc() -> f64 {\n\tpeople: [dynamic]^Person\n\n\tfor _ in 0..<NUM_ELEMS {\n\t\tp := new(Person)\n\t\tp^ = make_person()\n\t\tappend(&people, p)\n\t}\n\n\tage_sum: int\n\tstart := time.now()\n\tfor i in 0..<NUM_TEST_ITERS {\n\t\tfor &p in people {\n\t\t\tage_sum += p.age\n\t\t}\n\t}\n\tend := time.now()\n\tfmt.println(\"Scattered array age sum:\", f32(age_sum)/(NUM_TEST_ITERS*NUM_ELEMS))\n\n\treturn time.duration_milliseconds(time.diff(start, end))\n}\n\nbenchmark_tight_array :: proc() -> f64 {\n\tpeople: [dynamic]Person\n\n\tfor i in 0..<NUM_ELEMS {\n\t\tp := make_person()\n\t\tappend(&people, p)\n\t}\n\n\tage_sum: int\n\tstart := time.now()\n\tfor i in 0..<NUM_TEST_ITERS {\n\t\tfor &p in people {\n\t\t\tage_sum += p.age\n\t\t}\n\t}\n\tend := time.now()\n\tfmt.println(\"Tight array age sum:\", f32(age_sum)/(NUM_TEST_ITERS*NUM_ELEMS))\n\n\treturn time.duration_milliseconds(time.diff(start, end))\n}\n\nmain :: proc() {\n\ttime_scattered := benchmark_scattered_array()\n\ttime_tight := benchmark_tight_array()\n\tfmt.printfln(\"Cache friendly method is %.2f times faster\", time_scattered/time_tight)\n}"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.1.2",
+    "sectionTitle": "How much faster is it?",
+    "code": "Cache friendly method is 1.39 times faster"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.1.2",
+    "sectionTitle": "How much faster is it?",
+    "code": "Cache friendly method is 4.41 times faster"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.1.2",
+    "sectionTitle": "How much faster is it?",
+    "code": "for i in 0 ..< 100 {\n\t_, _ = mem.alloc(rand.int_max(8)+8)\n}"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.1.2",
+    "sectionTitle": "How much faster is it?",
+    "code": "benchmark_scattered_array :: proc() -> f64 {\n\tpeople: [dynamic]^Person\n\n\tfor _ in 0..<NUM_ELEMS {\n\t\tfor i in 0 ..< 100 {\n\t\t\t_, _ = mem.alloc(rand.int_max(8)+8)\n\t\t}\n\n\t\tp := new(Person)\n\t\tp^ = make_person()\n\t\tappend(&people, p)\n\t}\n\n\tage_sum: int\n\tstart := time.now()\n\tfor i in 0..<NUM_TEST_ITERS {\n\t\tfor &p in people {\n\t\t\tage_sum += p.age\n\t\t}\n\t}\n\tend := time.now()\n\tfmt.println(\"Scattered array age sum:\", f32(age_sum)/(NUM_TEST_ITERS*NUM_ELEMS))\n\n\treturn time.duration_milliseconds(time.diff(start, end))\n}"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.1.2",
+    "sectionTitle": "How much faster is it?",
+    "code": "Cache friendly method is 3.89 times faster"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.1.2",
+    "sectionTitle": "How much faster is it?",
+    "code": "Cache friendly method is 20.99 times faster"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.1.3",
+    "sectionTitle": "Problem: Pointers get invalidated when the array grows",
+    "code": "0x231D92A3018\n0x231D92982D8"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.1.3",
+    "sectionTitle": "Problem: Pointers get invalidated when the array grows",
+    "code": "fmt.println(person_ptr.age)"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.1.3",
+    "sectionTitle": "Problem: Pointers get invalidated when the array grows",
+    "code": "Handle :: struct {\n\tindex: u32,\n\tgeneration: u32,\n}"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.2",
+    "sectionTitle": "Structure of arrays (SoA)",
+    "code": "Person :: struct {\n\thealth: int,\n\tage: int,\n}"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.2",
+    "sectionTitle": "Structure of arrays (SoA)",
+    "code": "people: [dynamic]Person\n\nfor i in 0..<1000 {\n\tappend(&people, Person { health = rand.int_max(101), age = rand.int_max(101) })\n}"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.2",
+    "sectionTitle": "Structure of arrays (SoA)",
+    "code": "people[0].health\npeople[0].age\npeople[1].health\npeople[1].age\npeople[2].health\npeople[2].age\npeople[3].health\npeople[3].age\npeople[4].health\npeople[4].age\n... etc"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.2",
+    "sectionTitle": "Structure of arrays (SoA)",
+    "code": "age_sum: int\nfor &p in people {\n\tage_sum += p.age\n}\nage_avg := f32(age_sum)/f32(len(people))"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.2",
+    "sectionTitle": "Structure of arrays (SoA)",
+    "code": "people: #soa[dynamic]Person\n\nfor i in 0..<1000 {\n\tappend_soa(&people, Person{ health = rand.int_max(101), age = rand.int_max(101)})\n}"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.2",
+    "sectionTitle": "Structure of arrays (SoA)",
+    "code": "people[0].health\npeople[1].health\npeople[2].health\npeople[3].health\npeople[4].health\n... and 995 more health items\npeople[0].age\npeople[1].age\npeople[2].age\npeople[3].age\npeople[4].age\n... and 995 more age items"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.2",
+    "sectionTitle": "Structure of arrays (SoA)",
+    "code": "age_sum: int\nfor &p in people {\n\tage_sum += p.age\n}\nage_avg := f32(age_sum)/f32(len(people))"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.2.1",
+    "sectionTitle": "How much faster is SoA?",
+    "code": "package soa\n\nimport fmt \"core:fmt\"\nimport \"core:math/rand\"\nimport \"core:mem\"\nimport \"core:time\"\n\nNUM_ELEMS :: 10000\nNUM_TEST_ITERS :: 10\n\nPerson :: struct($N: int) {\n\thealth: int,\n\tage: int,\n\n\t// We add in more and more extra bytes\n\t// by varying the parameter N. For\n\t// bigger `extra_data` you may see\n\t// bigger benefits of SoA because of\n\t// being able to fill cache lines with\n\t// more relevant data.\n\textra_data: [N]byte,\n}\n\nmake_person :: proc($N: int) -> Person(N) {\n\thealth := int(rand.int31_max(101))\n\tage := int(rand.int31_max(101))\n\n\treturn {\n\t\thealth = health,\n\t\tage = age,\n\t}\n}\n\nbenchmark_aos_array :: proc($N: int) -> f64 {\n\tpeople: [dynamic]Person(N)\n\n\tfor i in 0..<NUM_ELEMS {\n\t\tp := make_person(N)\n\t\tappend(&people, p)\n\t}\n\n\tage_sum: int\n\tstart := time.now()\n\tfor i in 0..<NUM_TEST_ITERS {\n\t\tfor &p in people {\n\t\t\tage_sum += p.age\n\t\t}\n\t}\n\tend := time.now()\n\tfmt.println(\"Arrays of Structures age sum:\", f32(age_sum)/(NUM_TEST_ITERS*NUM_ELEMS))\n\n\treturn time.duration_milliseconds(time.diff(start, end))\n}\n\nbenchmark_soa_array :: proc($N: int) -> f64 {\n\tpeople: #soa[dynamic]Person(N)\n\n\tfor i in 0..<NUM_ELEMS {\n\t\tp := make_person(N)\n\t\tappend_soa(&people, p)\n\t}\n\n\tage_sum: int\n\tstart := time.now()\n\tfor i in 0..<NUM_TEST_ITERS {\n\t\tfor &p in people {\n\t\t\t// This will become vectorized\n\t\t\t// with -o:speed. Run with\n\t\t\t// -o:none to see the\n\t\t\t// \"pure SoA vs AoS numbers\".\n\n\t\t\t// Also, if we add in lots of\n\t\t\t// extra instructions in this\n\t\t\t// loop, then prefetching might\n\t\t\t// start being as fast as SoA\n\t\t\t// because the prefetcher has\n\t\t\t// time enough to prefetch the\n\t\t\t// next thing from main memory.\n\t\t\tage_sum += p.age\n\t\t}\n\t}\n\tend := time.now()\n\tfmt.println(\"Structure of Arrays age sum:\", f32(age_sum)/(NUM_TEST_ITERS*NUM_ELEMS))\n\n\treturn time.duration_milliseconds(time.diff(start, end))\n}\n\nsoa_bench :: proc($N: int) {\n\tfmt.printfln(\"For %v bytes of extra data in each array element:\", N)\n\ttime_aos := benchmark_aos_array(N)\n\ttime_soa := benchmark_soa_array(N)\n\tfmt.printfln(\"SoA is %.2f times faster than AoS\", time_aos/time_soa)\n\tfmt.println()\n}\n\nmain :: proc() {\n\tsoa_bench(0)\n\tsoa_bench(2)\n\tsoa_bench(4)\n\tsoa_bench(8)\n\tsoa_bench(16)\n\tsoa_bench(32)\n\tsoa_bench(64)\n\tsoa_bench(128)\n\tsoa_bench(256)\n\tsoa_bench(512)\n\tsoa_bench(1024)\n\tsoa_bench(1500)\n\tsoa_bench(2000)\n\tsoa_bench(3000)\n}"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.2.1",
+    "sectionTitle": "How much faster is SoA?",
+    "code": "For 0 bytes of extra data in each array element:\nSoA is 1.06 times faster than AoS\n\nFor 2 bytes of extra data in each array element:\nSoA is 1.06 times faster than AoS\n\nFor 4 bytes of extra data in each array element:\nSoA is 1.04 times faster than AoS\n\nFor 8 bytes of extra data in each array element:\nSoA is 1.04 times faster than AoS\n\nFor 16 bytes of extra data in each array element:\nSoA is 1.07 times faster than AoS\n\nFor 32 bytes of extra data in each array element:\nSoA is 1.18 times faster than AoS\n\nFor 64 bytes of extra data in each array element:\nSoA is 1.46 times faster than AoS\n\nFor 128 bytes of extra data in each array element:\nSoA is 1.78 times faster than AoS\n\nFor 256 bytes of extra data in each array element:\nSoA is 1.90 times faster than AoS\n\nFor 512 bytes of extra data in each array element:\nSoA is 1.79 times faster than AoS\n\nFor 1024 bytes of extra data in each array element:\nSoA is 2.24 times faster than AoS\n\nFor 1500 bytes of extra data in each array element:\nSoA is 2.40 times faster than AoS\n\nFor 2000 bytes of extra data in each array element:\nSoA is 2.07 times faster than AoS\n\nFor 3000 bytes of extra data in each array element:\nSoA is 3.22 times faster than AoS"
+  },
+  {
+    "chapter": 20,
+    "chapterTitle": "Data-oriented design",
+    "section": "20.2.1",
+    "sectionTitle": "How much faster is SoA?",
+    "code": "For 0 bytes of extra data in each array element:\nSoA is 1.91 times faster than AoS\n\nFor 2 bytes of extra data in each array element:\nSoA is 2.52 times faster than AoS\n\nFor 4 bytes of extra data in each array element:\nSoA is 2.03 times faster than AoS\n\nFor 8 bytes of extra data in each array element:\nSoA is 1.48 times faster than AoS\n\nFor 16 bytes of extra data in each array element:\nSoA is 4.43 times faster than AoS\n\nFor 32 bytes of extra data in each array element:\nSoA is 5.53 times faster than AoS\n\nFor 64 bytes of extra data in each array element:\nSoA is 11.76 times faster than AoS\n\nFor 128 bytes of extra data in each array element:\nSoA is 13.70 times faster than AoS\n\nFor 256 bytes of extra data in each array element:\nSoA is 15.11 times faster than AoS\n\nFor 512 bytes of extra data in each array element:\nSoA is 13.35 times faster than AoS\n\nFor 1024 bytes of extra data in each array element:\nSoA is 7.71 times faster than AoS\n\nFor 1500 bytes of extra data in each array element:\nSoA is 15.30 times faster than AoS\n\nFor 2000 bytes of extra data in each array element:\nSoA is 25.99 times faster than AoS\n\nFor 3000 bytes of extra data in each array element:\nSoA is 28.69 times faster than AoS"
+  },
+  {
+    "chapter": 21,
+    "chapterTitle": "Making C library bindings (Foreign Function Interface)",
+    "section": "21.1",
+    "sectionTitle": "The C library",
+    "code": "#include <stdio.h>\n\ntypedef struct TestStruct {\n\tint num;\n\tfloat flt_num;\n} TestStruct;\n\ntypedef void (*Callback)(TestStruct);\n\nCallback callback = NULL;\n\nvoid set_callback(Callback c) {\n\tprintf(\"Setting callback\\n\");\n\tcallback = c;\n}\n\nvoid do_stuff(TestStruct ts) {\n\tprintf(\"Doing stuff\\n\");\n\tts.num += 1;\n\tts.flt_num -= 1;\n\n\t// This is not important, but: This\n\t// will force flush the console buffer,\n\t// avoiding C and Odin prints to be out\n\t// of order. This is not a good\n\t// solution for this, instead you\n\t// should probably redirect the C\n\t// library's stdout to Odin's stdout.\n\tfflush(stdout);\n\n\tif (callback != NULL) {\n\t\tcallback(ts);\n\t}\n}"
+  },
+  {
+    "chapter": 21,
+    "chapterTitle": "Making C library bindings (Foreign Function Interface)",
+    "section": "21.1",
+    "sectionTitle": "The C library",
+    "code": "cl my_lib.c /c\nmkdir windows\nlib my_lib.obj /out:windows\\my_lib.lib"
+  },
+  {
+    "chapter": 21,
+    "chapterTitle": "Making C library bindings (Foreign Function Interface)",
+    "section": "21.1",
+    "sectionTitle": "The C library",
+    "code": "clang -c my_lib.c\nmkdir -p linux\nllvm-ar rc linux/my_lib.a my_lib.o"
+  },
+  {
+    "chapter": 21,
+    "chapterTitle": "Making C library bindings (Foreign Function Interface)",
+    "section": "21.2",
+    "sectionTitle": "The Odin bindings",
+    "code": "package my_lib\n\nimport \"core:fmt\"\nimport \"core:c\"\n\nwhen ODIN_OS == .Windows {\n\tforeign import my_lib {\n\t\t\"windows/my_lib.lib\",\n\t}\n} else when ODIN_OS == .Linux {\n\tforeign import my_lib {\n\t\t\"linux/my_lib.a\",\n\t}\n} else when ODIN_OS == .Darwin {\n\tforeign import my_lib {\n\t\t\"macos/my_lib.a\",\n\t}\n}\n\nCallback :: proc \"c\"(TestStruct)\n\n@(default_calling_convention=\"c\")\nforeign my_lib {\n\tset_callback :: proc(c: Callback) ---\n\tdo_stuff :: proc(ts: TestStruct) ---\n}\n\nTestStruct :: struct {\n\tnum: c.int,\n\tflt_num: c.float,\n}"
+  },
+  {
+    "chapter": 21,
+    "chapterTitle": "Making C library bindings (Foreign Function Interface)",
+    "section": "21.2",
+    "sectionTitle": "The Odin bindings",
+    "code": "when ODIN_OS == .Windows {\n\tforeign import my_lib {\n\t\t\"windows/my_lib.lib\",\n\t}\n} else when ODIN_OS == .Linux {\n\tforeign import my_lib {\n\t\t\"linux/my_lib.a\",\n\t}\n} else when ODIN_OS == .Darwin {\n\tforeign import my_lib {\n\t\t\"macos/my_lib.a\",\n\t}\n}"
+  },
+  {
+    "chapter": 21,
+    "chapterTitle": "Making C library bindings (Foreign Function Interface)",
+    "section": "21.2",
+    "sectionTitle": "The Odin bindings",
+    "code": "@(default_calling_convention=\"c\")\nforeign my_lib {\n\tset_callback :: proc(c: Callback) ---\n\tdo_stuff :: proc(ts: TestStruct) ---\n}"
+  },
+  {
+    "chapter": 21,
+    "chapterTitle": "Making C library bindings (Foreign Function Interface)",
+    "section": "21.2",
+    "sectionTitle": "The Odin bindings",
+    "code": "TestStruct :: struct {\n\tnum: c.int,\n\tflt_num: c.float,\n}"
+  },
+  {
+    "chapter": 21,
+    "chapterTitle": "Making C library bindings (Foreign Function Interface)",
+    "section": "21.2",
+    "sectionTitle": "The Odin bindings",
+    "code": "typedef struct TestStruct {\n\tint num;\n\tfloat flt_num;\n} TestStruct;"
+  },
+  {
+    "chapter": 21,
+    "chapterTitle": "Making C library bindings (Foreign Function Interface)",
+    "section": "21.3",
+    "sectionTitle": "Testing our bindings",
+    "code": "package binding_to_c_test\n\nimport \"base:runtime\"\nimport \"core:fmt\"\n\nimport \"my_lib\"\n\ncustom_context: runtime.Context\n\nmy_callback :: proc \"c\" (ts: my_lib.TestStruct) {\n\t// You can also do\n\t// context = runtime.default_context()\n\t// if you do not need any special\n\t// context.\n\tcontext = custom_context\n\n\tfmt.println(\"In the callback\")\n\tfmt.println(ts)\n}\n\nmain :: proc() {\n\t// Setup context however you want with\n\t// tracking allocators etc, then save\n\t// it to `custom_context` so you can\n\t// use it in `my_callback`.\n\n\tcustom_context = context\n\n\tmy_lib.set_callback(my_callback)\n\n\tts := my_lib.TestStruct {\n\t\tnum = 7,\n\t\tflt_num = 23.12,\n\t}\n\n\tmy_lib.do_stuff(ts)\n}"
+  },
+  {
+    "chapter": 21,
+    "chapterTitle": "Making C library bindings (Foreign Function Interface)",
+    "section": "21.3",
+    "sectionTitle": "Testing our bindings",
+    "code": "import \"my_lib\""
+  },
+  {
+    "chapter": 21,
+    "chapterTitle": "Making C library bindings (Foreign Function Interface)",
+    "section": "21.3",
+    "sectionTitle": "Testing our bindings",
+    "code": "Setting callback\nDoing stuff\nIn the callback\nTestStruct{num = 8, flt_num = 22.12}"
+  },
+  {
+    "chapter": 21,
+    "chapterTitle": "Making C library bindings (Foreign Function Interface)",
+    "section": "21.3",
+    "sectionTitle": "Testing our bindings",
+    "code": "context = custom_context"
+  },
+  {
+    "chapter": 21,
+    "chapterTitle": "Making C library bindings (Foreign Function Interface)",
+    "section": "21.3",
+    "sectionTitle": "Testing our bindings",
+    "code": "custom_context = context"
+  },
+  {
+    "chapter": 21,
+    "chapterTitle": "Making C library bindings (Foreign Function Interface)",
+    "section": "21.3",
+    "sectionTitle": "Testing our bindings",
+    "code": "context = runtime.default_context()"
+  },
+  {
+    "chapter": 22,
+    "chapterTitle": "Debuggers",
+    "section": "22.1",
+    "sectionTitle": "VS Code",
+    "code": "{\n\t\"version\": \"0.2.0\",\n\t\"configurations\": [\n\t\t{\n\t\t\t\"type\": \"cppvsdbg\",\n\t\t\t\"request\": \"launch\",\n\t\t\t\"preLaunchTask\": \"Build\",\n\t\t\t\"name\": \"Debug\",\n\t\t\t\"program\": \"${workspaceFolder}/${workspaceFolderBasename}\",\n\t\t\t\"args\": [],\n\t\t\t\"cwd\": \"${workspaceFolder}\"\n\t\t},\n\t]\n}"
+  },
+  {
+    "chapter": 22,
+    "chapterTitle": "Debuggers",
+    "section": "22.1",
+    "sectionTitle": "VS Code",
+    "code": "{\n\t\"version\": \"2.0.0\",\n\t\"command\": \"\",\n\t\"args\": [],\n\t\"tasks\": [\n\t\t{\n\t\t\t\"label\": \"Build\",\n\t\t\t\"type\": \"shell\",\n\t\t\t\"command\": \"odin build . -debug\",\n\t\t\t\"group\": \"build\"\n\t\t},\n\t]\n}"
+  },
+  {
+    "chapter": 22,
+    "chapterTitle": "Debuggers",
+    "section": "22.1",
+    "sectionTitle": "VS Code",
+    "code": "{\n\t\"debug.allowBreakpointsEverywhere\": true,\n}"
+  },
+  {
+    "chapter": 22,
+    "chapterTitle": "Debuggers",
+    "section": "22.2",
+    "sectionTitle": "RemedyBG",
+    "code": "odin build . -debug"
+  },
+  {
+    "chapter": 22,
+    "chapterTitle": "Debuggers",
+    "section": "22.3",
+    "sectionTitle": "RAD Debugger",
+    "code": "odin build . -debug"
+  },
+  {
+    "chapter": 23,
+    "chapterTitle": "Odin features you should avoid",
+    "section": "23.1",
+    "sectionTitle": "using on variables and parameters",
+    "code": "My_Struct :: struct {\n\tnumber: int,\n}\n\nmy_proc :: proc(s: My_Struct) {\n\tusing s\n\tfmt.println(number)\n}"
+  },
+  {
+    "chapter": 23,
+    "chapterTitle": "Odin features you should avoid",
+    "section": "23.1",
+    "sectionTitle": "using on variables and parameters",
+    "code": "My_Struct :: struct {\n\tnumber: int,\n}\n\nmy_proc :: proc(using s: My_Struct) {\n\tfmt.println(number)\n}"
+  },
+  {
+    "chapter": 23,
+    "chapterTitle": "Odin features you should avoid",
+    "section": "23.2",
+    "sectionTitle": "any type",
+    "code": "my_proc :: proc(a: any) {\n\t// a.data is a pointer.\n\t// a.id is a typeid, it is the type of\n\t// the thing a.data points to.\n}\n\nnumber := 7\nmy_proc(number)"
+  },
+  {
+    "chapter": 23,
+    "chapterTitle": "Odin features you should avoid",
+    "section": "23.2",
+    "sectionTitle": "any type",
+    "code": "number := 7\nmy_proc(number)"
+  },
+  {
+    "chapter": 23,
+    "chapterTitle": "Odin features you should avoid",
+    "section": "23.2",
+    "sectionTitle": "any type",
+    "code": "number := 7\na: any\na.data = &number\na.id = typeid_of(type_of(number))\nmy_proc(a)"
+  },
+  {
+    "chapter": 23,
+    "chapterTitle": "Odin features you should avoid",
+    "section": "23.3",
+    "sectionTitle": "Dynamic literals",
+    "code": "ints := [dynamic]int { 1, 2, 3, 4, 5 }\n\nname_to_age := map[string]int {\n\t\"Karl\" = 5,\n\t\"Klucke\" = 7,\n}"
+  },
+  {
+    "chapter": 23,
+    "chapterTitle": "Odin features you should avoid",
+    "section": "23.3",
+    "sectionTitle": "Dynamic literals",
+    "code": "Error: Compound literals of dynamic types are disabled by default\nints := [dynamic]int { 1, 2, 3, 4, 5 }\n        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\nSuggestion: If you want to enable them for this specific file, add '#+feature dynamic-literals'at the top of the file\nWarning: Please understand that dynamic literals will implicitly allocate using the current 'context.allocator' in that scope"
+  },
+  {
+    "chapter": 23,
+    "chapterTitle": "Odin features you should avoid",
+    "section": "23.3",
+    "sectionTitle": "Dynamic literals",
+    "code": "ints := slice.clone_to_dynamic([]int { 1, 2, 3, 4, 5 })"
+  },
+  {
+    "chapter": 23,
+    "chapterTitle": "Odin features you should avoid",
+    "section": "23.3",
+    "sectionTitle": "Dynamic literals",
+    "code": "name_to_age := map[string]int {\n\t\"Karl\" = 5,\n\t\"Klucke\" = 7,\n}"
+  },
+  {
+    "chapter": 23,
+    "chapterTitle": "Odin features you should avoid",
+    "section": "23.3",
+    "sectionTitle": "Dynamic literals",
+    "code": "name_to_age: map[string]int\nname_to_age[\"Karl\"] = 5\nname_to_age[\"Klucke\"] = 7"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.1",
+    "sectionTitle": "Reading and writing files (core:os)",
+    "code": "import \"core:os\""
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.1",
+    "sectionTitle": "Reading and writing files (core:os)",
+    "code": "if data, data_err := os.read_entire_file(\"my_file\", context.allocator); data_err == nil {\n\t// The file was successfully read.\n\t// data is of type []byte. It's a slice\n\t// containing the whole contents of the\n\t// file in the form of bytes.\n} else {\n\tfmt.eprintfln(\"Failed reading from 'my_file'. Error: %v\", data_err)\n}"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.1",
+    "sectionTitle": "Reading and writing files (core:os)",
+    "code": "if data, data_err := os.read_entire_file(\"my_file\", context.temp_allocator); data_err == nil {\n\t// use data\n}"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.1",
+    "sectionTitle": "Reading and writing files (core:os)",
+    "code": "write_err := os.write_entire_file(\"my_file\", data)\n\nif write_err != nil {\n\tfmt.eprintfln(\"Failed writing 'my_file'. Error: %v\", write_err)\n}"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.2",
+    "sectionTitle": "Read and write structs as JSON (core:encoding/json)",
+    "code": "import \"core:encoding/json\""
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.2",
+    "sectionTitle": "Read and write structs as JSON (core:encoding/json)",
+    "code": "Some_Struct :: struct {\n\tsome_field: int,\n}\n\nmy_struct := Some_Struct {\n\tsome_field = 7,\n}\n\nif json_data, json_err := json.marshal(my_struct, allocator = context.temp_allocator); json_err == nil {\n\t// json_data is of type []byte,\n\t// so can write it directly to a file:\n\twrite_err := os.write_entire_file(\"my_struct_file\", json_data)\n\tif write_err != nil {\n\t\tfmt.eprintfln(\"Couldn't write file! Error: %v\", write_err)\n\t}\n} else {\n\tfmt.eprintfln(\"Couldn't marshal struct! Error: %v\", json_err)\n}"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.2",
+    "sectionTitle": "Read and write structs as JSON (core:encoding/json)",
+    "code": "if json_data, json_err := os.read_entire_file(\"my_struct_file\", context.temp_allocator); json_err == nil {\n\tmy_struct: Some_Struct\n\n\tif unmarshal_err := json.unmarshal(json_data, &my_struct); unmarshal_err == nil {\n\t\t// `my_struct` now contains\n\t\t// the data from the file with the\n\t\t// filename \"my_struct_file\".\n\t} else {\n\t\tfmt.eprintfln(\"Failed to unmarshal JSON. Error: %v\", unmarshal_err)\n\t}\n} else {\n\tfmt.eprintfln(\"Failed to read my_struct_file. Error: %v\", json_err)\n}"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.2",
+    "sectionTitle": "Read and write structs as JSON (core:encoding/json)",
+    "code": "my_struct: My_Struct\narena: vmem.Arena\narena_allocator := vmem.arena_allocator(&arena)\n\nif json.unmarshal(json_data, &my_struct, allocator = arena_allocator) == nil {\n\t// Any allocations done during\n\t// unmarshal are done into `arena`.\n\t// Save `my_struct` and `arena`\n\t// somewhere. When you need to\n\t// deallocate the memory, just do:\n\t// `vmem.arena_destroy(&arena)`\n}"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.6",
+    "sectionTitle": "Start a new thread (core:thread)",
+    "code": "import \"core:thread\"\n\nWorker_Thread_Data :: struct {\n\t// run is optional, it's useful if your\n\t// thread needs to run in a loop until\n\t// you tell it to stop. If the thread\n\t// just needs to do a task and then\n\t// stop, then you can skip this bool\n\t// and the code that uses it.\n\trun: bool,\n\n\t// Add data your thread needs here.\n\n\tthread: ^thread.Thread,\n}\n\nworker_thread_proc :: proc(t: ^thread.Thread) {\n\td := (^Worker_Thread_Data)(t.data)\n\tfor d.run {\n\t\t// Let your thread do stuff!\n\n\t\t// You can make this thread run a\n\t\t// little slower using a sleep:\n\t\t// time.sleep(10*time.Millisecond)\n\t\t// (needs `core:time`)\n\t}\n}\n\nstart_worker_thread :: proc(d: ^Worker_Thread_Data) {\n\td.run = true\n\tif d.thread = thread.create(worker_thread_proc); d.thread != nil {\n\t\td.thread.init_context = context\n\t\td.thread.data = rawptr(d)\n\t\tthread.start(d.thread)\n\t}\n}\n\nstop_worker_thread :: proc(d: ^Worker_Thread_Data) {\n\td.run = false\n\tthread.join(d.thread)\n\tthread.destroy(d.thread)\n}"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.7",
+    "sectionTitle": "Do things periodically (core:time)",
+    "code": "package main\n\nimport \"core:time\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tstart_time := time.now()\n\tlast_print_time := time.now()\n\n\tfor {\n\t\tcurrent_time := time.now()\n\n\t\tif time.duration_seconds(time.diff(last_print_time, current_time)) > 1 {\n\t\t\tfmt.println(\"One second passed\")\n\t\t\tlast_print_time = current_time\n\t\t}\n\n\t\tif time.duration_minutes(time.since(start_time)) > 2 {\n\t\t\tfmt.println(\"Two minutes has passed, shutting down!\")\n\t\t\tbreak\n\t\t}\n\t}\n}"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.7",
+    "sectionTitle": "Do things periodically (core:time)",
+    "code": "if time.duration_minutes(time.since(start_time)) > 2 {\n\tfmt.println(\"Two minutes has passed, shutting down!\")\n\tbreak\n}"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.8",
+    "sectionTitle": "Linear algebra math operations (core:math/linalg)",
+    "code": "import \"core:math/linalg\""
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.8",
+    "sectionTitle": "Linear algebra math operations (core:math/linalg)",
+    "code": "Vector3 :: [3]f32\n\nv := Vector3 {2, 3, 5}\nv_length := linalg.length(v)\n// normalize0 returns 0 if the length v is 0\nv_normalized := linalg.normalize0(v)"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.9",
+    "sectionTitle": "Create random numbers and shuffle arrays (core:math/rand)",
+    "code": "import \"core:math/rand\""
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.9",
+    "sectionTitle": "Create random numbers and shuffle arrays (core:math/rand)",
+    "code": "random_num := rand.uint32()"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.9",
+    "sectionTitle": "Create random numbers and shuffle arrays (core:math/rand)",
+    "code": "random_num := rand.int_max(128)"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.9",
+    "sectionTitle": "Create random numbers and shuffle arrays (core:math/rand)",
+    "code": "arr: [128]int\n\nfor i in 0..<len(arr) {\n\tarr[i] = i\n}\n\nrand.shuffle(arr[:])"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.9",
+    "sectionTitle": "Create random numbers and shuffle arrays (core:math/rand)",
+    "code": "// Set seed based on current time. This\n// gives a different seed each time you\n// start the program.\nseed := time.time_to_unix(time.now())\nrand.reset(u64(seed))\n\n// This will now use the global random\n// generator's seed:\nrandom_num := rand.uint32()"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.9",
+    "sectionTitle": "Create random numbers and shuffle arrays (core:math/rand)",
+    "code": "random_state := rand.create(42) // seed is 42\ngenerator := runtime.default_random_generator(&random_state)\nrandom_num := rand.uint32(generator)"
+  },
+  {
+    "chapter": 24,
+    "chapterTitle": "A tour of the core collection",
+    "section": "24.11",
+    "sectionTitle": "Opening a window using the Windows API core:sys/windows",
+    "code": "package open_win32_window\n\nimport win \"core:sys/windows\"\n\nmain :: proc() {\n\tinstance := win.HINSTANCE(win.GetModuleHandleW(nil))\n\tassert(instance != nil, \"Failed to fetch current instance\")\n\tCLASS_NAME :: \"Windows Window\"\n\n\tcls := win.WNDCLASSW {\n\t\tlpfnWndProc = win_proc,\n\t\tlpszClassName = CLASS_NAME,\n\t\thInstance = instance,\n\t}\n\n\tclass := win.RegisterClassW(&cls)\n\tassert(class != 0, \"Class creation failed\")\n\n\thwnd := win.CreateWindowW(CLASS_NAME,\n\t\t\"Windows Window\",\n\t\twin.WS_OVERLAPPEDWINDOW | win.WS_VISIBLE,\n\t\t100, 100, 1280, 720,\n\t\tnil, nil, instance, nil)\n\n\tassert(hwnd != nil, \"Window creation Failed\")\n\tmsg: win.MSG\n\n\tfor\twin.GetMessageW(&msg, nil, 0, 0) > 0 {\n\t\twin.TranslateMessage(&msg)\n\t\twin.DispatchMessageW(&msg)\n\t}\n\n\twin.DestroyWindow(hwnd)\n}\n\nwin_proc :: proc \"stdcall\" (hwnd: win.HWND, msg: win.UINT, wparam: win.WPARAM, lparam: win.LPARAM) -> win.LRESULT {\n\tswitch(msg) {\n\tcase win.WM_DESTROY:\n\t\twin.PostQuitMessage(0)\n\t}\n\n\treturn win.DefWindowProcW(hwnd, msg, wparam, lparam)\n}"
+  },
+  {
+    "chapter": 25,
+    "chapterTitle": "Libraries for creating video games",
+    "section": "25.1",
+    "sectionTitle": "Make a game using raylib vendor:raylib",
+    "code": "package game\n\nimport rl \"vendor:raylib\"\n\nmain :: proc() {\n\trl.InitWindow(1280, 720, \"Raylib Game\")\n\trl.SetTargetFPS(120)\n\n\tfor !rl.WindowShouldClose() {\n\t\trl.BeginDrawing()\n\t\trl.ClearBackground(rl.BLUE)\n\t\trl.EndDrawing()\n\t}\n\n\trl.CloseWindow()\n}"
+  },
+  {
+    "chapter": 26,
+    "chapterTitle": "A few more things...",
+    "section": "26.1",
+    "sectionTitle": "#load and #load_directory",
+    "code": "file_data := #load(\"my_file\")"
+  },
+  {
+    "chapter": 26,
+    "chapterTitle": "A few more things...",
+    "section": "26.1",
+    "sectionTitle": "#load and #load_directory",
+    "code": "Load_Directory_File :: struct {\n\tname: string,\n\tdata: []byte, // immutable data\n}"
+  },
+  {
+    "chapter": 26,
+    "chapterTitle": "A few more things...",
+    "section": "26.2",
+    "sectionTitle": "@rodata",
+    "code": "@rodata\nnumbers := [3]int {\n\t1, 2, 4,\n}\n\nmain :: proc() {\n\ti := 1\n\tfmt.println(numbers[i])\n}"
+  },
+  {
+    "chapter": 26,
+    "chapterTitle": "A few more things...",
+    "section": "26.5",
+    "sectionTitle": "Struct tags",
+    "code": "Cat :: struct {\n\tage: int \"Information about this field\",\n}"
+  },
+  {
+    "chapter": 29,
+    "chapterTitle": "Appendix A: Handle-based array",
+    "section": "26.10",
+    "sectionTitle": "Code generation",
+    "code": "// Handle-based array. Used like this:\n//\n// Entity_Handle :: distinct Handle\n// entities: Handle_Array(Entity, Entity_Handle)\n//\n// It expects the type used (in this case\n// Entity) to contains a field called\n// `handle`, of type `Entity_Handle`.\n//\n// You can then fetch entities using\n// ha_get() and add handles using ha_add().\n//\n// This is just an example implementation.\n// There are many ways to implement this.\n//\n// Another example by Bill:\n// https://gist.github.com/gingerBill/7282ff54744838c52cc80c559f697051\n//\n// Bill's example is a bit more\n// complicated, but a bit more efficient.\n// It doesn't have to loop through all items\n// to \"skip unoccupied holes\".\n//\n// Jakub also has an implementation of\n// something similar. But his version\n// doesn't use dynamic memory:\n// https://github.com/jakubtomsu/sds/blob/main/pool.odin\n\npackage game\n\nHandle :: struct {\n\tidx: u32,\n\tgen: u32,\n}\n\nHANDLE_NONE :: Handle {}\n\nHandle_Array :: struct($T: typeid, $HT: typeid) {\n\titems: [dynamic]T,\n\tfreelist: [dynamic]HT,\n\tnum: int,\n}\n\nha_clear :: proc(ha: ^Handle_Array($T, $HT)) {\n\tclear(&ha.items)\n\tclear(&ha.freelist)\n}\n\nha_delete :: proc(ha: Handle_Array($T, $HT)) {\n\tdelete(ha.items)\n\tdelete(ha.freelist)\n}\n\nha_add :: proc(ha: ^Handle_Array($T, $HT), v: T) -> HT {\n\tv := v\n\n\tif len(ha.freelist) > 0 {\n\t\th := pop(&ha.freelist)\n\t\th.gen += 1\n\t\tv.handle = h\n\t\tha.items[h.idx] = v\n\t\tha.num += 1\n\t\treturn h\n\t}\n\n\tif len(ha.items) == 0 {\n\t\tappend_nothing(&ha.items) // Item at index zero is always \"dummy\" used for zero comparison\n\t}\n\n\tidx := u32(len(ha.items))\n\tv.handle.idx = idx\n\tv.handle.gen = 1\n\tappend(&ha.items, v)\n\tha.num += 1\n\treturn v.handle\n}\n\nha_get :: proc(ha: Handle_Array($T, $HT), h: HT) -> (T, bool) {\n\tif h.idx > 0 && int(h.idx) < len(ha.items) && ha.items[h.idx].handle == h {\n\t\treturn ha.items[h.idx], true\n\t}\n\n\treturn {}, false\n}\n\nha_get_ptr :: proc(ha: Handle_Array($T, $HT), h: HT) -> ^T {\n\tif h.idx > 0 && int(h.idx) < len(ha.items) && ha.items[h.idx].handle == h {\n\t\treturn &ha.items[h.idx]\n\t}\n\n\treturn nil\n}\n\nha_remove :: proc(ha: ^Handle_Array($T, $HT), h: HT) {\n\tif h.idx > 0 && int(h.idx) < len(ha.items) && ha.items[h.idx].handle == h {\n\t\tappend(&ha.freelist, h)\n\t\tha.items[h.idx] = {}\n\t\tha.num -= 1\n\t}\n}\n\nha_valid :: proc(ha: Handle_Array($T, $HT), h: HT) -> bool {\n\treturn ha_get(ha, h) != nil\n}\n\n// Iterators for iterating over all used\n// slots in the array. Used like this:\n//\n// ent_iter := ha_make_iter(your_handle_based_array)\n// for e in ha_iter_ptr(&ent_iter) {\n//\n// }\n\nHandle_Array_Iter :: struct($T: typeid, $HT: typeid) {\n\tha: Handle_Array(T, HT),\n\tindex: int,\n}\n\nha_make_iter :: proc(ha: Handle_Array($T, $HT)) -> Handle_Array_Iter(T, HT) {\n\treturn Handle_Array_Iter(T, HT) { ha = ha }\n}\n\nha_iter :: proc(it: ^Handle_Array_Iter($T, $HT)) -> (val: T, h: HT, cond: bool) {\n\tin_range := it.index < len(it.ha.items)\n\n\tfor in_range {\n\t\tcond = it.index > 0 && in_range && it.ha.items[it.index].handle.idx > 0\n\n\t\tif cond {\n\t\t\tval = it.ha.items[it.index]\n\t\t\th = it.ha.items[it.index].handle\n\t\t\tit.index += 1\n\t\t\treturn\n\t\t}\n\n\t\tit.index += 1\n\t\tin_range = it.index < len(it.ha.items)\n\t}\n\n\treturn\n}\n\nha_iter_ptr :: proc(it: ^Handle_Array_Iter($T, $HT)) -> (val: ^T, h: HT, cond: bool) {\n\tin_range := it.index < len(it.ha.items)\n\n\tfor in_range {\n\t\tcond = it.index > 0 && in_range && it.ha.items[it.index].handle.idx > 0\n\n\t\tif cond {\n\t\t\tval = &it.ha.items[it.index]\n\t\t\th = it.ha.items[it.index].handle\n\t\t\tit.index += 1\n\t\t\treturn\n\t\t}\n\n\t\tit.index += 1\n\t\tin_range = it.index < len(it.ha.items)\n\t}\n\n\treturn\n}"
+  },
+  {
+    "chapter": 30,
+    "chapterTitle": "Appendix B: Using only fixed arrays",
+    "section": "26.10",
+    "sectionTitle": "Code generation",
+    "code": "package main\n\nimport \"core:fmt\"\n\nMAX_NUMBERS :: 4096\n\nnumbers: [MAX_NUMBERS]int\nnum_numbers: int\n\nadd_number :: proc(n: int) {\n\tif num_numbers == len(numbers) {\n\t\tfmt.eprintln(\"Out of numbers\")\n\t\treturn\n\t}\n\n\tnumbers[num_numbers] = n\n\tnum_numbers += 1\n}\n\nmain :: proc() {\n\tadd_number(7)\n\tadd_number(42)\n\n\t// cool program that uses these numbers\n}"
+  },
+  {
+    "chapter": 30,
+    "chapterTitle": "Appendix B: Using only fixed arrays",
+    "section": "26.10",
+    "sectionTitle": "Code generation",
+    "code": "package main\n\nMAX_NUMBERS :: 4096\nnumbers: [dynamic; MAX_NUMBERS]int\n\nmain :: proc() {\n\tappend(&numbers, 7)\n\tappend(&numbers, 5)\n\tappend(&numbers, 42)\n\n\t// Removes the number `5` (which is at\n\t// index 1) from the array.\n\tunordered_remove(&numbers, 1)\n\n\t// cool program that uses these numbers\n}"
+  },
+  {
+    "chapter": 30,
+    "chapterTitle": "Appendix B: Using only fixed arrays",
+    "section": "26.10",
+    "sectionTitle": "Code generation",
+    "code": "context.allocator = runtime.panic_allocator()"
+  },
+  {
+    "chapter": 31,
+    "chapterTitle": "Appendix C: gui_dropdown from CAT & ONION",
+    "section": "26.10",
+    "sectionTitle": "Code generation",
+    "code": "gui_dropdown :: proc(rect: Rect, values: []$T, names: []string, cur: T, label: string = \"\") -> (T, bool) #optional_ok {\n\trect := gui_property_label(rect, label)\n\n\trl.DrawRectangleRec(rect, ColorControlBackground)\n\trl.DrawRectangleLinesEx(rect, 1, ColorControlBorder)\n\n\tcur_idx := -1\n\n\tfor v, v_idx in values {\n\t\tif v == cur {\n\t\t\tcur_idx = v_idx\n\t\t}\n\t}\n\n\tid := ui_next_id()\n\n\tif cur_idx != -1 {\n\t\tn := names[cur_idx]\n\t\trl.DrawTextPro(font, temp_cstring(n), pos_from_rect(rect) + {MetricControlTextMargin, 0}, {}, 0, MetricFontHeight, 0, ColorControlText)\n\n\t\trl.DrawTextPro(font, \"v\", pos_from_rect(rect) + {rect.width - 10, 0}, {}, 0, MetricFontHeight, 0, ColorControlText)\n\t}\n\n\tif mouse_in_rect(rect) {\n\t\tui.next_hover = id\n\t}\n\n\tif ui.active == id  {\n\t\tif ui.clicked_in_overlay == id || ui.clicked == id {\n\t\t\tui.active = 0\n\t\t}\n\n\t\tactive_data := transmute(^DropdownActiveData)(&ui.active_data[0])\n\n\t\tdrect := rect\n\t\tdrect.y += drect.height\n\t\tdrect.height = f32(len(names) * 20 + (len(names) - 1) * 2)\n\n\t\tmwm := rl.GetMouseWheelMove()\n\n\t\tif mwm != 0 {\n\t\t\tactive_data.scroll_offset += mwm * 5\n\t\t}\n\n\t\tdrect.y += active_data.scroll_offset\n\n\t\tif drect.y + drect.height > f32(rl.GetScreenHeight()) {\n\t\t\tdrect.y -= drect.height + 20\n\t\t}\n\n\t\tui_begin_overlay()\n\t\trl.DrawRectangleRec(drect, ColorControlBackground)\n\n\t\tif mouse_in_rect(drect) {\n\t\t\tui.next_hover_in_overlay = id\n\t\t}\n\n\t\tfor n, n_idx in names {\n\t\t\trow := cut_rect_top(&drect, 20, n_idx == 0 ? 0 : 2)\n\n\t\t\tif n_idx == cur_idx {\n\t\t\t\trl.DrawRectangleRec(row, ColorControlBackgroundActive)\n\t\t\t} else {\n\t\t\t\tif mouse_in_rect(row) {\n\t\t\t\t\trl.DrawRectangleRec(row, ColorControlBackgroundHover)\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tif mouse_in_rect(row) {\n\t\t\t\tif rl.IsMouseButtonPressed(.LEFT) {\n\t\t\t\t\tui_end_overlay()\n\t\t\t\t\tui.active = 0\n\t\t\t\t\treturn values[n_idx], true\n\t\t\t\t}\n\t\t\t}\n\n\t\t\trl.DrawTextPro(font, temp_cstring(n), pos_from_rect(row)+ {MetricControlTextMargin, 0}, {}, 0, MetricFontHeight, 0, ColorControlText)\n\t\t}\n\n\t\tui_end_overlay()\n\t} else if ui.clicked == id {\n\t\tui.active = id\n\t\tui.active_data = {}\n\t}\n\n\treturn cur, false\n}"
+  },
+  {
+    "chapter": 32,
+    "chapterTitle": "Appendix D: Box2D and raylib",
+    "section": "26.10",
+    "sectionTitle": "Code generation",
+    "code": "// Odin + Box2D + Raylib example with\n// stacking boxes and a shape attached to\n// the cursor that can smack the shapes.\n\n// Made during this stream:\n// https://www.youtube.com/watch?v=LYW7jdwEnaI\n\n// I have updated this to use the\n// `vendor:box2d` bindings instead of the\n// ones I used on the stream.\n\npackage game\n\nimport b2 \"vendor:box2d\"\nimport rl \"vendor:raylib\"\nimport \"core:math\"\n\nBox :: struct {\n\tbody: b2.BodyId,\n\tshape: b2.ShapeId,\n}\n\ncreate_box :: proc(world_id: b2.WorldId, pos: b2.Vec2) -> Box {\n\tbody_def := b2.DefaultBodyDef()\n\tbody_def.type = .dynamicBody\n\tbody_def.position = pos\n\tbody := b2.CreateBody(world_id, body_def)\n\n\tbox := b2.MakeBox(20, 20)\n\tbox_def := b2.DefaultShapeDef()\n\tshape := b2.CreatePolygonShape(body, box_def, box)\n\n\treturn {\n\t\tbody = body,\n\t\tshape = shape,\n\t}\n}\n\nmain :: proc() {\n\trl.InitWindow(1280, 720, \"Box2D + Raylib example\")\n\n\tworld_def := b2.DefaultWorldDef()\n\tworld_def.gravity = b2.Vec2{0, -1}\n\tworld_id := b2.CreateWorld(world_def)\n\n\tground := rl.Rectangle {\n\t\t0, 600,\n\t\t1280, 120,\n\t}\n\n\tground_body_def := b2.DefaultBodyDef()\n\tground_body_def.position = b2.Vec2{ground.x, -ground.y - ground.height}\n\tground_body_id := b2.CreateBody(world_id, ground_body_def)\n\n\tground_box := b2.MakeBox(ground.width, ground.height)\n\tground_shape_def := b2.DefaultShapeDef()\n\tground_shape := b2.CreatePolygonShape(ground_body_id, ground_shape_def, ground_box)\n\n\tbodies: [dynamic]Box\n\n\t// This generates the initial placement\n\t// for the boxes.\n\tfor x in 0..<10 {\n\t\tfor y in 0..< 5 {\n\t\t\tpx := f32(x*20 + 400)\n\t\t\tpy := f32(y*20 - 400)\n\t\t\tb := create_box(world_id, {px, py})\n\t\t\tappend(&bodies, b)\n\t\t}\n\t}\n\n\t// A circle that we'll move with the mouse.\n\tcircle_body_def := b2.DefaultBodyDef()\n\tcircle_body_def.type = .dynamicBody\n\tcircle_body_def.position = b2.Vec2{0, 4}\n\tcircle_body_id := b2.CreateBody(world_id, circle_body_def)\n\n\tcircle_shape_def := b2.DefaultShapeDef()\n\tcircle_shape_def.density = 1000\n\n\tcircle: b2.Circle\n\tcircle.radius = 40\n\tcircle_shape := b2.CreateCircleShape(circle_body_id, circle_shape_def, circle)\n\n\tTIME_STEP :: 1.0 / 60.0\n\tTIME_SUB_STEPS :: 4\n\n\tfor !rl.WindowShouldClose() {\n\t\trl.BeginDrawing()\n\t\trl.ClearBackground(rl.BLACK)\n\n\t\trl.DrawRectangleRec(ground, rl.RED)\n\t\tmouse_pos := rl.GetMousePosition()\n\n\t\tb2.Body_SetTransform(circle_body_id, {mouse_pos.x, -mouse_pos.y}, {})\n\t\tb2.World_Step(world_id, TIME_STEP, TIME_SUB_STEPS)\n\n\t\tfor b in bodies {\n\t\t\tposition := b2.Body_GetPosition(b.body)\n\t\t\ta := b2.Rot_GetAngle(b2.Body_GetRotation(b.body))\n\n\t\t\t// There's a negation of\n\t\t\t// position.y because Box2D is\n\t\t\t// Y up and Raylib is Y down.\n\t\t\trl.DrawRectanglePro({position.x, -position.y, 40, 40}, {20, 20}, -a*math.DEG_PER_RAD, rl.YELLOW)\n\t\t}\n\n\t\trl.DrawCircleV(mouse_pos, 40, rl.MAGENTA)\n\t\trl.EndDrawing()\n\t}\n\n\t// You don't really need to destroy all\n\t// these things if you're going to destroy\n\t// the world. But in a simulation where you\n\t// have a persistent world and constantly\n\t// add and remove bodies you'll need to do\n\t// stuff like this.\n\tfor b in bodies {\n\t\tb2.DestroyShape(b.shape, false)\n\t\tb2.DestroyBody(b.body)\n\t}\n\n\tb2.DestroyShape(ground_shape, false)\n\tb2.DestroyBody(ground_body_id)\n\tb2.DestroyShape(circle_shape, false)\n\tb2.DestroyBody(circle_body_id)\n\n\tb2.DestroyWorld(world_id)\n\n\trl.CloseWindow()\n}"
+  }
+]

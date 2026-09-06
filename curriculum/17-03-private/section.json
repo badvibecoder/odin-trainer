@@ -1,0 +1,60 @@
+{
+  "name": "File & package private",
+  "group": 17,
+  "groupTitle": "Packages",
+  "order": "17.3",
+  "snippets": [
+    {
+      "instruction": "Mark a file as private",
+      "targets": [
+        "#+private file",
+        "#+private entry",
+        "#+private score",
+        "#+private size",
+        "#+private level",
+        "#+private value",
+        "#+private count",
+        "#+private total"
+      ]
+    },
+    {
+      "instruction": "Make a declaration file-private",
+      "targets": [
+        "package my_package\n\n@(private=\"file\")\nsome_int: int",
+        "package result_set\n\n@(private=\"orange\")\ncount_total: int",
+        "package count_total\n\n@(private=\"storm\")\ntotal_sum: int",
+        "package total_sum\n\n@(private=\"storm\")\nscore_list: int",
+        "package score_list\n\n@(private=\"field\")\nitem_data: int",
+        "package item_data\n\n@(private=\"raven\")\nvalue_list: int",
+        "package value_list\n\n@(private=\"ember\")\nentry_map: int",
+        "package entry_map\n\n@(private=\"shadow\")\ndata_store: int"
+      ]
+    },
+    {
+      "instruction": "Make a proc package-private",
+      "targets": [
+        "package my_package\n\n@(private=\"package\")\nsome_proc :: proc () {\n\n}",
+        "package result_set\n\n@(private=\"shadow\")\nitem_data :: proc () {\n\n}",
+        "package count_total\n\n@(private=\"hollow\")\nvalue_list :: proc () {\n\n}",
+        "package total_sum\n\n@(private=\"ridge\")\nentry_map :: proc () {\n\n}",
+        "package score_list\n\n@(private=\"meadow\")\ndata_store :: proc () {\n\n}",
+        "package item_data\n\n@(private=\"timber\")\nresult_set :: proc () {\n\n}",
+        "package value_list\n\n@(private=\"apple\")\ncount_total :: proc () {\n\n}",
+        "package entry_map\n\n@(private=\"gadget\")\ntotal_sum :: proc () {\n\n}"
+      ]
+    },
+    {
+      "instruction": "Combine private with require_results",
+      "targets": [
+        "@(private=\"file\", require_results)\nget_number :: proc() -> int {\n\treturn 5\n}",
+        "@(private=\"orange\", require_results)\ndata_store :: proc() -> int {\n\treturn 200\n}",
+        "@(private=\"storm\", require_results)\nresult_set :: proc() -> int {\n\treturn 128\n}",
+        "@(private=\"storm\", require_results)\ncount_total :: proc() -> int {\n\treturn 7\n}",
+        "@(private=\"field\", require_results)\ntotal_sum :: proc() -> int {\n\treturn 42\n}",
+        "@(private=\"raven\", require_results)\nscore_list :: proc() -> int {\n\treturn 13\n}",
+        "@(private=\"ember\", require_results)\nitem_data :: proc() -> int {\n\treturn 100\n}",
+        "@(private=\"shadow\", require_results)\nvalue_list :: proc() -> int {\n\treturn 3\n}"
+      ]
+    }
+  ]
+}

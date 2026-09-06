@@ -1,0 +1,99 @@
+{
+  "name": "Default & named arguments",
+  "group": 7,
+  "groupTitle": "Procedures",
+  "order": "7.1",
+  "snippets": [
+    {
+      "instruction": "Write a procedure with a default label parameter",
+      "targets": [
+        "write_message :: proc(message: string, label: string = \"Info\") {\n\tif label != \"\" {\n\t\tfmt.print(label)\n\t\tfmt.print(\": \")\n\t}\n\n\tfmt.println(message)\n}",
+        "item_data :: proc(data: string, score: string = \"timber\") {\n\tif score != \"\" {\n\t\tfmt.print(score)\n\t\tfmt.print(\": \")\n\t}\n\n\tfmt.println(data)\n}",
+        "value_list :: proc(result: string, size: string = \"orange\") {\n\tif size != \"\" {\n\t\tfmt.print(size)\n\t\tfmt.print(\": \")\n\t}\n\n\tfmt.println(result)\n}",
+        "entry_map :: proc(entry: string, level: string = \"ember\") {\n\tif level != \"\" {\n\t\tfmt.print(level)\n\t\tfmt.print(\": \")\n\t}\n\n\tfmt.println(entry)\n}",
+        "data_store :: proc(score: string, value: string = \"stone\") {\n\tif value != \"\" {\n\t\tfmt.print(value)\n\t\tfmt.print(\": \")\n\t}\n\n\tfmt.println(score)\n}",
+        "result_set :: proc(size: string, count: string = \"field\") {\n\tif count != \"\" {\n\t\tfmt.print(count)\n\t\tfmt.print(\": \")\n\t}\n\n\tfmt.println(size)\n}",
+        "count_total :: proc(level: string, total: string = \"ember\") {\n\tif total != \"\" {\n\t\tfmt.print(total)\n\t\tfmt.print(\": \")\n\t}\n\n\tfmt.println(level)\n}",
+        "total_sum :: proc(value: string, amount: string = \"cloud\") {\n\tif amount != \"\" {\n\t\tfmt.print(amount)\n\t\tfmt.print(\": \")\n\t}\n\n\tfmt.println(value)\n}"
+      ]
+    },
+    {
+      "instruction": "Call a procedure using the default label",
+      "targets": [
+        "write_message(\"Hello!\")",
+        "item_data(\"timber\")",
+        "value_list(\"widget\")",
+        "entry_map(\"widget\")",
+        "data_store(\"shadow\")",
+        "result_set(\"gadget\")",
+        "count_total(\"stone\")",
+        "total_sum(\"storm\")"
+      ]
+    },
+    {
+      "instruction": "Call a procedure with an explicit label",
+      "targets": [
+        "write_message(\"Hello!\", \"Very important info\")",
+        "item_data(\"timber\", \"meadow\")",
+        "value_list(\"widget\", \"apple\")",
+        "entry_map(\"widget\", \"storm\")",
+        "data_store(\"shadow\", \"ember\")",
+        "result_set(\"gadget\", \"gadget\")",
+        "count_total(\"stone\", \"widget\")",
+        "total_sum(\"storm\", \"branch\")"
+      ]
+    },
+    {
+      "instruction": "Write a procedure with mixed default parameters",
+      "targets": [
+        "my_proc :: proc(a: int, b := 1, c := \"hello\") {\n\n}",
+        "entry_map :: proc(level: int, value := 1, c := \"orange\") {\n\n}",
+        "data_store :: proc(value: int, count := 1, c := \"storm\") {\n\n}",
+        "result_set :: proc(count: int, total := 1, c := \"storm\") {\n\n}",
+        "count_total :: proc(total: int, amount := 1, c := \"field\") {\n\n}",
+        "total_sum :: proc(amount: int, item := 1, c := \"raven\") {\n\n}",
+        "score_list :: proc(item: int, data := 1, c := \"ember\") {\n\n}",
+        "item_data :: proc(data: int, result := 1, c := \"shadow\") {\n\n}"
+      ]
+    },
+    {
+      "instruction": "Call a procedure with a named argument",
+      "targets": [
+        "my_proc(7, c = \"bye bye\")",
+        "entry_map(7, c = \"cloud\")",
+        "data_store(42, c = \"storm\")",
+        "result_set(13, c = \"gadget\")",
+        "count_total(100, c = \"hollow\")",
+        "total_sum(3, c = \"ember\")",
+        "score_list(9, c = \"raven\")",
+        "item_data(25, c = \"stone\")"
+      ]
+    },
+    {
+      "instruction": "Call a procedure with named arguments in any order",
+      "targets": [
+        "my_proc(c = \"bye bye\", a = 7)",
+        "entry_map(c = \"cloud\", value = 7)",
+        "data_store(c = \"storm\", count = 42)",
+        "result_set(c = \"gadget\", total = 13)",
+        "count_total(c = \"hollow\", amount = 100)",
+        "total_sum(c = \"ember\", item = 3)",
+        "score_list(c = \"raven\", data = 9)",
+        "item_data(c = \"stone\", result = 25)"
+      ]
+    },
+    {
+      "instruction": "Write a procedure with a default allocator and caller location",
+      "targets": [
+        "clone :: proc(s: []byte, allocator := context.allocator, loc := #caller_location) -> []byte {\n\tc := make([]byte, len(s), allocator, loc)\n\tcopy(c, s)\n\treturn c[:len(s)]\n}",
+        "clone :: proc(result: []byte, allocator := context.allocator, total := #caller_location) -> []byte {\n\tc := make([]byte, len(result), allocator, total)\n\tcopy(c, result)\n\treturn c[:len(result)]\n}",
+        "clone :: proc(entry: []byte, allocator := context.allocator, amount := #caller_location) -> []byte {\n\tc := make([]byte, len(entry), allocator, amount)\n\tcopy(c, entry)\n\treturn c[:len(entry)]\n}",
+        "clone :: proc(score: []byte, allocator := context.allocator, item := #caller_location) -> []byte {\n\tc := make([]byte, len(score), allocator, item)\n\tcopy(c, score)\n\treturn c[:len(score)]\n}",
+        "clone :: proc(size: []byte, allocator := context.allocator, data := #caller_location) -> []byte {\n\tc := make([]byte, len(size), allocator, data)\n\tcopy(c, size)\n\treturn c[:len(size)]\n}",
+        "clone :: proc(level: []byte, allocator := context.allocator, result := #caller_location) -> []byte {\n\tc := make([]byte, len(level), allocator, result)\n\tcopy(c, level)\n\treturn c[:len(level)]\n}",
+        "clone :: proc(value: []byte, allocator := context.allocator, entry := #caller_location) -> []byte {\n\tc := make([]byte, len(value), allocator, entry)\n\tcopy(c, value)\n\treturn c[:len(value)]\n}",
+        "clone :: proc(count: []byte, allocator := context.allocator, score := #caller_location) -> []byte {\n\tc := make([]byte, len(count), allocator, score)\n\tcopy(c, count)\n\treturn c[:len(count)]\n}"
+      ]
+    }
+  ]
+}

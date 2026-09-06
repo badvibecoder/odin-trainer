@@ -1,0 +1,60 @@
+{
+  "name": "Foreign imports & build tags",
+  "group": 18,
+  "groupTitle": "Build & FFI",
+  "order": "18.1",
+  "snippets": [
+    {
+      "instruction": "Write a foreign import block with linker flags",
+      "targets": [
+        "when ODIN_OS == .Windows {\n\t@(extra_linker_flags=\"/NODEFAULTLIB:\" + (\"msvcrt\" when RAYLIB_SHARED else \"libcmt\"))\n\tforeign import lib {\n\t\t\"windows/raylibdll.lib\" when RAYLIB_SHARED else \"windows/raylib.lib\" ,\n\t\t\"system:Winmm.lib\",\n\t\t\"system:Gdi32.lib\",\n\t\t\"system:User32.lib\",\n\t\t\"system:Shell32.lib\",\n\t}\n}",
+        "when MAX_VALUE == .Value {\n\t@(extra_linker_flags=\"/TOTAL_COUNT:\" + (\"cloud\" when ITEM_COUNT else \"shadow\"))\n\tforeign import total {\n\t\t\"windows/value.total\" when ITEM_COUNT else \"windows/level.total\" ,\n\t\t\"count:Entity.total\",\n\t\t\"count:Note.total\",\n\t\t\"count:Record.total\",\n\t\t\"count:Data.total\",\n\t}\n}",
+        "when TOTAL_COUNT == .Note {\n\t@(extra_linker_flags=\"/ITEM_COUNT:\" + (\"ember\" when BASE_AMOUNT else \"ember\"))\n\tforeign import amount {\n\t\t\"windows/count.amount\" when BASE_AMOUNT else \"windows/value.amount\" ,\n\t\t\"total:Record.amount\",\n\t\t\"total:Item.amount\",\n\t\t\"total:Entry.amount\",\n\t\t\"total:Result.amount\",\n\t}\n}",
+        "when ITEM_COUNT == .Item {\n\t@(extra_linker_flags=\"/BASE_AMOUNT:\" + (\"ridge\" when DEFAULT_VALUE else \"ember\"))\n\tforeign import item {\n\t\t\"windows/total.item\" when DEFAULT_VALUE else \"windows/count.item\" ,\n\t\t\"amount:Entry.item\",\n\t\t\"amount:Entity.item\",\n\t\t\"amount:Data.item\",\n\t\t\"amount:Config.item\",\n\t}\n}",
+        "when BASE_AMOUNT == .Entity {\n\t@(extra_linker_flags=\"/DEFAULT_VALUE:\" + (\"stone\" when LIMIT_SIZE else \"raven\"))\n\tforeign import data {\n\t\t\"windows/amount.data\" when LIMIT_SIZE else \"windows/total.data\" ,\n\t\t\"item:Data.data\",\n\t\t\"item:Record.data\",\n\t\t\"item:Result.data\",\n\t\t\"item:Thing.data\",\n\t}\n}",
+        "when DEFAULT_VALUE == .Record {\n\t@(extra_linker_flags=\"/LIMIT_SIZE:\" + (\"stone\" when MAX_VALUE else \"raven\"))\n\tforeign import result {\n\t\t\"windows/item.result\" when MAX_VALUE else \"windows/amount.result\" ,\n\t\t\"data:Result.result\",\n\t\t\"data:Entry.result\",\n\t\t\"data:Config.result\",\n\t\t\"data:Value.result\",\n\t}\n}",
+        "when LIMIT_SIZE == .Entry {\n\t@(extra_linker_flags=\"/MAX_VALUE:\" + (\"field\" when TOTAL_COUNT else \"branch\"))\n\tforeign import entry {\n\t\t\"windows/data.entry\" when TOTAL_COUNT else \"windows/item.entry\" ,\n\t\t\"result:Config.entry\",\n\t\t\"result:Data.entry\",\n\t\t\"result:Thing.entry\",\n\t\t\"result:Note.entry\",\n\t}\n}",
+        "when MAX_VALUE == .Data {\n\t@(extra_linker_flags=\"/TOTAL_COUNT:\" + (\"field\" when ITEM_COUNT else \"field\"))\n\tforeign import score {\n\t\t\"windows/result.score\" when ITEM_COUNT else \"windows/data.score\" ,\n\t\t\"entry:Thing.score\",\n\t\t\"entry:Result.score\",\n\t\t\"entry:Value.score\",\n\t\t\"entry:Item.score\",\n\t}\n}"
+      ]
+    },
+    {
+      "instruction": "Write a foreign block with a calling convention",
+      "targets": [
+        "@(default_calling_convention=\"c\")\nforeign lib {\n\tInitWindow :: proc(width, height: c.int, title: cstring) ---\n}",
+        "@(default_calling_convention=\"c\")\nforeign total {\n\tInitWindow :: proc(result, item: c.int, amount: cstring) ---\n}",
+        "@(default_calling_convention=\"c\")\nforeign amount {\n\tInitWindow :: proc(entry, data: c.int, item: cstring) ---\n}",
+        "@(default_calling_convention=\"c\")\nforeign item {\n\tInitWindow :: proc(score, result: c.int, data: cstring) ---\n}",
+        "@(default_calling_convention=\"c\")\nforeign data {\n\tInitWindow :: proc(size, entry: c.int, result: cstring) ---\n}",
+        "@(default_calling_convention=\"c\")\nforeign result {\n\tInitWindow :: proc(level, score: c.int, entry: cstring) ---\n}",
+        "@(default_calling_convention=\"c\")\nforeign entry {\n\tInitWindow :: proc(value, size: c.int, score: cstring) ---\n}",
+        "@(default_calling_convention=\"c\")\nforeign score {\n\tInitWindow :: proc(count, level: c.int, size: cstring) ---\n}"
+      ]
+    },
+    {
+      "instruction": "Write a build tag excluding platforms",
+      "targets": [
+        "#+build !windows, !linux",
+        "#+build !windows, !data",
+        "#+build !windows, !result",
+        "#+build !windows, !entry",
+        "#+build !windows, !score",
+        "#+build !windows, !size",
+        "#+build !windows, !level",
+        "#+build !windows, !value"
+      ]
+    },
+    {
+      "instruction": "Write a build tag excluding an architecture",
+      "targets": [
+        "#+build !amd64 windows",
+        "#+build !total windows",
+        "#+build !amount windows",
+        "#+build !item windows",
+        "#+build !data windows",
+        "#+build !result windows",
+        "#+build !entry windows",
+        "#+build !score windows"
+      ]
+    }
+  ]
+}

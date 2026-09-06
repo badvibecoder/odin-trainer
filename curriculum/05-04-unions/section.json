@@ -1,0 +1,99 @@
+{
+  "name": "Unions",
+  "group": 5,
+  "groupTitle": "Types",
+  "order": "5.3",
+  "snippets": [
+    {
+      "instruction": "Define a union and assign it an int value",
+      "targets": [
+        "My_Union :: union {\n\tf32,\n\tint,\n\tPerson_Data,\n}\n\nPerson_Data :: struct {\n\thealth: int,\n\tage: int,\n}\n\nval: My_Union = int(12)",
+        "Entry_Kind :: union {\n\tf32,\n\tint,\n\tEntity_Data,\n}\n\nEntity_Data :: struct {\n\tvalue: int,\n\tsize: int,\n}\n\ntotal: Entry_Kind = int(13)",
+        "Data_Type :: union {\n\tf32,\n\tint,\n\tRecord_Type,\n}\n\nRecord_Type :: struct {\n\tcount: int,\n\tlevel: int,\n}\n\namount: Data_Type = int(100)",
+        "Item_Record :: union {\n\tf32,\n\tint,\n\tEntry_Kind,\n}\n\nEntry_Kind :: struct {\n\ttotal: int,\n\tvalue: int,\n}\n\nitem: Item_Record = int(3)",
+        "Item_Kind :: union {\n\tf32,\n\tint,\n\tData_Type,\n}\n\nData_Type :: struct {\n\tamount: int,\n\tcount: int,\n}\n\ndata: Item_Kind = int(9)",
+        "Entity_Data :: union {\n\tf32,\n\tint,\n\tItem_Record,\n}\n\nItem_Record :: struct {\n\titem: int,\n\ttotal: int,\n}\n\nresult: Entity_Data = int(25)",
+        "Record_Type :: union {\n\tf32,\n\tint,\n\tItem_Kind,\n}\n\nItem_Kind :: struct {\n\tdata: int,\n\tamount: int,\n}\n\nentry: Record_Type = int(64)",
+        "Entry_Kind :: union {\n\tf32,\n\tint,\n\tEntity_Data,\n}\n\nEntity_Data :: struct {\n\tresult: int,\n\titem: int,\n}\n\nscore: Entry_Kind = int(512)"
+      ]
+    },
+    {
+      "instruction": "Reassign a union to a struct value",
+      "targets": [
+        "val = Person_Data {\n\thealth = 76,\n\tage = 14,\n}",
+        "total = Entity_Data {\n\tvalue = 4,\n\tsize = 3,\n}",
+        "amount = Record_Type {\n\tcount = 10,\n\tlevel = 9,\n}",
+        "item = Entry_Kind {\n\ttotal = 200,\n\tvalue = 25,\n}",
+        "data = Data_Type {\n\tamount = 128,\n\tcount = 64,\n}",
+        "result = Item_Record {\n\titem = 7,\n\ttotal = 512,\n}",
+        "entry = Item_Kind {\n\tdata = 42,\n\tamount = 2,\n}",
+        "score = Entity_Data {\n\tresult = 13,\n\titem = 4,\n}"
+      ]
+    },
+    {
+      "instruction": "Type-switch over a union value with v in val",
+      "targets": [
+        "switch v in val {\ncase int:\n\ncase f32:\n\ncase Person_Data:\n\tfmt.println(v.age)\n}",
+        "switch size in total {\ncase int:\n\ncase f32:\n\ncase Entity_Data:\n\tfmt.println(size.level)\n}",
+        "switch level in amount {\ncase int:\n\ncase f32:\n\ncase Record_Type:\n\tfmt.println(level.value)\n}",
+        "switch value in item {\ncase int:\n\ncase f32:\n\ncase Entry_Kind:\n\tfmt.println(value.count)\n}",
+        "switch count in data {\ncase int:\n\ncase f32:\n\ncase Data_Type:\n\tfmt.println(count.total)\n}",
+        "switch total in result {\ncase int:\n\ncase f32:\n\ncase Item_Record:\n\tfmt.println(total.amount)\n}",
+        "switch amount in entry {\ncase int:\n\ncase f32:\n\ncase Item_Kind:\n\tfmt.println(amount.item)\n}",
+        "switch item in score {\ncase int:\n\ncase f32:\n\ncase Entity_Data:\n\tfmt.println(item.data)\n}"
+      ]
+    },
+    {
+      "instruction": "Mutate a union value with a &v type-switch",
+      "targets": [
+        "switch &v in val {\ncase int:\n\tv = 7\n\ncase f32:\n\tv = 42\n\ncase Person_Data:\n\tv.age = 7\n}",
+        "switch &size in total {\ncase int:\n\tsize = 7\n\ncase f32:\n\tsize = 10\n\ncase Entity_Data:\n\tsize.level = 7\n}",
+        "switch &level in amount {\ncase int:\n\tlevel = 42\n\ncase f32:\n\tlevel = 200\n\ncase Record_Type:\n\tlevel.value = 42\n}",
+        "switch &value in item {\ncase int:\n\tvalue = 13\n\ncase f32:\n\tvalue = 128\n\ncase Entry_Kind:\n\tvalue.count = 13\n}",
+        "switch &count in data {\ncase int:\n\tcount = 100\n\ncase f32:\n\tcount = 7\n\ncase Data_Type:\n\tcount.total = 100\n}",
+        "switch &total in result {\ncase int:\n\ttotal = 3\n\ncase f32:\n\ttotal = 42\n\ncase Item_Record:\n\ttotal.amount = 3\n}",
+        "switch &amount in entry {\ncase int:\n\tamount = 9\n\ncase f32:\n\tamount = 13\n\ncase Item_Kind:\n\tamount.item = 9\n}",
+        "switch &item in score {\ncase int:\n\titem = 25\n\ncase f32:\n\titem = 100\n\ncase Entity_Data:\n\titem.data = 25\n}"
+      ]
+    },
+    {
+      "instruction": "Assert a union value is an f32 and check it",
+      "targets": [
+        "f32_val, f32_val_ok := val.(f32)\n\nif f32_val_ok {\n}",
+        "item_data, count_total := total.(f32)\n\nif count_total {\n}",
+        "value_list, total_sum := amount.(f32)\n\nif total_sum {\n}",
+        "entry_map, score_list := item.(f32)\n\nif score_list {\n}",
+        "data_store, item_data := data.(f32)\n\nif item_data {\n}",
+        "result_set, value_list := result.(f32)\n\nif value_list {\n}",
+        "count_total, entry_map := entry.(f32)\n\nif entry_map {\n}",
+        "total_sum, data_store := score.(f32)\n\nif data_store {\n}"
+      ]
+    },
+    {
+      "instruction": "Declare a #no_nil union of two structs",
+      "targets": [
+        "Shape :: union #no_nil {\n\tShape_Circle,\n\tShape_Square,\n}",
+        "Value :: union #no_nil {\n\tEntry_Kind,\n\tRecord_Type,\n}",
+        "Note :: union #no_nil {\n\tData_Type,\n\tEntry_Kind,\n}",
+        "Item :: union #no_nil {\n\tItem_Record,\n\tData_Type,\n}",
+        "Entity :: union #no_nil {\n\tItem_Kind,\n\tItem_Record,\n}",
+        "Record :: union #no_nil {\n\tEntity_Data,\n\tItem_Kind,\n}",
+        "Entry :: union #no_nil {\n\tRecord_Type,\n\tEntity_Data,\n}",
+        "Data :: union #no_nil {\n\tEntry_Kind,\n\tRecord_Type,\n}"
+      ]
+    },
+    {
+      "instruction": "Declare a parametric Maybe union and use it",
+      "targets": [
+        "Maybe :: union($T: typeid) {\n\tT,\n}\n\ntime: Maybe(int)",
+        "Result :: union($T: typeid) {\n\tT,\n}\n\ntime: Result(int)",
+        "Config :: union($T: typeid) {\n\tT,\n}\n\ntime: Config(int)",
+        "Thing :: union($T: typeid) {\n\tT,\n}\n\ntime: Thing(int)",
+        "Value :: union($T: typeid) {\n\tT,\n}\n\ntime: Value(int)",
+        "Note :: union($T: typeid) {\n\tT,\n}\n\ntime: Note(int)",
+        "Item :: union($T: typeid) {\n\tT,\n}\n\ntime: Item(int)",
+        "Entity :: union($T: typeid) {\n\tT,\n}\n\ntime: Entity(int)"
+      ]
+    }
+  ]
+}

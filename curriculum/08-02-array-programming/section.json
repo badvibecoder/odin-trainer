@@ -1,0 +1,86 @@
+{
+  "name": "Vectors & array programming",
+  "group": 8,
+  "groupTitle": "Fixed containers",
+  "order": "8.2",
+  "snippets": [
+    {
+      "instruction": "Declare a Vector3 type and use array arithmetic",
+      "targets": [
+        "Vector3 :: [3]f32\n\nposition: Vector3\nvelocity := Vector3 {0, 0, 10}\nposition += velocity\nfmt.println(position)",
+        "Vector3 :: [4]f32\n\nvalue: Vector3\ndata := Vector3 {0, 0, 7}\nvalue += data\nfmt.println(value)",
+        "Vector3 :: [10]f32\n\ncount: Vector3\nresult := Vector3 {0, 0, 42}\ncount += result\nfmt.println(count)",
+        "Vector3 :: [200]f32\n\ntotal: Vector3\nentry := Vector3 {0, 0, 13}\ntotal += entry\nfmt.println(total)",
+        "Vector3 :: [128]f32\n\namount: Vector3\nscore := Vector3 {0, 0, 100}\namount += score\nfmt.println(amount)",
+        "Vector3 :: [7]f32\n\nitem: Vector3\nsize := Vector3 {0, 0, 3}\nitem += size\nfmt.println(item)",
+        "Vector3 :: [42]f32\n\ndata: Vector3\nlevel := Vector3 {0, 0, 9}\ndata += level\nfmt.println(data)",
+        "Vector3 :: [13]f32\n\nresult: Vector3\nvalue := Vector3 {0, 0, 25}\nresult += value\nfmt.println(result)"
+      ]
+    },
+    {
+      "instruction": "Subtract two vectors",
+      "targets": [
+        "position1 := Vector3 {10, 21, 1}\nposition2 := Vector3 {9, 1, 3}\nfrom_1_to_2 := position2 - position1\nfmt.println(from_1_to_2)",
+        "level := Vector3 {7, 3, 1}\nvalue := Vector3 {13, 1, 4}\nitem_data := value - level\nfmt.println(item_data)",
+        "value := Vector3 {42, 9, 1}\ncount := Vector3 {100, 1, 10}\nvalue_list := count - value\nfmt.println(value_list)",
+        "count := Vector3 {13, 25, 1}\ntotal := Vector3 {3, 1, 200}\nentry_map := total - count\nfmt.println(entry_map)",
+        "total := Vector3 {100, 64, 1}\namount := Vector3 {9, 1, 128}\ndata_store := amount - total\nfmt.println(data_store)",
+        "amount := Vector3 {3, 512, 1}\nitem := Vector3 {25, 1, 7}\nresult_set := item - amount\nfmt.println(result_set)",
+        "item := Vector3 {9, 2, 1}\ndata := Vector3 {64, 1, 42}\ncount_total := data - item\nfmt.println(count_total)",
+        "data := Vector3 {25, 4, 1}\nresult := Vector3 {512, 1, 13}\ntotal_sum := result - data\nfmt.println(total_sum)"
+      ]
+    },
+    {
+      "instruction": "Scale a vector component-wise with a swizzle-multiply",
+      "targets": [
+        "xz_vector := Vector3 {10, 0, -2}\nz_scaled_up := xz_vector * {1, 1, 10}\nfmt.println(z_scaled_up)",
+        "value_list := Vector3 {7, 0, -2}\nresult_set := value_list * {1, 1, 7}\nfmt.println(result_set)",
+        "entry_map := Vector3 {42, 0, -2}\ncount_total := entry_map * {1, 1, 42}\nfmt.println(count_total)",
+        "data_store := Vector3 {13, 0, -2}\ntotal_sum := data_store * {1, 1, 13}\nfmt.println(total_sum)",
+        "result_set := Vector3 {100, 0, -2}\nscore_list := result_set * {1, 1, 100}\nfmt.println(score_list)",
+        "count_total := Vector3 {3, 0, -2}\nitem_data := count_total * {1, 1, 3}\nfmt.println(item_data)",
+        "total_sum := Vector3 {9, 0, -2}\nvalue_list := total_sum * {1, 1, 9}\nfmt.println(value_list)",
+        "score_list := Vector3 {25, 0, -2}\nentry_map := score_list * {1, 1, 25}\nfmt.println(entry_map)"
+      ]
+    },
+    {
+      "instruction": "Swizzle a vector with .zx",
+      "targets": [
+        "zx_pos := position.zx",
+        "total_sum := value.zx",
+        "score_list := count.zx",
+        "item_data := total.zx",
+        "value_list := amount.zx",
+        "entry_map := item.zx",
+        "data_store := data.zx",
+        "result_set := result.zx"
+      ]
+    },
+    {
+      "instruction": "Write a procedure taking a [2]f32 position",
+      "targets": [
+        "draw_image :: proc(image: Image, position: [2]f32) {\n\tfmt.println(position)\n}",
+        "value_list :: proc(amount: Image, value: [2]f32) {\n\tfmt.println(value)\n}",
+        "entry_map :: proc(item: Image, count: [2]f32) {\n\tfmt.println(count)\n}",
+        "data_store :: proc(data: Image, total: [2]f32) {\n\tfmt.println(total)\n}",
+        "result_set :: proc(result: Image, amount: [2]f32) {\n\tfmt.println(amount)\n}",
+        "count_total :: proc(entry: Image, item: [2]f32) {\n\tfmt.println(item)\n}",
+        "total_sum :: proc(score: Image, data: [2]f32) {\n\tfmt.println(data)\n}",
+        "score_list :: proc(size: Image, result: [2]f32) {\n\tfmt.println(result)\n}"
+      ]
+    },
+    {
+      "instruction": "Pass an array literal to a procedure",
+      "targets": [
+        "draw_image(my_image, {100, 200})",
+        "value_list(entry_map, {3, 128})",
+        "entry_map(data_store, {9, 7})",
+        "data_store(result_set, {25, 42})",
+        "result_set(count_total, {64, 13})",
+        "count_total(total_sum, {512, 100})",
+        "total_sum(score_list, {2, 3})",
+        "score_list(item_data, {4, 9})"
+      ]
+    }
+  ]
+}

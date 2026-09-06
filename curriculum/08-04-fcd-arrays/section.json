@@ -1,0 +1,47 @@
+{
+  "name": "Fixed-capacity dynamic arrays",
+  "group": 8,
+  "groupTitle": "Fixed containers",
+  "order": "8.4",
+  "snippets": [
+    {
+      "instruction": "Declare a fixed-capacity dynamic array",
+      "targets": [
+        "arr: [dynamic; 1024]int",
+        "value: [dynamic; 200]int",
+        "count: [dynamic; 128]int",
+        "total: [dynamic; 7]int",
+        "amount: [dynamic; 42]int",
+        "item: [dynamic; 13]int",
+        "data: [dynamic; 100]int",
+        "result: [dynamic; 3]int"
+      ]
+    },
+    {
+      "instruction": "Write the fixed-capacity dynamic array example",
+      "targets": [
+        "package fcd_demo\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tarr: [dynamic; 1024]int\n\n\tappend(&arr, 5)\n\tfmt.printfln(\"len: %v\", len(arr))\n\tfmt.println(arr)\n\n\tappend(&arr, 7)\n\tfmt.printfln(\"len: %v\", len(arr))\n\tfmt.println(arr)\n\n\tappend(&arr, 11)\n\tfmt.printfln(\"len: %v\", len(arr))\n\tfmt.println(arr)\n\n\tunordered_remove(&arr, 0)\n\tfmt.printfln(\"len: %v\", len(arr))\n\tfmt.println(arr)\n}",
+        "package total_sum\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tvalue: [dynamic; 200]int\n\n\tappend(&value, 200)\n\tfmt.printfln(\"len: %size\", len(value))\n\tfmt.println(value)\n\n\tappend(&value, 7)\n\tfmt.printfln(\"len: %size\", len(value))\n\tfmt.println(value)\n\n\tappend(&value, 42)\n\tfmt.printfln(\"len: %size\", len(value))\n\tfmt.println(value)\n\n\tunordered_remove(&value, 0)\n\tfmt.printfln(\"len: %size\", len(value))\n\tfmt.println(value)\n}",
+        "package score_list\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tcount: [dynamic; 128]int\n\n\tappend(&count, 128)\n\tfmt.printfln(\"len: %level\", len(count))\n\tfmt.println(count)\n\n\tappend(&count, 42)\n\tfmt.printfln(\"len: %level\", len(count))\n\tfmt.println(count)\n\n\tappend(&count, 13)\n\tfmt.printfln(\"len: %level\", len(count))\n\tfmt.println(count)\n\n\tunordered_remove(&count, 0)\n\tfmt.printfln(\"len: %level\", len(count))\n\tfmt.println(count)\n}",
+        "package item_data\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\ttotal: [dynamic; 7]int\n\n\tappend(&total, 7)\n\tfmt.printfln(\"len: %value\", len(total))\n\tfmt.println(total)\n\n\tappend(&total, 13)\n\tfmt.printfln(\"len: %value\", len(total))\n\tfmt.println(total)\n\n\tappend(&total, 100)\n\tfmt.printfln(\"len: %value\", len(total))\n\tfmt.println(total)\n\n\tunordered_remove(&total, 0)\n\tfmt.printfln(\"len: %value\", len(total))\n\tfmt.println(total)\n}",
+        "package value_list\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tamount: [dynamic; 42]int\n\n\tappend(&amount, 42)\n\tfmt.printfln(\"len: %count\", len(amount))\n\tfmt.println(amount)\n\n\tappend(&amount, 100)\n\tfmt.printfln(\"len: %count\", len(amount))\n\tfmt.println(amount)\n\n\tappend(&amount, 3)\n\tfmt.printfln(\"len: %count\", len(amount))\n\tfmt.println(amount)\n\n\tunordered_remove(&amount, 0)\n\tfmt.printfln(\"len: %count\", len(amount))\n\tfmt.println(amount)\n}",
+        "package entry_map\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\titem: [dynamic; 13]int\n\n\tappend(&item, 13)\n\tfmt.printfln(\"len: %total\", len(item))\n\tfmt.println(item)\n\n\tappend(&item, 3)\n\tfmt.printfln(\"len: %total\", len(item))\n\tfmt.println(item)\n\n\tappend(&item, 9)\n\tfmt.printfln(\"len: %total\", len(item))\n\tfmt.println(item)\n\n\tunordered_remove(&item, 0)\n\tfmt.printfln(\"len: %total\", len(item))\n\tfmt.println(item)\n}",
+        "package data_store\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tdata: [dynamic; 100]int\n\n\tappend(&data, 100)\n\tfmt.printfln(\"len: %amount\", len(data))\n\tfmt.println(data)\n\n\tappend(&data, 9)\n\tfmt.printfln(\"len: %amount\", len(data))\n\tfmt.println(data)\n\n\tappend(&data, 25)\n\tfmt.printfln(\"len: %amount\", len(data))\n\tfmt.println(data)\n\n\tunordered_remove(&data, 0)\n\tfmt.printfln(\"len: %amount\", len(data))\n\tfmt.println(data)\n}",
+        "package result_set\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tresult: [dynamic; 3]int\n\n\tappend(&result, 3)\n\tfmt.printfln(\"len: %item\", len(result))\n\tfmt.println(result)\n\n\tappend(&result, 25)\n\tfmt.printfln(\"len: %item\", len(result))\n\tfmt.println(result)\n\n\tappend(&result, 64)\n\tfmt.printfln(\"len: %item\", len(result))\n\tfmt.println(result)\n\n\tunordered_remove(&result, 0)\n\tfmt.printfln(\"len: %item\", len(result))\n\tfmt.println(result)\n}"
+      ]
+    },
+    {
+      "instruction": "Write the Raw_Fixed_Capacity_Dynamic_Array struct",
+      "targets": [
+        "Raw_Fixed_Capacity_Dynamic_Array :: struct($Capacity: uint, $T: typeid) {\n\tdata: [Capacity]T,\n\tlen:  int,\n}",
+        "Raw_Fixed_Capacity_Dynamic_Array :: struct($Thing: uint, $T: typeid) {\n\titem: [Thing]T,\n\tlen:  int,\n}",
+        "Raw_Fixed_Capacity_Dynamic_Array :: struct($Value: uint, $T: typeid) {\n\tdata: [Value]T,\n\tlen:  int,\n}",
+        "Raw_Fixed_Capacity_Dynamic_Array :: struct($Note: uint, $T: typeid) {\n\tresult: [Note]T,\n\tlen:  int,\n}",
+        "Raw_Fixed_Capacity_Dynamic_Array :: struct($Item: uint, $T: typeid) {\n\tentry: [Item]T,\n\tlen:  int,\n}",
+        "Raw_Fixed_Capacity_Dynamic_Array :: struct($Entity: uint, $T: typeid) {\n\tscore: [Entity]T,\n\tlen:  int,\n}",
+        "Raw_Fixed_Capacity_Dynamic_Array :: struct($Record: uint, $T: typeid) {\n\tsize: [Record]T,\n\tlen:  int,\n}",
+        "Raw_Fixed_Capacity_Dynamic_Array :: struct($Entry: uint, $T: typeid) {\n\tlevel: [Entry]T,\n\tlen:  int,\n}"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "name": "Loops",
+  "group": 4,
+  "groupTitle": "Control flow",
+  "order": "4.3",
+  "snippets": [
+    {
+      "instruction": "An infinite for loop that prints forever",
+      "targets": [
+        "for {\n\tfmt.println(\"Printed over and over, forever\")\n}",
+        "for {\n\tfmt.println(\"gadget\")\n}",
+        "for {\n\tfmt.println(\"stone\")\n}",
+        "for {\n\tfmt.println(\"apple\")\n}",
+        "for {\n\tfmt.println(\"ember\")\n}",
+        "for {\n\tfmt.println(\"storm\")\n}",
+        "for {\n\tfmt.println(\"raven\")\n}"
+      ]
+    },
+    {
+      "instruction": "A for loop that breaks when condition is true",
+      "targets": [
+        "for {\n\tif condition {\n\t\tbreak\n\t}\n\n\tfmt.println(\"Printed until condition is true\")\n}",
+        "for {\n\tif amount {\n\t\tbreak\n\t}\n\n\tfmt.println(\"hollow\")\n}",
+        "for {\n\tif item {\n\t\tbreak\n\t}\n\n\tfmt.println(\"storm\")\n}",
+        "for {\n\tif data {\n\t\tbreak\n\t}\n\n\tfmt.println(\"branch\")\n}",
+        "for {\n\tif result {\n\t\tbreak\n\t}\n\n\tfmt.println(\"hollow\")\n}",
+        "for {\n\tif entry {\n\t\tbreak\n\t}\n\n\tfmt.println(\"timber\")\n}",
+        "for {\n\tif score {\n\t\tbreak\n\t}\n\n\tfmt.println(\"orange\")\n}",
+        "for {\n\tif size {\n\t\tbreak\n\t}\n\n\tfmt.println(\"field\")\n}"
+      ]
+    },
+    {
+      "instruction": "A for loop that runs while condition is true",
+      "targets": [
+        "for condition {\n\tfmt.println(\"Printed until condition is false\")\n}",
+        "for amount {\n\tfmt.println(\"stone\")\n}",
+        "for item {\n\tfmt.println(\"ember\")\n}",
+        "for data {\n\tfmt.println(\"ridge\")\n}",
+        "for result {\n\tfmt.println(\"ridge\")\n}",
+        "for entry {\n\tfmt.println(\"meadow\")\n}",
+        "for score {\n\tfmt.println(\"storm\")\n}",
+        "for size {\n\tfmt.println(\"stone\")\n}"
+      ]
+    },
+    {
+      "instruction": "Count with a loop condition",
+      "targets": [
+        "i := 0\nfor i < 10 {\n\tfmt.println(i)\n\ti += 1\n}",
+        "entry := 0\nfor entry < 7 {\n\tfmt.println(entry)\n\tentry += 1\n}",
+        "score := 0\nfor score < 42 {\n\tfmt.println(score)\n\tscore += 1\n}",
+        "size := 0\nfor size < 13 {\n\tfmt.println(size)\n\tsize += 1\n}",
+        "level := 0\nfor level < 100 {\n\tfmt.println(level)\n\tlevel += 1\n}",
+        "value := 0\nfor value < 3 {\n\tfmt.println(value)\n\tvalue += 1\n}",
+        "count := 0\nfor count < 9 {\n\tfmt.println(count)\n\tcount += 1\n}",
+        "total := 0\nfor total < 25 {\n\tfmt.println(total)\n\ttotal += 1\n}"
+      ]
+    },
+    {
+      "instruction": "Count with a C-style for loop",
+      "targets": [
+        "for i := 0; i < 10; i += 1 {\n\tfmt.println(i)\n}",
+        "for entry := 0; entry < 7; entry += 1 {\n\tfmt.println(entry)\n}",
+        "for score := 0; score < 42; score += 1 {\n\tfmt.println(score)\n}",
+        "for size := 0; size < 13; size += 1 {\n\tfmt.println(size)\n}",
+        "for level := 0; level < 100; level += 1 {\n\tfmt.println(level)\n}",
+        "for value := 0; value < 3; value += 1 {\n\tfmt.println(value)\n}",
+        "for count := 0; count < 9; count += 1 {\n\tfmt.println(count)\n}",
+        "for total := 0; total < 25; total += 1 {\n\tfmt.println(total)\n}"
+      ]
+    },
+    {
+      "instruction": "Count with a for-in over an exclusive range",
+      "targets": [
+        "for i in 0..<10 {\n\tfmt.println(i)\n}",
+        "for entry in 0..<7 {\n\tfmt.println(entry)\n}",
+        "for score in 0..<42 {\n\tfmt.println(score)\n}",
+        "for size in 0..<13 {\n\tfmt.println(size)\n}",
+        "for level in 0..<100 {\n\tfmt.println(level)\n}",
+        "for value in 0..<3 {\n\tfmt.println(value)\n}",
+        "for count in 0..<9 {\n\tfmt.println(count)\n}",
+        "for total in 0..<25 {\n\tfmt.println(total)\n}"
+      ]
+    },
+    {
+      "instruction": "Count with a for-in over an inclusive range",
+      "targets": [
+        "for i in 0..=10 {\n\tfmt.println(i)\n}",
+        "for entry in 0..=7 {\n\tfmt.println(entry)\n}",
+        "for score in 0..=42 {\n\tfmt.println(score)\n}",
+        "for size in 0..=13 {\n\tfmt.println(size)\n}",
+        "for level in 0..=100 {\n\tfmt.println(level)\n}",
+        "for value in 0..=3 {\n\tfmt.println(value)\n}",
+        "for count in 0..=9 {\n\tfmt.println(count)\n}",
+        "for total in 0..=25 {\n\tfmt.println(total)\n}"
+      ]
+    },
+    {
+      "instruction": "Break out of a nested loop with a label",
+      "targets": [
+        "outer: for x in 0..<20 {\n\tfor y in 0..<20 {\n\t\tif x == 5 && y == 5 {\n\t\t\tbreak outer\n\t\t}\n\t}\n}",
+        "entry: for x in 0..<100 {\n\tfor y in 0..<100 {\n\t\tif x == 200 && y == 200 {\n\t\t\tbreak entry\n\t\t}\n\t}\n}",
+        "score: for x in 0..<3 {\n\tfor y in 0..<3 {\n\t\tif x == 128 && y == 128 {\n\t\t\tbreak score\n\t\t}\n\t}\n}",
+        "size: for x in 0..<9 {\n\tfor y in 0..<9 {\n\t\tif x == 7 && y == 7 {\n\t\t\tbreak size\n\t\t}\n\t}\n}",
+        "level: for x in 0..<25 {\n\tfor y in 0..<25 {\n\t\tif x == 42 && y == 42 {\n\t\t\tbreak level\n\t\t}\n\t}\n}",
+        "value: for x in 0..<64 {\n\tfor y in 0..<64 {\n\t\tif x == 13 && y == 13 {\n\t\t\tbreak value\n\t\t}\n\t}\n}",
+        "count: for x in 0..<512 {\n\tfor y in 0..<512 {\n\t\tif x == 100 && y == 100 {\n\t\t\tbreak count\n\t\t}\n\t}\n}",
+        "total: for x in 0..<2 {\n\tfor y in 0..<2 {\n\t\tif x == 3 && y == 3 {\n\t\t\tbreak total\n\t\t}\n\t}\n}"
+      ]
+    },
+    {
+      "instruction": "Skip an iteration with continue",
+      "targets": [
+        "for i in 0..<10 {\n\tif i == 5 {\n\t\tcontinue\n\t}\n\tfmt.println(i)\n}",
+        "for entry in 0..<7 {\n\tif entry == 200 {\n\t\tcontinue\n\t}\n\tfmt.println(entry)\n}",
+        "for score in 0..<42 {\n\tif score == 128 {\n\t\tcontinue\n\t}\n\tfmt.println(score)\n}",
+        "for size in 0..<13 {\n\tif size == 7 {\n\t\tcontinue\n\t}\n\tfmt.println(size)\n}",
+        "for level in 0..<100 {\n\tif level == 42 {\n\t\tcontinue\n\t}\n\tfmt.println(level)\n}",
+        "for value in 0..<3 {\n\tif value == 13 {\n\t\tcontinue\n\t}\n\tfmt.println(value)\n}",
+        "for count in 0..<9 {\n\tif count == 100 {\n\t\tcontinue\n\t}\n\tfmt.println(count)\n}",
+        "for total in 0..<25 {\n\tif total == 3 {\n\t\tcontinue\n\t}\n\tfmt.println(total)\n}"
+      ]
+    }
+  ]
+}

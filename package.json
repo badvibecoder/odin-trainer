@@ -1,0 +1,19 @@
+{
+  "name": "odin-trainer",
+  "version": "0.1.0",
+  "description": "Dark-wave muscle-memory trainer for the Odin programming language — drill book-aligned code snippets, track reps per section until trained.",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "curriculum": "node scripts/build-curriculum.mjs",
+    "extract": "node scripts/extract-book.mjs",
+    "build:embedded": "node scripts/build-embedded.mjs",
+    "build:linux": "node scripts/build-embedded.mjs && mkdir -p bin/linux-x64 && bun build --compile server/index.js --target=bun-linux-x64 --outfile bin/linux-x64/odin-trainer",
+    "build": "npm run curriculum && npm run build:linux"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

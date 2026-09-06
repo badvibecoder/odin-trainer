@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en" data-theme="abyss">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>odin trainer — muscle memory for the Odin language</title>
+  <meta name="description" content="A dark-wave trainer that drills real Odin code until it lives in your fingers." />
+  <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
+  <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('odin.theme') || 'abyss'); } catch (e) {}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <!-- gothic backdrop -->
+  <div class="backdrop" aria-hidden="true">
+    <div class="backdrop__moon"></div>
+    <div class="backdrop__fog"></div>
+    <div class="backdrop__arch"></div>
+    <div class="backdrop__vignette"></div>
+  </div>
+
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="odin trainer home">
+        <img class="brand__mark" src="/assets/logo.svg" alt="" width="44" height="44" />
+        <span class="brand__word">odin trainer</span>
+      </a>
+
+      <nav class="nav" aria-label="views">
+        <button class="nav__btn is-active" data-view="drill">drill</button>
+        <button class="nav__btn" data-view="scorecard">scorecard</button>
+      </nav>
+
+      <select id="theme-select" class="select select--theme" aria-label="color theme">
+        <option value="abyss">Abyss</option>
+        <option value="bloodmoon">Bloodmoon</option>
+        <option value="emerald">Emerald Crypt</option>
+        <option value="graveblue">Grave Blue</option>
+        <option value="ashen">Ashen</option>
+        <option value="candlelight">Candlelight</option>
+        <option value="darkrose">Dark Rose</option>
+        <option value="plague">Plague</option>
+      </select>
+
+      <div class="controls">
+        <label class="field">
+          <span class="field__label">section</span>
+          <select id="section-select" class="select" aria-label="drill section"></select>
+        </label>
+
+        <div class="field">
+          <span class="field__label">mode</span>
+          <button class="mode-btn" id="mode-toggle" title="Recall: type from memory · Train: see the code" aria-label="Toggle recall or train mode">recall</button>
+        </div>
+
+        <div class="field">
+          <span class="field__label">text</span>
+          <button class="font-size-btn" id="font-size-btn" title="Typing text size" aria-label="Change typing text size">A 20.5</button>
+        </div>
+
+        <div class="field">
+          <span class="field__label">thock</span>
+          <button class="sound-toggle" id="sound-toggle" title="Keyboard sound on" aria-label="Toggle keyboard sound">
+            <span id="sound-icon">🔊</span>
+          </button>
+        </div>
+
+        <div class="field music-field is-hidden" id="music-field">
+          <span class="field__label">vibe</span>
+          <div class="music-player" id="music-player">
+            <div class="music-player__eq" id="music-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <span class="music-player__title" id="music-title">—</span>
+            <div class="music-player__controls">
+              <button class="music-btn" id="music-prev" title="Previous track" aria-label="Previous track">⏮</button>
+              <button class="music-btn music-btn--play" id="music-toggle" title="Play / pause" aria-label="Play or pause">▶</button>
+              <button class="music-btn" id="music-next" title="Next track" aria-label="Next track">⏭</button>
+              <input class="music-volume" id="music-volume" type="range" min="0" max="1" step="0.01" value="0.75" title="Volume" aria-label="Volume" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- drill view -->
+      <section class="view is-active" id="view-drill">
+        <div class="drill-head">
+          <div class="drill-head__ctx">
+            <span class="section-tag" id="section-tag">Section</span>
+            <h1 class="drill-title" id="drill-title">Declaring variables</h1>
+          </div>
+          <div class="drill-head__meter">
+            <span class="meter-label">reps</span>
+            <span class="meter-value" id="rep-count">0 / 100</span>
+            <span class="trained-badge is-hidden" id="trained-badge">✦ trained</span>
+          </div>
+          <div class="snippet-status" id="snippet-status">snippet 1 / 7</div>
+        </div>
+
+        <div class="code-frame">
+          <div class="code-frame__bar">
+            <span class="dot dot--blood"></span>
+            <span class="dot dot--violet"></span>
+            <span class="dot dot--ice"></span>
+            <span class="code-frame__title" id="code-title">section</span>
+          </div>
+          <div class="prompt-bar" id="prompt-bar">
+            <span class="prompt-bar__instruction" id="prompt-instruction"></span>
+            <code class="prompt-bar__descriptor is-hidden" id="prompt-descriptor"></code>
+          </div>
+          <div class="code-area" id="code-area" tabindex="0" aria-label="typing area"></div>
+        </div>
+
+        <div class="hint" id="hint">
+          start typing — <kbd>Tab</kbd> indents · <kbd>Backspace</kbd> fixes · <kbd>Esc</kbd> skip · <kbd>Ctrl</kbd>+<kbd>R</kbd> restart
+        </div>
+
+        <div class="drill-actions">
+          <button class="btn" id="prev-btn">← previous</button>
+          <button class="btn btn--ghost" id="peek-btn">👁 peek</button>
+          <button class="btn" id="restart-btn">↻ restart snippet</button>
+          <button class="btn" id="skip-btn">skip →</button>
+        </div>
+      </section>
+
+      <!-- scorecard view -->
+      <section class="view" id="view-scorecard">
+        <div class="panel">
+          <div class="panel__head">
+            <h2 class="panel__title">scorecard</h2>
+            <div class="profile-row">
+              <label class="profile-label" for="profile-input">acolyte</label>
+              <input class="input" id="profile-input" maxlength="24" placeholder="your name" autocomplete="off" />
+              <span class="panel__meta" id="sc-summary"></span>
+            </div>
+            <button class="btn btn--ghost" id="reset-btn" title="Delete all progress and start over">reset progress</button>
+          </div>
+          <div class="sc-body" id="sc-body"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>odin trainer · internalize the language, free your mind</span>
+      <span class="footer__keys"><kbd>Ctrl</kbd>+<kbd>R</kbd> restart · <kbd>Esc</kbd> skip</span>
+    </footer>
+  </div>
+
+  <!-- transient rep toast -->
+  <div class="toast is-hidden" id="toast" aria-live="polite">
+    <span class="toast__glyph" id="toast-glyph">✓</span>
+    <span class="toast__text" id="toast-text">+1 rep</span>
+  </div>
+
+  <!-- first-run username prompt -->
+  <div class="modal is-hidden" id="profile-modal" role="dialog" aria-modal="true">
+    <div class="modal__backdrop"></div>
+    <div class="modal__card">
+      <h2 class="modal__title">welcome, acolyte</h2>
+      <p class="modal__sub">enter a name to begin tracking your progress</p>
+      <div class="save-row">
+        <input class="input" id="profile-name-input" maxlength="24" placeholder="your name" autocomplete="off" />
+        <button class="btn btn--primary" id="profile-save-btn">begin</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

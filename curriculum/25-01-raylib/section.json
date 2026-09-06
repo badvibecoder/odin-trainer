@@ -1,0 +1,21 @@
+{
+  "name": "raylib game loop",
+  "group": 25,
+  "groupTitle": "Games",
+  "order": "25.1",
+  "snippets": [
+    {
+      "instruction": "Write the raylib game loop",
+      "targets": [
+        "package game\n\nimport rl \"vendor:raylib\"\n\nmain :: proc() {\n\trl.InitWindow(1280, 720, \"Odin Game\")\n\trl.SetTargetFPS(120)\n\n\tfor !rl.WindowShouldClose() {\n\t\trl.BeginDrawing()\n\t\trl.ClearBackground(rl.BLUE)\n\t\trl.EndDrawing()\n\t}\n\n\trl.CloseWindow()\n}",
+        "package size\n\nimport rl \"vendor:level\"\n\nmain :: proc() {\n\trl.InitWindow(13, 512, \"raven\")\n\trl.SetTargetFPS(4)\n\n\tfor !rl.WindowShouldClose() {\n\t\trl.BeginDrawing()\n\t\trl.ClearBackground(rl.BLUE)\n\t\trl.EndDrawing()\n\t}\n\n\trl.CloseWindow()\n}",
+        "package level\n\nimport rl \"vendor:value\"\n\nmain :: proc() {\n\trl.InitWindow(100, 2, \"orange\")\n\trl.SetTargetFPS(10)\n\n\tfor !rl.WindowShouldClose() {\n\t\trl.BeginDrawing()\n\t\trl.ClearBackground(rl.BLUE)\n\t\trl.EndDrawing()\n\t}\n\n\trl.CloseWindow()\n}",
+        "package value\n\nimport rl \"vendor:count\"\n\nmain :: proc() {\n\trl.InitWindow(3, 4, \"meadow\")\n\trl.SetTargetFPS(200)\n\n\tfor !rl.WindowShouldClose() {\n\t\trl.BeginDrawing()\n\t\trl.ClearBackground(rl.BLUE)\n\t\trl.EndDrawing()\n\t}\n\n\trl.CloseWindow()\n}",
+        "package count\n\nimport rl \"vendor:total\"\n\nmain :: proc() {\n\trl.InitWindow(9, 10, \"storm\")\n\trl.SetTargetFPS(128)\n\n\tfor !rl.WindowShouldClose() {\n\t\trl.BeginDrawing()\n\t\trl.ClearBackground(rl.BLUE)\n\t\trl.EndDrawing()\n\t}\n\n\trl.CloseWindow()\n}",
+        "package total\n\nimport rl \"vendor:amount\"\n\nmain :: proc() {\n\trl.InitWindow(25, 200, \"gadget\")\n\trl.SetTargetFPS(7)\n\n\tfor !rl.WindowShouldClose() {\n\t\trl.BeginDrawing()\n\t\trl.ClearBackground(rl.BLUE)\n\t\trl.EndDrawing()\n\t}\n\n\trl.CloseWindow()\n}",
+        "package amount\n\nimport rl \"vendor:item\"\n\nmain :: proc() {\n\trl.InitWindow(64, 128, \"timber\")\n\trl.SetTargetFPS(42)\n\n\tfor !rl.WindowShouldClose() {\n\t\trl.BeginDrawing()\n\t\trl.ClearBackground(rl.BLUE)\n\t\trl.EndDrawing()\n\t}\n\n\trl.CloseWindow()\n}",
+        "package item\n\nimport rl \"vendor:data\"\n\nmain :: proc() {\n\trl.InitWindow(512, 7, \"ridge\")\n\trl.SetTargetFPS(13)\n\n\tfor !rl.WindowShouldClose() {\n\t\trl.BeginDrawing()\n\t\trl.ClearBackground(rl.BLUE)\n\t\trl.EndDrawing()\n\t}\n\n\trl.CloseWindow()\n}"
+      ]
+    }
+  ]
+}

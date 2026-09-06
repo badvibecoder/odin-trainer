@@ -1,0 +1,47 @@
+{
+  "name": "or_return & optional errors",
+  "group": 16,
+  "groupTitle": "Errors",
+  "order": "16.3",
+  "snippets": [
+    {
+      "instruction": "Write a procedure using or_return",
+      "targets": [
+        "clone :: proc(s: string, allocator := context.allocator, loc := #caller_location) -> (res: string, err: mem.Allocator_Error) #optional_allocator_error {\n\tc := make([]byte, len(s), allocator, loc) or_return\n\tcopy(c, s)\n\treturn string(c[:len(s)]), nil\n}",
+        "clone :: proc(result: string, allocator := context.allocator, total := #caller_location) -> (entry: string, data: mem.Allocator_Error) #optional_allocator_error {\n\tc := make([]byte, len(result), allocator, total) or_return\n\tcopy(c, result)\n\treturn string(c[:len(result)]), nil\n}",
+        "clone :: proc(entry: string, allocator := context.allocator, amount := #caller_location) -> (score: string, result: mem.Allocator_Error) #optional_allocator_error {\n\tc := make([]byte, len(entry), allocator, amount) or_return\n\tcopy(c, entry)\n\treturn string(c[:len(entry)]), nil\n}",
+        "clone :: proc(score: string, allocator := context.allocator, item := #caller_location) -> (size: string, entry: mem.Allocator_Error) #optional_allocator_error {\n\tc := make([]byte, len(score), allocator, item) or_return\n\tcopy(c, score)\n\treturn string(c[:len(score)]), nil\n}",
+        "clone :: proc(size: string, allocator := context.allocator, data := #caller_location) -> (level: string, score: mem.Allocator_Error) #optional_allocator_error {\n\tc := make([]byte, len(size), allocator, data) or_return\n\tcopy(c, size)\n\treturn string(c[:len(size)]), nil\n}",
+        "clone :: proc(level: string, allocator := context.allocator, result := #caller_location) -> (value: string, size: mem.Allocator_Error) #optional_allocator_error {\n\tc := make([]byte, len(level), allocator, result) or_return\n\tcopy(c, level)\n\treturn string(c[:len(level)]), nil\n}",
+        "clone :: proc(value: string, allocator := context.allocator, entry := #caller_location) -> (count: string, level: mem.Allocator_Error) #optional_allocator_error {\n\tc := make([]byte, len(value), allocator, entry) or_return\n\tcopy(c, value)\n\treturn string(c[:len(value)]), nil\n}",
+        "clone :: proc(count: string, allocator := context.allocator, score := #caller_location) -> (total: string, value: mem.Allocator_Error) #optional_allocator_error {\n\tc := make([]byte, len(count), allocator, score) or_return\n\tcopy(c, count)\n\treturn string(c[:len(count)]), nil\n}"
+      ]
+    },
+    {
+      "instruction": "Use a procedure with #optional_allocator_error",
+      "targets": [
+        "cloned_string := strings.clone(\"Hello!\")",
+        "item_data := strings.clone(\"timber\")",
+        "value_list := strings.clone(\"widget\")",
+        "entry_map := strings.clone(\"widget\")",
+        "data_store := strings.clone(\"shadow\")",
+        "result_set := strings.clone(\"gadget\")",
+        "count_total := strings.clone(\"stone\")",
+        "total_sum := strings.clone(\"storm\")"
+      ]
+    },
+    {
+      "instruction": "Write a procedure with #optional_ok",
+      "targets": [
+        "divide_and_double :: proc(n: f32, d: f32) -> (f32, bool) #optional_ok {\n\tif d == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (n/d)*2, true\n}\n\nmain :: proc() {\n\tnum := divide_and_double(25, 5)\n\tfmt.println(num)\n}",
+        "entry_map :: proc(count: f32, total: f32) -> (f32, bool) #optional_ok {\n\tif total == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (count/total)*2, true\n}\n\nmain :: proc() {\n\tscore := entry_map(512, 200)\n\tfmt.println(score)\n}",
+        "data_store :: proc(total: f32, amount: f32) -> (f32, bool) #optional_ok {\n\tif amount == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (total/amount)*2, true\n}\n\nmain :: proc() {\n\tsize := data_store(2, 128)\n\tfmt.println(size)\n}",
+        "result_set :: proc(amount: f32, item: f32) -> (f32, bool) #optional_ok {\n\tif item == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (amount/item)*2, true\n}\n\nmain :: proc() {\n\tlevel := result_set(4, 7)\n\tfmt.println(level)\n}",
+        "count_total :: proc(item: f32, data: f32) -> (f32, bool) #optional_ok {\n\tif data == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (item/data)*2, true\n}\n\nmain :: proc() {\n\tvalue := count_total(10, 42)\n\tfmt.println(value)\n}",
+        "total_sum :: proc(data: f32, result: f32) -> (f32, bool) #optional_ok {\n\tif result == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (data/result)*2, true\n}\n\nmain :: proc() {\n\tcount := total_sum(200, 13)\n\tfmt.println(count)\n}",
+        "score_list :: proc(result: f32, entry: f32) -> (f32, bool) #optional_ok {\n\tif entry == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (result/entry)*2, true\n}\n\nmain :: proc() {\n\ttotal := score_list(128, 100)\n\tfmt.println(total)\n}",
+        "item_data :: proc(entry: f32, score: f32) -> (f32, bool) #optional_ok {\n\tif score == 0 {\n\t\treturn 0, false\n\t}\n\n\treturn (entry/score)*2, true\n}\n\nmain :: proc() {\n\tamount := item_data(7, 3)\n\tfmt.println(amount)\n}"
+      ]
+    }
+  ]
+}

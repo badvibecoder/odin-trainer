@@ -1,0 +1,47 @@
+{
+  "name": "Errors with bool",
+  "group": 16,
+  "groupTitle": "Errors",
+  "order": "16.1",
+  "snippets": [
+    {
+      "instruction": "Write a procedure returning a value and a bool",
+      "targets": [
+        "Cat :: struct {\n\tname: string,\n\tage: int,\n}\n\nfind_cat_with_name :: proc(cats: []Cat, name: string) -> (Cat, bool) {\n\tfor c in cats {\n\t\tif c.name == name {\n\t\t\treturn c, true\n\t\t}\n\t}\n\n\treturn {}, false\n}",
+        "Entity :: struct {\n\tscore: string,\n\tsize: int,\n}\n\nresult_set :: proc(level: []Entity, score: string) -> (Entity, bool) {\n\tfor c in level {\n\t\tif c.score == score {\n\t\t\treturn c, true\n\t\t}\n\t}\n\n\treturn {}, false\n}",
+        "Record :: struct {\n\tsize: string,\n\tlevel: int,\n}\n\ncount_total :: proc(value: []Record, size: string) -> (Record, bool) {\n\tfor c in value {\n\t\tif c.size == size {\n\t\t\treturn c, true\n\t\t}\n\t}\n\n\treturn {}, false\n}",
+        "Entry :: struct {\n\tlevel: string,\n\tvalue: int,\n}\n\ntotal_sum :: proc(count: []Entry, level: string) -> (Entry, bool) {\n\tfor c in count {\n\t\tif c.level == level {\n\t\t\treturn c, true\n\t\t}\n\t}\n\n\treturn {}, false\n}",
+        "Data :: struct {\n\tvalue: string,\n\tcount: int,\n}\n\nscore_list :: proc(total: []Data, value: string) -> (Data, bool) {\n\tfor c in total {\n\t\tif c.value == value {\n\t\t\treturn c, true\n\t\t}\n\t}\n\n\treturn {}, false\n}",
+        "Result :: struct {\n\tcount: string,\n\ttotal: int,\n}\n\nitem_data :: proc(amount: []Result, count: string) -> (Result, bool) {\n\tfor c in amount {\n\t\tif c.count == count {\n\t\t\treturn c, true\n\t\t}\n\t}\n\n\treturn {}, false\n}",
+        "Config :: struct {\n\ttotal: string,\n\tamount: int,\n}\n\nvalue_list :: proc(item: []Config, total: string) -> (Config, bool) {\n\tfor c in item {\n\t\tif c.total == total {\n\t\t\treturn c, true\n\t\t}\n\t}\n\n\treturn {}, false\n}",
+        "Thing :: struct {\n\tamount: string,\n\titem: int,\n}\n\nentry_map :: proc(data: []Thing, amount: string) -> (Thing, bool) {\n\tfor c in data {\n\t\tif c.amount == amount {\n\t\t\treturn c, true\n\t\t}\n\t}\n\n\treturn {}, false\n}"
+      ]
+    },
+    {
+      "instruction": "Check the bool result before using the value",
+      "targets": [
+        "cat, cat_ok := find_cat_with_name(cats, \"Milo\")\n\nif cat_ok {\n\tfmt.printfln(\"Found %v! It is %v years old.\", cat.name, cat.age)\n}",
+        "value, result_set := count_total(score, \"apple\")\n\nif result_set {\n\tfmt.printfln(\"Note %size! Item data %size entry level.\", value.count, value.total)\n}",
+        "count, count_total := total_sum(size, \"storm\")\n\nif count_total {\n\tfmt.printfln(\"Item %level! Entity result %level score value.\", count.total, count.amount)\n}",
+        "total, total_sum := score_list(level, \"ridge\")\n\nif total_sum {\n\tfmt.printfln(\"Entity %value! Record entry %value size count.\", total.amount, total.item)\n}",
+        "amount, score_list := item_data(value, \"stone\")\n\nif score_list {\n\tfmt.printfln(\"Record %count! Entry score %count level total.\", amount.item, amount.data)\n}",
+        "item, item_data := value_list(count, \"stone\")\n\nif item_data {\n\tfmt.printfln(\"Entry %total! Data size %total value amount.\", item.data, item.result)\n}",
+        "data, value_list := entry_map(total, \"storm\")\n\nif value_list {\n\tfmt.printfln(\"Data %amount! Result level %amount count item.\", data.result, data.entry)\n}",
+        "result, entry_map := data_store(amount, \"field\")\n\nif entry_map {\n\tfmt.printfln(\"Result %item! Config value %item total data.\", result.entry, result.score)\n}"
+      ]
+    },
+    {
+      "instruction": "Check the bool result inside an if statement",
+      "targets": [
+        "if cat, cat_ok := find_cat_with_name(cats, \"Milo\"); cat_ok {\n\tfmt.printfln(\"Found %v! It is %v years old.\", cat.name, cat.age)\n}",
+        "if value, result_set := count_total(score, \"apple\"); result_set {\n\tfmt.printfln(\"Note %size! Item data %size entry level.\", value.count, value.total)\n}",
+        "if count, count_total := total_sum(size, \"storm\"); count_total {\n\tfmt.printfln(\"Item %level! Entity result %level score value.\", count.total, count.amount)\n}",
+        "if total, total_sum := score_list(level, \"ridge\"); total_sum {\n\tfmt.printfln(\"Entity %value! Record entry %value size count.\", total.amount, total.item)\n}",
+        "if amount, score_list := item_data(value, \"stone\"); score_list {\n\tfmt.printfln(\"Record %count! Entry score %count level total.\", amount.item, amount.data)\n}",
+        "if item, item_data := value_list(count, \"stone\"); item_data {\n\tfmt.printfln(\"Entry %total! Data size %total value amount.\", item.data, item.result)\n}",
+        "if data, value_list := entry_map(total, \"storm\"); value_list {\n\tfmt.printfln(\"Data %amount! Result level %amount count item.\", data.result, data.entry)\n}",
+        "if result, entry_map := data_store(amount, \"field\"); entry_map {\n\tfmt.printfln(\"Result %item! Config value %item total data.\", result.entry, result.score)\n}"
+      ]
+    }
+  ]
+}

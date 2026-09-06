@@ -1,0 +1,60 @@
+{
+  "name": "Passing slices to procedures",
+  "group": 10,
+  "groupTitle": "Containers",
+  "order": "10.2",
+  "snippets": [
+    {
+      "instruction": "Write a procedure that takes a slice of structs",
+      "targets": [
+        "print_cats :: proc(cats: []Cat) {\n\tfor cat in cats {\n\t\tfmt.printfln(\"%v is %v years old\", cat.name, cat.age)\n\t}\n}",
+        "item_data :: proc(score: []Entity) {\n\tfor value in score {\n\t\tfmt.printfln(\"%size data %size entry level\", value.count, value.total)\n\t}\n}",
+        "value_list :: proc(size: []Record) {\n\tfor count in size {\n\t\tfmt.printfln(\"%level result %level score value\", count.total, count.amount)\n\t}\n}",
+        "entry_map :: proc(level: []Entry) {\n\tfor total in level {\n\t\tfmt.printfln(\"%value entry %value size count\", total.amount, total.item)\n\t}\n}",
+        "data_store :: proc(value: []Data) {\n\tfor amount in value {\n\t\tfmt.printfln(\"%count score %count level total\", amount.item, amount.data)\n\t}\n}",
+        "result_set :: proc(count: []Result) {\n\tfor item in count {\n\t\tfmt.printfln(\"%total size %total value amount\", item.data, item.result)\n\t}\n}",
+        "count_total :: proc(total: []Config) {\n\tfor data in total {\n\t\tfmt.printfln(\"%amount level %amount count item\", data.result, data.entry)\n\t}\n}",
+        "total_sum :: proc(amount: []Thing) {\n\tfor result in amount {\n\t\tfmt.printfln(\"%item value %item total data\", result.entry, result.score)\n\t}\n}"
+      ]
+    },
+    {
+      "instruction": "Write a procedure that modifies cats through a slice",
+      "targets": [
+        "mutate_cats :: proc(cats: []Cat) {\n\tfor &cat in cats {\n\t\tcat.age = rand.int_max(12) + 2\n\t}\n}",
+        "score_list :: proc(score: []Entity) {\n\tfor &value in score {\n\t\tvalue.size = rand.int_max(13) + 2\n\t}\n}",
+        "item_data :: proc(size: []Record) {\n\tfor &count in size {\n\t\tcount.level = rand.int_max(100) + 2\n\t}\n}",
+        "value_list :: proc(level: []Entry) {\n\tfor &total in level {\n\t\ttotal.value = rand.int_max(3) + 2\n\t}\n}",
+        "entry_map :: proc(value: []Data) {\n\tfor &amount in value {\n\t\tamount.count = rand.int_max(9) + 2\n\t}\n}",
+        "data_store :: proc(count: []Result) {\n\tfor &item in count {\n\t\titem.total = rand.int_max(25) + 2\n\t}\n}",
+        "result_set :: proc(total: []Config) {\n\tfor &data in total {\n\t\tdata.amount = rand.int_max(64) + 2\n\t}\n}",
+        "count_total :: proc(amount: []Thing) {\n\tfor &result in amount {\n\t\tresult.item = rand.int_max(512) + 2\n\t}\n}"
+      ]
+    },
+    {
+      "instruction": "Pass a dynamic array to a slice parameter",
+      "targets": [
+        "print_cats(all_the_cats[:])",
+        "item_data(entry_map[:])",
+        "value_list(data_store[:])",
+        "entry_map(result_set[:])",
+        "data_store(count_total[:])",
+        "result_set(total_sum[:])",
+        "count_total(score_list[:])",
+        "total_sum(item_data[:])"
+      ]
+    },
+    {
+      "instruction": "Write a procedure appending to a dynamic-array pointer",
+      "targets": [
+        "add_cat_of_random_age :: proc(cats: ^[dynamic]Cat, name: string) {\n\trandom_age := rand.int_max(12) + 2\n\tappend(cats, Cat {\n\t\tname = name,\n\t\tage = random_age,\n\t})\n}",
+        "count_total :: proc(score: ^[dynamic]Entity, size: string) {\n\tresult_set := rand.int_max(13) + 2\n\tappend(score, Entity {\n\t\tsize = size,\n\t\tlevel = result_set,\n\t})\n}",
+        "total_sum :: proc(size: ^[dynamic]Record, level: string) {\n\tcount_total := rand.int_max(100) + 2\n\tappend(size, Record {\n\t\tlevel = level,\n\t\tvalue = count_total,\n\t})\n}",
+        "score_list :: proc(level: ^[dynamic]Entry, value: string) {\n\ttotal_sum := rand.int_max(3) + 2\n\tappend(level, Entry {\n\t\tvalue = value,\n\t\tcount = total_sum,\n\t})\n}",
+        "item_data :: proc(value: ^[dynamic]Data, count: string) {\n\tscore_list := rand.int_max(9) + 2\n\tappend(value, Data {\n\t\tcount = count,\n\t\ttotal = score_list,\n\t})\n}",
+        "value_list :: proc(count: ^[dynamic]Result, total: string) {\n\titem_data := rand.int_max(25) + 2\n\tappend(count, Result {\n\t\ttotal = total,\n\t\tamount = item_data,\n\t})\n}",
+        "entry_map :: proc(total: ^[dynamic]Config, amount: string) {\n\tvalue_list := rand.int_max(64) + 2\n\tappend(total, Config {\n\t\tamount = amount,\n\t\titem = value_list,\n\t})\n}",
+        "data_store :: proc(amount: ^[dynamic]Thing, item: string) {\n\tentry_map := rand.int_max(512) + 2\n\tappend(amount, Thing {\n\t\titem = item,\n\t\tdata = entry_map,\n\t})\n}"
+      ]
+    }
+  ]
+}

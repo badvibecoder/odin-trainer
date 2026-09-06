@@ -1,0 +1,73 @@
+{
+  "name": "Arena allocators",
+  "group": 13,
+  "groupTitle": "Allocators",
+  "order": "13.2",
+  "snippets": [
+    {
+      "instruction": "Write a procedure with the context allocator",
+      "targets": [
+        "Level :: struct {\n\tname: string,\n\tobjects: []Game_Object,\n\ttiles: []Tiles,\n}\n\ngenerate_level :: proc(name: string) -> Level {\n\ttiles := generate_tiles(context.allocator)\n\tobjects := generate_objects(tiles, context.allocator)\n\treturn {\n\t\tname = strings.clone(name, context.allocator),\n\t\tobjects = objects,\n\t\ttiles = tiles,\n\t}\n}",
+        "Result :: struct {\n\tscore: string,\n\tvalue: []Game_Object,\n\tsize: []Tiles,\n}\n\nscore_list :: proc(score: string) -> Result {\n\tsize := total_sum(context.allocator)\n\tvalue := item_data(size, context.allocator)\n\treturn {\n\t\tscore = strings.clone(score, context.allocator),\n\t\tvalue = value,\n\t\tsize = size,\n\t}\n}",
+        "Config :: struct {\n\tsize: string,\n\tcount: []Game_Object,\n\tlevel: []Tiles,\n}\n\nitem_data :: proc(size: string) -> Config {\n\tlevel := score_list(context.allocator)\n\tcount := value_list(level, context.allocator)\n\treturn {\n\t\tsize = strings.clone(size, context.allocator),\n\t\tcount = count,\n\t\tlevel = level,\n\t}\n}",
+        "Thing :: struct {\n\tlevel: string,\n\ttotal: []Game_Object,\n\tvalue: []Tiles,\n}\n\nvalue_list :: proc(level: string) -> Thing {\n\tvalue := item_data(context.allocator)\n\ttotal := entry_map(value, context.allocator)\n\treturn {\n\t\tlevel = strings.clone(level, context.allocator),\n\t\ttotal = total,\n\t\tvalue = value,\n\t}\n}",
+        "Value :: struct {\n\tvalue: string,\n\tamount: []Game_Object,\n\tcount: []Tiles,\n}\n\nentry_map :: proc(value: string) -> Value {\n\tcount := value_list(context.allocator)\n\tamount := data_store(count, context.allocator)\n\treturn {\n\t\tvalue = strings.clone(value, context.allocator),\n\t\tamount = amount,\n\t\tcount = count,\n\t}\n}",
+        "Note :: struct {\n\tcount: string,\n\titem: []Game_Object,\n\ttotal: []Tiles,\n}\n\ndata_store :: proc(count: string) -> Note {\n\ttotal := entry_map(context.allocator)\n\titem := result_set(total, context.allocator)\n\treturn {\n\t\tcount = strings.clone(count, context.allocator),\n\t\titem = item,\n\t\ttotal = total,\n\t}\n}",
+        "Item :: struct {\n\ttotal: string,\n\tdata: []Game_Object,\n\tamount: []Tiles,\n}\n\nresult_set :: proc(total: string) -> Item {\n\tamount := data_store(context.allocator)\n\tdata := count_total(amount, context.allocator)\n\treturn {\n\t\ttotal = strings.clone(total, context.allocator),\n\t\tdata = data,\n\t\tamount = amount,\n\t}\n}",
+        "Entity :: struct {\n\tamount: string,\n\tresult: []Game_Object,\n\titem: []Tiles,\n}\n\ncount_total :: proc(amount: string) -> Entity {\n\titem := result_set(context.allocator)\n\tresult := total_sum(item, context.allocator)\n\treturn {\n\t\tamount = strings.clone(amount, context.allocator),\n\t\tresult = result,\n\t\titem = item,\n\t}\n}"
+      ]
+    },
+    {
+      "instruction": "Write a procedure that frees each field",
+      "targets": [
+        "destroy_level :: proc(level: Level) {\n\tdelete(level.name)\n\tdelete(level.objects)\n\tdelete(level.tiles)\n}",
+        "entry_map :: proc(count: Result) {\n\tdelete(count.score)\n\tdelete(count.value)\n\tdelete(count.size)\n}",
+        "data_store :: proc(total: Config) {\n\tdelete(total.size)\n\tdelete(total.count)\n\tdelete(total.level)\n}",
+        "result_set :: proc(amount: Thing) {\n\tdelete(amount.level)\n\tdelete(amount.total)\n\tdelete(amount.value)\n}",
+        "count_total :: proc(item: Value) {\n\tdelete(item.value)\n\tdelete(item.amount)\n\tdelete(item.count)\n}",
+        "total_sum :: proc(data: Note) {\n\tdelete(data.count)\n\tdelete(data.item)\n\tdelete(data.total)\n}",
+        "score_list :: proc(result: Item) {\n\tdelete(result.total)\n\tdelete(result.data)\n\tdelete(result.amount)\n}",
+        "item_data :: proc(entry: Entity) {\n\tdelete(entry.amount)\n\tdelete(entry.result)\n\tdelete(entry.item)\n}"
+      ]
+    },
+    {
+      "instruction": "Store an arena in the Level and free it all at once",
+      "targets": [
+        "Level :: struct {\n\tname: string,\n\tobjects: []Game_Object,\n\ttiles: []Tiles,\n\tarena: vmem.Arena,\n}\n\ngenerate_level :: proc(name: string) -> Level {\n\tlevel_arena: vmem.Arena\n\tarena_allocator := vmem.arena_allocator(&level_arena)\n\n\ttiles := generate_tiles(arena_allocator)\n\tobjects := generate_objects(tiles, arena_allocator)\n\n\treturn {\n\t\tname = strings.clone(name, arena_allocator),\n\t\tobjects = objects,\n\t\ttiles = tiles,\n\t\tarena = level_arena,\n\t}\n}\n\ndestroy_level :: proc(level: ^Level) {\n\tvmem.arena_destroy(&level.arena)\n}",
+        "Result :: struct {\n\tscore: string,\n\tvalue: []Game_Object,\n\tsize: []Tiles,\n\tcount: vmem.Arena,\n}\n\nscore_list :: proc(score: string) -> Result {\n\tcount_total: vmem.Arena\n\tarena_allocator := vmem.arena_allocator(&count_total)\n\n\tsize := total_sum(arena_allocator)\n\tvalue := item_data(size, arena_allocator)\n\n\treturn {\n\t\tscore = strings.clone(score, arena_allocator),\n\t\tvalue = value,\n\t\tsize = size,\n\t\tcount = count_total,\n\t}\n}\n\nentry_map :: proc(count: ^Result) {\n\tvmem.arena_destroy(&count.count)\n}",
+        "Config :: struct {\n\tsize: string,\n\tcount: []Game_Object,\n\ttotal: []Tiles,\n\tvalue: vmem.Arena,\n}\n\nitem_data :: proc(size: string) -> Config {\n\ttotal_sum: vmem.Arena\n\tarena_allocator := vmem.arena_allocator(&total_sum)\n\n\ttotal := score_list(arena_allocator)\n\tcount := value_list(total, arena_allocator)\n\n\treturn {\n\t\tsize = strings.clone(size, arena_allocator),\n\t\tcount = count,\n\t\ttotal = total,\n\t\tvalue = total_sum,\n\t}\n}\n\ndata_store :: proc(total: ^Config) {\n\tvmem.arena_destroy(&total.value)\n}",
+        "Thing :: struct {\n\tlevel: string,\n\ttotal: []Game_Object,\n\tvalue: []Tiles,\n\tcount: vmem.Arena,\n}\n\nvalue_list :: proc(level: string) -> Thing {\n\tscore_list: vmem.Arena\n\tarena_allocator := vmem.arena_allocator(&score_list)\n\n\tvalue := item_data(arena_allocator)\n\ttotal := entry_map(value, arena_allocator)\n\n\treturn {\n\t\tlevel = strings.clone(level, arena_allocator),\n\t\ttotal = total,\n\t\tvalue = value,\n\t\tcount = score_list,\n\t}\n}\n\nresult_set :: proc(amount: ^Thing) {\n\tvmem.arena_destroy(&amount.count)\n}",
+        "Value :: struct {\n\tvalue: string,\n\tamount: []Game_Object,\n\tcount: []Tiles,\n\ttotal: vmem.Arena,\n}\n\nentry_map :: proc(value: string) -> Value {\n\titem_data: vmem.Arena\n\tarena_allocator := vmem.arena_allocator(&item_data)\n\n\tcount := value_list(arena_allocator)\n\tamount := data_store(count, arena_allocator)\n\n\treturn {\n\t\tvalue = strings.clone(value, arena_allocator),\n\t\tamount = amount,\n\t\tcount = count,\n\t\ttotal = item_data,\n\t}\n}\n\ncount_total :: proc(item: ^Value) {\n\tvmem.arena_destroy(&item.total)\n}",
+        "Note :: struct {\n\tcount: string,\n\titem: []Game_Object,\n\ttotal: []Tiles,\n\tamount: vmem.Arena,\n}\n\ndata_store :: proc(count: string) -> Note {\n\tvalue_list: vmem.Arena\n\tarena_allocator := vmem.arena_allocator(&value_list)\n\n\ttotal := entry_map(arena_allocator)\n\titem := result_set(total, arena_allocator)\n\n\treturn {\n\t\tcount = strings.clone(count, arena_allocator),\n\t\titem = item,\n\t\ttotal = total,\n\t\tamount = value_list,\n\t}\n}\n\ntotal_sum :: proc(data: ^Note) {\n\tvmem.arena_destroy(&data.amount)\n}",
+        "Item :: struct {\n\ttotal: string,\n\tdata: []Game_Object,\n\tamount: []Tiles,\n\titem: vmem.Arena,\n}\n\nresult_set :: proc(total: string) -> Item {\n\tentry_map: vmem.Arena\n\tarena_allocator := vmem.arena_allocator(&entry_map)\n\n\tamount := data_store(arena_allocator)\n\tdata := count_total(amount, arena_allocator)\n\n\treturn {\n\t\ttotal = strings.clone(total, arena_allocator),\n\t\tdata = data,\n\t\tamount = amount,\n\t\titem = entry_map,\n\t}\n}\n\nscore_list :: proc(result: ^Item) {\n\tvmem.arena_destroy(&result.item)\n}",
+        "Entity :: struct {\n\tamount: string,\n\tresult: []Game_Object,\n\titem: []Tiles,\n\tdata: vmem.Arena,\n}\n\ncount_total :: proc(amount: string) -> Entity {\n\tdata_store: vmem.Arena\n\tarena_allocator := vmem.arena_allocator(&data_store)\n\n\titem := result_set(arena_allocator)\n\tresult := total_sum(item, arena_allocator)\n\n\treturn {\n\t\tamount = strings.clone(amount, arena_allocator),\n\t\tresult = result,\n\t\titem = item,\n\t\tdata = data_store,\n\t}\n}\n\nitem_data :: proc(entry: ^Entity) {\n\tvmem.arena_destroy(&entry.data)\n}"
+      ]
+    },
+    {
+      "instruction": "Write the Arena struct",
+      "targets": [
+        "Arena :: struct {\n\tkind:                Arena_Kind,\n\tcurr_block:          ^Memory_Block,\n\n\ttotal_used:          uint,\n\ttotal_reserved:      uint,\n\n\tdefault_commit_size: uint,\n\tminimum_block_size:  uint,\n\n\ttemp_count:          uint,\n\tmutex:               sync.Mutex,\n}",
+        "Arena :: struct {\n\tresult:                Arena_Kind,\n\tvalue_list:          ^Data_Type,\n\n\tentry_map:          uint,\n\ttotal_sum:      uint,\n\n\tresult_set: uint,\n\tcount_total:  uint,\n\n\tscore_list:          uint,\n\tamount:               sync.Record,\n}",
+        "Arena :: struct {\n\tentry:                Arena_Kind,\n\tentry_map:          ^Item_Record,\n\n\tdata_store:          uint,\n\tscore_list:      uint,\n\n\tcount_total: uint,\n\ttotal_sum:  uint,\n\n\titem_data:          uint,\n\titem:               sync.Entry,\n}",
+        "Arena :: struct {\n\tscore:                Arena_Kind,\n\tdata_store:          ^Item_Kind,\n\n\tresult_set:          uint,\n\titem_data:      uint,\n\n\ttotal_sum: uint,\n\tscore_list:  uint,\n\n\tvalue_list:          uint,\n\tdata:               sync.Data,\n}",
+        "Arena :: struct {\n\tsize:                Arena_Kind,\n\tresult_set:          ^Entity_Data,\n\n\tcount_total:          uint,\n\tvalue_list:      uint,\n\n\tscore_list: uint,\n\titem_data:  uint,\n\n\tentry_map:          uint,\n\tresult:               sync.Result,\n}",
+        "Arena :: struct {\n\tlevel:                Arena_Kind,\n\tcount_total:          ^Record_Type,\n\n\ttotal_sum:          uint,\n\tentry_map:      uint,\n\n\titem_data: uint,\n\tvalue_list:  uint,\n\n\tdata_store:          uint,\n\tentry:               sync.Config,\n}",
+        "Arena :: struct {\n\tvalue:                Arena_Kind,\n\ttotal_sum:          ^Entry_Kind,\n\n\tscore_list:          uint,\n\tdata_store:      uint,\n\n\tvalue_list: uint,\n\tentry_map:  uint,\n\n\tresult_set:          uint,\n\tscore:               sync.Thing,\n}",
+        "Arena :: struct {\n\tcount:                Arena_Kind,\n\tscore_list:          ^Data_Type,\n\n\titem_data:          uint,\n\tresult_set:      uint,\n\n\tentry_map: uint,\n\tdata_store:  uint,\n\n\tcount_total:          uint,\n\tsize:               sync.Value,\n}"
+      ]
+    },
+    {
+      "instruction": "Write the Arena_Kind enum",
+      "targets": [
+        "Arena_Kind :: enum uint {\n\tGrowing = 0,\n\tStatic  = 1,\n\tBuffer  = 2,\n}",
+        "Arena_Kind :: enum uint {\n\tData = 0,\n\tEntity  = 1,\n\tEntry  = 2,\n}",
+        "Arena_Kind :: enum uint {\n\tResult = 0,\n\tRecord  = 1,\n\tData  = 2,\n}",
+        "Arena_Kind :: enum uint {\n\tConfig = 0,\n\tEntry  = 1,\n\tResult  = 2,\n}",
+        "Arena_Kind :: enum uint {\n\tThing = 0,\n\tData  = 1,\n\tConfig  = 2,\n}",
+        "Arena_Kind :: enum uint {\n\tValue = 0,\n\tResult  = 1,\n\tThing  = 2,\n}",
+        "Arena_Kind :: enum uint {\n\tNote = 0,\n\tConfig  = 1,\n\tValue  = 2,\n}",
+        "Arena_Kind :: enum uint {\n\tItem = 0,\n\tThing  = 1,\n\tNote  = 2,\n}"
+      ]
+    }
+  ]
+}

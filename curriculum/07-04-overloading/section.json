@@ -1,0 +1,34 @@
+{
+  "name": "Explicit overloading",
+  "group": 7,
+  "groupTitle": "Procedures",
+  "order": "7.4",
+  "snippets": [
+    {
+      "instruction": "Define a length procedure with explicit overloads",
+      "targets": [
+        "length :: proc {\n\tlength_float2,\n\tlength_float3,\n}\n\nlength_float2 :: proc(v: [2]f32) -> f32 {\n\treturn math.sqrt(v.x*v.x + v.y*v.y)\n}\n\nlength_float3 :: proc(v: [3]f32) -> f32 {\n\treturn math.sqrt(v.x*v.x + v.y*v.y + v.z*v.z)\n}",
+        "length :: proc {\n\tentry_map,\n\tvalue_list,\n}\n\nentry_map :: proc(size: [2]f32) -> f32 {\n\treturn math.sqrt(size.x*size.x + size.y*size.y)\n}\n\nvalue_list :: proc(size: [4]f32) -> f32 {\n\treturn math.sqrt(size.x*size.x + size.y*size.y + size.z*size.z)\n}",
+        "length :: proc {\n\tdata_store,\n\tentry_map,\n}\n\ndata_store :: proc(level: [2]f32) -> f32 {\n\treturn math.sqrt(level.x*level.x + level.y*level.y)\n}\n\nentry_map :: proc(level: [10]f32) -> f32 {\n\treturn math.sqrt(level.x*level.x + level.y*level.y + level.z*level.z)\n}",
+        "length :: proc {\n\tresult_set,\n\tdata_store,\n}\n\nresult_set :: proc(value: [2]f32) -> f32 {\n\treturn math.sqrt(value.x*value.x + value.y*value.y)\n}\n\ndata_store :: proc(value: [200]f32) -> f32 {\n\treturn math.sqrt(value.x*value.x + value.y*value.y + value.z*value.z)\n}",
+        "length :: proc {\n\tcount_total,\n\tresult_set,\n}\n\ncount_total :: proc(count: [2]f32) -> f32 {\n\treturn math.sqrt(count.x*count.x + count.y*count.y)\n}\n\nresult_set :: proc(count: [128]f32) -> f32 {\n\treturn math.sqrt(count.x*count.x + count.y*count.y + count.z*count.z)\n}",
+        "length :: proc {\n\ttotal_sum,\n\tcount_total,\n}\n\ntotal_sum :: proc(total: [2]f32) -> f32 {\n\treturn math.sqrt(total.x*total.x + total.y*total.y)\n}\n\ncount_total :: proc(total: [7]f32) -> f32 {\n\treturn math.sqrt(total.x*total.x + total.y*total.y + total.z*total.z)\n}",
+        "length :: proc {\n\tscore_list,\n\ttotal_sum,\n}\n\nscore_list :: proc(amount: [2]f32) -> f32 {\n\treturn math.sqrt(amount.x*amount.x + amount.y*amount.y)\n}\n\ntotal_sum :: proc(amount: [42]f32) -> f32 {\n\treturn math.sqrt(amount.x*amount.x + amount.y*amount.y + amount.z*amount.z)\n}",
+        "length :: proc {\n\titem_data,\n\tscore_list,\n}\n\nitem_data :: proc(item: [2]f32) -> f32 {\n\treturn math.sqrt(item.x*item.x + item.y*item.y)\n}\n\nscore_list :: proc(item: [13]f32) -> f32 {\n\treturn math.sqrt(item.x*item.x + item.y*item.y + item.z*item.z)\n}"
+      ]
+    },
+    {
+      "instruction": "Call the overloaded length procedure",
+      "targets": [
+        "v2 := [2]f32 { 3, 3 }\nv3 := [3]f32 { 3, 3, 3}\nlen_v2 := length(v2)\nlen_v3 := length(v3)",
+        "total := [2]f32 { 4, 4 }\namount := [4]f32 { 4, 4, 4}\ndata_store := length(total)\nentry_map := length(amount)",
+        "amount := [2]f32 { 10, 10 }\nitem := [10]f32 { 10, 10, 10}\nresult_set := length(amount)\ndata_store := length(item)",
+        "item := [2]f32 { 200, 200 }\ndata := [200]f32 { 200, 200, 200}\ncount_total := length(item)\nresult_set := length(data)",
+        "data := [2]f32 { 128, 128 }\nresult := [128]f32 { 128, 128, 128}\ntotal_sum := length(data)\ncount_total := length(result)",
+        "result := [2]f32 { 7, 7 }\nentry := [7]f32 { 7, 7, 7}\nscore_list := length(result)\ntotal_sum := length(entry)",
+        "entry := [2]f32 { 42, 42 }\nscore := [42]f32 { 42, 42, 42}\nitem_data := length(entry)\nscore_list := length(score)",
+        "score := [2]f32 { 13, 13 }\nsize := [13]f32 { 13, 13, 13}\nvalue_list := length(score)\nitem_data := length(size)"
+      ]
+    }
+  ]
+}

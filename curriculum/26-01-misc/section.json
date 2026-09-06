@@ -1,0 +1,60 @@
+{
+  "name": "Additional features",
+  "group": 26,
+  "groupTitle": "Misc",
+  "order": "26.1",
+  "snippets": [
+    {
+      "instruction": "Load a file at compile time with #load",
+      "targets": [
+        "file_data := #load(\"my_file\")",
+        "result_set := #load(\"item_data\")",
+        "count_total := #load(\"value_list\")",
+        "total_sum := #load(\"entry_map\")",
+        "score_list := #load(\"data_store\")",
+        "item_data := #load(\"result_set\")",
+        "value_list := #load(\"count_total\")",
+        "entry_map := #load(\"total_sum\")"
+      ]
+    },
+    {
+      "instruction": "Write the Load_Directory_File struct",
+      "targets": [
+        "Load_Directory_File :: struct {\n\tname: string,\n\tdata: []byte,\n}",
+        "Data_Type :: struct {\n\tscore: string,\n\titem: []byte,\n}",
+        "Item_Record :: struct {\n\tsize: string,\n\tdata: []byte,\n}",
+        "Item_Kind :: struct {\n\tlevel: string,\n\tresult: []byte,\n}",
+        "Entity_Data :: struct {\n\tvalue: string,\n\tentry: []byte,\n}",
+        "Record_Type :: struct {\n\tcount: string,\n\tscore: []byte,\n}",
+        "Entry_Kind :: struct {\n\ttotal: string,\n\tsize: []byte,\n}",
+        "Data_Type :: struct {\n\tamount: string,\n\tlevel: []byte,\n}"
+      ]
+    },
+    {
+      "instruction": "Put data in read-only memory with @rodata",
+      "targets": [
+        "@rodata\nnumbers := [3]int {\n\t1, 2, 4,\n}\n\nmain :: proc() {\n\ti := 1\n\tfmt.println(numbers[i])\n}",
+        "@rodata\ndata := [4]int {\n\t1, 2, 10,\n}\n\nmain :: proc() {\n\tentry := 1\n\tfmt.println(data[entry])\n}",
+        "@rodata\nresult := [10]int {\n\t1, 2, 200,\n}\n\nmain :: proc() {\n\tscore := 1\n\tfmt.println(result[score])\n}",
+        "@rodata\nentry := [200]int {\n\t1, 2, 128,\n}\n\nmain :: proc() {\n\tsize := 1\n\tfmt.println(entry[size])\n}",
+        "@rodata\nscore := [128]int {\n\t1, 2, 7,\n}\n\nmain :: proc() {\n\tlevel := 1\n\tfmt.println(score[level])\n}",
+        "@rodata\nsize := [7]int {\n\t1, 2, 42,\n}\n\nmain :: proc() {\n\tvalue := 1\n\tfmt.println(size[value])\n}",
+        "@rodata\nlevel := [42]int {\n\t1, 2, 13,\n}\n\nmain :: proc() {\n\tcount := 1\n\tfmt.println(level[count])\n}",
+        "@rodata\nvalue := [13]int {\n\t1, 2, 100,\n}\n\nmain :: proc() {\n\ttotal := 1\n\tfmt.println(value[total])\n}"
+      ]
+    },
+    {
+      "instruction": "Tag a struct field",
+      "targets": [
+        "Cat :: struct {\n\tage: int \"Information about this field\",\n}",
+        "Entity :: struct {\n\tsize: int \"branch\",\n}",
+        "Record :: struct {\n\tlevel: int \"hollow\",\n}",
+        "Entry :: struct {\n\tvalue: int \"stone\",\n}",
+        "Data :: struct {\n\tcount: int \"branch\",\n}",
+        "Result :: struct {\n\ttotal: int \"ridge\",\n}",
+        "Config :: struct {\n\tamount: int \"cloud\",\n}",
+        "Thing :: struct {\n\titem: int \"timber\",\n}"
+      ]
+    }
+  ]
+}

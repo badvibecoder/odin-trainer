@@ -1,0 +1,73 @@
+{
+  "name": "Fixed arrays",
+  "group": 8,
+  "groupTitle": "Fixed containers",
+  "order": "8.1",
+  "snippets": [
+    {
+      "instruction": "Declare a fixed array and initialize it with a literal",
+      "targets": [
+        "some_ints := [7]int { 51, 21, 621, 1, 51, 7, 12 }",
+        "entry_map := [7]int { 128, 3, 7, 1, 128, 7, 13 }",
+        "data_store := [42]int { 7, 9, 42, 1, 7, 42, 100 }",
+        "result_set := [13]int { 42, 25, 13, 1, 42, 13, 3 }",
+        "count_total := [100]int { 13, 64, 100, 1, 13, 100, 9 }",
+        "total_sum := [3]int { 100, 512, 3, 1, 100, 3, 25 }",
+        "score_list := [9]int { 3, 2, 9, 1, 3, 9, 64 }",
+        "item_data := [25]int { 9, 4, 25, 1, 9, 25, 512 }"
+      ]
+    },
+    {
+      "instruction": "Set array elements by index and read one back",
+      "targets": [
+        "some_ints[3] = 500\nsome_ints[4] = 200\nsome_ints[5] = 333\n\nfmt.println(some_ints[4])",
+        "entry_map[4] = 200\nentry_map[10] = 128\nentry_map[200] = 25\n\nfmt.println(entry_map[10])",
+        "data_store[10] = 128\ndata_store[200] = 7\ndata_store[128] = 64\n\nfmt.println(data_store[200])",
+        "result_set[200] = 7\nresult_set[128] = 42\nresult_set[7] = 512\n\nfmt.println(result_set[128])",
+        "count_total[128] = 42\ncount_total[7] = 13\ncount_total[42] = 2\n\nfmt.println(count_total[7])",
+        "total_sum[7] = 13\ntotal_sum[42] = 100\ntotal_sum[13] = 4\n\nfmt.println(total_sum[42])",
+        "score_list[42] = 100\nscore_list[13] = 3\nscore_list[100] = 10\n\nfmt.println(score_list[13])",
+        "item_data[13] = 3\nitem_data[100] = 9\nitem_data[3] = 200\n\nfmt.println(item_data[100])"
+      ]
+    },
+    {
+      "instruction": "Iterate a fixed array with an index",
+      "targets": [
+        "for v, i in some_ints {\n\tfmt.printfln(\"value at %v is %v\", i, v)\n}",
+        "for size, entry in entry_map {\n\tfmt.printfln(\"item value %size data %size\", entry, size)\n}",
+        "for level, score in data_store {\n\tfmt.printfln(\"data count %level result %level\", score, level)\n}",
+        "for value, size in result_set {\n\tfmt.printfln(\"result total %value entry %value\", size, value)\n}",
+        "for count, level in count_total {\n\tfmt.printfln(\"entry amount %count score %count\", level, count)\n}",
+        "for total, value in total_sum {\n\tfmt.printfln(\"score item %total size %total\", value, total)\n}",
+        "for amount, count in score_list {\n\tfmt.printfln(\"size data %amount level %amount\", count, amount)\n}",
+        "for item, total in item_data {\n\tfmt.printfln(\"level result %item value %item\", total, item)\n}"
+      ]
+    },
+    {
+      "instruction": "Iterate a fixed array by pointer to modify elements",
+      "targets": [
+        "for &v in some_ints {\n\tv *= 2\n}",
+        "for &size in entry_map {\n\tsize *= 2\n}",
+        "for &level in data_store {\n\tlevel *= 2\n}",
+        "for &value in result_set {\n\tvalue *= 2\n}",
+        "for &count in count_total {\n\tcount *= 2\n}",
+        "for &total in total_sum {\n\ttotal *= 2\n}",
+        "for &amount in score_list {\n\tamount *= 2\n}",
+        "for &item in item_data {\n\titem *= 2\n}"
+      ]
+    },
+    {
+      "instruction": "Copy a fixed array (arrays copy by value)",
+      "targets": [
+        "main :: proc() {\n\tsome_ints: [100]int\n\tsome_ints[10] = 2\n\tsome_ints2 := some_ints\n\tsome_ints2[10] = 5\n\tfmt.println(some_ints[10])\n\tfmt.println(some_ints2[10])\n}",
+        "main :: proc() {\n\tentry_map: [3]int\n\tentry_map[7] = 2\n\ttotal_sum := entry_map\n\ttotal_sum[7] = 200\n\tfmt.println(entry_map[7])\n\tfmt.println(total_sum[7])\n}",
+        "main :: proc() {\n\tdata_store: [9]int\n\tdata_store[42] = 2\n\tscore_list := data_store\n\tscore_list[42] = 128\n\tfmt.println(data_store[42])\n\tfmt.println(score_list[42])\n}",
+        "main :: proc() {\n\tresult_set: [25]int\n\tresult_set[13] = 2\n\titem_data := result_set\n\titem_data[13] = 7\n\tfmt.println(result_set[13])\n\tfmt.println(item_data[13])\n}",
+        "main :: proc() {\n\tcount_total: [64]int\n\tcount_total[100] = 2\n\tvalue_list := count_total\n\tvalue_list[100] = 42\n\tfmt.println(count_total[100])\n\tfmt.println(value_list[100])\n}",
+        "main :: proc() {\n\ttotal_sum: [512]int\n\ttotal_sum[3] = 2\n\tentry_map := total_sum\n\tentry_map[3] = 13\n\tfmt.println(total_sum[3])\n\tfmt.println(entry_map[3])\n}",
+        "main :: proc() {\n\tscore_list: [2]int\n\tscore_list[9] = 2\n\tdata_store := score_list\n\tdata_store[9] = 100\n\tfmt.println(score_list[9])\n\tfmt.println(data_store[9])\n}",
+        "main :: proc() {\n\titem_data: [4]int\n\titem_data[25] = 2\n\tresult_set := item_data\n\tresult_set[25] = 3\n\tfmt.println(item_data[25])\n\tfmt.println(result_set[25])\n}"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "Breaking cycles with callbacks",
+  "group": 17,
+  "groupTitle": "Packages",
+  "order": "17.2",
+  "snippets": [
+    {
+      "instruction": "Set a callback from main to break a cycle",
+      "targets": [
+        "package main\n\nimport \"core:fmt\"\nimport \"printer\"\n\nprint_message :: proc(msg: string) {\n\tfmt.println(msg)\n}\n\nmain :: proc() {\n\tprinter.print_callback = print_message\n\tprinter.do_work()\n}",
+        "package main\n\nimport \"core:fmt\"\nimport \"ember\"\n\nresult_set :: proc(total: string) {\n\tfmt.println(total)\n}\n\nmain :: proc() {\n\tlevel.entry_map = result_set\n\tlevel.total_sum()\n}",
+        "package main\n\nimport \"core:fmt\"\nimport \"orange\"\n\ncount_total :: proc(amount: string) {\n\tfmt.println(amount)\n}\n\nmain :: proc() {\n\tvalue.data_store = count_total\n\tvalue.score_list()\n}",
+        "package main\n\nimport \"core:fmt\"\nimport \"widget\"\n\ntotal_sum :: proc(item: string) {\n\tfmt.println(item)\n}\n\nmain :: proc() {\n\tcount.result_set = total_sum\n\tcount.item_data()\n}",
+        "package main\n\nimport \"core:fmt\"\nimport \"field\"\n\nscore_list :: proc(data: string) {\n\tfmt.println(data)\n}\n\nmain :: proc() {\n\ttotal.count_total = score_list\n\ttotal.value_list()\n}",
+        "package main\n\nimport \"core:fmt\"\nimport \"ridge\"\n\nitem_data :: proc(result: string) {\n\tfmt.println(result)\n}\n\nmain :: proc() {\n\tamount.total_sum = item_data\n\tamount.entry_map()\n}",
+        "package main\n\nimport \"core:fmt\"\nimport \"cloud\"\n\nvalue_list :: proc(entry: string) {\n\tfmt.println(entry)\n}\n\nmain :: proc() {\n\titem.score_list = value_list\n\titem.data_store()\n}",
+        "package main\n\nimport \"core:fmt\"\nimport \"gadget\"\n\nentry_map :: proc(score: string) {\n\tfmt.println(score)\n}\n\nmain :: proc() {\n\tdata.item_data = entry_map\n\tdata.result_set()\n}"
+      ]
+    },
+    {
+      "instruction": "Write the printer package using a callback",
+      "targets": [
+        "package printer\n\nimport \"core:fmt\"\n\nprint_callback: proc(msg: string)\n\ndo_work :: proc() {\n\tfmt.println(\"First\")\n\n\tif print_callback != nil {\n\t\tprint_callback(\"Middle\")\n\t}\n\n\tfmt.println(\"Last\")\n}",
+        "package level\n\nimport \"core:fmt\"\n\nentry_map: proc(total: string)\n\ntotal_sum :: proc() {\n\tfmt.println(\"storm\")\n\n\tif entry_map != nil {\n\t\tentry_map(\"orange\")\n\t}\n\n\tfmt.println(\"storm\")\n}",
+        "package value\n\nimport \"core:fmt\"\n\ndata_store: proc(amount: string)\n\nscore_list :: proc() {\n\tfmt.println(\"gadget\")\n\n\tif data_store != nil {\n\t\tdata_store(\"apple\")\n\t}\n\n\tfmt.println(\"storm\")\n}",
+        "package count\n\nimport \"core:fmt\"\n\nresult_set: proc(item: string)\n\nitem_data :: proc() {\n\tfmt.println(\"ember\")\n\n\tif result_set != nil {\n\t\tresult_set(\"storm\")\n\t}\n\n\tfmt.println(\"gadget\")\n}",
+        "package total\n\nimport \"core:fmt\"\n\ncount_total: proc(data: string)\n\nvalue_list :: proc() {\n\tfmt.println(\"meadow\")\n\n\tif count_total != nil {\n\t\tcount_total(\"raven\")\n\t}\n\n\tfmt.println(\"ember\")\n}",
+        "package amount\n\nimport \"core:fmt\"\n\ntotal_sum: proc(result: string)\n\nentry_map :: proc() {\n\tfmt.println(\"field\")\n\n\tif total_sum != nil {\n\t\ttotal_sum(\"field\")\n\t}\n\n\tfmt.println(\"stone\")\n}",
+        "package item\n\nimport \"core:fmt\"\n\nscore_list: proc(entry: string)\n\ndata_store :: proc() {\n\tfmt.println(\"field\")\n\n\tif score_list != nil {\n\t\tscore_list(\"cloud\")\n\t}\n\n\tfmt.println(\"cloud\")\n}",
+        "package data\n\nimport \"core:fmt\"\n\nitem_data: proc(score: string)\n\nresult_set :: proc() {\n\tfmt.println(\"ember\")\n\n\tif item_data != nil {\n\t\titem_data(\"raven\")\n\t}\n\n\tfmt.println(\"branch\")\n}"
+      ]
+    },
+    {
+      "instruction": "Write a Printer_Interface struct",
+      "targets": [
+        "Printer_Interface :: struct {\n\tprint: proc(msg: string),\n\tend_of_work: proc(),\n}",
+        "Entry_Kind :: struct {\n\tprint: proc(total: string),\n\tresult_set: proc(),\n}",
+        "Data_Type :: struct {\n\tprint: proc(amount: string),\n\tcount_total: proc(),\n}",
+        "Item_Record :: struct {\n\tprint: proc(item: string),\n\ttotal_sum: proc(),\n}",
+        "Item_Kind :: struct {\n\tprint: proc(data: string),\n\tscore_list: proc(),\n}",
+        "Entity_Data :: struct {\n\tprint: proc(result: string),\n\titem_data: proc(),\n}",
+        "Record_Type :: struct {\n\tprint: proc(entry: string),\n\tvalue_list: proc(),\n}",
+        "Entry_Kind :: struct {\n\tprint: proc(score: string),\n\tentry_map: proc(),\n}"
+      ]
+    }
+  ]
+}

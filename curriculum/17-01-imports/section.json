@@ -1,0 +1,79 @@
+{
+  "name": "Imports & packages",
+  "group": 17,
+  "groupTitle": "Packages",
+  "order": "17.1",
+  "snippets": [
+    {
+      "instruction": "Import a package",
+      "targets": [
+        "import \"core:fmt\""
+      ]
+    },
+    {
+      "instruction": "Import a package with an alias",
+      "targets": [
+        "import rl \"vendor:raylib\"",
+        "import rl \"vendor:level\"",
+        "import rl \"vendor:value\"",
+        "import rl \"vendor:count\"",
+        "import rl \"vendor:total\"",
+        "import rl \"vendor:amount\"",
+        "import rl \"vendor:item\"",
+        "import rl \"vendor:data\""
+      ]
+    },
+    {
+      "instruction": "Import a local package with an alias",
+      "targets": [
+        "import \"core:fmt\"\nimport lfmt \"localization/fmt\"",
+        "import \"core:fmt\"\nimport item \"amount/fmt\"",
+        "import \"core:fmt\"\nimport data \"item/fmt\"",
+        "import \"core:fmt\"\nimport result \"data/fmt\"",
+        "import \"core:fmt\"\nimport entry \"result/fmt\"",
+        "import \"core:fmt\"\nimport score \"entry/fmt\"",
+        "import \"core:fmt\"\nimport size \"score/fmt\"",
+        "import \"core:fmt\"\nimport level \"size/fmt\""
+      ]
+    },
+    {
+      "instruction": "Declare a package name",
+      "targets": [
+        "package some_package",
+        "package total_sum",
+        "package score_list",
+        "package item_data",
+        "package value_list",
+        "package entry_map",
+        "package data_store",
+        "package result_set"
+      ]
+    },
+    {
+      "instruction": "Use a parsed package with its name",
+      "targets": [
+        "xml_parser: xml.Parser\nparsed_result := xml.parse(&xml_parser, some_data)",
+        "entry_map: score.Config\ntotal_sum := score.total(&entry_map, result_set)",
+        "data_store: size.Thing\nscore_list := size.amount(&data_store, count_total)",
+        "result_set: level.Value\nitem_data := level.item(&result_set, total_sum)",
+        "count_total: value.Note\nvalue_list := value.data(&count_total, score_list)",
+        "total_sum: count.Item\nentry_map := count.result(&total_sum, item_data)",
+        "score_list: total.Entity\ndata_store := total.entry(&score_list, value_list)",
+        "item_data: amount.Record\nresult_set := amount.score(&item_data, entry_map)"
+      ]
+    },
+    {
+      "instruction": "Import from a custom collection",
+      "targets": [
+        "import \"libs:aseprite\"",
+        "import \"libs:total\"",
+        "import \"libs:amount\"",
+        "import \"libs:item\"",
+        "import \"libs:data\"",
+        "import \"libs:result\"",
+        "import \"libs:entry\"",
+        "import \"libs:score\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "name": "Iterating strings",
+  "group": 11,
+  "groupTitle": "Strings",
+  "order": "11.2",
+  "snippets": [
+    {
+      "instruction": "Iterate a string's runes",
+      "targets": [
+        "str := \"Important Words\"\n\nfor r in str {\n\tfmt.println(r)\n}",
+        "total := \"ridge\"\n\nfor data in total {\n\tfmt.println(data)\n}",
+        "amount := \"gadget\"\n\nfor result in amount {\n\tfmt.println(result)\n}",
+        "item := \"widget\"\n\nfor entry in item {\n\tfmt.println(entry)\n}",
+        "data := \"shadow\"\n\nfor score in data {\n\tfmt.println(score)\n}",
+        "result := \"gadget\"\n\nfor size in result {\n\tfmt.println(size)\n}",
+        "entry := \"widget\"\n\nfor level in entry {\n\tfmt.println(level)\n}",
+        "score := \"orange\"\n\nfor value in score {\n\tfmt.println(value)\n}"
+      ]
+    },
+    {
+      "instruction": "Print each rune of a UTF-8 string",
+      "targets": [
+        "str := \"小猫咪\"\n\nfor r in str {\n\tfmt.println(r)\n}",
+        "total := \"小猫咪\"\n\nfor data in total {\n\tfmt.println(data)\n}",
+        "amount := \"小猫咪\"\n\nfor result in amount {\n\tfmt.println(result)\n}",
+        "item := \"小猫咪\"\n\nfor entry in item {\n\tfmt.println(entry)\n}",
+        "data := \"小猫咪\"\n\nfor score in data {\n\tfmt.println(score)\n}",
+        "result := \"小猫咪\"\n\nfor size in result {\n\tfmt.println(size)\n}",
+        "entry := \"小猫咪\"\n\nfor level in entry {\n\tfmt.println(level)\n}",
+        "score := \"小猫咪\"\n\nfor value in score {\n\tfmt.println(value)\n}"
+      ]
+    },
+    {
+      "instruction": "Read a string's bytes with transmute",
+      "targets": [
+        "str := \"Cät=猫\"\nstr_bytes := transmute([]u8)(str)\n\nfor b in str_bytes {\n\tfmt.printfln(\"%8b (%v)\", b, b)\n}",
+        "total := \"Cäentry=猫\"\nresult_set := transmute([]u8)(total)\n\nfor value in result_set {\n\tfmt.printfln(\"%8b (%size)\", value, value)\n}",
+        "amount := \"Cäscore=猫\"\ncount_total := transmute([]u8)(amount)\n\nfor count in count_total {\n\tfmt.printfln(\"%8b (%level)\", count, count)\n}",
+        "item := \"Cäsize=猫\"\ntotal_sum := transmute([]u8)(item)\n\nfor total in total_sum {\n\tfmt.printfln(\"%8b (%value)\", total, total)\n}",
+        "data := \"Cälevel=猫\"\nscore_list := transmute([]u8)(data)\n\nfor amount in score_list {\n\tfmt.printfln(\"%8b (%count)\", amount, amount)\n}",
+        "result := \"Cävalue=猫\"\nitem_data := transmute([]u8)(result)\n\nfor item in item_data {\n\tfmt.printfln(\"%8b (%total)\", item, item)\n}",
+        "entry := \"Cäcount=猫\"\nvalue_list := transmute([]u8)(entry)\n\nfor data in value_list {\n\tfmt.printfln(\"%8b (%amount)\", data, data)\n}",
+        "score := \"Cätotal=猫\"\nentry_map := transmute([]u8)(score)\n\nfor result in entry_map {\n\tfmt.printfln(\"%8b (%item)\", result, result)\n}"
+      ]
+    },
+    {
+      "instruction": "Print each rune's binary value",
+      "targets": [
+        "str := \"Cät=猫\"\n\nfor r in str {\n\tfmt.printfln(\"%b\", r)\n}",
+        "total := \"Cäentry=猫\"\n\nfor data in total {\n\tfmt.printfln(\"%value\", data)\n}",
+        "amount := \"Cäscore=猫\"\n\nfor result in amount {\n\tfmt.printfln(\"%count\", result)\n}",
+        "item := \"Cäsize=猫\"\n\nfor entry in item {\n\tfmt.printfln(\"%total\", entry)\n}",
+        "data := \"Cälevel=猫\"\n\nfor score in data {\n\tfmt.printfln(\"%amount\", score)\n}",
+        "result := \"Cävalue=猫\"\n\nfor size in result {\n\tfmt.printfln(\"%item\", size)\n}",
+        "entry := \"Cäcount=猫\"\n\nfor level in entry {\n\tfmt.printfln(\"%data\", level)\n}",
+        "score := \"Cätotal=猫\"\n\nfor value in score {\n\tfmt.printfln(\"%result\", value)\n}"
+      ]
+    }
+  ]
+}

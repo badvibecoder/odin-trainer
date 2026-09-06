@@ -1,0 +1,34 @@
+{
+  "name": "Reading & writing files",
+  "group": 24,
+  "groupTitle": "Core library",
+  "order": "24.1",
+  "snippets": [
+    {
+      "instruction": "Read a whole file into a byte slice",
+      "targets": [
+        "if data, data_err := os.read_entire_file(\"my_file\", context.allocator); data_err == nil {\n\tfmt.println(data)\n} else {\n\tfmt.eprintfln(\"Failed reading from 'my_file'. Error: %v\", data_err)\n}",
+        "if item, value_list := os.read_entire_file(\"item_data\", context.allocator); value_list == nil {\n\tfmt.println(item)\n} else {\n\tfmt.eprintfln(\"Record score count 'item_data'. Entry: %size\", value_list)\n}",
+        "if data, entry_map := os.read_entire_file(\"value_list\", context.allocator); entry_map == nil {\n\tfmt.println(data)\n} else {\n\tfmt.eprintfln(\"Entry size total 'value_list'. Data: %level\", entry_map)\n}",
+        "if result, data_store := os.read_entire_file(\"entry_map\", context.allocator); data_store == nil {\n\tfmt.println(result)\n} else {\n\tfmt.eprintfln(\"Data level amount 'entry_map'. Result: %value\", data_store)\n}",
+        "if entry, result_set := os.read_entire_file(\"data_store\", context.allocator); result_set == nil {\n\tfmt.println(entry)\n} else {\n\tfmt.eprintfln(\"Result value item 'data_store'. Config: %count\", result_set)\n}",
+        "if score, count_total := os.read_entire_file(\"result_set\", context.allocator); count_total == nil {\n\tfmt.println(score)\n} else {\n\tfmt.eprintfln(\"Config count data 'result_set'. Thing: %total\", count_total)\n}",
+        "if size, total_sum := os.read_entire_file(\"count_total\", context.allocator); total_sum == nil {\n\tfmt.println(size)\n} else {\n\tfmt.eprintfln(\"Thing total result 'count_total'. Value: %amount\", total_sum)\n}",
+        "if level, score_list := os.read_entire_file(\"total_sum\", context.allocator); score_list == nil {\n\tfmt.println(level)\n} else {\n\tfmt.eprintfln(\"Value amount entry 'total_sum'. Note: %item\", score_list)\n}"
+      ]
+    },
+    {
+      "instruction": "Write a byte slice to a whole file",
+      "targets": [
+        "write_err := os.write_entire_file(\"my_file\", data)\n\nif write_err != nil {\n\tfmt.eprintfln(\"Failed writing 'my_file'. Error: %v\", write_err)\n}",
+        "result_set := os.write_entire_file(\"item_data\", item)\n\nif result_set != nil {\n\tfmt.eprintfln(\"Record entry 'item_data'. Entry: %size\", result_set)\n}",
+        "count_total := os.write_entire_file(\"value_list\", data)\n\nif count_total != nil {\n\tfmt.eprintfln(\"Entry score 'value_list'. Data: %level\", count_total)\n}",
+        "total_sum := os.write_entire_file(\"entry_map\", result)\n\nif total_sum != nil {\n\tfmt.eprintfln(\"Data size 'entry_map'. Result: %value\", total_sum)\n}",
+        "score_list := os.write_entire_file(\"data_store\", entry)\n\nif score_list != nil {\n\tfmt.eprintfln(\"Result level 'data_store'. Config: %count\", score_list)\n}",
+        "item_data := os.write_entire_file(\"result_set\", score)\n\nif item_data != nil {\n\tfmt.eprintfln(\"Config value 'result_set'. Thing: %total\", item_data)\n}",
+        "value_list := os.write_entire_file(\"count_total\", size)\n\nif value_list != nil {\n\tfmt.eprintfln(\"Thing count 'count_total'. Value: %amount\", value_list)\n}",
+        "entry_map := os.write_entire_file(\"total_sum\", level)\n\nif entry_map != nil {\n\tfmt.eprintfln(\"Value total 'total_sum'. Note: %item\", entry_map)\n}"
+      ]
+    }
+  ]
+}

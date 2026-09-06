@@ -1,0 +1,99 @@
+{
+  "name": "Bit sets",
+  "group": 15,
+  "groupTitle": "Bit types",
+  "order": "15.1",
+  "snippets": [
+    {
+      "instruction": "Declare a bit_set over an enum and add members",
+      "targets": [
+        "Keycard :: enum {\n\tRed,\n\tGreen,\n\tBlue,\n\tYellow,\n}\n\nkeycards: bit_set[Keycard]\nkeycards += { .Red, .Blue }\nfmt.println(keycards)",
+        "Record :: enum {\n\tData,\n\tValue,\n\tEntry,\n\tEntity,\n}\n\nscore: bit_set[Record]\nscore += { .Data, .Entry }\nfmt.println(score)",
+        "Entry :: enum {\n\tResult,\n\tNote,\n\tData,\n\tRecord,\n}\n\nsize: bit_set[Entry]\nsize += { .Result, .Data }\nfmt.println(size)",
+        "Data :: enum {\n\tConfig,\n\tItem,\n\tResult,\n\tEntry,\n}\n\nlevel: bit_set[Data]\nlevel += { .Config, .Result }\nfmt.println(level)",
+        "Result :: enum {\n\tThing,\n\tEntity,\n\tConfig,\n\tData,\n}\n\nvalue: bit_set[Result]\nvalue += { .Thing, .Config }\nfmt.println(value)",
+        "Config :: enum {\n\tValue,\n\tRecord,\n\tThing,\n\tResult,\n}\n\ncount: bit_set[Config]\ncount += { .Value, .Thing }\nfmt.println(count)",
+        "Thing :: enum {\n\tNote,\n\tEntry,\n\tValue,\n\tConfig,\n}\n\ntotal: bit_set[Thing]\ntotal += { .Note, .Value }\nfmt.println(total)",
+        "Value :: enum {\n\tItem,\n\tData,\n\tNote,\n\tThing,\n}\n\namount: bit_set[Value]\namount += { .Item, .Note }\nfmt.println(amount)"
+      ]
+    },
+    {
+      "instruction": "Add and remove bit_set members",
+      "targets": [
+        "keycards := bit_set[Keycard] { .Red, .Blue, .Green }\nkeycards += { .Yellow }\nkeycards -= { .Red, .Green }\nfmt.println(keycards)",
+        "score := bit_set[Record] { .Data, .Entry, .Value }\nscore += { .Entity }\nscore -= { .Data, .Value }\nfmt.println(score)",
+        "size := bit_set[Entry] { .Result, .Data, .Note }\nsize += { .Record }\nsize -= { .Result, .Note }\nfmt.println(size)",
+        "level := bit_set[Data] { .Config, .Result, .Item }\nlevel += { .Entry }\nlevel -= { .Config, .Item }\nfmt.println(level)",
+        "value := bit_set[Result] { .Thing, .Config, .Entity }\nvalue += { .Data }\nvalue -= { .Thing, .Entity }\nfmt.println(value)",
+        "count := bit_set[Config] { .Value, .Thing, .Record }\ncount += { .Result }\ncount -= { .Value, .Record }\nfmt.println(count)",
+        "total := bit_set[Thing] { .Note, .Value, .Entry }\ntotal += { .Config }\ntotal -= { .Note, .Entry }\nfmt.println(total)",
+        "amount := bit_set[Value] { .Item, .Note, .Data }\namount += { .Thing }\namount -= { .Item, .Data }\nfmt.println(amount)"
+      ]
+    },
+    {
+      "instruction": "Check membership with in and not_in",
+      "targets": [
+        "keycards := bit_set[Keycard] { .Red, .Blue, .Green }\nfmt.println(.Red in keycards)\nfmt.println(.Yellow not_in keycards)",
+        "score := bit_set[Record] { .Data, .Entry, .Value }\nfmt.println(.Data in score)\nfmt.println(.Entity not_in score)",
+        "size := bit_set[Entry] { .Result, .Data, .Note }\nfmt.println(.Result in size)\nfmt.println(.Record not_in size)",
+        "level := bit_set[Data] { .Config, .Result, .Item }\nfmt.println(.Config in level)\nfmt.println(.Entry not_in level)",
+        "value := bit_set[Result] { .Thing, .Config, .Entity }\nfmt.println(.Thing in value)\nfmt.println(.Data not_in value)",
+        "count := bit_set[Config] { .Value, .Thing, .Record }\nfmt.println(.Value in count)\nfmt.println(.Result not_in count)",
+        "total := bit_set[Thing] { .Note, .Value, .Entry }\nfmt.println(.Note in total)\nfmt.println(.Config not_in total)",
+        "amount := bit_set[Value] { .Item, .Note, .Data }\nfmt.println(.Item in amount)\nfmt.println(.Thing not_in amount)"
+      ]
+    },
+    {
+      "instruction": "Intersect two bit_sets with &",
+      "targets": [
+        "cards1 := bit_set[Keycard] { .Red, .Blue }\ncards2 := bit_set[Keycard] { .Yellow, .Blue }\nin_common := cards1 & cards2\nfmt.println(in_common)",
+        "item := bit_set[Record] { .Data, .Entry }\namount := bit_set[Record] { .Entity, .Entry }\nresult_set := item & amount\nfmt.println(result_set)",
+        "data := bit_set[Entry] { .Result, .Data }\nitem := bit_set[Entry] { .Record, .Data }\ncount_total := data & item\nfmt.println(count_total)",
+        "result := bit_set[Data] { .Config, .Result }\ndata := bit_set[Data] { .Entry, .Result }\ntotal_sum := result & data\nfmt.println(total_sum)",
+        "entry := bit_set[Result] { .Thing, .Config }\nresult := bit_set[Result] { .Data, .Config }\nscore_list := entry & result\nfmt.println(score_list)",
+        "score := bit_set[Config] { .Value, .Thing }\nentry := bit_set[Config] { .Result, .Thing }\nitem_data := score & entry\nfmt.println(item_data)",
+        "size := bit_set[Thing] { .Note, .Value }\nscore := bit_set[Thing] { .Config, .Value }\nvalue_list := size & score\nfmt.println(value_list)",
+        "level := bit_set[Value] { .Item, .Note }\nsize := bit_set[Value] { .Thing, .Note }\nentry_map := level & size\nfmt.println(entry_map)"
+      ]
+    },
+    {
+      "instruction": "Use a bit_set over a range of integers",
+      "targets": [
+        "numbers: bit_set[0..=5]\nnumbers += {4, 2}\nfmt.println(numbers)\nfmt.println(2 in numbers)",
+        "data: bit_set[0..=200]\ndata += {10, 2}\nfmt.println(data)\nfmt.println(2 in data)",
+        "result: bit_set[0..=128]\nresult += {200, 2}\nfmt.println(result)\nfmt.println(2 in result)",
+        "entry: bit_set[0..=7]\nentry += {128, 2}\nfmt.println(entry)\nfmt.println(2 in entry)",
+        "score: bit_set[0..=42]\nscore += {7, 2}\nfmt.println(score)\nfmt.println(2 in score)",
+        "size: bit_set[0..=13]\nsize += {42, 2}\nfmt.println(size)\nfmt.println(2 in size)",
+        "level: bit_set[0..=100]\nlevel += {13, 2}\nfmt.println(level)\nfmt.println(2 in level)",
+        "value: bit_set[0..=3]\nvalue += {100, 2}\nfmt.println(value)\nfmt.println(2 in value)"
+      ]
+    },
+    {
+      "instruction": "Use a bit_set over letters",
+      "targets": [
+        "letters: bit_set['A'..='Z']\nletters += {'B', 'Q'}\nfmt.println('E' in letters)",
+        "count: bit_set['A'..='Z']\ncount += {'B', 'Q'}\nfmt.println('E' in count)",
+        "total: bit_set['A'..='Z']\ntotal += {'B', 'Q'}\nfmt.println('E' in total)",
+        "amount: bit_set['A'..='Z']\namount += {'B', 'Q'}\nfmt.println('E' in amount)",
+        "item: bit_set['A'..='Z']\nitem += {'B', 'Q'}\nfmt.println('E' in item)",
+        "data: bit_set['A'..='Z']\ndata += {'B', 'Q'}\nfmt.println('E' in data)",
+        "result: bit_set['A'..='Z']\nresult += {'B', 'Q'}\nfmt.println('E' in result)",
+        "entry: bit_set['A'..='Z']\nentry += {'B', 'Q'}\nfmt.println('E' in entry)"
+      ]
+    },
+    {
+      "instruction": "Use a bit_set with a backing type",
+      "targets": [
+        "Keycard :: enum {\n\tRed,\n\tGreen,\n\tBlue,\n\tYellow,\n}\n\nkeycards: bit_set[Keycard; i8]",
+        "Record :: enum {\n\tData,\n\tValue,\n\tEntry,\n\tEntity,\n}\n\nscore: bit_set[Record; i8]",
+        "Entry :: enum {\n\tResult,\n\tNote,\n\tData,\n\tRecord,\n}\n\nsize: bit_set[Entry; i8]",
+        "Data :: enum {\n\tConfig,\n\tItem,\n\tResult,\n\tEntry,\n}\n\nlevel: bit_set[Data; i8]",
+        "Result :: enum {\n\tThing,\n\tEntity,\n\tConfig,\n\tData,\n}\n\nvalue: bit_set[Result; i8]",
+        "Config :: enum {\n\tValue,\n\tRecord,\n\tThing,\n\tResult,\n}\n\ncount: bit_set[Config; i8]",
+        "Thing :: enum {\n\tNote,\n\tEntry,\n\tValue,\n\tConfig,\n}\n\ntotal: bit_set[Thing; i8]",
+        "Value :: enum {\n\tItem,\n\tData,\n\tNote,\n\tThing,\n}\n\namount: bit_set[Value; i8]"
+      ]
+    }
+  ]
+}

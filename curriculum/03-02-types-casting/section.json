@@ -1,0 +1,112 @@
+{
+  "name": "Types & casting",
+  "group": 3,
+  "groupTitle": "Variables",
+  "order": "3.2",
+  "snippets": [
+    {
+      "instruction": "Declare an int variable and assign it a value",
+      "targets": [
+        "decimal_number: f32 = 7",
+        "entry_map: f32 = 7",
+        "data_store: f32 = 42",
+        "result_set: f32 = 13",
+        "count_total: f32 = 100",
+        "total_sum: f32 = 3",
+        "score_list: f32 = 9",
+        "item_data: f32 = 25"
+      ]
+    },
+    {
+      "instruction": "Cast a value to f32 with an explicit conversion",
+      "targets": [
+        "decimal_number := f32(7)",
+        "entry_map := f32(7)",
+        "data_store := f32(42)",
+        "result_set := f32(13)",
+        "count_total := f32(100)",
+        "total_sum := f32(3)",
+        "score_list := f32(9)",
+        "item_data := f32(25)"
+      ]
+    },
+    {
+      "instruction": "Declare a variable and assign a value",
+      "targets": [
+        "decimal_number: f32 = 7.42",
+        "entry_map: f32 = 7.10",
+        "data_store: f32 = 42.200",
+        "result_set: f32 = 13.128",
+        "count_total: f32 = 100.7",
+        "total_sum: f32 = 3.42",
+        "score_list: f32 = 9.13",
+        "item_data: f32 = 25.100"
+      ]
+    },
+    {
+      "instruction": "Declare an f32 variable from a literal (type inferred)",
+      "targets": [
+        "decimal_number := 7.42",
+        "entry_map := 7.10",
+        "data_store := 42.200",
+        "result_set := 13.128",
+        "count_total := 100.7",
+        "total_sum := 3.42",
+        "score_list := 9.13",
+        "item_data := 25.100"
+      ]
+    },
+    {
+      "instruction": "Declare two f32 variables, both equal to a value",
+      "targets": [
+        "number := 7\ndecimal_number: f32 = 7",
+        "level := 7\nentry_map: f32 = 7",
+        "value := 42\ndata_store: f32 = 42",
+        "count := 13\nresult_set: f32 = 13",
+        "total := 100\ncount_total: f32 = 100",
+        "amount := 3\ntotal_sum: f32 = 3",
+        "item := 9\nscore_list: f32 = 9",
+        "data := 25\nitem_data: f32 = 25"
+      ]
+    },
+    {
+      "instruction": "Declare a variable as f32, then assign a value in a second statement",
+      "targets": [
+        "decimal_number: f32\ndecimal_number = 7",
+        "entry_map: f32\nentry_map = 7",
+        "data_store: f32\ndata_store = 42",
+        "result_set: f32\nresult_set = 13",
+        "count_total: f32\ncount_total = 100",
+        "total_sum: f32\ntotal_sum = 3",
+        "score_list: f32\nscore_list = 9",
+        "item_data: f32\nitem_data = 25"
+      ]
+    },
+    {
+      "instruction": "Assign a value to an f32 variable (type inferred)",
+      "targets": [
+        "decimal_number := 13.38",
+        "entry_map := 100.7",
+        "data_store := 3.42",
+        "result_set := 9.13",
+        "count_total := 25.100",
+        "total_sum := 64.3",
+        "score_list := 512.9",
+        "item_data := 2.25"
+      ]
+    },
+    {
+      "instruction": "Assign a value to an f32 variable and an f64 variable",
+      "targets": [
+        "decimal_32: f32\ndecimal_32 = 0.5\n\ndecimal_64: f64\ndecimal_64 = 0.5",
+        "result_set: f32\nresult_set = 0.200\n\ncount_total: f64\ncount_total = 0.200",
+        "count_total: f32\ncount_total = 0.128\n\ntotal_sum: f64\ntotal_sum = 0.128",
+        "total_sum: f32\ntotal_sum = 0.7\n\nscore_list: f64\nscore_list = 0.7",
+        "score_list: f32\nscore_list = 0.42\n\nitem_data: f64\nitem_data = 0.42",
+        "item_data: f32\nitem_data = 0.13\n\nvalue_list: f64\nvalue_list = 0.13",
+        "value_list: f32\nvalue_list = 0.100\n\nentry_map: f64\nentry_map = 0.100",
+        "entry_map: f32\nentry_map = 0.3\n\ndata_store: f64\ndata_store = 0.3"
+      ]
+    }
+  ]
+}

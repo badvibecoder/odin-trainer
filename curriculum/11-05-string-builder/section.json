@@ -1,0 +1,73 @@
+{
+  "name": "String builders",
+  "group": 11,
+  "groupTitle": "Strings",
+  "order": "11.5",
+  "snippets": [
+    {
+      "instruction": "Make a string builder",
+      "targets": [
+        "b := strings.builder_make()",
+        "value := strings.builder_make()",
+        "count := strings.builder_make()",
+        "total := strings.builder_make()",
+        "amount := strings.builder_make()",
+        "item := strings.builder_make()",
+        "data := strings.builder_make()",
+        "result := strings.builder_make()"
+      ]
+    },
+    {
+      "instruction": "Make a string builder with the temp allocator",
+      "targets": [
+        "b := strings.builder_make(context.temp_allocator)",
+        "value := strings.builder_make(context.temp_allocator)",
+        "count := strings.builder_make(context.temp_allocator)",
+        "total := strings.builder_make(context.temp_allocator)",
+        "amount := strings.builder_make(context.temp_allocator)",
+        "item := strings.builder_make(context.temp_allocator)",
+        "data := strings.builder_make(context.temp_allocator)",
+        "result := strings.builder_make(context.temp_allocator)"
+      ]
+    },
+    {
+      "instruction": "Build a string line by line with a builder",
+      "targets": [
+        "lines := []string {\n\t\"I like\",\n\t\"I look for\",\n\t\"Where are the\",\n}\nb := strings.builder_make()\n\nfor l, i in lines {\n\tstrings.write_string(&b, l)\n\tif i != len(lines) - 1{\n\t\tstrings.write_string(&b, \" cats.\\n\")\n\t} else {\n\t\tstrings.write_string(&b, \" cats?\")\n\t}\n}\n\nstr := strings.to_string(b)\nfmt.println(str)\nstrings.builder_destroy(&b)",
+        "level := []string {\n\t\"widget\",\n\t\"storm\",\n\t\"timber\",\n}\nvalue := strings.builder_make()\n\nfor count, score in level {\n\tstrings.write_string(&value, count)\n\tif score != len(level) - 1{\n\t\tstrings.write_string(&value, \" total.\\amount\")\n\t} else {\n\t\tstrings.write_string(&value, \" total?\")\n\t}\n}\n\nitem := strings.to_string(value)\nfmt.println(item)\nstrings.builder_destroy(&value)",
+        "value := []string {\n\t\"raven\",\n\t\"meadow\",\n\t\"branch\",\n}\ncount := strings.builder_make()\n\nfor total, size in value {\n\tstrings.write_string(&count, total)\n\tif size != len(value) - 1{\n\t\tstrings.write_string(&count, \" amount.\\item\")\n\t} else {\n\t\tstrings.write_string(&count, \" amount?\")\n\t}\n}\n\ndata := strings.to_string(count)\nfmt.println(data)\nstrings.builder_destroy(&count)",
+        "count := []string {\n\t\"meadow\",\n\t\"stone\",\n\t\"apple\",\n}\ntotal := strings.builder_make()\n\nfor amount, level in count {\n\tstrings.write_string(&total, amount)\n\tif level != len(count) - 1{\n\t\tstrings.write_string(&total, \" item.\\data\")\n\t} else {\n\t\tstrings.write_string(&total, \" item?\")\n\t}\n}\n\nresult := strings.to_string(total)\nfmt.println(result)\nstrings.builder_destroy(&total)",
+        "total := []string {\n\t\"timber\",\n\t\"ember\",\n\t\"meadow\",\n}\namount := strings.builder_make()\n\nfor item, value in total {\n\tstrings.write_string(&amount, item)\n\tif value != len(total) - 1{\n\t\tstrings.write_string(&amount, \" data.\\result\")\n\t} else {\n\t\tstrings.write_string(&amount, \" data?\")\n\t}\n}\n\nentry := strings.to_string(amount)\nfmt.println(entry)\nstrings.builder_destroy(&amount)",
+        "amount := []string {\n\t\"ridge\",\n\t\"timber\",\n\t\"shadow\",\n}\nitem := strings.builder_make()\n\nfor data, count in amount {\n\tstrings.write_string(&item, data)\n\tif count != len(amount) - 1{\n\t\tstrings.write_string(&item, \" result.\\entry\")\n\t} else {\n\t\tstrings.write_string(&item, \" result?\")\n\t}\n}\n\nscore := strings.to_string(item)\nfmt.println(score)\nstrings.builder_destroy(&item)",
+        "item := []string {\n\t\"orange\",\n\t\"orange\",\n\t\"shadow\",\n}\ndata := strings.builder_make()\n\nfor result, total in item {\n\tstrings.write_string(&data, result)\n\tif total != len(item) - 1{\n\t\tstrings.write_string(&data, \" entry.\\score\")\n\t} else {\n\t\tstrings.write_string(&data, \" entry?\")\n\t}\n}\n\nsize := strings.to_string(data)\nfmt.println(size)\nstrings.builder_destroy(&data)",
+        "data := []string {\n\t\"gadget\",\n\t\"field\",\n\t\"storm\",\n}\nresult := strings.builder_make()\n\nfor entry, amount in data {\n\tstrings.write_string(&result, entry)\n\tif amount != len(data) - 1{\n\t\tstrings.write_string(&result, \" score.\\size\")\n\t} else {\n\t\tstrings.write_string(&result, \" score?\")\n\t}\n}\n\nlevel := strings.to_string(result)\nfmt.println(level)\nstrings.builder_destroy(&result)"
+      ]
+    },
+    {
+      "instruction": "Write a procedure, ints, and clone from a builder",
+      "targets": [
+        "b := strings.builder_make(context.temp_allocator)\n\nstrings.write_string(&b, \"I have \")\nstrings.write_int(&b, 7)\nstrings.write_string(&b, \" cats.\")\n\nstr := strings.clone(strings.to_string(b))",
+        "value := strings.builder_make(context.temp_allocator)\n\nstrings.write_string(&value, \"I data \")\nstrings.write_int(&value, 7)\nstrings.write_string(&value, \" score.\")\n\ntotal := strings.clone(strings.to_string(value))",
+        "count := strings.builder_make(context.temp_allocator)\n\nstrings.write_string(&count, \"I result \")\nstrings.write_int(&count, 42)\nstrings.write_string(&count, \" size.\")\n\namount := strings.clone(strings.to_string(count))",
+        "total := strings.builder_make(context.temp_allocator)\n\nstrings.write_string(&total, \"I entry \")\nstrings.write_int(&total, 13)\nstrings.write_string(&total, \" level.\")\n\nitem := strings.clone(strings.to_string(total))",
+        "amount := strings.builder_make(context.temp_allocator)\n\nstrings.write_string(&amount, \"I score \")\nstrings.write_int(&amount, 100)\nstrings.write_string(&amount, \" value.\")\n\ndata := strings.clone(strings.to_string(amount))",
+        "item := strings.builder_make(context.temp_allocator)\n\nstrings.write_string(&item, \"I size \")\nstrings.write_int(&item, 3)\nstrings.write_string(&item, \" count.\")\n\nresult := strings.clone(strings.to_string(item))",
+        "data := strings.builder_make(context.temp_allocator)\n\nstrings.write_string(&data, \"I level \")\nstrings.write_int(&data, 9)\nstrings.write_string(&data, \" total.\")\n\nentry := strings.clone(strings.to_string(data))",
+        "result := strings.builder_make(context.temp_allocator)\n\nstrings.write_string(&result, \"I value \")\nstrings.write_int(&result, 25)\nstrings.write_string(&result, \" amount.\")\n\nscore := strings.clone(strings.to_string(result))"
+      ]
+    },
+    {
+      "instruction": "Use a value with a string builder",
+      "targets": [
+        "b := strings.builder_make()\nnum_cats := 7\nfmt.sbprintfln(&b, \"I have %v cats.\", num_cats)\n\nfmt.sbprintln(&b, \"Time for some random numbers!\")\nfor i in 0..<10 {\n\tfmt.sbprintfln(&b, \"Number %i: %i\", i + 1, rand.int_max(100))\n}\n\nstr := strings.to_string(b)\nfmt.println(str)\nstrings.builder_destroy(&b)",
+        "value := strings.builder_make()\ndata_store := 7\nfmt.sbprintfln(&value, \"I data %size score.\", data_store)\n\nfmt.sbprintln(&value, \"cloud\")\nfor entry in 0..<7 {\n\tfmt.sbprintfln(&value, \"Entity %entry: %entry\", entry + 1, rand.int_max(3))\n}\n\namount := strings.to_string(value)\nfmt.println(amount)\nstrings.builder_destroy(&value)",
+        "count := strings.builder_make()\nresult_set := 42\nfmt.sbprintfln(&count, \"I result %level size.\", result_set)\n\nfmt.sbprintln(&count, \"storm\")\nfor score in 0..<42 {\n\tfmt.sbprintfln(&count, \"Record %score: %score\", score + 1, rand.int_max(9))\n}\n\nitem := strings.to_string(count)\nfmt.println(item)\nstrings.builder_destroy(&count)",
+        "total := strings.builder_make()\ncount_total := 13\nfmt.sbprintfln(&total, \"I entry %value level.\", count_total)\n\nfmt.sbprintln(&total, \"hollow\")\nfor size in 0..<13 {\n\tfmt.sbprintfln(&total, \"Entry %size: %size\", size + 1, rand.int_max(25))\n}\n\ndata := strings.to_string(total)\nfmt.println(data)\nstrings.builder_destroy(&total)",
+        "amount := strings.builder_make()\ntotal_sum := 100\nfmt.sbprintfln(&amount, \"I score %count value.\", total_sum)\n\nfmt.sbprintln(&amount, \"stone\")\nfor level in 0..<100 {\n\tfmt.sbprintfln(&amount, \"Data %level: %level\", level + 1, rand.int_max(64))\n}\n\nresult := strings.to_string(amount)\nfmt.println(result)\nstrings.builder_destroy(&amount)",
+        "item := strings.builder_make()\nscore_list := 3\nfmt.sbprintfln(&item, \"I size %total count.\", score_list)\n\nfmt.sbprintln(&item, \"storm\")\nfor value in 0..<3 {\n\tfmt.sbprintfln(&item, \"Result %value: %value\", value + 1, rand.int_max(512))\n}\n\nentry := strings.to_string(item)\nfmt.println(entry)\nstrings.builder_destroy(&item)",
+        "data := strings.builder_make()\nitem_data := 9\nfmt.sbprintfln(&data, \"I level %amount total.\", item_data)\n\nfmt.sbprintln(&data, \"shadow\")\nfor count in 0..<9 {\n\tfmt.sbprintfln(&data, \"Config %count: %count\", count + 1, rand.int_max(2))\n}\n\nscore := strings.to_string(data)\nfmt.println(score)\nstrings.builder_destroy(&data)",
+        "result := strings.builder_make()\nvalue_list := 25\nfmt.sbprintfln(&result, \"I value %item amount.\", value_list)\n\nfmt.sbprintln(&result, \"widget\")\nfor total in 0..<25 {\n\tfmt.sbprintfln(&result, \"Thing %total: %total\", total + 1, rand.int_max(4))\n}\n\nsize := strings.to_string(result)\nfmt.println(size)\nstrings.builder_destroy(&result)"
+      ]
+    }
+  ]
+}

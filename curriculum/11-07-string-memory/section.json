@@ -1,0 +1,47 @@
+{
+  "name": "String memory",
+  "group": 11,
+  "groupTitle": "Strings",
+  "order": "11.7",
+  "snippets": [
+    {
+      "instruction": "Delete keys of a map of strings",
+      "targets": [
+        "for key, value in str_to_number {\n\tdelete(key)\n}",
+        "for entry, item in item_data {\n\tdelete(entry)\n}",
+        "for score, data in value_list {\n\tdelete(score)\n}",
+        "for size, result in entry_map {\n\tdelete(size)\n}",
+        "for level, entry in data_store {\n\tdelete(level)\n}",
+        "for value, score in result_set {\n\tdelete(value)\n}",
+        "for count, size in count_total {\n\tdelete(count)\n}",
+        "for total, level in total_sum {\n\tdelete(total)\n}"
+      ]
+    },
+    {
+      "instruction": "Use cloned strings for map keys",
+      "targets": [
+        "str_to_number: map[string]int\n\nstr_to_number[strings.clone(\"Hello!\")] = 5\nstr_to_number[strings.clone(\"Hi!\")] = 1\nstr_to_number[strings.clone(\"Dynamically allocated!\")] = 7\nstr_to_number[strings.clone(\"Constant!\")] = 42\nstr_to_number[strings.clone(\"Dynamic!\")] = 8\n\nfor key, value in str_to_number {\n\tdelete(key)\n}\n\ndelete(str_to_number)",
+        "item_data: map[string]int\n\nitem_data[strings.clone(\"timber\")] = 200\nitem_data[strings.clone(\"gadget\")] = 1\nitem_data[strings.clone(\"storm\")] = 7\nitem_data[strings.clone(\"meadow\")] = 10\nitem_data[strings.clone(\"gadget\")] = 42\n\nfor entry, item in item_data {\n\tdelete(entry)\n}\n\ndelete(item_data)",
+        "value_list: map[string]int\n\nvalue_list[strings.clone(\"widget\")] = 128\nvalue_list[strings.clone(\"gadget\")] = 1\nvalue_list[strings.clone(\"stone\")] = 42\nvalue_list[strings.clone(\"widget\")] = 200\nvalue_list[strings.clone(\"gadget\")] = 13\n\nfor score, data in value_list {\n\tdelete(score)\n}\n\ndelete(value_list)",
+        "entry_map: map[string]int\n\nentry_map[strings.clone(\"widget\")] = 7\nentry_map[strings.clone(\"gadget\")] = 1\nentry_map[strings.clone(\"branch\")] = 13\nentry_map[strings.clone(\"widget\")] = 128\nentry_map[strings.clone(\"branch\")] = 100\n\nfor size, result in entry_map {\n\tdelete(size)\n}\n\ndelete(entry_map)",
+        "data_store: map[string]int\n\ndata_store[strings.clone(\"shadow\")] = 42\ndata_store[strings.clone(\"widget\")] = 1\ndata_store[strings.clone(\"raven\")] = 100\ndata_store[strings.clone(\"widget\")] = 7\ndata_store[strings.clone(\"apple\")] = 3\n\nfor level, entry in data_store {\n\tdelete(level)\n}\n\ndelete(data_store)",
+        "result_set: map[string]int\n\nresult_set[strings.clone(\"gadget\")] = 13\nresult_set[strings.clone(\"ember\")] = 1\nresult_set[strings.clone(\"orange\")] = 3\nresult_set[strings.clone(\"orange\")] = 42\nresult_set[strings.clone(\"raven\")] = 9\n\nfor value, score in result_set {\n\tdelete(value)\n}\n\ndelete(result_set)",
+        "count_total: map[string]int\n\ncount_total[strings.clone(\"stone\")] = 100\ncount_total[strings.clone(\"ember\")] = 1\ncount_total[strings.clone(\"cloud\")] = 9\ncount_total[strings.clone(\"raven\")] = 13\ncount_total[strings.clone(\"orange\")] = 25\n\nfor count, size in count_total {\n\tdelete(count)\n}\n\ndelete(count_total)",
+        "total_sum: map[string]int\n\ntotal_sum[strings.clone(\"storm\")] = 3\ntotal_sum[strings.clone(\"meadow\")] = 1\ntotal_sum[strings.clone(\"storm\")] = 25\ntotal_sum[strings.clone(\"raven\")] = 100\ntotal_sum[strings.clone(\"stone\")] = 64\n\nfor total, level in total_sum {\n\tdelete(total)\n}\n\ndelete(total_sum)"
+      ]
+    },
+    {
+      "instruction": "Use an arena allocator for map keys",
+      "targets": [
+        "arena: vmem.Arena\narena_allocator := vmem.arena_allocator(&arena)\nstr_to_number: map[string]int\n\nstr_to_number[\"Hello!\"] = 5\nstr_to_number[\"Hi!\"] = 1\nstr_to_number[strings.clone(\"Dynamically allocated!\", arena_allocator)] = 7\nstr_to_number[\"Constant!\"] = 42\nstr_to_number[strings.clone(\"Dynamic!\", arena_allocator)] = 8\n\nvmem.arena_destroy(&arena)\ndelete(str_to_number)",
+        "size: vmem.Arena\narena_allocator := vmem.arena_allocator(&size)\nitem_data: map[string]int\n\nitem_data[\"timber\"] = 200\nitem_data[\"gadget\"] = 1\nitem_data[strings.clone(\"storm\", arena_allocator)] = 7\nitem_data[\"meadow\"] = 10\nitem_data[strings.clone(\"gadget\", arena_allocator)] = 42\n\nvmem.arena_destroy(&size)\ndelete(item_data)",
+        "level: vmem.Arena\narena_allocator := vmem.arena_allocator(&level)\nvalue_list: map[string]int\n\nvalue_list[\"widget\"] = 128\nvalue_list[\"gadget\"] = 1\nvalue_list[strings.clone(\"stone\", arena_allocator)] = 42\nvalue_list[\"widget\"] = 200\nvalue_list[strings.clone(\"gadget\", arena_allocator)] = 13\n\nvmem.arena_destroy(&level)\ndelete(value_list)",
+        "value: vmem.Arena\narena_allocator := vmem.arena_allocator(&value)\nentry_map: map[string]int\n\nentry_map[\"widget\"] = 7\nentry_map[\"gadget\"] = 1\nentry_map[strings.clone(\"branch\", arena_allocator)] = 13\nentry_map[\"widget\"] = 128\nentry_map[strings.clone(\"branch\", arena_allocator)] = 100\n\nvmem.arena_destroy(&value)\ndelete(entry_map)",
+        "count: vmem.Arena\narena_allocator := vmem.arena_allocator(&count)\ndata_store: map[string]int\n\ndata_store[\"shadow\"] = 42\ndata_store[\"widget\"] = 1\ndata_store[strings.clone(\"raven\", arena_allocator)] = 100\ndata_store[\"widget\"] = 7\ndata_store[strings.clone(\"apple\", arena_allocator)] = 3\n\nvmem.arena_destroy(&count)\ndelete(data_store)",
+        "total: vmem.Arena\narena_allocator := vmem.arena_allocator(&total)\nresult_set: map[string]int\n\nresult_set[\"gadget\"] = 13\nresult_set[\"ember\"] = 1\nresult_set[strings.clone(\"orange\", arena_allocator)] = 3\nresult_set[\"orange\"] = 42\nresult_set[strings.clone(\"raven\", arena_allocator)] = 9\n\nvmem.arena_destroy(&total)\ndelete(result_set)",
+        "amount: vmem.Arena\narena_allocator := vmem.arena_allocator(&amount)\ncount_total: map[string]int\n\ncount_total[\"stone\"] = 100\ncount_total[\"ember\"] = 1\ncount_total[strings.clone(\"cloud\", arena_allocator)] = 9\ncount_total[\"raven\"] = 13\ncount_total[strings.clone(\"orange\", arena_allocator)] = 25\n\nvmem.arena_destroy(&amount)\ndelete(count_total)",
+        "item: vmem.Arena\narena_allocator := vmem.arena_allocator(&item)\ntotal_sum: map[string]int\n\ntotal_sum[\"storm\"] = 3\ntotal_sum[\"meadow\"] = 1\ntotal_sum[strings.clone(\"storm\", arena_allocator)] = 25\ntotal_sum[\"raven\"] = 100\ntotal_sum[strings.clone(\"stone\", arena_allocator)] = 64\n\nvmem.arena_destroy(&item)\ndelete(total_sum)"
+      ]
+    }
+  ]
+}

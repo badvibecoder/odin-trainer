@@ -1,0 +1,47 @@
+{
+  "name": "Structure of arrays (SoA)",
+  "group": 20,
+  "groupTitle": "Data-oriented design",
+  "order": "20.2",
+  "snippets": [
+    {
+      "instruction": "Append Persons to an array of structs",
+      "targets": [
+        "people: [dynamic]Person\n\nfor i in 0..<1000 {\n\tappend(&people, Person { health = rand.int_max(101), age = rand.int_max(101) })\n}",
+        "size: [dynamic]Config\n\nfor entry in 0..<13 {\n\tappend(&size, Config { value = rand.int_max(9), level = rand.int_max(9) })\n}",
+        "level: [dynamic]Thing\n\nfor score in 0..<100 {\n\tappend(&level, Thing { count = rand.int_max(25), value = rand.int_max(25) })\n}",
+        "value: [dynamic]Value\n\nfor size in 0..<3 {\n\tappend(&value, Value { total = rand.int_max(64), count = rand.int_max(64) })\n}",
+        "count: [dynamic]Note\n\nfor level in 0..<9 {\n\tappend(&count, Note { amount = rand.int_max(512), total = rand.int_max(512) })\n}",
+        "total: [dynamic]Item\n\nfor value in 0..<25 {\n\tappend(&total, Item { item = rand.int_max(2), amount = rand.int_max(2) })\n}",
+        "amount: [dynamic]Entity\n\nfor count in 0..<64 {\n\tappend(&amount, Entity { data = rand.int_max(4), item = rand.int_max(4) })\n}",
+        "item: [dynamic]Record\n\nfor total in 0..<512 {\n\tappend(&item, Record { result = rand.int_max(10), data = rand.int_max(10) })\n}"
+      ]
+    },
+    {
+      "instruction": "Declare and append to a #soa dynamic array",
+      "targets": [
+        "people: #soa[dynamic]Person\n\nfor i in 0..<1000 {\n\tappend_soa(&people, Person{ health = rand.int_max(101), age = rand.int_max(101)})\n}",
+        "size: #soa[dynamic]Config\n\nfor entry in 0..<13 {\n\tappend_soa(&size, Config{ value = rand.int_max(9), level = rand.int_max(9)})\n}",
+        "level: #soa[dynamic]Thing\n\nfor score in 0..<100 {\n\tappend_soa(&level, Thing{ count = rand.int_max(25), value = rand.int_max(25)})\n}",
+        "value: #soa[dynamic]Value\n\nfor size in 0..<3 {\n\tappend_soa(&value, Value{ total = rand.int_max(64), count = rand.int_max(64)})\n}",
+        "count: #soa[dynamic]Note\n\nfor level in 0..<9 {\n\tappend_soa(&count, Note{ amount = rand.int_max(512), total = rand.int_max(512)})\n}",
+        "total: #soa[dynamic]Item\n\nfor value in 0..<25 {\n\tappend_soa(&total, Item{ item = rand.int_max(2), amount = rand.int_max(2)})\n}",
+        "amount: #soa[dynamic]Entity\n\nfor count in 0..<64 {\n\tappend_soa(&amount, Entity{ data = rand.int_max(4), item = rand.int_max(4)})\n}",
+        "item: #soa[dynamic]Record\n\nfor total in 0..<512 {\n\tappend_soa(&item, Record{ result = rand.int_max(10), data = rand.int_max(10)})\n}"
+      ]
+    },
+    {
+      "instruction": "Iterate a #soa array by pointer",
+      "targets": [
+        "age_sum: int\nfor &p in people {\n\tage_sum += p.age\n}\nage_avg := f32(age_sum)/f32(len(people))",
+        "total_sum: int\nfor &amount in size {\n\ttotal_sum += amount.level\n}\nscore_list := f32(total_sum)/f32(len(size))",
+        "score_list: int\nfor &item in level {\n\tscore_list += item.value\n}\nitem_data := f32(score_list)/f32(len(level))",
+        "item_data: int\nfor &data in value {\n\titem_data += data.count\n}\nvalue_list := f32(item_data)/f32(len(value))",
+        "value_list: int\nfor &result in count {\n\tvalue_list += result.total\n}\nentry_map := f32(value_list)/f32(len(count))",
+        "entry_map: int\nfor &entry in total {\n\tentry_map += entry.amount\n}\ndata_store := f32(entry_map)/f32(len(total))",
+        "data_store: int\nfor &score in amount {\n\tdata_store += score.item\n}\nresult_set := f32(data_store)/f32(len(amount))",
+        "result_set: int\nfor &size in item {\n\tresult_set += size.data\n}\ncount_total := f32(result_set)/f32(len(item))"
+      ]
+    }
+  ]
+}

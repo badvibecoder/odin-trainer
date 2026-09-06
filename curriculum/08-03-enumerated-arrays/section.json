@@ -1,0 +1,47 @@
+{
+  "name": "Enumerated arrays",
+  "group": 8,
+  "groupTitle": "Fixed containers",
+  "order": "8.3",
+  "snippets": [
+    {
+      "instruction": "Declare an array indexed by an enum",
+      "targets": [
+        "Nice_People :: enum {\n\tSam,\n\tSven,\n\tAda,\n}\n\nnice_rating := [Nice_People]int {\n\t.Sam = 5,\n\t.Sven = 7,\n\t.Ada = 3,\n}\n\nbobs_niceness := nice_rating[.Sam]",
+        "Item_Kind :: enum {\n\tItem,\n\tEntry,\n\tData,\n}\n\nentry_map := [Item_Kind]int {\n\t.Item = 200,\n\t.Entry = 7,\n\t.Data = 4,\n}\n\ntotal_sum := entry_map[.Item]",
+        "Entity_Data :: enum {\n\tEntity,\n\tData,\n\tResult,\n}\n\ndata_store := [Entity_Data]int {\n\t.Entity = 128,\n\t.Data = 42,\n\t.Result = 10,\n}\n\nscore_list := data_store[.Entity]",
+        "Record_Type :: enum {\n\tRecord,\n\tResult,\n\tConfig,\n}\n\nresult_set := [Record_Type]int {\n\t.Record = 7,\n\t.Result = 13,\n\t.Config = 200,\n}\n\nitem_data := result_set[.Record]",
+        "Entry_Kind :: enum {\n\tEntry,\n\tConfig,\n\tThing,\n}\n\ncount_total := [Entry_Kind]int {\n\t.Entry = 42,\n\t.Config = 100,\n\t.Thing = 128,\n}\n\nvalue_list := count_total[.Entry]",
+        "Data_Type :: enum {\n\tData,\n\tThing,\n\tValue,\n}\n\ntotal_sum := [Data_Type]int {\n\t.Data = 13,\n\t.Thing = 3,\n\t.Value = 7,\n}\n\nentry_map := total_sum[.Data]",
+        "Item_Record :: enum {\n\tResult,\n\tValue,\n\tNote,\n}\n\nscore_list := [Item_Record]int {\n\t.Result = 100,\n\t.Value = 9,\n\t.Note = 42,\n}\n\ndata_store := score_list[.Result]",
+        "Item_Kind :: enum {\n\tConfig,\n\tNote,\n\tItem,\n}\n\nitem_data := [Item_Kind]int {\n\t.Config = 3,\n\t.Note = 25,\n\t.Item = 13,\n}\n\nresult_set := item_data[.Config]"
+      ]
+    },
+    {
+      "instruction": "Read a value from an enumerated array",
+      "targets": [
+        "bobs_niceness := nice_rating[.Sam]",
+        "total_sum := entry_map[.Item]",
+        "score_list := data_store[.Entity]",
+        "item_data := result_set[.Record]",
+        "value_list := count_total[.Entry]",
+        "entry_map := total_sum[.Data]",
+        "data_store := score_list[.Result]",
+        "result_set := item_data[.Config]"
+      ]
+    },
+    {
+      "instruction": "Declare a partial enumerated array",
+      "targets": [
+        "nice_rating := #partial [Nice_People]int {\n\t.Sven = 10,\n}",
+        "entry_map := #partial [Item_Kind]int {\n\t.Entry = 7,\n}",
+        "data_store := #partial [Entity_Data]int {\n\t.Data = 42,\n}",
+        "result_set := #partial [Record_Type]int {\n\t.Result = 13,\n}",
+        "count_total := #partial [Entry_Kind]int {\n\t.Config = 100,\n}",
+        "total_sum := #partial [Data_Type]int {\n\t.Thing = 3,\n}",
+        "score_list := #partial [Item_Record]int {\n\t.Value = 9,\n}",
+        "item_data := #partial [Item_Kind]int {\n\t.Note = 25,\n}"
+      ]
+    }
+  ]
+}

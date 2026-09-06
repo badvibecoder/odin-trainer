@@ -1,0 +1,60 @@
+{
+  "name": "Cache-friendly arrays",
+  "group": 20,
+  "groupTitle": "Data-oriented design",
+  "order": "20.1",
+  "snippets": [
+    {
+      "instruction": "Append pointers to heap Persons (scattered)",
+      "targets": [
+        "Person :: struct {\n\thealth: int,\n\tage: int,\n}\n\npeople: [dynamic]^Person\n\nadd_person :: proc(health: int, age: int) {\n\tp := new(Person)\n\tp^ = {\n\t\thealth = health,\n\t\tage = age,\n\t}\n\tappend(&people, p)\n}",
+        "Config :: struct {\n\tvalue: int,\n\tsize: int,\n}\n\nlevel: [dynamic]^Config\n\nresult_set :: proc(value: int, size: int) {\n\tamount := new(Config)\n\tamount^ = {\n\t\tvalue = value,\n\t\tsize = size,\n\t}\n\tappend(&level, amount)\n}",
+        "Thing :: struct {\n\tcount: int,\n\tlevel: int,\n}\n\nvalue: [dynamic]^Thing\n\ncount_total :: proc(count: int, level: int) {\n\titem := new(Thing)\n\titem^ = {\n\t\tcount = count,\n\t\tlevel = level,\n\t}\n\tappend(&value, item)\n}",
+        "Value :: struct {\n\ttotal: int,\n\tvalue: int,\n}\n\ncount: [dynamic]^Value\n\ntotal_sum :: proc(total: int, value: int) {\n\tdata := new(Value)\n\tdata^ = {\n\t\ttotal = total,\n\t\tvalue = value,\n\t}\n\tappend(&count, data)\n}",
+        "Note :: struct {\n\tamount: int,\n\tcount: int,\n}\n\ntotal: [dynamic]^Note\n\nscore_list :: proc(amount: int, count: int) {\n\tresult := new(Note)\n\tresult^ = {\n\t\tamount = amount,\n\t\tcount = count,\n\t}\n\tappend(&total, result)\n}",
+        "Item :: struct {\n\titem: int,\n\ttotal: int,\n}\n\namount: [dynamic]^Item\n\nitem_data :: proc(item: int, total: int) {\n\tentry := new(Item)\n\tentry^ = {\n\t\titem = item,\n\t\ttotal = total,\n\t}\n\tappend(&amount, entry)\n}",
+        "Entity :: struct {\n\tdata: int,\n\tamount: int,\n}\n\nitem: [dynamic]^Entity\n\nvalue_list :: proc(data: int, amount: int) {\n\tscore := new(Entity)\n\tscore^ = {\n\t\tdata = data,\n\t\tamount = amount,\n\t}\n\tappend(&item, score)\n}",
+        "Record :: struct {\n\tresult: int,\n\titem: int,\n}\n\ndata: [dynamic]^Record\n\nentry_map :: proc(result: int, item: int) {\n\tsize := new(Record)\n\tsize^ = {\n\t\tresult = result,\n\t\titem = item,\n\t}\n\tappend(&data, size)\n}"
+      ]
+    },
+    {
+      "instruction": "Append struct values directly (cache-friendly)",
+      "targets": [
+        "Person :: struct {\n\thealth: int,\n\tage: int,\n}\n\npeople: [dynamic]Person\n\nadd_person :: proc(health: int, age: int) {\n\tp := Person {\n\t\thealth = health,\n\t\tage = age,\n\t}\n\tappend(&people, p)\n}",
+        "Config :: struct {\n\tvalue: int,\n\tsize: int,\n}\n\nlevel: [dynamic]Config\n\nresult_set :: proc(value: int, size: int) {\n\tamount := Config {\n\t\tvalue = value,\n\t\tsize = size,\n\t}\n\tappend(&level, amount)\n}",
+        "Thing :: struct {\n\tcount: int,\n\tlevel: int,\n}\n\nvalue: [dynamic]Thing\n\ncount_total :: proc(count: int, level: int) {\n\titem := Thing {\n\t\tcount = count,\n\t\tlevel = level,\n\t}\n\tappend(&value, item)\n}",
+        "Value :: struct {\n\ttotal: int,\n\tvalue: int,\n}\n\ncount: [dynamic]Value\n\ntotal_sum :: proc(total: int, value: int) {\n\tdata := Value {\n\t\ttotal = total,\n\t\tvalue = value,\n\t}\n\tappend(&count, data)\n}",
+        "Note :: struct {\n\tamount: int,\n\tcount: int,\n}\n\ntotal: [dynamic]Note\n\nscore_list :: proc(amount: int, count: int) {\n\tresult := Note {\n\t\tamount = amount,\n\t\tcount = count,\n\t}\n\tappend(&total, result)\n}",
+        "Item :: struct {\n\titem: int,\n\ttotal: int,\n}\n\namount: [dynamic]Item\n\nitem_data :: proc(item: int, total: int) {\n\tentry := Item {\n\t\titem = item,\n\t\ttotal = total,\n\t}\n\tappend(&amount, entry)\n}",
+        "Entity :: struct {\n\tdata: int,\n\tamount: int,\n}\n\nitem: [dynamic]Entity\n\nvalue_list :: proc(data: int, amount: int) {\n\tscore := Entity {\n\t\tdata = data,\n\t\tamount = amount,\n\t}\n\tappend(&item, score)\n}",
+        "Record :: struct {\n\tresult: int,\n\titem: int,\n}\n\ndata: [dynamic]Record\n\nentry_map :: proc(result: int, item: int) {\n\tsize := Record {\n\t\tresult = result,\n\t\titem = item,\n\t}\n\tappend(&data, size)\n}"
+      ]
+    },
+    {
+      "instruction": "Iterate and average ages through pointers",
+      "targets": [
+        "average_age := 0\nfor &p in people {\n\taverage_age += p.age\n}\naverage_age /= len(people)",
+        "result_set := 0\nfor &amount in size {\n\tresult_set += amount.level\n}\nresult_set /= len(size)",
+        "count_total := 0\nfor &item in level {\n\tcount_total += item.value\n}\ncount_total /= len(level)",
+        "total_sum := 0\nfor &data in value {\n\ttotal_sum += data.count\n}\ntotal_sum /= len(value)",
+        "score_list := 0\nfor &result in count {\n\tscore_list += result.total\n}\nscore_list /= len(count)",
+        "item_data := 0\nfor &entry in total {\n\titem_data += entry.amount\n}\nitem_data /= len(total)",
+        "value_list := 0\nfor &score in amount {\n\tvalue_list += score.item\n}\nvalue_list /= len(amount)",
+        "entry_map := 0\nfor &size in item {\n\tentry_map += size.data\n}\nentry_map /= len(item)"
+      ]
+    },
+    {
+      "instruction": "Write a Handle struct for stable references",
+      "targets": [
+        "Handle :: struct {\n\tindex: u32,\n\tgeneration: u32,\n}",
+        "Note :: struct {\n\tscore: u32,\n\titem: u32,\n}",
+        "Item :: struct {\n\tsize: u32,\n\tdata: u32,\n}",
+        "Entity :: struct {\n\tlevel: u32,\n\tresult: u32,\n}",
+        "Record :: struct {\n\tvalue: u32,\n\tentry: u32,\n}",
+        "Entry :: struct {\n\tcount: u32,\n\tscore: u32,\n}",
+        "Data :: struct {\n\ttotal: u32,\n\tsize: u32,\n}",
+        "Result :: struct {\n\tamount: u32,\n\tlevel: u32,\n}"
+      ]
+    }
+  ]
+}

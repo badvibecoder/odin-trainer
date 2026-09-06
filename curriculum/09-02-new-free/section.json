@@ -1,0 +1,99 @@
+{
+  "name": "new, free & pointers",
+  "group": 9,
+  "groupTitle": "Memory",
+  "order": "9.2",
+  "snippets": [
+    {
+      "instruction": "Allocate a single f32 on the heap with new",
+      "targets": [
+        "number := new(f32)",
+        "level := new(f32)",
+        "value := new(f32)",
+        "count := new(f32)",
+        "total := new(f32)",
+        "amount := new(f32)",
+        "item := new(f32)",
+        "data := new(f32)"
+      ]
+    },
+    {
+      "instruction": "Free a value allocated with new",
+      "targets": [
+        "free(number)",
+        "free(level)",
+        "free(value)",
+        "free(count)",
+        "free(total)",
+        "free(amount)",
+        "free(item)",
+        "free(data)"
+      ]
+    },
+    {
+      "instruction": "Write a procedure that allocates and initializes a struct",
+      "targets": [
+        "Cat :: struct {\n\tage: int,\n\tname: string,\n}\n\nmake_cat :: proc(name: string, age: int) -> ^Cat {\n\tcat := new(Cat)\n\tcat^ = {\n\t\tname = name,\n\t\tage = age,\n\t}\n\treturn cat\n}",
+        "Entity :: struct {\n\tsize: int,\n\tscore: string,\n}\n\ntotal_sum :: proc(score: string, size: int) -> ^Entity {\n\tvalue := new(Entity)\n\tvalue^ = {\n\t\tscore = score,\n\t\tsize = size,\n\t}\n\treturn value\n}",
+        "Record :: struct {\n\tlevel: int,\n\tsize: string,\n}\n\nscore_list :: proc(size: string, level: int) -> ^Record {\n\tcount := new(Record)\n\tcount^ = {\n\t\tsize = size,\n\t\tlevel = level,\n\t}\n\treturn count\n}",
+        "Entry :: struct {\n\tvalue: int,\n\tlevel: string,\n}\n\nitem_data :: proc(level: string, value: int) -> ^Entry {\n\ttotal := new(Entry)\n\ttotal^ = {\n\t\tlevel = level,\n\t\tvalue = value,\n\t}\n\treturn total\n}",
+        "Data :: struct {\n\tcount: int,\n\tvalue: string,\n}\n\nvalue_list :: proc(value: string, count: int) -> ^Data {\n\tamount := new(Data)\n\tamount^ = {\n\t\tvalue = value,\n\t\tcount = count,\n\t}\n\treturn amount\n}",
+        "Result :: struct {\n\ttotal: int,\n\tcount: string,\n}\n\nentry_map :: proc(count: string, total: int) -> ^Result {\n\titem := new(Result)\n\titem^ = {\n\t\tcount = count,\n\t\ttotal = total,\n\t}\n\treturn item\n}",
+        "Config :: struct {\n\tamount: int,\n\ttotal: string,\n}\n\ndata_store :: proc(total: string, amount: int) -> ^Config {\n\tdata := new(Config)\n\tdata^ = {\n\t\ttotal = total,\n\t\tamount = amount,\n\t}\n\treturn data\n}",
+        "Thing :: struct {\n\titem: int,\n\tamount: string,\n}\n\nresult_set :: proc(amount: string, item: int) -> ^Thing {\n\tresult := new(Thing)\n\tresult^ = {\n\t\tamount = amount,\n\t\titem = item,\n\t}\n\treturn result\n}"
+      ]
+    },
+    {
+      "instruction": "Allocate a fixed array on the heap and free it",
+      "targets": [
+        "ints := new([128]int)\nints[10] = 5\nfree(ints)",
+        "count := new([3]int)\ncount[7] = 200\nfree(count)",
+        "total := new([9]int)\ntotal[42] = 128\nfree(total)",
+        "amount := new([25]int)\namount[13] = 7\nfree(amount)",
+        "item := new([64]int)\nitem[100] = 42\nfree(item)",
+        "data := new([512]int)\ndata[3] = 13\nfree(data)",
+        "result := new([2]int)\nresult[9] = 100\nfree(result)",
+        "entry := new([4]int)\nentry[25] = 3\nfree(entry)"
+      ]
+    },
+    {
+      "instruction": "Allocate an array on the heap and copy the pointer",
+      "targets": [
+        "ints := new([128]int)\nints[10] = 5\nints_2 := ints\nints_2[10] = 7\nfmt.println(ints[10])\nfmt.println(ints_2[10])",
+        "count := new([3]int)\ncount[7] = 200\nentry_map := count\nentry_map[7] = 7\nfmt.println(count[7])\nfmt.println(entry_map[7])",
+        "total := new([9]int)\ntotal[42] = 128\ndata_store := total\ndata_store[42] = 42\nfmt.println(total[42])\nfmt.println(data_store[42])",
+        "amount := new([25]int)\namount[13] = 7\nresult_set := amount\nresult_set[13] = 13\nfmt.println(amount[13])\nfmt.println(result_set[13])",
+        "item := new([64]int)\nitem[100] = 42\ncount_total := item\ncount_total[100] = 100\nfmt.println(item[100])\nfmt.println(count_total[100])",
+        "data := new([512]int)\ndata[3] = 13\ntotal_sum := data\ntotal_sum[3] = 3\nfmt.println(data[3])\nfmt.println(total_sum[3])",
+        "result := new([2]int)\nresult[9] = 100\nscore_list := result\nscore_list[9] = 9\nfmt.println(result[9])\nfmt.println(score_list[9])",
+        "entry := new([4]int)\nentry[25] = 3\nitem_data := entry\nitem_data[25] = 25\nfmt.println(entry[25])\nfmt.println(item_data[25])"
+      ]
+    },
+    {
+      "instruction": "Copy a pointer (the pointer, not the allocation)",
+      "targets": [
+        "number := new(i32)\nnumber2 := number",
+        "level := new(i32)\nitem := level",
+        "value := new(i32)\ndata := value",
+        "count := new(i32)\nresult := count",
+        "total := new(i32)\nentry := total",
+        "amount := new(i32)\nscore := amount",
+        "item := new(i32)\nsize := item",
+        "data := new(i32)\nlevel := data"
+      ]
+    },
+    {
+      "instruction": "Copy a dynamic array (it shares its data)",
+      "targets": [
+        "dyn_arr: [dynamic]int\nappend(&dyn_arr, 5)\ndyn_arr_2 := dyn_arr",
+        "result_set: [dynamic]int\nappend(&result_set, 200)\nscore_list := result_set",
+        "count_total: [dynamic]int\nappend(&count_total, 128)\nitem_data := count_total",
+        "total_sum: [dynamic]int\nappend(&total_sum, 7)\nvalue_list := total_sum",
+        "score_list: [dynamic]int\nappend(&score_list, 42)\nentry_map := score_list",
+        "item_data: [dynamic]int\nappend(&item_data, 13)\ndata_store := item_data",
+        "value_list: [dynamic]int\nappend(&value_list, 100)\nresult_set := value_list",
+        "entry_map: [dynamic]int\nappend(&entry_map, 3)\ncount_total := entry_map"
+      ]
+    }
+  ]
+}

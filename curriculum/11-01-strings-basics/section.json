@@ -1,0 +1,98 @@
+{
+  "name": "Strings & constants",
+  "group": 11,
+  "groupTitle": "Strings",
+  "order": "11.1",
+  "snippets": [
+    {
+      "instruction": "Declare a string and assign it",
+      "targets": [
+        "my_string: string\nmy_string = \"Hello!\"",
+        "count_total: string\ncount_total = \"timber\"",
+        "total_sum: string\ntotal_sum = \"widget\"",
+        "score_list: string\nscore_list = \"widget\"",
+        "item_data: string\nitem_data = \"shadow\"",
+        "value_list: string\nvalue_list = \"gadget\"",
+        "entry_map: string\nentry_map = \"stone\"",
+        "data_store: string\ndata_store = \"storm\""
+      ]
+    },
+    {
+      "instruction": "Declare a variable initialize a string in one statement",
+      "targets": [
+        "my_string := \"Hello!\"",
+        "count_total := \"timber\"",
+        "total_sum := \"widget\"",
+        "score_list := \"widget\"",
+        "item_data := \"shadow\"",
+        "value_list := \"gadget\"",
+        "entry_map := \"stone\"",
+        "data_store := \"storm\""
+      ]
+    },
+    {
+      "instruction": "Declare a string constant",
+      "targets": [
+        "A_STRING_CONSTANT :: \"Hello!\"",
+        "BASE_AMOUNT :: \"timber\"",
+        "DEFAULT_VALUE :: \"widget\"",
+        "LIMIT_SIZE :: \"widget\"",
+        "MAX_VALUE :: \"shadow\"",
+        "TOTAL_COUNT :: \"gadget\"",
+        "ITEM_COUNT :: \"stone\"",
+        "BASE_AMOUNT :: \"storm\""
+      ]
+    },
+    {
+      "instruction": "Use a string constant as string, cstring, and UTF-16",
+      "targets": [
+        "STR :: \"Hello!\"\nstr: string = STR\ncstr: cstring = STR\nstr16: string16 = STR\ncstr16: cstring16 = STR",
+        "DEFAULT_VALUE :: \"timber\"\ntotal: string = DEFAULT_VALUE\namount: cstring = DEFAULT_VALUE\ndata: string16 = DEFAULT_VALUE\ncount: cstring16 = DEFAULT_VALUE",
+        "LIMIT_SIZE :: \"widget\"\namount: string = LIMIT_SIZE\nitem: cstring = LIMIT_SIZE\nresult: string16 = LIMIT_SIZE\ntotal: cstring16 = LIMIT_SIZE",
+        "MAX_VALUE :: \"widget\"\nitem: string = MAX_VALUE\ndata: cstring = MAX_VALUE\nentry: string16 = MAX_VALUE\namount: cstring16 = MAX_VALUE",
+        "TOTAL_COUNT :: \"shadow\"\ndata: string = TOTAL_COUNT\nresult: cstring = TOTAL_COUNT\nscore: string16 = TOTAL_COUNT\nitem: cstring16 = TOTAL_COUNT",
+        "ITEM_COUNT :: \"gadget\"\nresult: string = ITEM_COUNT\nentry: cstring = ITEM_COUNT\nsize: string16 = ITEM_COUNT\ndata: cstring16 = ITEM_COUNT",
+        "BASE_AMOUNT :: \"stone\"\nentry: string = BASE_AMOUNT\nscore: cstring = BASE_AMOUNT\nlevel: string16 = BASE_AMOUNT\nresult: cstring16 = BASE_AMOUNT",
+        "DEFAULT_VALUE :: \"storm\"\nscore: string = DEFAULT_VALUE\nsize: cstring = DEFAULT_VALUE\nvalue: string16 = DEFAULT_VALUE\nentry: cstring16 = DEFAULT_VALUE"
+      ]
+    },
+    {
+      "instruction": "Concatenate a constant and a literal",
+      "targets": [
+        "A_CONSTANT :: \"Hello!\"\nmy_string := A_CONSTANT + \" How are you?\"\nfmt.println(my_string)",
+        "LIMIT_SIZE :: \"timber\"\ncount_total := LIMIT_SIZE + \" Entry size result?\"\nfmt.println(count_total)",
+        "MAX_VALUE :: \"widget\"\ntotal_sum := MAX_VALUE + \" Data level entry?\"\nfmt.println(total_sum)",
+        "TOTAL_COUNT :: \"widget\"\nscore_list := TOTAL_COUNT + \" Result value score?\"\nfmt.println(score_list)",
+        "ITEM_COUNT :: \"shadow\"\nitem_data := ITEM_COUNT + \" Config count size?\"\nfmt.println(item_data)",
+        "BASE_AMOUNT :: \"gadget\"\nvalue_list := BASE_AMOUNT + \" Thing total level?\"\nfmt.println(value_list)",
+        "DEFAULT_VALUE :: \"stone\"\nentry_map := DEFAULT_VALUE + \" Value amount value?\"\nfmt.println(entry_map)",
+        "LIMIT_SIZE :: \"storm\"\ndata_store := LIMIT_SIZE + \" Note item count?\"\nfmt.println(data_store)"
+      ]
+    },
+    {
+      "instruction": "Write the Raw_String struct",
+      "targets": [
+        "Raw_String :: struct {\n\tdata: [^]u8,\n\tlen:  int,\n}",
+        "Raw_String :: struct {\n\titem: [^]u8,\n\tlen:  int,\n}",
+        "Raw_String :: struct {\n\tresult: [^]u8,\n\tlen:  int,\n}",
+        "Raw_String :: struct {\n\tentry: [^]u8,\n\tlen:  int,\n}",
+        "Raw_String :: struct {\n\tscore: [^]u8,\n\tlen:  int,\n}",
+        "Raw_String :: struct {\n\tsize: [^]u8,\n\tlen:  int,\n}",
+        "Raw_String :: struct {\n\tlevel: [^]u8,\n\tlen:  int,\n}"
+      ]
+    },
+    {
+      "instruction": "Copy a string constant into two variables",
+      "targets": [
+        "CONSTANT_STRING :: \"Hello!\"\nstr1 := CONSTANT_STRING\nstr2 := \"Hello!\"",
+        "TOTAL_COUNT :: \"timber\"\nitem := TOTAL_COUNT\ndata := \"timber\"",
+        "ITEM_COUNT :: \"widget\"\ndata := ITEM_COUNT\nresult := \"widget\"",
+        "BASE_AMOUNT :: \"widget\"\nresult := BASE_AMOUNT\nentry := \"widget\"",
+        "DEFAULT_VALUE :: \"shadow\"\nentry := DEFAULT_VALUE\nscore := \"shadow\"",
+        "LIMIT_SIZE :: \"gadget\"\nscore := LIMIT_SIZE\nsize := \"gadget\"",
+        "MAX_VALUE :: \"stone\"\nsize := MAX_VALUE\nlevel := \"stone\"",
+        "TOTAL_COUNT :: \"storm\"\nlevel := TOTAL_COUNT\nvalue := \"storm\""
+      ]
+    }
+  ]
+}

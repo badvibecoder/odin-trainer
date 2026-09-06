@@ -1,0 +1,73 @@
+{
+  "name": "Errors with enum & union",
+  "group": 16,
+  "groupTitle": "Errors",
+  "order": "16.2",
+  "snippets": [
+    {
+      "instruction": "Write a Load_Config_Error enum and Config struct",
+      "targets": [
+        "Load_Config_Error :: enum {\n\tNone,\n\tFile_Unreadable,\n\tInvalid_Format,\n}\n\nConfig :: struct {\n\tfullscreen: bool,\n\twindow_position: [2]int,\n}",
+        "Item_Record :: enum {\n\tNone,\n\tEntity_Data,\n\tData_Type,\n}\n\nNote :: struct {\n\titem: bool,\n\tvalue_list: [2]int,\n}",
+        "Item_Kind :: enum {\n\tNone,\n\tRecord_Type,\n\tItem_Record,\n}\n\nItem :: struct {\n\tdata: bool,\n\tentry_map: [2]int,\n}",
+        "Entity_Data :: enum {\n\tNone,\n\tEntry_Kind,\n\tItem_Kind,\n}\n\nEntity :: struct {\n\tresult: bool,\n\tdata_store: [2]int,\n}",
+        "Record_Type :: enum {\n\tNone,\n\tData_Type,\n\tEntity_Data,\n}\n\nRecord :: struct {\n\tentry: bool,\n\tresult_set: [2]int,\n}",
+        "Entry_Kind :: enum {\n\tNone,\n\tItem_Record,\n\tRecord_Type,\n}\n\nEntry :: struct {\n\tscore: bool,\n\tcount_total: [2]int,\n}",
+        "Data_Type :: enum {\n\tNone,\n\tItem_Kind,\n\tEntry_Kind,\n}\n\nData :: struct {\n\tsize: bool,\n\ttotal_sum: [2]int,\n}",
+        "Item_Record :: enum {\n\tNone,\n\tEntity_Data,\n\tData_Type,\n}\n\nResult :: struct {\n\tlevel: bool,\n\tscore_list: [2]int,\n}"
+      ]
+    },
+    {
+      "instruction": "Write a procedure returning a Config and an error enum",
+      "targets": [
+        "load_config :: proc(filename: string) -> (Config, Load_Config_Error) {\n\tconfig_data, config_data_err := os.read_entire_file(filename, context.temp_allocator)\n\n\tif config_data_err != nil {\n\t\treturn {}, .File_Unreadable\n\t}\n\n\tresult: Config\n\n\tjson_error := json.unmarshal(config_data, &result, allocator = context.temp_allocator)\n\n\tif json_error != nil {\n\t\treturn {}, .Invalid_Format\n\t}\n\n\treturn result, .None\n}",
+        "total_sum :: proc(item: string) -> (Note, Item_Record) {\n\titem_data, score_list := os.read_entire_file(item, context.temp_allocator)\n\n\tif score_list != nil {\n\t\treturn {}, .Entity_Data\n\t}\n\n\titem: Note\n\n\tentry_map := json.unmarshal(item_data, &item, allocator = context.temp_allocator)\n\n\tif entry_map != nil {\n\t\treturn {}, .Data_Type\n\t}\n\n\treturn item, .None\n}",
+        "score_list :: proc(entry: string) -> (Item, Item_Kind) {\n\tvalue_list, item_data := os.read_entire_file(entry, context.temp_allocator)\n\n\tif item_data != nil {\n\t\treturn {}, .Record_Type\n\t}\n\n\tdata: Item\n\n\tdata_store := json.unmarshal(value_list, &data, allocator = context.temp_allocator)\n\n\tif data_store != nil {\n\t\treturn {}, .Item_Record\n\t}\n\n\treturn data, .None\n}",
+        "item_data :: proc(score: string) -> (Entity, Entity_Data) {\n\tentry_map, value_list := os.read_entire_file(score, context.temp_allocator)\n\n\tif value_list != nil {\n\t\treturn {}, .Entry_Kind\n\t}\n\n\tresult: Entity\n\n\tresult_set := json.unmarshal(entry_map, &result, allocator = context.temp_allocator)\n\n\tif result_set != nil {\n\t\treturn {}, .Item_Kind\n\t}\n\n\treturn result, .None\n}",
+        "value_list :: proc(size: string) -> (Record, Record_Type) {\n\tdata_store, entry_map := os.read_entire_file(size, context.temp_allocator)\n\n\tif entry_map != nil {\n\t\treturn {}, .Data_Type\n\t}\n\n\tentry: Record\n\n\tcount_total := json.unmarshal(data_store, &entry, allocator = context.temp_allocator)\n\n\tif count_total != nil {\n\t\treturn {}, .Entity_Data\n\t}\n\n\treturn entry, .None\n}",
+        "entry_map :: proc(level: string) -> (Entry, Entry_Kind) {\n\tresult_set, data_store := os.read_entire_file(level, context.temp_allocator)\n\n\tif data_store != nil {\n\t\treturn {}, .Item_Record\n\t}\n\n\tscore: Entry\n\n\ttotal_sum := json.unmarshal(result_set, &score, allocator = context.temp_allocator)\n\n\tif total_sum != nil {\n\t\treturn {}, .Record_Type\n\t}\n\n\treturn score, .None\n}",
+        "data_store :: proc(value: string) -> (Data, Data_Type) {\n\tcount_total, result_set := os.read_entire_file(value, context.temp_allocator)\n\n\tif result_set != nil {\n\t\treturn {}, .Item_Kind\n\t}\n\n\tsize: Data\n\n\tscore_list := json.unmarshal(count_total, &size, allocator = context.temp_allocator)\n\n\tif score_list != nil {\n\t\treturn {}, .Entry_Kind\n\t}\n\n\treturn size, .None\n}",
+        "result_set :: proc(count: string) -> (Result, Item_Record) {\n\ttotal_sum, count_total := os.read_entire_file(count, context.temp_allocator)\n\n\tif count_total != nil {\n\t\treturn {}, .Entity_Data\n\t}\n\n\tlevel: Result\n\n\titem_data := json.unmarshal(total_sum, &level, allocator = context.temp_allocator)\n\n\tif item_data != nil {\n\t\treturn {}, .Data_Type\n\t}\n\n\treturn level, .None\n}"
+      ]
+    },
+    {
+      "instruction": "Handle a config error and fall back to defaults",
+      "targets": [
+        "DEFAULT_CONFIG :: Config {\n\tfullscreen = false,\n\twindow_position = { 100, 100 },\n}\n\nmain :: proc() {\n\tconfig, config_error := load_config(\"config.json\")\n\n\tif config_error != .None {\n\t\tfmt.eprintln(\"Failed loading config with error\", config_error)\n\t\tconfig = DEFAULT_CONFIG\n\t}\n\n\tfmt.println(config)\n}",
+        "BASE_AMOUNT :: Note {\n\titem = false,\n\tvalue_list = { 3, 3 },\n}\n\nmain :: proc() {\n\tentry, result_set := total_sum(\"entry.json\")\n\n\tif result_set != .None {\n\t\tfmt.eprintln(\"orange\", result_set)\n\t\tentry = BASE_AMOUNT\n\t}\n\n\tfmt.println(entry)\n}",
+        "DEFAULT_VALUE :: Item {\n\tdata = false,\n\tentry_map = { 9, 9 },\n}\n\nmain :: proc() {\n\tscore, count_total := score_list(\"score.json\")\n\n\tif count_total != .None {\n\t\tfmt.eprintln(\"branch\", count_total)\n\t\tscore = DEFAULT_VALUE\n\t}\n\n\tfmt.println(score)\n}",
+        "LIMIT_SIZE :: Entity {\n\tresult = false,\n\tdata_store = { 25, 25 },\n}\n\nmain :: proc() {\n\tsize, total_sum := item_data(\"size.json\")\n\n\tif total_sum != .None {\n\t\tfmt.eprintln(\"shadow\", total_sum)\n\t\tsize = LIMIT_SIZE\n\t}\n\n\tfmt.println(size)\n}",
+        "MAX_VALUE :: Record {\n\tentry = false,\n\tresult_set = { 64, 64 },\n}\n\nmain :: proc() {\n\tlevel, score_list := value_list(\"level.json\")\n\n\tif score_list != .None {\n\t\tfmt.eprintln(\"hollow\", score_list)\n\t\tlevel = MAX_VALUE\n\t}\n\n\tfmt.println(level)\n}",
+        "TOTAL_COUNT :: Entry {\n\tscore = false,\n\tcount_total = { 512, 512 },\n}\n\nmain :: proc() {\n\tvalue, item_data := entry_map(\"value.json\")\n\n\tif item_data != .None {\n\t\tfmt.eprintln(\"gadget\", item_data)\n\t\tvalue = TOTAL_COUNT\n\t}\n\n\tfmt.println(value)\n}",
+        "ITEM_COUNT :: Data {\n\tsize = false,\n\ttotal_sum = { 2, 2 },\n}\n\nmain :: proc() {\n\tcount, value_list := data_store(\"count.json\")\n\n\tif value_list != .None {\n\t\tfmt.eprintln(\"meadow\", value_list)\n\t\tcount = ITEM_COUNT\n\t}\n\n\tfmt.println(count)\n}",
+        "BASE_AMOUNT :: Result {\n\tlevel = false,\n\tscore_list = { 4, 4 },\n}\n\nmain :: proc() {\n\ttotal, entry_map := result_set(\"total.json\")\n\n\tif entry_map != .None {\n\t\tfmt.eprintln(\"raven\", entry_map)\n\t\ttotal = BASE_AMOUNT\n\t}\n\n\tfmt.println(total)\n}"
+      ]
+    },
+    {
+      "instruction": "Fall back to a default with or_else",
+      "targets": [
+        "DEFAULT_CONFIG :: Config {\n\tfullscreen = false,\n\twindow_position = { 100, 100 },\n}\n\nmain :: proc() {\n\tconfig := load_config(\"config.ini\") or_else DEFAULT_CONFIG\n\n\tfmt.println(config)\n}",
+        "BASE_AMOUNT :: Note {\n\titem = false,\n\tvalue_list = { 3, 3 },\n}\n\nmain :: proc() {\n\tentry := total_sum(\"entry.size\") or_else BASE_AMOUNT\n\n\tfmt.println(entry)\n}",
+        "DEFAULT_VALUE :: Item {\n\tdata = false,\n\tentry_map = { 9, 9 },\n}\n\nmain :: proc() {\n\tscore := score_list(\"score.level\") or_else DEFAULT_VALUE\n\n\tfmt.println(score)\n}",
+        "LIMIT_SIZE :: Entity {\n\tresult = false,\n\tdata_store = { 25, 25 },\n}\n\nmain :: proc() {\n\tsize := item_data(\"size.value\") or_else LIMIT_SIZE\n\n\tfmt.println(size)\n}",
+        "MAX_VALUE :: Record {\n\tentry = false,\n\tresult_set = { 64, 64 },\n}\n\nmain :: proc() {\n\tlevel := value_list(\"level.count\") or_else MAX_VALUE\n\n\tfmt.println(level)\n}",
+        "TOTAL_COUNT :: Entry {\n\tscore = false,\n\tcount_total = { 512, 512 },\n}\n\nmain :: proc() {\n\tvalue := entry_map(\"value.total\") or_else TOTAL_COUNT\n\n\tfmt.println(value)\n}",
+        "ITEM_COUNT :: Data {\n\tsize = false,\n\ttotal_sum = { 2, 2 },\n}\n\nmain :: proc() {\n\tcount := data_store(\"count.amount\") or_else ITEM_COUNT\n\n\tfmt.println(count)\n}",
+        "BASE_AMOUNT :: Result {\n\tlevel = false,\n\tscore_list = { 4, 4 },\n}\n\nmain :: proc() {\n\ttotal := result_set(\"total.item\") or_else BASE_AMOUNT\n\n\tfmt.println(total)\n}"
+      ]
+    },
+    {
+      "instruction": "Write an Error union for error types",
+      "targets": [
+        "Error :: union {\n\tParse_Error,\n\tOpen_File_Error,\n\tHelp_Request,\n\tValidation_Error,\n}\n\nHelp_Request :: distinct bool\n\nValidation_Error :: struct {\n\tmessage: string,\n}",
+        "Entry :: union {\n\tItem_Record,\n\tEntity_Data,\n\tRecord_Type,\n\tItem_Kind,\n}\n\nRecord_Type :: distinct bool\n\nItem_Kind :: struct {\n\tdata: string,\n}",
+        "Data :: union {\n\tItem_Kind,\n\tRecord_Type,\n\tEntry_Kind,\n\tEntity_Data,\n}\n\nEntry_Kind :: distinct bool\n\nEntity_Data :: struct {\n\tresult: string,\n}",
+        "Result :: union {\n\tEntity_Data,\n\tEntry_Kind,\n\tData_Type,\n\tRecord_Type,\n}\n\nData_Type :: distinct bool\n\nRecord_Type :: struct {\n\tentry: string,\n}",
+        "Config :: union {\n\tRecord_Type,\n\tData_Type,\n\tItem_Record,\n\tEntry_Kind,\n}\n\nItem_Record :: distinct bool\n\nEntry_Kind :: struct {\n\tscore: string,\n}",
+        "Thing :: union {\n\tEntry_Kind,\n\tItem_Record,\n\tItem_Kind,\n\tData_Type,\n}\n\nItem_Kind :: distinct bool\n\nData_Type :: struct {\n\tsize: string,\n}",
+        "Value :: union {\n\tData_Type,\n\tItem_Kind,\n\tEntity_Data,\n\tItem_Record,\n}\n\nEntity_Data :: distinct bool\n\nItem_Record :: struct {\n\tlevel: string,\n}",
+        "Note :: union {\n\tItem_Record,\n\tEntity_Data,\n\tRecord_Type,\n\tItem_Kind,\n}\n\nRecord_Type :: distinct bool\n\nItem_Kind :: struct {\n\tvalue: string,\n}"
+      ]
+    }
+  ]
+}

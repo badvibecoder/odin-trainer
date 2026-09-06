@@ -1,0 +1,86 @@
+{
+  "name": "Generic procedures",
+  "group": 14,
+  "groupTitle": "Generics",
+  "order": "14.1",
+  "snippets": [
+    {
+      "instruction": "Write a generic clamp using $T",
+      "targets": [
+        "clamp :: proc(val: $T, min: T, max: T) -> T {\n\tif val <= min {\n\t\treturn min\n\t}\n\n\tif val >= max {\n\t\treturn max\n\t}\n\n\treturn val\n}",
+        "clamp :: proc(total: $T, min: T, max: T) -> T {\n\tif total <= min {\n\t\treturn min\n\t}\n\n\tif total >= max {\n\t\treturn max\n\t}\n\n\treturn total\n}",
+        "clamp :: proc(amount: $T, min: T, max: T) -> T {\n\tif amount <= min {\n\t\treturn min\n\t}\n\n\tif amount >= max {\n\t\treturn max\n\t}\n\n\treturn amount\n}",
+        "clamp :: proc(item: $T, min: T, max: T) -> T {\n\tif item <= min {\n\t\treturn min\n\t}\n\n\tif item >= max {\n\t\treturn max\n\t}\n\n\treturn item\n}",
+        "clamp :: proc(data: $T, min: T, max: T) -> T {\n\tif data <= min {\n\t\treturn min\n\t}\n\n\tif data >= max {\n\t\treturn max\n\t}\n\n\treturn data\n}",
+        "clamp :: proc(result: $T, min: T, max: T) -> T {\n\tif result <= min {\n\t\treturn min\n\t}\n\n\tif result >= max {\n\t\treturn max\n\t}\n\n\treturn result\n}",
+        "clamp :: proc(entry: $T, min: T, max: T) -> T {\n\tif entry <= min {\n\t\treturn min\n\t}\n\n\tif entry >= max {\n\t\treturn max\n\t}\n\n\treturn entry\n}",
+        "clamp :: proc(score: $T, min: T, max: T) -> T {\n\tif score <= min {\n\t\treturn min\n\t}\n\n\tif score >= max {\n\t\treturn max\n\t}\n\n\treturn score\n}"
+      ]
+    },
+    {
+      "instruction": "Call a generic procedure",
+      "targets": [
+        "number: int = 7\nclamped_number := clamp(number, 2, 5)",
+        "level: int = 7\ndata_store := clamp(level, 2, 200)",
+        "value: int = 42\nresult_set := clamp(value, 2, 128)",
+        "count: int = 13\ncount_total := clamp(count, 2, 7)",
+        "total: int = 100\ntotal_sum := clamp(total, 2, 42)",
+        "amount: int = 3\nscore_list := clamp(amount, 2, 13)",
+        "item: int = 9\nitem_data := clamp(item, 2, 100)",
+        "data: int = 25\nvalue_list := clamp(data, 2, 3)"
+      ]
+    },
+    {
+      "instruction": "Constrain a generic procedure with a where clause",
+      "targets": [
+        "clamp :: proc(val: $T, min: T, max: T) -> T where intrinsics.type_is_numeric(T) {\n\tif val <= min {\n\t\treturn min\n\t}\n\n\tif val >= max {\n\t\treturn max\n\t}\n\n\treturn val\n}",
+        "clamp :: proc(total: $T, min: T, max: T) -> T where intrinsics.result_set(T) {\n\tif total <= min {\n\t\treturn min\n\t}\n\n\tif total >= max {\n\t\treturn max\n\t}\n\n\treturn total\n}",
+        "clamp :: proc(amount: $T, min: T, max: T) -> T where intrinsics.count_total(T) {\n\tif amount <= min {\n\t\treturn min\n\t}\n\n\tif amount >= max {\n\t\treturn max\n\t}\n\n\treturn amount\n}",
+        "clamp :: proc(item: $T, min: T, max: T) -> T where intrinsics.total_sum(T) {\n\tif item <= min {\n\t\treturn min\n\t}\n\n\tif item >= max {\n\t\treturn max\n\t}\n\n\treturn item\n}",
+        "clamp :: proc(data: $T, min: T, max: T) -> T where intrinsics.score_list(T) {\n\tif data <= min {\n\t\treturn min\n\t}\n\n\tif data >= max {\n\t\treturn max\n\t}\n\n\treturn data\n}",
+        "clamp :: proc(result: $T, min: T, max: T) -> T where intrinsics.item_data(T) {\n\tif result <= min {\n\t\treturn min\n\t}\n\n\tif result >= max {\n\t\treturn max\n\t}\n\n\treturn result\n}",
+        "clamp :: proc(entry: $T, min: T, max: T) -> T where intrinsics.value_list(T) {\n\tif entry <= min {\n\t\treturn min\n\t}\n\n\tif entry >= max {\n\t\treturn max\n\t}\n\n\treturn entry\n}",
+        "clamp :: proc(score: $T, min: T, max: T) -> T where intrinsics.entry_map(T) {\n\tif score <= min {\n\t\treturn min\n\t}\n\n\tif score >= max {\n\t\treturn max\n\t}\n\n\treturn score\n}"
+      ]
+    },
+    {
+      "instruction": "Write a procedure with an explicit type",
+      "targets": [
+        "make_random_sized_slice :: proc($T: typeid) -> []T {\n\trandom_size := rand.int_max(1024)\n\treturn make([]T, random_size)\n}",
+        "result_set :: proc($T: typeid) -> []T {\n\tcount_total := rand.int_max(200)\n\treturn make([]T, count_total)\n}",
+        "count_total :: proc($T: typeid) -> []T {\n\ttotal_sum := rand.int_max(128)\n\treturn make([]T, total_sum)\n}",
+        "total_sum :: proc($T: typeid) -> []T {\n\tscore_list := rand.int_max(7)\n\treturn make([]T, score_list)\n}",
+        "score_list :: proc($T: typeid) -> []T {\n\titem_data := rand.int_max(42)\n\treturn make([]T, item_data)\n}",
+        "item_data :: proc($T: typeid) -> []T {\n\tvalue_list := rand.int_max(13)\n\treturn make([]T, value_list)\n}",
+        "value_list :: proc($T: typeid) -> []T {\n\tentry_map := rand.int_max(100)\n\treturn make([]T, entry_map)\n}",
+        "entry_map :: proc($T: typeid) -> []T {\n\tdata_store := rand.int_max(3)\n\treturn make([]T, data_store)\n}"
+      ]
+    },
+    {
+      "instruction": "Call a procedure with f32",
+      "targets": [
+        "my_slice := make_random_sized_slice(f32)",
+        "entry_map := result_set(f32)",
+        "data_store := count_total(f32)",
+        "result_set := total_sum(f32)",
+        "count_total := score_list(f32)",
+        "total_sum := item_data(f32)",
+        "score_list := value_list(f32)",
+        "item_data := entry_map(f32)"
+      ]
+    },
+    {
+      "instruction": "Write a procedure with type and length params",
+      "targets": [
+        "make_array_of_7 :: proc($N: int, $T: typeid) -> [N]T {\n\tres: [N]T\n\tfor &v in res {\n\t\tv = 7\n\t}\n\treturn res\n}\n\narr := make_array_of_7(128, f32)",
+        "data_store :: proc($N: int, $T: typeid) -> [N]T {\n\tentry: [N]T\n\tfor &size in entry {\n\t\tsize = 7\n\t}\n\treturn entry\n}\n\nvalue := data_store(3, f32)",
+        "result_set :: proc($N: int, $T: typeid) -> [N]T {\n\tscore: [N]T\n\tfor &level in score {\n\t\tlevel = 42\n\t}\n\treturn score\n}\n\ncount := result_set(9, f32)",
+        "count_total :: proc($N: int, $T: typeid) -> [N]T {\n\tsize: [N]T\n\tfor &value in size {\n\t\tvalue = 13\n\t}\n\treturn size\n}\n\ntotal := count_total(25, f32)",
+        "total_sum :: proc($N: int, $T: typeid) -> [N]T {\n\tlevel: [N]T\n\tfor &count in level {\n\t\tcount = 100\n\t}\n\treturn level\n}\n\namount := total_sum(64, f32)",
+        "score_list :: proc($N: int, $T: typeid) -> [N]T {\n\tvalue: [N]T\n\tfor &total in value {\n\t\ttotal = 3\n\t}\n\treturn value\n}\n\nitem := score_list(512, f32)",
+        "item_data :: proc($N: int, $T: typeid) -> [N]T {\n\tcount: [N]T\n\tfor &amount in count {\n\t\tamount = 9\n\t}\n\treturn count\n}\n\ndata := item_data(2, f32)",
+        "value_list :: proc($N: int, $T: typeid) -> [N]T {\n\ttotal: [N]T\n\tfor &item in total {\n\t\titem = 25\n\t}\n\treturn total\n}\n\nresult := value_list(4, f32)"
+      ]
+    }
+  ]
+}

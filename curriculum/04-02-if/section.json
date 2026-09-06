@@ -1,0 +1,86 @@
+{
+  "name": "If statements",
+  "group": 4,
+  "groupTitle": "Control flow",
+  "order": "4.2",
+  "snippets": [
+    {
+      "instruction": "An if that runs when a condition is true",
+      "targets": [
+        "some_variable := 7\n\nif some_variable == 7 {\n\tfmt.println(\"It's seven!\")\n}",
+        "entry_map := 7\n\nif entry_map == 7 {\n\tfmt.println(\"cloud\")\n}",
+        "data_store := 42\n\nif data_store == 42 {\n\tfmt.println(\"storm\")\n}",
+        "result_set := 13\n\nif result_set == 13 {\n\tfmt.println(\"raven\")\n}",
+        "count_total := 100\n\nif count_total == 100 {\n\tfmt.println(\"shadow\")\n}",
+        "total_sum := 3\n\nif total_sum == 3 {\n\tfmt.println(\"meadow\")\n}",
+        "score_list := 9\n\nif score_list == 9 {\n\tfmt.println(\"hollow\")\n}",
+        "item_data := 25\n\nif item_data == 25 {\n\tfmt.println(\"ridge\")\n}"
+      ]
+    },
+    {
+      "instruction": "An if with a combined && and || condition",
+      "targets": [
+        "if var1 == 7 && (var2 == 12 || var3 == 42) {\n}",
+        "if amount == 7 && (item == 13 || data == 10) {\n}",
+        "if item == 42 && (data == 100 || result == 200) {\n}",
+        "if data == 13 && (result == 3 || entry == 128) {\n}",
+        "if result == 100 && (entry == 9 || score == 7) {\n}",
+        "if entry == 3 && (score == 25 || size == 42) {\n}",
+        "if score == 9 && (size == 64 || level == 13) {\n}",
+        "if size == 25 && (level == 512 || value == 100) {\n}"
+      ]
+    },
+    {
+      "instruction": "Negate a stored condition with !",
+      "targets": [
+        "some_variable := 7\nmy_condition := some_variable == 7\n\nif !my_condition {\n\tfmt.println(\"some_variable is not 7\")\n}",
+        "entry_map := 7\nvalue_list := entry_map == 7\n\nif !value_list {\n\tfmt.println(\"entry_map data result 7\")\n}",
+        "data_store := 42\nentry_map := data_store == 42\n\nif !entry_map {\n\tfmt.println(\"data_store result entry 42\")\n}",
+        "result_set := 13\ndata_store := result_set == 13\n\nif !data_store {\n\tfmt.println(\"result_set entry score 13\")\n}",
+        "count_total := 100\nresult_set := count_total == 100\n\nif !result_set {\n\tfmt.println(\"count_total score size 100\")\n}",
+        "total_sum := 3\ncount_total := total_sum == 3\n\nif !count_total {\n\tfmt.println(\"total_sum size level 3\")\n}",
+        "score_list := 9\ntotal_sum := score_list == 9\n\nif !total_sum {\n\tfmt.println(\"score_list level value 9\")\n}",
+        "item_data := 25\nscore_list := item_data == 25\n\nif !score_list {\n\tfmt.println(\"item_data value count 25\")\n}"
+      ]
+    },
+    {
+      "instruction": "An if / else if / else chain",
+      "targets": [
+        "if some_variable > 7 {\n} else if some_other_variable == 2 {\n} else {\n}",
+        "if entry_map > 7 {\n} else if data_store == 2 {\n} else {\n}",
+        "if data_store > 42 {\n} else if result_set == 2 {\n} else {\n}",
+        "if result_set > 13 {\n} else if count_total == 2 {\n} else {\n}",
+        "if count_total > 100 {\n} else if total_sum == 2 {\n} else {\n}",
+        "if total_sum > 3 {\n} else if score_list == 2 {\n} else {\n}",
+        "if score_list > 9 {\n} else if item_data == 2 {\n} else {\n}",
+        "if item_data > 25 {\n} else if value_list == 2 {\n} else {\n}"
+      ]
+    },
+    {
+      "instruction": "A single-line if with braces",
+      "targets": [
+        "if some_variable == 7 { some_proc() }",
+        "if entry_map == 7 { item_data() }",
+        "if data_store == 42 { value_list() }",
+        "if result_set == 13 { entry_map() }",
+        "if count_total == 100 { data_store() }",
+        "if total_sum == 3 { result_set() }",
+        "if score_list == 9 { count_total() }",
+        "if item_data == 25 { total_sum() }"
+      ]
+    },
+    {
+      "instruction": "A single-statement if using do",
+      "targets": [
+        "if some_variable == 7 do some_proc()",
+        "if entry_map == 7 do item_data()",
+        "if data_store == 42 do value_list()",
+        "if result_set == 13 do entry_map()",
+        "if count_total == 100 do data_store()",
+        "if total_sum == 3 do result_set()",
+        "if score_list == 9 do count_total()",
+        "if item_data == 25 do total_sum()"
+      ]
+    }
+  ]
+}

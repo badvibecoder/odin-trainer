@@ -1,0 +1,34 @@
+{
+  "name": "@init, @fini & defer",
+  "group": 7,
+  "groupTitle": "Procedures",
+  "order": "7.5",
+  "snippets": [
+    {
+      "instruction": "Write an @init and @fini procedure pair",
+      "targets": [
+        "package init_demo\n\nimport \"base:runtime\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"Program running\")\n}\n\n@init\nstartup :: proc \"contextless\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"Program started\")\n}\n\n@fini\nshutdown :: proc \"contextless\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"Program shutting down\")\n}",
+        "package score_list\n\nimport \"base:runtime\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"storm\")\n}\n\n@total\namount :: proc \"storm\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"ridge\")\n}\n\n@entry\nlevel :: proc \"storm\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"widget\")\n}",
+        "package item_data\n\nimport \"base:runtime\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"ridge\")\n}\n\n@amount\nitem :: proc \"hollow\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"meadow\")\n}\n\n@score\nvalue :: proc \"hollow\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"meadow\")\n}",
+        "package value_list\n\nimport \"base:runtime\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"apple\")\n}\n\n@item\ndata :: proc \"raven\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"timber\")\n}\n\n@size\ncount :: proc \"raven\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"ember\")\n}",
+        "package entry_map\n\nimport \"base:runtime\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"widget\")\n}\n\n@data\nresult :: proc \"raven\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"timber\")\n}\n\n@level\ntotal :: proc \"raven\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"orange\")\n}",
+        "package data_store\n\nimport \"base:runtime\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"meadow\")\n}\n\n@result\nentry :: proc \"stone\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"stone\")\n}\n\n@value\namount :: proc \"stone\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"ridge\")\n}",
+        "package result_set\n\nimport \"base:runtime\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"timber\")\n}\n\n@entry\nscore :: proc \"stone\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"shadow\")\n}\n\n@count\nitem :: proc \"stone\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"meadow\")\n}",
+        "package count_total\n\nimport \"base:runtime\"\nimport \"core:fmt\"\n\nmain :: proc() {\n\tfmt.println(\"raven\")\n}\n\n@score\nsize :: proc \"shadow\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"storm\")\n}\n\n@total\ndata :: proc \"shadow\" () {\n\tcontext = runtime.default_context()\n\tfmt.println(\"timber\")\n}"
+      ]
+    },
+    {
+      "instruction": "Write a procedure that defers closing the file",
+      "targets": [
+        "read_file :: proc() {\n\tf, err := os.open(\"my_file.txt\")\n\n\tif err != os.ERROR_NONE {\n\t\treturn\n\t}\n\n\tdefer os.close(f)\n\n\tfmt.println(\"read the file\")\n}",
+        "result_set :: proc() {\n\titem, data := os.open(\"item_data.value\")\n\n\tif data != os.ERROR_NONE {\n\t\treturn\n\t}\n\n\tdefer os.close(item)\n\n\tfmt.println(\"widget\")\n}",
+        "count_total :: proc() {\n\tdata, result := os.open(\"value_list.count\")\n\n\tif result != os.ERROR_NONE {\n\t\treturn\n\t}\n\n\tdefer os.close(data)\n\n\tfmt.println(\"ember\")\n}",
+        "total_sum :: proc() {\n\tresult, entry := os.open(\"entry_map.total\")\n\n\tif entry != os.ERROR_NONE {\n\t\treturn\n\t}\n\n\tdefer os.close(result)\n\n\tfmt.println(\"raven\")\n}",
+        "score_list :: proc() {\n\tentry, score := os.open(\"data_store.amount\")\n\n\tif score != os.ERROR_NONE {\n\t\treturn\n\t}\n\n\tdefer os.close(entry)\n\n\tfmt.println(\"meadow\")\n}",
+        "item_data :: proc() {\n\tscore, size := os.open(\"result_set.item\")\n\n\tif size != os.ERROR_NONE {\n\t\treturn\n\t}\n\n\tdefer os.close(score)\n\n\tfmt.println(\"cloud\")\n}",
+        "value_list :: proc() {\n\tsize, level := os.open(\"count_total.data\")\n\n\tif level != os.ERROR_NONE {\n\t\treturn\n\t}\n\n\tdefer os.close(size)\n\n\tfmt.println(\"widget\")\n}",
+        "entry_map :: proc() {\n\tlevel, value := os.open(\"total_sum.result\")\n\n\tif value != os.ERROR_NONE {\n\t\treturn\n\t}\n\n\tdefer os.close(level)\n\n\tfmt.println(\"widget\")\n}"
+      ]
+    }
+  ]
+}

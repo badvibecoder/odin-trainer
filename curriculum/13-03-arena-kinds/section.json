@@ -1,0 +1,73 @@
+{
+  "name": "Arena kinds",
+  "group": 13,
+  "groupTitle": "Allocators",
+  "order": "13.3",
+  "snippets": [
+    {
+      "instruction": "Initialize a growing arena",
+      "targets": [
+        "arena: vmem.Arena\nerr := vmem.arena_init_growing(&arena)\nassert(err == .None)\narena_allocator := vmem.arena_allocator(&arena)",
+        "size: vmem.Arena\ndata := vmem.arena_init_growing(&size)\nassert(data == .None)\narena_allocator := vmem.arena_allocator(&size)",
+        "level: vmem.Arena\nresult := vmem.arena_init_growing(&level)\nassert(result == .None)\narena_allocator := vmem.arena_allocator(&level)",
+        "value: vmem.Arena\nentry := vmem.arena_init_growing(&value)\nassert(entry == .None)\narena_allocator := vmem.arena_allocator(&value)",
+        "count: vmem.Arena\nscore := vmem.arena_init_growing(&count)\nassert(score == .None)\narena_allocator := vmem.arena_allocator(&count)",
+        "total: vmem.Arena\nsize := vmem.arena_init_growing(&total)\nassert(size == .None)\narena_allocator := vmem.arena_allocator(&total)",
+        "amount: vmem.Arena\nlevel := vmem.arena_init_growing(&amount)\nassert(level == .None)\narena_allocator := vmem.arena_allocator(&amount)",
+        "item: vmem.Arena\nvalue := vmem.arena_init_growing(&item)\nassert(value == .None)\narena_allocator := vmem.arena_allocator(&item)"
+      ]
+    },
+    {
+      "instruction": "Initialize a growing arena with a reserve size",
+      "targets": [
+        "arena: vmem.Arena\nerr := vmem.arena_init_growing(&arena, 100*mem.Megabyte)\nassert(err == .None)\narena_allocator := vmem.arena_allocator(&arena)",
+        "size: vmem.Arena\ndata := vmem.arena_init_growing(&size, 3*mem.Megabyte)\nassert(data == .None)\narena_allocator := vmem.arena_allocator(&size)",
+        "level: vmem.Arena\nresult := vmem.arena_init_growing(&level, 9*mem.Megabyte)\nassert(result == .None)\narena_allocator := vmem.arena_allocator(&level)",
+        "value: vmem.Arena\nentry := vmem.arena_init_growing(&value, 25*mem.Megabyte)\nassert(entry == .None)\narena_allocator := vmem.arena_allocator(&value)",
+        "count: vmem.Arena\nscore := vmem.arena_init_growing(&count, 64*mem.Megabyte)\nassert(score == .None)\narena_allocator := vmem.arena_allocator(&count)",
+        "total: vmem.Arena\nsize := vmem.arena_init_growing(&total, 512*mem.Megabyte)\nassert(size == .None)\narena_allocator := vmem.arena_allocator(&total)",
+        "amount: vmem.Arena\nlevel := vmem.arena_init_growing(&amount, 2*mem.Megabyte)\nassert(level == .None)\narena_allocator := vmem.arena_allocator(&amount)",
+        "item: vmem.Arena\nvalue := vmem.arena_init_growing(&item, 4*mem.Megabyte)\nassert(value == .None)\narena_allocator := vmem.arena_allocator(&item)"
+      ]
+    },
+    {
+      "instruction": "Initialize a static arena with a reserve size",
+      "targets": [
+        "arena: vmem.Arena\nerr := vmem.arena_init_static(&arena, 1*mem.Gigabyte)\nassert(err == .None)\narena_allocator := vmem.arena_allocator(&arena)",
+        "size: vmem.Arena\ndata := vmem.arena_init_static(&size, 1*mem.Gigabyte)\nassert(data == .None)\narena_allocator := vmem.arena_allocator(&size)",
+        "level: vmem.Arena\nresult := vmem.arena_init_static(&level, 1*mem.Gigabyte)\nassert(result == .None)\narena_allocator := vmem.arena_allocator(&level)",
+        "value: vmem.Arena\nentry := vmem.arena_init_static(&value, 1*mem.Gigabyte)\nassert(entry == .None)\narena_allocator := vmem.arena_allocator(&value)",
+        "count: vmem.Arena\nscore := vmem.arena_init_static(&count, 1*mem.Gigabyte)\nassert(score == .None)\narena_allocator := vmem.arena_allocator(&count)",
+        "total: vmem.Arena\nsize := vmem.arena_init_static(&total, 1*mem.Gigabyte)\nassert(size == .None)\narena_allocator := vmem.arena_allocator(&total)",
+        "amount: vmem.Arena\nlevel := vmem.arena_init_static(&amount, 1*mem.Gigabyte)\nassert(level == .None)\narena_allocator := vmem.arena_allocator(&amount)",
+        "item: vmem.Arena\nvalue := vmem.arena_init_static(&item, 1*mem.Gigabyte)\nassert(value == .None)\narena_allocator := vmem.arena_allocator(&item)"
+      ]
+    },
+    {
+      "instruction": "Initialize a buffer arena from a slice",
+      "targets": [
+        "arena: vmem.Arena\nbuf := make([]byte, 10*mem.Megabyte)\nerr := vmem.arena_init_buffer(&arena, buf[:])\nassert(err == .None)\narena_allocator := vmem.arena_allocator(&arena)",
+        "size: vmem.Arena\nscore := make([]byte, 7*mem.Megabyte)\ndata := vmem.arena_init_buffer(&size, score[:])\nassert(data == .None)\narena_allocator := vmem.arena_allocator(&size)",
+        "level: vmem.Arena\nsize := make([]byte, 42*mem.Megabyte)\nresult := vmem.arena_init_buffer(&level, size[:])\nassert(result == .None)\narena_allocator := vmem.arena_allocator(&level)",
+        "value: vmem.Arena\nlevel := make([]byte, 13*mem.Megabyte)\nentry := vmem.arena_init_buffer(&value, level[:])\nassert(entry == .None)\narena_allocator := vmem.arena_allocator(&value)",
+        "count: vmem.Arena\nvalue := make([]byte, 100*mem.Megabyte)\nscore := vmem.arena_init_buffer(&count, value[:])\nassert(score == .None)\narena_allocator := vmem.arena_allocator(&count)",
+        "total: vmem.Arena\ncount := make([]byte, 3*mem.Megabyte)\nsize := vmem.arena_init_buffer(&total, count[:])\nassert(size == .None)\narena_allocator := vmem.arena_allocator(&total)",
+        "amount: vmem.Arena\ntotal := make([]byte, 9*mem.Megabyte)\nlevel := vmem.arena_init_buffer(&amount, total[:])\nassert(level == .None)\narena_allocator := vmem.arena_allocator(&amount)",
+        "item: vmem.Arena\namount := make([]byte, 25*mem.Megabyte)\nvalue := vmem.arena_init_buffer(&item, amount[:])\nassert(value == .None)\narena_allocator := vmem.arena_allocator(&item)"
+      ]
+    },
+    {
+      "instruction": "Initialize a buffer arena from a fixed array",
+      "targets": [
+        "arena: vmem.Arena\nbuf: [4096]byte\nerr := vmem.arena_init_buffer(&arena, buf[:])\nassert(err == .None)\narena_allocator := vmem.arena_allocator(&arena)",
+        "size: vmem.Arena\nscore: [3]byte\ndata := vmem.arena_init_buffer(&size, score[:])\nassert(data == .None)\narena_allocator := vmem.arena_allocator(&size)",
+        "level: vmem.Arena\nsize: [9]byte\nresult := vmem.arena_init_buffer(&level, size[:])\nassert(result == .None)\narena_allocator := vmem.arena_allocator(&level)",
+        "value: vmem.Arena\nlevel: [25]byte\nentry := vmem.arena_init_buffer(&value, level[:])\nassert(entry == .None)\narena_allocator := vmem.arena_allocator(&value)",
+        "count: vmem.Arena\nvalue: [64]byte\nscore := vmem.arena_init_buffer(&count, value[:])\nassert(score == .None)\narena_allocator := vmem.arena_allocator(&count)",
+        "total: vmem.Arena\ncount: [512]byte\nsize := vmem.arena_init_buffer(&total, count[:])\nassert(size == .None)\narena_allocator := vmem.arena_allocator(&total)",
+        "amount: vmem.Arena\ntotal: [2]byte\nlevel := vmem.arena_init_buffer(&amount, total[:])\nassert(level == .None)\narena_allocator := vmem.arena_allocator(&amount)",
+        "item: vmem.Arena\namount: [4]byte\nvalue := vmem.arena_init_buffer(&item, amount[:])\nassert(value == .None)\narena_allocator := vmem.arena_allocator(&item)"
+      ]
+    }
+  ]
+}

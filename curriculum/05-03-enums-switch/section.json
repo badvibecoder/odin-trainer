@@ -1,0 +1,99 @@
+{
+  "name": "Enums & switch",
+  "group": 5,
+  "groupTitle": "Types",
+  "order": "5.2",
+  "snippets": [
+    {
+      "instruction": "Define an enum with three variants",
+      "targets": [
+        "Computer_Type :: enum {\n\tLaptop,\n\tDesktop,\n\tMainframe,\n}",
+        "Item_Record :: enum {\n\tEntry,\n\tEntity,\n\tNote,\n}",
+        "Item_Kind :: enum {\n\tData,\n\tRecord,\n\tItem,\n}",
+        "Entity_Data :: enum {\n\tResult,\n\tEntry,\n\tEntity,\n}",
+        "Record_Type :: enum {\n\tConfig,\n\tData,\n\tRecord,\n}",
+        "Entry_Kind :: enum {\n\tThing,\n\tResult,\n\tEntry,\n}",
+        "Data_Type :: enum {\n\tValue,\n\tConfig,\n\tData,\n}",
+        "Item_Record :: enum {\n\tNote,\n\tThing,\n\tResult,\n}"
+      ]
+    },
+    {
+      "instruction": "Assign an enum variant with a dot",
+      "targets": [
+        "ct = .Mainframe",
+        "entry = .Note",
+        "score = .Item",
+        "size = .Entity",
+        "level = .Record",
+        "value = .Entry",
+        "count = .Data",
+        "total = .Result"
+      ]
+    },
+    {
+      "instruction": "Assign an enum variant with the full name",
+      "targets": [
+        "ct = Computer_Type.Mainframe",
+        "entry = Item_Record.Note",
+        "score = Item_Kind.Item",
+        "size = Entity_Data.Entity",
+        "level = Record_Type.Record",
+        "value = Entry_Kind.Entry",
+        "count = Data_Type.Data",
+        "total = Item_Record.Result"
+      ]
+    },
+    {
+      "instruction": "Switch over an enum value",
+      "targets": [
+        "switch ct {\ncase .Laptop:\n\tfmt.println(\"It's a laptop\")\n\ncase .Desktop:\n\tfmt.println(\"It's a desktop\")\n\ncase .Mainframe:\n\tfmt.println(\"Wow, a mainframe!\")\n}",
+        "switch entry {\ncase .Entry:\n\tfmt.println(\"ridge\")\n\ncase .Entity:\n\tfmt.println(\"ember\")\n\ncase .Note:\n\tfmt.println(\"timber\")\n}",
+        "switch score {\ncase .Data:\n\tfmt.println(\"ember\")\n\ncase .Record:\n\tfmt.println(\"ember\")\n\ncase .Item:\n\tfmt.println(\"meadow\")\n}",
+        "switch size {\ncase .Result:\n\tfmt.println(\"timber\")\n\ncase .Entry:\n\tfmt.println(\"raven\")\n\ncase .Entity:\n\tfmt.println(\"ridge\")\n}",
+        "switch level {\ncase .Config:\n\tfmt.println(\"shadow\")\n\ncase .Data:\n\tfmt.println(\"ridge\")\n\ncase .Record:\n\tfmt.println(\"apple\")\n}",
+        "switch value {\ncase .Thing:\n\tfmt.println(\"apple\")\n\ncase .Result:\n\tfmt.println(\"meadow\")\n\ncase .Entry:\n\tfmt.println(\"storm\")\n}",
+        "switch count {\ncase .Value:\n\tfmt.println(\"branch\")\n\ncase .Config:\n\tfmt.println(\"ember\")\n\ncase .Data:\n\tfmt.println(\"hollow\")\n}",
+        "switch total {\ncase .Note:\n\tfmt.println(\"branch\")\n\ncase .Thing:\n\tfmt.println(\"cloud\")\n\ncase .Result:\n\tfmt.println(\"apple\")\n}"
+      ]
+    },
+    {
+      "instruction": "A #partial switch covering only two variants",
+      "targets": [
+        "#partial switch ct {\ncase .Laptop:\n\tfmt.println(\"It's a laptop\")\n\ncase .Desktop:\n\tfmt.println(\"It's a desktop\")\n}",
+        "#partial switch entry {\ncase .Entry:\n\tfmt.println(\"ridge\")\n\ncase .Entity:\n\tfmt.println(\"ember\")\n}",
+        "#partial switch score {\ncase .Data:\n\tfmt.println(\"ember\")\n\ncase .Record:\n\tfmt.println(\"ember\")\n}",
+        "#partial switch size {\ncase .Result:\n\tfmt.println(\"timber\")\n\ncase .Entry:\n\tfmt.println(\"raven\")\n}",
+        "#partial switch level {\ncase .Config:\n\tfmt.println(\"shadow\")\n\ncase .Data:\n\tfmt.println(\"ridge\")\n}",
+        "#partial switch value {\ncase .Thing:\n\tfmt.println(\"apple\")\n\ncase .Result:\n\tfmt.println(\"meadow\")\n}",
+        "#partial switch count {\ncase .Value:\n\tfmt.println(\"branch\")\n\ncase .Config:\n\tfmt.println(\"ember\")\n}",
+        "#partial switch total {\ncase .Note:\n\tfmt.println(\"branch\")\n\ncase .Thing:\n\tfmt.println(\"cloud\")\n}"
+      ]
+    },
+    {
+      "instruction": "Declare an enum with explicit numbering",
+      "targets": [
+        "Computer_Type :: enum {\n\tLaptop = 1,\n\tDesktop,\n\tMainframe,\n}",
+        "Item_Record :: enum {\n\tEntry = 1,\n\tEntity,\n\tNote,\n}",
+        "Item_Kind :: enum {\n\tData = 1,\n\tRecord,\n\tItem,\n}",
+        "Entity_Data :: enum {\n\tResult = 1,\n\tEntry,\n\tEntity,\n}",
+        "Record_Type :: enum {\n\tConfig = 1,\n\tData,\n\tRecord,\n}",
+        "Entry_Kind :: enum {\n\tThing = 1,\n\tResult,\n\tEntry,\n}",
+        "Data_Type :: enum {\n\tValue = 1,\n\tConfig,\n\tData,\n}",
+        "Item_Record :: enum {\n\tNote = 1,\n\tThing,\n\tResult,\n}"
+      ]
+    },
+    {
+      "instruction": "Declare an enum with a u8 backing type",
+      "targets": [
+        "Animal_Type :: enum u8 {\n\tCat,\n\tRabbit,\n}",
+        "Item_Kind :: enum u8 {\n\tEntity,\n\tRecord,\n}",
+        "Entity_Data :: enum u8 {\n\tRecord,\n\tEntry,\n}",
+        "Record_Type :: enum u8 {\n\tEntry,\n\tData,\n}",
+        "Entry_Kind :: enum u8 {\n\tData,\n\tResult,\n}",
+        "Data_Type :: enum u8 {\n\tResult,\n\tConfig,\n}",
+        "Item_Record :: enum u8 {\n\tConfig,\n\tThing,\n}",
+        "Item_Kind :: enum u8 {\n\tThing,\n\tValue,\n}"
+      ]
+    }
+  ]
+}

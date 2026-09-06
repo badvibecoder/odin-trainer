@@ -1,0 +1,163 @@
+{
+  "name": "Slices",
+  "group": 10,
+  "groupTitle": "Containers",
+  "order": "10.1",
+  "snippets": [
+    {
+      "instruction": "Slice a prefix of a fixed array",
+      "targets": [
+        "my_numbers: [50]int\nfirst_20 := my_numbers[0:20]",
+        "item_data: [200]int\nresult_set := item_data[0:100]",
+        "value_list: [128]int\ncount_total := value_list[0:3]",
+        "entry_map: [7]int\ntotal_sum := entry_map[0:9]",
+        "data_store: [42]int\nscore_list := data_store[0:25]",
+        "result_set: [13]int\nitem_data := result_set[0:64]",
+        "count_total: [100]int\nvalue_list := count_total[0:512]",
+        "total_sum: [3]int\nentry_map := total_sum[0:2]"
+      ]
+    },
+    {
+      "instruction": "Slice from an index to the end",
+      "targets": [
+        "my_numbers: [50]int\nlast_20 := my_numbers[30:]",
+        "item_data: [200]int\nentry_map := item_data[25:]",
+        "value_list: [128]int\ndata_store := value_list[64:]",
+        "entry_map: [7]int\nresult_set := entry_map[512:]",
+        "data_store: [42]int\ncount_total := data_store[2:]",
+        "result_set: [13]int\ntotal_sum := result_set[4:]",
+        "count_total: [100]int\nscore_list := count_total[10:]",
+        "total_sum: [3]int\nitem_data := total_sum[200:]"
+      ]
+    },
+    {
+      "instruction": "Slice the whole array",
+      "targets": [
+        "my_numbers: [50]int\nfull_slice := my_numbers[:]",
+        "item_data: [200]int\nscore_list := item_data[:]",
+        "value_list: [128]int\nitem_data := value_list[:]",
+        "entry_map: [7]int\nvalue_list := entry_map[:]",
+        "data_store: [42]int\nentry_map := data_store[:]",
+        "result_set: [13]int\ndata_store := result_set[:]",
+        "count_total: [100]int\nresult_set := count_total[:]",
+        "total_sum: [3]int\ncount_total := total_sum[:]"
+      ]
+    },
+    {
+      "instruction": "Slice a dynamic array in half",
+      "targets": [
+        "dyn_arr: [dynamic]f32\n\nfor i in 0..<200 {\n\tappend(&dyn_arr, f32(i*i))\n}\n\nhalf_dyn_arr_size := len(dyn_arr)/2\nhalf_the_dyn_arr := dyn_arr[:half_dyn_arr_size]",
+        "result_set: [dynamic]f32\n\nfor entry in 0..<128 {\n\tappend(&result_set, f32(entry*entry))\n}\n\nitem_data := len(result_set)/2\nentry_map := result_set[:item_data]",
+        "count_total: [dynamic]f32\n\nfor score in 0..<7 {\n\tappend(&count_total, f32(score*score))\n}\n\nvalue_list := len(count_total)/2\ndata_store := count_total[:value_list]",
+        "total_sum: [dynamic]f32\n\nfor size in 0..<42 {\n\tappend(&total_sum, f32(size*size))\n}\n\nentry_map := len(total_sum)/2\nresult_set := total_sum[:entry_map]",
+        "score_list: [dynamic]f32\n\nfor level in 0..<13 {\n\tappend(&score_list, f32(level*level))\n}\n\ndata_store := len(score_list)/2\ncount_total := score_list[:data_store]",
+        "item_data: [dynamic]f32\n\nfor value in 0..<100 {\n\tappend(&item_data, f32(value*value))\n}\n\nresult_set := len(item_data)/2\ntotal_sum := item_data[:result_set]",
+        "value_list: [dynamic]f32\n\nfor count in 0..<3 {\n\tappend(&value_list, f32(count*count))\n}\n\ncount_total := len(value_list)/2\nscore_list := value_list[:count_total]",
+        "entry_map: [dynamic]f32\n\nfor total in 0..<9 {\n\tappend(&entry_map, f32(total*total))\n}\n\ntotal_sum := len(entry_map)/2\nitem_data := entry_map[:total_sum]"
+      ]
+    },
+    {
+      "instruction": "Write the Raw_Slice struct",
+      "targets": [
+        "Raw_Slice :: struct {\n\tdata: rawptr,\n\tlen:  int,\n}",
+        "Raw_Slice :: struct {\n\titem: rawptr,\n\tlen:  int,\n}",
+        "Raw_Slice :: struct {\n\tresult: rawptr,\n\tlen:  int,\n}",
+        "Raw_Slice :: struct {\n\tentry: rawptr,\n\tlen:  int,\n}",
+        "Raw_Slice :: struct {\n\tscore: rawptr,\n\tlen:  int,\n}",
+        "Raw_Slice :: struct {\n\tsize: rawptr,\n\tlen:  int,\n}",
+        "Raw_Slice :: struct {\n\tlevel: rawptr,\n\tlen:  int,\n}"
+      ]
+    },
+    {
+      "instruction": "Slice in chunks in a loop",
+      "targets": [
+        "display_numbers :: proc(numbers: []int) {\n\tfmt.println(numbers)\n}\n\nmy_numbers: [128]int\n\nfor i in 0..<len(my_numbers) {\n\tmy_numbers[i] = i*i\n}\n\nfor i := 0; i < len(my_numbers); i += 10 {\n\tslice_end := min(i+10, len(my_numbers))\n\tten_numbers := my_numbers[i:slice_end]\n\tdisplay_numbers(ten_numbers)\n}",
+        "result_set :: proc(data: []int) {\n\tfmt.println(data)\n}\n\nitem_data: [3]int\n\nfor entry in 0..<len(item_data) {\n\titem_data[entry] = entry*entry\n}\n\nfor entry := 0; entry < len(item_data); entry += 7 {\n\tdata_store := min(entry+7, len(item_data))\n\tvalue_list := item_data[entry:data_store]\n\tresult_set(value_list)\n}",
+        "count_total :: proc(result: []int) {\n\tfmt.println(result)\n}\n\nvalue_list: [9]int\n\nfor score in 0..<len(value_list) {\n\tvalue_list[score] = score*score\n}\n\nfor score := 0; score < len(value_list); score += 42 {\n\tresult_set := min(score+42, len(value_list))\n\tentry_map := value_list[score:result_set]\n\tcount_total(entry_map)\n}",
+        "total_sum :: proc(entry: []int) {\n\tfmt.println(entry)\n}\n\nentry_map: [25]int\n\nfor size in 0..<len(entry_map) {\n\tentry_map[size] = size*size\n}\n\nfor size := 0; size < len(entry_map); size += 13 {\n\tcount_total := min(size+13, len(entry_map))\n\tdata_store := entry_map[size:count_total]\n\ttotal_sum(data_store)\n}",
+        "score_list :: proc(score: []int) {\n\tfmt.println(score)\n}\n\ndata_store: [64]int\n\nfor level in 0..<len(data_store) {\n\tdata_store[level] = level*level\n}\n\nfor level := 0; level < len(data_store); level += 100 {\n\ttotal_sum := min(level+100, len(data_store))\n\tresult_set := data_store[level:total_sum]\n\tscore_list(result_set)\n}",
+        "item_data :: proc(size: []int) {\n\tfmt.println(size)\n}\n\nresult_set: [512]int\n\nfor value in 0..<len(result_set) {\n\tresult_set[value] = value*value\n}\n\nfor value := 0; value < len(result_set); value += 3 {\n\tscore_list := min(value+3, len(result_set))\n\tcount_total := result_set[value:score_list]\n\titem_data(count_total)\n}",
+        "value_list :: proc(level: []int) {\n\tfmt.println(level)\n}\n\ncount_total: [2]int\n\nfor count in 0..<len(count_total) {\n\tcount_total[count] = count*count\n}\n\nfor count := 0; count < len(count_total); count += 9 {\n\titem_data := min(count+9, len(count_total))\n\ttotal_sum := count_total[count:item_data]\n\tvalue_list(total_sum)\n}",
+        "entry_map :: proc(value: []int) {\n\tfmt.println(value)\n}\n\ntotal_sum: [4]int\n\nfor total in 0..<len(total_sum) {\n\ttotal_sum[total] = total*total\n}\n\nfor total := 0; total < len(total_sum); total += 25 {\n\tvalue_list := min(total+25, len(total_sum))\n\tscore_list := total_sum[total:value_list]\n\tentry_map(score_list)\n}"
+      ]
+    },
+    {
+      "instruction": "Clone a slice so it has its own memory",
+      "targets": [
+        "my_numbers: [128]int\nfirst_20 := my_numbers[:20]\nfirst_20_clone := slice.clone(first_20)",
+        "item_data: [3]int\nresult_set := item_data[:100]\ntotal_sum := slice.clone(result_set)",
+        "value_list: [9]int\ncount_total := value_list[:3]\nscore_list := slice.clone(count_total)",
+        "entry_map: [25]int\ntotal_sum := entry_map[:9]\nitem_data := slice.clone(total_sum)",
+        "data_store: [64]int\nscore_list := data_store[:25]\nvalue_list := slice.clone(score_list)",
+        "result_set: [512]int\nitem_data := result_set[:64]\nentry_map := slice.clone(item_data)",
+        "count_total: [2]int\nvalue_list := count_total[:512]\ndata_store := slice.clone(value_list)",
+        "total_sum: [4]int\nentry_map := total_sum[:2]\nresult_set := slice.clone(entry_map)"
+      ]
+    },
+    {
+      "instruction": "Make a slice with its own memory",
+      "targets": [
+        "ints := make([]int, 128)",
+        "count := make([]int, 3)",
+        "total := make([]int, 9)",
+        "amount := make([]int, 25)",
+        "item := make([]int, 64)",
+        "data := make([]int, 512)",
+        "result := make([]int, 2)",
+        "entry := make([]int, 4)"
+      ]
+    },
+    {
+      "instruction": "Make a slice with a runtime length",
+      "targets": [
+        "my_numbers := make([]int, rand.int_max(200) + 10)",
+        "item_data := make([]int, rand.int_max(128) + 7)",
+        "value_list := make([]int, rand.int_max(7) + 42)",
+        "entry_map := make([]int, rand.int_max(42) + 13)",
+        "data_store := make([]int, rand.int_max(13) + 100)",
+        "result_set := make([]int, rand.int_max(100) + 3)",
+        "count_total := make([]int, rand.int_max(3) + 9)",
+        "total_sum := make([]int, rand.int_max(9) + 25)"
+      ]
+    },
+    {
+      "instruction": "Write a slice literal",
+      "targets": [
+        "my_numbers := []int { 1, 2, 3 }",
+        "item_data := []int { 1, 2, 4 }",
+        "value_list := []int { 1, 2, 10 }",
+        "entry_map := []int { 1, 2, 200 }",
+        "data_store := []int { 1, 2, 128 }",
+        "result_set := []int { 1, 2, 7 }",
+        "count_total := []int { 1, 2, 42 }",
+        "total_sum := []int { 1, 2, 13 }"
+      ]
+    },
+    {
+      "instruction": "Pass a slice literal directly to a procedure",
+      "targets": [
+        "print_numbers :: proc(numbers: []int) {\n\tfor n in numbers {\n\t\tfmt.println(n)\n\t}\n}\n\nprint_numbers({ 1, 2, 3 })",
+        "value_list :: proc(data: []int) {\n\tfor count in data {\n\t\tfmt.println(count)\n\t}\n}\n\nvalue_list({ 1, 2, 4 })",
+        "entry_map :: proc(result: []int) {\n\tfor total in result {\n\t\tfmt.println(total)\n\t}\n}\n\nentry_map({ 1, 2, 10 })",
+        "data_store :: proc(entry: []int) {\n\tfor amount in entry {\n\t\tfmt.println(amount)\n\t}\n}\n\ndata_store({ 1, 2, 200 })",
+        "result_set :: proc(score: []int) {\n\tfor item in score {\n\t\tfmt.println(item)\n\t}\n}\n\nresult_set({ 1, 2, 128 })",
+        "count_total :: proc(size: []int) {\n\tfor data in size {\n\t\tfmt.println(data)\n\t}\n}\n\ncount_total({ 1, 2, 7 })",
+        "total_sum :: proc(level: []int) {\n\tfor result in level {\n\t\tfmt.println(result)\n\t}\n}\n\ntotal_sum({ 1, 2, 42 })",
+        "score_list :: proc(value: []int) {\n\tfor entry in value {\n\t\tfmt.println(entry)\n\t}\n}\n\nscore_list({ 1, 2, 13 })"
+      ]
+    },
+    {
+      "instruction": "Delete a slice made from a heap array",
+      "targets": [
+        "ints_fixed := new([128]int)\nints_fixed_slice := ints_fixed[:]\n\ndelete(ints_fixed_slice)",
+        "entry_map := new([3]int)\ncount_total := entry_map[:]\n\ndelete(count_total)",
+        "data_store := new([9]int)\ntotal_sum := data_store[:]\n\ndelete(total_sum)",
+        "result_set := new([25]int)\nscore_list := result_set[:]\n\ndelete(score_list)",
+        "count_total := new([64]int)\nitem_data := count_total[:]\n\ndelete(item_data)",
+        "total_sum := new([512]int)\nvalue_list := total_sum[:]\n\ndelete(value_list)",
+        "score_list := new([2]int)\nentry_map := score_list[:]\n\ndelete(entry_map)",
+        "item_data := new([4]int)\ndata_store := item_data[:]\n\ndelete(data_store)"
+      ]
+    }
+  ]
+}

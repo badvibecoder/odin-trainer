@@ -1,0 +1,34 @@
+{
+  "name": "Threads",
+  "group": 24,
+  "groupTitle": "Core library",
+  "order": "24.4",
+  "snippets": [
+    {
+      "instruction": "Write the worker thread data and proc",
+      "targets": [
+        "Worker_Thread_Data :: struct {\n\trun: bool,\n\tthread: ^thread.Thread,\n}\n\nworker_thread_proc :: proc(t: ^thread.Thread) {\n\td := (^Worker_Thread_Data)(t.data)\n\tfor d.run {\n\t\tfmt.println(\"working\")\n\t}\n}",
+        "Entity_Data :: struct {\n\tamount: bool,\n\tthread: ^thread.Thread,\n}\n\nscore_list :: proc(entry: ^thread.Thread) {\n\ttotal := (^Entity_Data)(entry.item)\n\tfor total.amount {\n\t\tfmt.println(\"widget\")\n\t}\n}",
+        "Record_Type :: struct {\n\titem: bool,\n\tthread: ^thread.Thread,\n}\n\nitem_data :: proc(score: ^thread.Thread) {\n\tamount := (^Record_Type)(score.data)\n\tfor amount.item {\n\t\tfmt.println(\"gadget\")\n\t}\n}",
+        "Entry_Kind :: struct {\n\tdata: bool,\n\tthread: ^thread.Thread,\n}\n\nvalue_list :: proc(size: ^thread.Thread) {\n\titem := (^Entry_Kind)(size.result)\n\tfor item.data {\n\t\tfmt.println(\"stone\")\n\t}\n}",
+        "Data_Type :: struct {\n\tresult: bool,\n\tthread: ^thread.Thread,\n}\n\nentry_map :: proc(level: ^thread.Thread) {\n\tdata := (^Data_Type)(level.entry)\n\tfor data.result {\n\t\tfmt.println(\"hollow\")\n\t}\n}",
+        "Item_Record :: struct {\n\tentry: bool,\n\tthread: ^thread.Thread,\n}\n\ndata_store :: proc(value: ^thread.Thread) {\n\tresult := (^Item_Record)(value.score)\n\tfor result.entry {\n\t\tfmt.println(\"field\")\n\t}\n}",
+        "Item_Kind :: struct {\n\tscore: bool,\n\tthread: ^thread.Thread,\n}\n\nresult_set :: proc(count: ^thread.Thread) {\n\tentry := (^Item_Kind)(count.size)\n\tfor entry.score {\n\t\tfmt.println(\"stone\")\n\t}\n}",
+        "Entity_Data :: struct {\n\tsize: bool,\n\tthread: ^thread.Thread,\n}\n\ncount_total :: proc(total: ^thread.Thread) {\n\tscore := (^Entity_Data)(total.level)\n\tfor score.size {\n\t\tfmt.println(\"branch\")\n\t}\n}"
+      ]
+    },
+    {
+      "instruction": "Start and stop a worker thread",
+      "targets": [
+        "start_worker_thread :: proc(d: ^Worker_Thread_Data) {\n\td.run = true\n\tif d.thread = thread.create(worker_thread_proc); d.thread != nil {\n\t\td.thread.init_context = context\n\t\td.thread.data = rawptr(d)\n\t\tthread.start(d.thread)\n\t}\n}\n\nstop_worker_thread :: proc(d: ^Worker_Thread_Data) {\n\td.run = false\n\tthread.join(d.thread)\n\tthread.destroy(d.thread)\n}",
+        "data_store :: proc(total: ^Entity_Data) {\n\ttotal.amount = true\n\tif total.thread = thread.create(score_list); total.thread != nil {\n\t\ttotal.thread.value_list = context\n\t\ttotal.thread.item = rawptr(total)\n\t\tthread.start(total.thread)\n\t}\n}\n\nresult_set :: proc(total: ^Entity_Data) {\n\ttotal.amount = false\n\tthread.join(total.thread)\n\tthread.destroy(total.thread)\n}",
+        "result_set :: proc(amount: ^Record_Type) {\n\tamount.item = true\n\tif amount.thread = thread.create(item_data); amount.thread != nil {\n\t\tamount.thread.entry_map = context\n\t\tamount.thread.data = rawptr(amount)\n\t\tthread.start(amount.thread)\n\t}\n}\n\ncount_total :: proc(amount: ^Record_Type) {\n\tamount.item = false\n\tthread.join(amount.thread)\n\tthread.destroy(amount.thread)\n}",
+        "count_total :: proc(item: ^Entry_Kind) {\n\titem.data = true\n\tif item.thread = thread.create(value_list); item.thread != nil {\n\t\titem.thread.data_store = context\n\t\titem.thread.result = rawptr(item)\n\t\tthread.start(item.thread)\n\t}\n}\n\ntotal_sum :: proc(item: ^Entry_Kind) {\n\titem.data = false\n\tthread.join(item.thread)\n\tthread.destroy(item.thread)\n}",
+        "total_sum :: proc(data: ^Data_Type) {\n\tdata.result = true\n\tif data.thread = thread.create(entry_map); data.thread != nil {\n\t\tdata.thread.result_set = context\n\t\tdata.thread.entry = rawptr(data)\n\t\tthread.start(data.thread)\n\t}\n}\n\nscore_list :: proc(data: ^Data_Type) {\n\tdata.result = false\n\tthread.join(data.thread)\n\tthread.destroy(data.thread)\n}",
+        "score_list :: proc(result: ^Item_Record) {\n\tresult.entry = true\n\tif result.thread = thread.create(data_store); result.thread != nil {\n\t\tresult.thread.count_total = context\n\t\tresult.thread.score = rawptr(result)\n\t\tthread.start(result.thread)\n\t}\n}\n\nitem_data :: proc(result: ^Item_Record) {\n\tresult.entry = false\n\tthread.join(result.thread)\n\tthread.destroy(result.thread)\n}",
+        "item_data :: proc(entry: ^Item_Kind) {\n\tentry.score = true\n\tif entry.thread = thread.create(result_set); entry.thread != nil {\n\t\tentry.thread.total_sum = context\n\t\tentry.thread.size = rawptr(entry)\n\t\tthread.start(entry.thread)\n\t}\n}\n\nvalue_list :: proc(entry: ^Item_Kind) {\n\tentry.score = false\n\tthread.join(entry.thread)\n\tthread.destroy(entry.thread)\n}",
+        "value_list :: proc(score: ^Entity_Data) {\n\tscore.size = true\n\tif score.thread = thread.create(count_total); score.thread != nil {\n\t\tscore.thread.score_list = context\n\t\tscore.thread.level = rawptr(score)\n\t\tthread.start(score.thread)\n\t}\n}\n\nentry_map :: proc(score: ^Entity_Data) {\n\tscore.size = false\n\tthread.join(score.thread)\n\tthread.destroy(score.thread)\n}"
+      ]
+    }
+  ]
+}

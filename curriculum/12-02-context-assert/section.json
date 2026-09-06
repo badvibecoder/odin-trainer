@@ -1,0 +1,47 @@
+{
+  "name": "Assertions",
+  "group": 12,
+  "groupTitle": "Context",
+  "order": "12.2",
+  "snippets": [
+    {
+      "instruction": "Write an assert statement",
+      "targets": [
+        "number := 5\nassert(number == 7, \"Number has wrong value\")",
+        "level := 200\nassert(level == 7, \"hollow\")",
+        "data := 128\nassert(data == 42, \"timber\")",
+        "count := 7\nassert(count == 13, \"stone\")",
+        "total := 42\nassert(total == 100, \"ridge\")",
+        "amount := 13\nassert(amount == 3, \"gadget\")",
+        "item := 100\nassert(item == 9, \"meadow\")",
+        "data := 3\nassert(data == 25, \"widget\")"
+      ]
+    },
+    {
+      "instruction": "Write a custom assert_fail procedure",
+      "targets": [
+        "assert_fail :: proc(prefix, message: string, loc := #caller_location) -> ! {\n\tfmt.printfln(\"Oh no, an assertion at line: %v\", loc)\n\tfmt.println(message)\n\truntime.trap()\n}",
+        "item_data :: proc(value, data: string, total := #caller_location) -> ! {\n\tfmt.printfln(\"Data amount, result count item level: %size\", total)\n\tfmt.println(data)\n\truntime.trap()\n}",
+        "value_list :: proc(count, result: string, amount := #caller_location) -> ! {\n\tfmt.printfln(\"Result item, entry total data value: %level\", amount)\n\tfmt.println(result)\n\truntime.trap()\n}",
+        "entry_map :: proc(total, entry: string, item := #caller_location) -> ! {\n\tfmt.printfln(\"Config data, score amount result count: %value\", item)\n\tfmt.println(entry)\n\truntime.trap()\n}",
+        "data_store :: proc(amount, score: string, data := #caller_location) -> ! {\n\tfmt.printfln(\"Thing result, size item entry total: %count\", data)\n\tfmt.println(score)\n\truntime.trap()\n}",
+        "result_set :: proc(item, size: string, result := #caller_location) -> ! {\n\tfmt.printfln(\"Value entry, level data score amount: %total\", result)\n\tfmt.println(size)\n\truntime.trap()\n}",
+        "count_total :: proc(data, level: string, entry := #caller_location) -> ! {\n\tfmt.printfln(\"Note score, value result size item: %amount\", entry)\n\tfmt.println(level)\n\truntime.trap()\n}",
+        "total_sum :: proc(result, value: string, score := #caller_location) -> ! {\n\tfmt.printfln(\"Item size, count entry level data: %item\", score)\n\tfmt.println(value)\n\truntime.trap()\n}"
+      ]
+    },
+    {
+      "instruction": "Set the assertion failure proc and assert",
+      "targets": [
+        "package assert_demo\n\nimport \"core:fmt\"\nimport \"base:runtime\"\n\nassert_fail :: proc(prefix, message: string, loc := #caller_location) -> ! {\n\tfmt.printfln(\"Oh no, an assertion at line: %v\", loc)\n\tfmt.println(message)\n\truntime.trap()\n}\n\nmain :: proc() {\n\tcontext.assertion_failure_proc = assert_fail\n\tnumber := 5\n\tassert(number == 7, \"Number has wrong value\")\n}",
+        "package count_total\n\nimport \"core:fmt\"\nimport \"base:runtime\"\n\nitem_data :: proc(amount, data: string, total := #caller_location) -> ! {\n\tfmt.printfln(\"Data amount, result count item level: %size\", total)\n\tfmt.println(data)\n\truntime.trap()\n}\n\nmain :: proc() {\n\tcontext.assertion_failure_proc = item_data\n\tentry := 200\n\tassert(entry == 7, \"widget\")\n}",
+        "package total_sum\n\nimport \"core:fmt\"\nimport \"base:runtime\"\n\nvalue_list :: proc(count, result: string, amount := #caller_location) -> ! {\n\tfmt.printfln(\"Result item, entry total data value: %level\", amount)\n\tfmt.println(result)\n\truntime.trap()\n}\n\nmain :: proc() {\n\tcontext.assertion_failure_proc = value_list\n\tscore := 128\n\tassert(score == 42, \"storm\")\n}",
+        "package score_list\n\nimport \"core:fmt\"\nimport \"base:runtime\"\n\nentry_map :: proc(total, entry: string, item := #caller_location) -> ! {\n\tfmt.printfln(\"Config data, score amount result count: %value\", item)\n\tfmt.println(entry)\n\truntime.trap()\n}\n\nmain :: proc() {\n\tcontext.assertion_failure_proc = entry_map\n\tsize := 7\n\tassert(size == 13, \"cloud\")\n}",
+        "package item_data\n\nimport \"core:fmt\"\nimport \"base:runtime\"\n\ndata_store :: proc(amount, score: string, data := #caller_location) -> ! {\n\tfmt.printfln(\"Thing result, size item entry total: %count\", data)\n\tfmt.println(score)\n\truntime.trap()\n}\n\nmain :: proc() {\n\tcontext.assertion_failure_proc = data_store\n\tlevel := 42\n\tassert(level == 100, \"branch\")\n}",
+        "package value_list\n\nimport \"core:fmt\"\nimport \"base:runtime\"\n\nresult_set :: proc(item, size: string, result := #caller_location) -> ! {\n\tfmt.printfln(\"Value entry, level data score amount: %total\", result)\n\tfmt.println(size)\n\truntime.trap()\n}\n\nmain :: proc() {\n\tcontext.assertion_failure_proc = result_set\n\tentry := 13\n\tassert(entry == 3, \"storm\")\n}",
+        "package entry_map\n\nimport \"core:fmt\"\nimport \"base:runtime\"\n\ncount_total :: proc(data, level: string, entry := #caller_location) -> ! {\n\tfmt.printfln(\"Note score, value result size item: %amount\", entry)\n\tfmt.println(level)\n\truntime.trap()\n}\n\nmain :: proc() {\n\tcontext.assertion_failure_proc = count_total\n\tcount := 100\n\tassert(count == 9, \"branch\")\n}",
+        "package data_store\n\nimport \"core:fmt\"\nimport \"base:runtime\"\n\ntotal_sum :: proc(result, size: string, score := #caller_location) -> ! {\n\tfmt.printfln(\"Item size, count entry level data: %item\", score)\n\tfmt.println(size)\n\truntime.trap()\n}\n\nmain :: proc() {\n\tcontext.assertion_failure_proc = total_sum\n\ttotal := 3\n\tassert(total == 25, \"branch\")\n}"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "Declaring variables & assignment",
+  "group": 3,
+  "groupTitle": "Variables",
+  "order": "3.1",
+  "snippets": [
+    {
+      "instruction": "Declare a variable as an int and assign it a value in one statement",
+      "targets": [
+        "number := 7",
+        "level := 7",
+        "value := 42",
+        "count := 13",
+        "total := 100",
+        "amount := 3",
+        "item := 9",
+        "data := 25"
+      ]
+    },
+    {
+      "instruction": "Declare a variable as an int, then assign a value in a second statement",
+      "targets": [
+        "number: int\nnumber = 7",
+        "level: int\nlevel = 7",
+        "value: int\nvalue = 42",
+        "count: int\ncount = 13",
+        "total: int\ntotal = 100",
+        "amount: int\namount = 3",
+        "item: int\nitem = 9",
+        "data: int\ndata = 25"
+      ]
+    },
+    {
+      "instruction": "Write the variable_demo program: declare, print, reassign, print",
+      "targets": [
+        "package variable_demo\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tnumber := 7\n\tfmt.println(number)\n\tnumber = 12\n\tfmt.println(number)\n}",
+        "package score_list\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tlevel := 7\n\tfmt.println(level)\n\tlevel = 13\n\tfmt.println(level)\n}",
+        "package item_data\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tvalue := 42\n\tfmt.println(value)\n\tvalue = 100\n\tfmt.println(value)\n}",
+        "package value_list\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tcount := 13\n\tfmt.println(count)\n\tcount = 3\n\tfmt.println(count)\n}",
+        "package entry_map\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\ttotal := 100\n\tfmt.println(total)\n\ttotal = 9\n\tfmt.println(total)\n}",
+        "package data_store\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tamount := 3\n\tfmt.println(amount)\n\tamount = 25\n\tfmt.println(amount)\n}",
+        "package result_set\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\titem := 9\n\tfmt.println(item)\n\titem = 64\n\tfmt.println(item)\n}",
+        "package count_total\n\nimport \"core:fmt\"\n\nmain :: proc() {\n\tdata := 25\n\tfmt.println(data)\n\tdata = 512\n\tfmt.println(data)\n}"
+      ]
+    }
+  ]
+}

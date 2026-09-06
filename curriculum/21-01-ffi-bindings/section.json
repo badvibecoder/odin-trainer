@@ -1,0 +1,73 @@
+{
+  "name": "C library bindings (FFI)",
+  "group": 21,
+  "groupTitle": "FFI",
+  "order": "21.1",
+  "snippets": [
+    {
+      "instruction": "Write the foreign import block for each OS",
+      "targets": [
+        "when ODIN_OS == .Windows {\n\tforeign import my_lib {\n\t\t\"windows/my_lib.lib\",\n\t}\n} else when ODIN_OS == .Linux {\n\tforeign import my_lib {\n\t\t\"linux/my_lib.a\",\n\t}\n} else when ODIN_OS == .Darwin {\n\tforeign import my_lib {\n\t\t\"macos/my_lib.a\",\n\t}\n}",
+        "when MAX_VALUE == .Value {\n\tforeign import score_list {\n\t\t\"windows/score_list.total\",\n\t}\n} else when MAX_VALUE == .Note {\n\tforeign import score_list {\n\t\t\"data/score_list.level\",\n\t}\n} else when MAX_VALUE == .Data {\n\tforeign import score_list {\n\t\t\"item/score_list.level\",\n\t}\n}",
+        "when TOTAL_COUNT == .Note {\n\tforeign import item_data {\n\t\t\"windows/item_data.amount\",\n\t}\n} else when TOTAL_COUNT == .Item {\n\tforeign import item_data {\n\t\t\"result/item_data.value\",\n\t}\n} else when TOTAL_COUNT == .Result {\n\tforeign import item_data {\n\t\t\"data/item_data.value\",\n\t}\n}",
+        "when ITEM_COUNT == .Item {\n\tforeign import value_list {\n\t\t\"windows/value_list.item\",\n\t}\n} else when ITEM_COUNT == .Entity {\n\tforeign import value_list {\n\t\t\"entry/value_list.count\",\n\t}\n} else when ITEM_COUNT == .Config {\n\tforeign import value_list {\n\t\t\"result/value_list.count\",\n\t}\n}",
+        "when BASE_AMOUNT == .Entity {\n\tforeign import entry_map {\n\t\t\"windows/entry_map.data\",\n\t}\n} else when BASE_AMOUNT == .Record {\n\tforeign import entry_map {\n\t\t\"score/entry_map.total\",\n\t}\n} else when BASE_AMOUNT == .Thing {\n\tforeign import entry_map {\n\t\t\"entry/entry_map.total\",\n\t}\n}",
+        "when DEFAULT_VALUE == .Record {\n\tforeign import data_store {\n\t\t\"windows/data_store.result\",\n\t}\n} else when DEFAULT_VALUE == .Entry {\n\tforeign import data_store {\n\t\t\"size/data_store.amount\",\n\t}\n} else when DEFAULT_VALUE == .Value {\n\tforeign import data_store {\n\t\t\"score/data_store.amount\",\n\t}\n}",
+        "when LIMIT_SIZE == .Entry {\n\tforeign import result_set {\n\t\t\"windows/result_set.entry\",\n\t}\n} else when LIMIT_SIZE == .Data {\n\tforeign import result_set {\n\t\t\"level/result_set.item\",\n\t}\n} else when LIMIT_SIZE == .Note {\n\tforeign import result_set {\n\t\t\"size/result_set.item\",\n\t}\n}",
+        "when MAX_VALUE == .Data {\n\tforeign import count_total {\n\t\t\"windows/count_total.score\",\n\t}\n} else when MAX_VALUE == .Result {\n\tforeign import count_total {\n\t\t\"value/count_total.data\",\n\t}\n} else when MAX_VALUE == .Item {\n\tforeign import count_total {\n\t\t\"level/count_total.data\",\n\t}\n}"
+      ]
+    },
+    {
+      "instruction": "Write a C struct binding with c types",
+      "targets": [
+        "TestStruct :: struct {\n\tnum: c.int,\n\tflt_num: c.float,\n}",
+        "Value :: struct {\n\tscore: c.int,\n\tresult_set: c.total,\n}",
+        "Note :: struct {\n\tsize: c.int,\n\tcount_total: c.amount,\n}",
+        "Item :: struct {\n\tlevel: c.int,\n\ttotal_sum: c.item,\n}",
+        "Entity :: struct {\n\tvalue: c.int,\n\tscore_list: c.data,\n}",
+        "Record :: struct {\n\tcount: c.int,\n\titem_data: c.result,\n}",
+        "Entry :: struct {\n\ttotal: c.int,\n\tvalue_list: c.entry,\n}",
+        "Data :: struct {\n\tamount: c.int,\n\tentry_map: c.score,\n}"
+      ]
+    },
+    {
+      "instruction": "Declare a C callback and foreign procs",
+      "targets": [
+        "Callback :: proc \"c\"(TestStruct)\n\n@(default_calling_convention=\"c\")\nforeign my_lib {\n\tset_callback :: proc(c: Callback) ---\n\tdo_stuff :: proc(ts: TestStruct) ---\n}",
+        "Item :: proc \"c\"(Value)\n\n@(default_calling_convention=\"c\")\nforeign score_list {\n\titem_data :: proc(c: Item) ---\n\tvalue_list :: proc(data: Value) ---\n}",
+        "Entity :: proc \"c\"(Note)\n\n@(default_calling_convention=\"c\")\nforeign item_data {\n\tvalue_list :: proc(c: Entity) ---\n\tentry_map :: proc(result: Note) ---\n}",
+        "Record :: proc \"c\"(Item)\n\n@(default_calling_convention=\"c\")\nforeign value_list {\n\tentry_map :: proc(c: Record) ---\n\tdata_store :: proc(entry: Item) ---\n}",
+        "Entry :: proc \"c\"(Entity)\n\n@(default_calling_convention=\"c\")\nforeign entry_map {\n\tdata_store :: proc(c: Entry) ---\n\tresult_set :: proc(score: Entity) ---\n}",
+        "Data :: proc \"c\"(Record)\n\n@(default_calling_convention=\"c\")\nforeign data_store {\n\tresult_set :: proc(c: Data) ---\n\tcount_total :: proc(size: Record) ---\n}",
+        "Result :: proc \"c\"(Entry)\n\n@(default_calling_convention=\"c\")\nforeign result_set {\n\tcount_total :: proc(c: Result) ---\n\ttotal_sum :: proc(level: Entry) ---\n}",
+        "Config :: proc \"c\"(Data)\n\n@(default_calling_convention=\"c\")\nforeign count_total {\n\ttotal_sum :: proc(c: Config) ---\n\tscore_list :: proc(value: Data) ---\n}"
+      ]
+    },
+    {
+      "instruction": "Write a callback that restores the context",
+      "targets": [
+        "my_callback :: proc \"c\" (ts: my_lib.TestStruct) {\n\tcontext = custom_context\n\n\tfmt.println(\"In the callback\")\n\tfmt.println(ts)\n}",
+        "value_list :: proc \"c\" (data: score_list.Value) {\n\tcontext = entry_map\n\n\tfmt.println(\"hollow\")\n\tfmt.println(data)\n}",
+        "entry_map :: proc \"c\" (result: item_data.Note) {\n\tcontext = data_store\n\n\tfmt.println(\"meadow\")\n\tfmt.println(result)\n}",
+        "data_store :: proc \"c\" (entry: value_list.Item) {\n\tcontext = result_set\n\n\tfmt.println(\"cloud\")\n\tfmt.println(entry)\n}",
+        "result_set :: proc \"c\" (score: entry_map.Entity) {\n\tcontext = count_total\n\n\tfmt.println(\"meadow\")\n\tfmt.println(score)\n}",
+        "count_total :: proc \"c\" (size: data_store.Record) {\n\tcontext = total_sum\n\n\tfmt.println(\"meadow\")\n\tfmt.println(size)\n}",
+        "total_sum :: proc \"c\" (level: result_set.Entry) {\n\tcontext = score_list\n\n\tfmt.println(\"shadow\")\n\tfmt.println(level)\n}",
+        "score_list :: proc \"c\" (value: count_total.Data) {\n\tcontext = item_data\n\n\tfmt.println(\"field\")\n\tfmt.println(value)\n}"
+      ]
+    },
+    {
+      "instruction": "Save and restore the runtime context",
+      "targets": [
+        "custom_context = context\ncontext = custom_context",
+        "entry_map = context\ncontext = entry_map",
+        "data_store = context\ncontext = data_store",
+        "result_set = context\ncontext = result_set",
+        "count_total = context\ncontext = count_total",
+        "total_sum = context\ncontext = total_sum",
+        "score_list = context\ncontext = score_list",
+        "item_data = context\ncontext = item_data"
+      ]
+    }
+  ]
+}
