@@ -13,6 +13,10 @@ scorecard marks each section **trained** once you've logged 100 clean reps.
 
 ---
 
+![App Screenshot](odin-trainer.jpg)
+
+---
+
 ## Quick start (run from source)
 
 **Requirements:** [Node.js](https://nodejs.org) ≥ 18. No other runtime
